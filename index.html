@@ -7,7 +7,7 @@
                 <link rel="icon" type="image/png" href="/icon.png">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share:400|Jaldi:400,700|Fira+Mono:400,700">
         <link rel="stylesheet" href="/assets/base.css">
-        <link rel="stylesheet" href="/assets/lindoc.css">
+        <link rel="stylesheet" href="/assets/boozang-docs.css">
                 <script>
             // Parent Elements - e.P("body") - https://gist.github.com/moqmar/0995cf6595201f7a062fb173cb4ab938
             (function(E){E.matches||(E.matches=E.matchesSelector||E.msMatchesSelector||E.webkitMatchesSelector)})(Element.prototype)
@@ -21,7 +21,7 @@
     <body>
         <header>
             <h1>
-                <a href="/"><img src="https://cdn0.iconfinder.com/data/icons/ie_Shine/128/shine_19.png" alt="Boozang Documentation"></a>
+                <a href="/"><img src="https://ai.boozang.com/manage/img/logo.png" alt="Boozang Documentation"></a>
             </h1>
             <div class="language">
                 <input type="checkbox" id="language-select">
@@ -150,8 +150,10 @@
 <p>In this view you have access to all authoring tools, with the difference that bugs can be assigned to other members in your team.</p>
 <p><strong>Settings</strong></p>
 <p>The project settings allows the user to set: Environment, Content Policy, Notifications, and Preferences.</p>
-<p><strong>Report</strong></p>
+<p><strong>Reports</strong></p>
 <p>The report view contains the report of the latest test run. When running a test, the user can also swith to the report view to see the report being written as the test runs. </p>
+<p><strong>Tools</strong></p>
+<p>In tools you will find import and export tools for the project. This allows an admin user to backup proejcts and also to import projects from other users. There is also a powerful free text search that can search both modules and test and data, and perform replacement as well. </p>
 <h3 id="the-hamburger-menu">The hamburger menu</h3>
 <p><img src="images/hamburger.png" alt="example image" title="Tool bar" /></p>
 <p><strong>Management</strong></p>
@@ -173,12 +175,34 @@
 <p>Note: This video material can have been recorded on top of previous versions of Boozang. </p>
 <p><strong>Sign Out</strong></p>
 <p>Logs out the user. </p>
-<h3 id="creating-modules-and-tests">Creating modules and tests</h3>
 <h3 id="the-action-list">The action list</h3>
+<p><img src="images/action-list.png" alt="example image" title="Tool bar" /></p>
+<p><strong>Reload URL</strong></p>
+<p>Reloads the test url in the application browser window. USe this before playing the test or when starting recording a new test, to make sure the correct URL is loaded in the application window. </p>
+<p><em>Tip: Double-clicking the test row also runs action.</em> </p>
+<p><strong>Action icon</strong></p>
+<p>An icon that indicates the action type. The different action types are <strong>Validate Result</strong>, <strong>Mouse Event</strong>, <strong>Keyboard Event</strong>, <strong>Extract data</strong>, <strong>Javascript</strong>, <strong>Comment</strong>, <strong>Refresh Window</strong>, <strong>Plug Test</strong>, and <strong>Visit Links</strong>.  </p>
+<p>Tip: Clicking the action icon toggles breakpoints, which is a convenient way to troubelshoot tests. </p>
+<p><strong>Action description</strong></p>
+<p>This is the human-readable description of the action, and defaults to the actual action code. This can be changed in the action details page.</p>
+<p><strong>Data Indicator</strong></p>
+<p>Orange indicates that dynamic data is used. The following data stops are available: $parameter, $test, $module, $project, $loop</p>
+<p><strong>Add action in list</strong></p>
+<p>Inserts an action in the action list. It´s also possible to initiate a recording that inserts actions anywhere in the list. </p>
+<p><strong>Run action</strong></p>
+<p>Executes a single action. </p>
+<p><em>Tip: Double-clicking the action row also runs action.</em> </p>
+<p><strong>Custom timeouts</strong></p>
+<p>Indicates that the timeouts for that particular action has been customized. This can be done by editing timeouts in action details or can be automatically added by the recorder. </p>
+<p><strong>Custom exit conditions</strong></p>
+<p>Indicates that exit conditions for the action has been customized. This can be set in action details in the kebab icon. </p>
+<p><strong>Action details</strong></p>
+<p>Opens the action details panel. The action details can be pinned to stay open, or always be seen at the top or base of the action list. When pinned, action details simply shows the main controls. </p>
 <h3 id="record--play">Record / Play</h3>
 <h3 id="the-toolbar">The toolbar</h3>
 <p><img src="images/toolbar.png" alt="example image" title="Tool bar" /></p>
-<p>sThe switch view button toggles between table and diagram view.</p>
+<p><strong>Switch view: List / GUI</strong></p>
+<p>The switch view button toggles between table and diagram view.</p>
 <p>The views are equivalent in functionality, but the diagram view better illustrate the flow between tests, while the table view displays the actions in a more linear fashion.</p>
 <p><strong>Parameter</strong></p>
 <p>Use this to set dynamic data used by the test, to improve test re-usability. You can set this data when running the test, or pass it as a parameter from upstream test cases. When doing form fills, you can also bind the form data directly into the parameter.</p>
@@ -520,8 +544,8 @@ SOFTWARE.</code></pre>
                 <div class="bulletlink"><a href="https://boozang.com">Homepage</a></div>
                 <div class="bulletlink"><a href="/">Based on Mintlook and Couscous</a></div>
                 <hr>
-                <p>Follow us on <a href="">Facebook</a>, <a href="">Twitter</a>, and other <a href="">social networks</a>.</p>
-            </aside>
+                <p>Follow us on <a href="https://www.facebook.com/boozangcloud/">Facebook</a>, <a href="https://twitter.com/boozangcloud">Twitter</a>, and other <a href="">social networks</a>.</p>
+            </aside>        </main>
             <footer>
                 <hr>
 
@@ -531,7 +555,7 @@ Hello <strong>World</strong>
 <!-- FOOTER END -->
 
             </footer>
-        </main>
+     
 
         <script src="/assets/toc.js"></script>
 
