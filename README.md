@@ -291,7 +291,37 @@ Opens the action details panel. The action details can be pinned to stay open, o
 
 ### Record / Play
 
-### The toolbar
+**Recording**
+
+In order to record a test, simply click on the record button. Boozang will now catch any action being made in the application window. To stop recording, simply click stop. In the case where the application window is closed, the record will open the application windo at the current URL. It´s good pratice to use the Reoad URL button to make sure that the URL is set correctly before recording.
+
+**Playing a test**
+
+In order to play a test, simply click the Play button. To play the test from the start; make sure that the first row (gray) row of the action list has been selected as this signifies the actual test. You can also play a test from a specific action. Simply select the action you want to play from and clikc the Play button. You can choose to watch all the actions play and see the result in real-time, or switch to the report view to see the report being generated. 
+
+There are several play modes available
+
+**Play**
+
+Plays to end. Launches AI repair if element not found, but continues after a set time. 
+
+**Play in repair mode**
+
+Plays test but tries to repair it when element not found.
+
+**Play in demo mode**
+
+Plays the test case step-by-step and highlights all actions in the application window using annotations (compare comment function).
+
+**Step-by-step**
+
+Plays the test one step ata  time.
+
+**Automation mode**
+
+Emulates running the test from the command line. After test has been run browser will shut down if the user doesn't permit it. Running in this mode will activiate any notifications set on test reports. 
+
+### The Toolbar
 
 ![example image](images/toolbar.png "Tool bar")
 
@@ -335,21 +365,29 @@ Disables action so it´s skipped when test is run. Useful to debug tests.
 
 ### Action details
 ## Element selection
-### The Boozang selector language
+### Selecting the element
 
-### The element bar
-### Re-pickking an element
-### Edit element with DOM picker
-### Deep-dive of DOM picker
-#### The Boozang elment path
-Boozang uses 
+Boozang uses custom element selectors based on what a user will see rather than classes, ids or other attributes. This means that in order to use class or id, this usually needs to be explicitly defined. By avoiding using classes and ids as primary identifiers, Boozang tests become very stable to code changes, and can automate applications with dynamic ids and classes freely.
 
-#### The DOM picker window
+**The element bar**
+
+For most actions, the user can select an element (Validations, Events, Javascript and Extract Data). When recording or picking an element Boozang tries to guess the best path to the element. Usually, this is sufficient, but sometimes this needs to be edited. 
+
+**Re-picking an element**
+
+First step if an action isn´t working as expected is simply to re-pick the element in the application window. After re-picking, click in the element dialog and see if the correct element is highlighted. To make sure, double-click the action and confirm that the action is working. 
+
+**Edit element with DOM picker**
+
+If this is still not sufficient, you can try to edit the element. If the current element is not found in the application window, the user will be asked to pick the element. If found, the DOM picker window will be launched which allows the user to fine-tune the element path
+
+### Understanding the DOM picker
 For this reason, to be able to deliver new features fast without forcing the end user to re-learn, we added an online help function inside the tool. Simply click the question mark in the user interface, and click the functionality and an explanation will appear. 
 
 ![example image](images/dom-picker.png "An exemplary image")
 
-#### Element path operation
+**Element path operation**
+
 The element path has the following operations. We've expanded the jQuery selction standard to create a more human-readable code to identify elements. The basic pattern is that the lowercase jQuery standard operations, while uppercase operations are case-insensitive. All recorded will generate Uppercase operations. The operations that will be recorded for a test-case is marked by an asterix (*) 
 
 * nodeContains (*):  Is true if the selected element (case-insensitive) have the exact string alongside other strings
@@ -419,7 +457,15 @@ The element path has the following operations. We've expanded the jQuery selctio
   No: <div>name</div><div><label>value</label><input/></div>
   ```
 ### Element policy
-### AI test repair when element not found
+
+The element policy 
+
+### Repairing an action
+
+When a test is run and an action element cannot be found the AI test rapair screen will be launched. This will allow the user to simply re-pick the element from the application window. If a matching element is found, Boozang will suggest the element for the user. This allows the user to repair tests ultra-fast even when there have been significant code changes.
+
+Tip: In normal playmode the user is asked if the test should be repaired. In Repair mode the AI repair is always launched, and in Automation mode AI repair is never launched. 
+
 ## Recording and playback modes
 ### Recording a test
 ### Data bind
