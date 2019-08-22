@@ -150,8 +150,10 @@
 <p>In this view you have access to all authoring tools, with the difference that bugs can be assigned to other members in your team.</p>
 <p><strong>Settings</strong></p>
 <p>The project settings allows the user to set: Environment, Content Policy, Notifications, and Preferences.</p>
-<p><strong>Report</strong></p>
+<p><strong>Reports</strong></p>
 <p>The report view contains the report of the latest test run. When running a test, the user can also swith to the report view to see the report being written as the test runs. </p>
+<p><strong>Tools</strong></p>
+<p>In tools you will find import and export tools for the project. This allows an admin user to backup proejcts and also to import projects from other users. There is also a powerful free text search that can search both modules and test and data, and perform replacement as well. </p>
 <h3 id="the-hamburger-menu">The hamburger menu</h3>
 <p><img src="images/hamburger.png" alt="example image" title="Tool bar" /></p>
 <p><strong>Management</strong></p>
@@ -173,12 +175,49 @@
 <p>Note: This video material can have been recorded on top of previous versions of Boozang. </p>
 <p><strong>Sign Out</strong></p>
 <p>Logs out the user. </p>
-<h3 id="creating-modules-and-tests">Creating modules and tests</h3>
 <h3 id="the-action-list">The action list</h3>
+<p><img src="images/action-list.png" alt="example image" title="Tool bar" /></p>
+<p><strong>Reload URL</strong></p>
+<p>Reloads the test url in the application browser window. USe this before playing the test or when starting recording a new test, to make sure the correct URL is loaded in the application window. </p>
+<p><em>Tip: Double-clicking the test row also runs action.</em> </p>
+<p><strong>Action icon</strong></p>
+<p>An icon that indicates the action type. The different action types are <strong>Validate Result</strong>, <strong>Mouse Event</strong>, <strong>Keyboard Event</strong>, <strong>Extract data</strong>, <strong>Javascript</strong>, <strong>Comment</strong>, <strong>Refresh Window</strong>, <strong>Plug Test</strong>, and <strong>Visit Links</strong>.  </p>
+<p>Tip: Clicking the action icon toggles breakpoints, which is a convenient way to troubelshoot tests. </p>
+<p><strong>Action description</strong></p>
+<p>This is the human-readable description of the action, and defaults to the actual action code. This can be changed in the action details page.</p>
+<p><strong>Data Indicator</strong></p>
+<p>Orange indicates that dynamic data is used. The following data stops are available: $parameter, $test, $module, $project, $loop</p>
+<p><strong>Add action in list</strong></p>
+<p>Inserts an action in the action list. It´s also possible to initiate a recording that inserts actions anywhere in the list. </p>
+<p><strong>Run action</strong></p>
+<p>Executes a single action. </p>
+<p><em>Tip: Double-clicking the action row also runs action.</em> </p>
+<p><strong>Custom timeouts</strong></p>
+<p>Indicates that the timeouts for that particular action has been customized. This can be done by editing timeouts in action details or can be automatically added by the recorder. </p>
+<p><strong>Custom exit conditions</strong></p>
+<p>Indicates that exit conditions for the action has been customized. This can be set in action details in the kebab icon. </p>
+<p><strong>Action details</strong></p>
+<p>Opens the action details panel. The action details can be pinned to stay open, or always be seen at the top or base of the action list. When pinned, action details simply shows the main controls. </p>
 <h3 id="record--play">Record / Play</h3>
-<h3 id="the-toolbar">The toolbar</h3>
+<p><strong>Recording</strong></p>
+<p>In order to record a test, simply click on the record button. Boozang will now catch any action being made in the application window. To stop recording, simply click stop. In the case where the application window is closed, the record will open the application windo at the current URL. It´s good pratice to use the Reoad URL button to make sure that the URL is set correctly before recording.</p>
+<p><strong>Playing a test</strong></p>
+<p>In order to play a test, simply click the Play button. To play the test from the start; make sure that the first row (gray) row of the action list has been selected as this signifies the actual test. You can also play a test from a specific action. Simply select the action you want to play from and clikc the Play button. You can choose to watch all the actions play and see the result in real-time, or switch to the report view to see the report being generated. </p>
+<p>There are several play modes available</p>
+<p><strong>Play</strong></p>
+<p>Plays to end. Launches AI repair if element not found, but continues after a set time. </p>
+<p><strong>Play in repair mode</strong></p>
+<p>Plays test but tries to repair it when element not found.</p>
+<p><strong>Play in demo mode</strong></p>
+<p>Plays the test case step-by-step and highlights all actions in the application window using annotations (compare comment function).</p>
+<p><strong>Step-by-step</strong></p>
+<p>Plays the test one step ata  time.</p>
+<p><strong>Automation mode</strong></p>
+<p>Emulates running the test from the command line. After test has been run browser will shut down if the user doesn't permit it. Running in this mode will activiate any notifications set on test reports. </p>
+<h3 id="the-toolbar">The Toolbar</h3>
 <p><img src="images/toolbar.png" alt="example image" title="Tool bar" /></p>
-<p>sThe switch view button toggles between table and diagram view.</p>
+<p><strong>Switch view: List / GUI</strong></p>
+<p>The switch view button toggles between table and diagram view.</p>
 <p>The views are equivalent in functionality, but the diagram view better illustrate the flow between tests, while the table view displays the actions in a more linear fashion.</p>
 <p><strong>Parameter</strong></p>
 <p>Use this to set dynamic data used by the test, to improve test re-usability. You can set this data when running the test, or pass it as a parameter from upstream test cases. When doing form fills, you can also bind the form data directly into the parameter.</p>
@@ -198,17 +237,18 @@
 <p>Disables action so it´s skipped when test is run. Useful to debug tests. </p>
 <h3 id="action-details">Action details</h3>
 <h2 id="element-selection">Element selection</h2>
-<h3 id="the-boozang-selector-language">The Boozang selector language</h3>
-<h3 id="the-element-bar">The element bar</h3>
-<h3 id="re-pickking-an-element">Re-pickking an element</h3>
-<h3 id="edit-element-with-dom-picker">Edit element with DOM picker</h3>
-<h3 id="deep-dive-of-dom-picker">Deep-dive of DOM picker</h3>
-<h4 id="the-boozang-elment-path">The Boozang elment path</h4>
-<p>Boozang uses </p>
-<h4 id="the-dom-picker-window">The DOM picker window</h4>
+<h3 id="selecting-the-element">Selecting the element</h3>
+<p>Boozang uses custom element selectors based on what a user will see rather than classes, ids or other attributes. This means that in order to use class or id, this usually needs to be explicitly defined. By avoiding using classes and ids as primary identifiers, Boozang tests become very stable to code changes, and can automate applications with dynamic ids and classes freely.</p>
+<p><strong>The element bar</strong></p>
+<p>For most actions, the user can select an element (Validations, Events, Javascript and Extract Data). When recording or picking an element Boozang tries to guess the best path to the element. Usually, this is sufficient, but sometimes this needs to be edited. </p>
+<p><strong>Re-picking an element</strong></p>
+<p>First step if an action isn´t working as expected is simply to re-pick the element in the application window. After re-picking, click in the element dialog and see if the correct element is highlighted. To make sure, double-click the action and confirm that the action is working. </p>
+<p><strong>Edit element with DOM picker</strong></p>
+<p>If this is still not sufficient, you can try to edit the element. If the current element is not found in the application window, the user will be asked to pick the element. If found, the DOM picker window will be launched which allows the user to fine-tune the element path</p>
+<h3 id="understanding-the-dom-picker">Understanding the DOM picker</h3>
 <p>For this reason, to be able to deliver new features fast without forcing the end user to re-learn, we added an online help function inside the tool. Simply click the question mark in the user interface, and click the functionality and an explanation will appear. </p>
 <p><img src="images/dom-picker.png" alt="example image" title="An exemplary image" /></p>
-<h4 id="element-path-operation">Element path operation</h4>
+<p><strong>Element path operation</strong></p>
 <p>The element path has the following operations. We've expanded the jQuery selction standard to create a more human-readable code to identify elements. The basic pattern is that the lowercase jQuery standard operations, while uppercase operations are case-insensitive. All recorded will generate Uppercase operations. The operations that will be recorded for a test-case is marked by an asterix (*) </p>
 <ul>
 <li>
@@ -268,12 +308,15 @@ Yes:&lt;div&gt;&lt;label&gt;name: &lt;input/&gt;&lt;/label&gt;&lt;/div&gt;
 Yes:&lt;div&gt;&lt;label&gt;name: &lt;/label&gt;&lt;input/&gt;&lt;/div&gt;
 Yes:&lt;tr&gt;&lt;td&gt;Name&lt;/td&gt;&lt;td&gt;&lt;input/&gt;&lt;/td&gt;&lt;/tr&gt;
 No: &lt;div&gt;name&lt;/div&gt;&lt;div&gt;&lt;label&gt;value&lt;/label&gt;&lt;input/&gt;&lt;/div&gt;</code></pre>
-<h3 id="element-policy">Element policy</h3>
-<h3 id="ai-test-repair-when-element-not-found">AI test repair when element not found</h3>
+<h3 id="element-policy">Element policy</h3></li>
+</ul>
+<p>The element policy </p>
+<h3 id="repairing-an-action">Repairing an action</h3>
+<p>When a test is run and an action element cannot be found the AI test rapair screen will be launched. This will allow the user to simply re-pick the element from the application window. If a matching element is found, Boozang will suggest the element for the user. This allows the user to repair tests ultra-fast even when there have been significant code changes.</p>
+<p>Tip: In normal playmode the user is asked if the test should be repaired. In Repair mode the AI repair is always launched, and in Automation mode AI repair is never launched. </p>
 <h2 id="recording-and-playback-modes">Recording and playback modes</h2>
 <h3 id="recording-a-test">Recording a test</h3>
-<h3 id="data-bind">Data bind</h3></li>
-</ul>
+<h3 id="data-bind">Data bind</h3>
 <p><img src="images/binding-data-into-forms.png" alt="example image" title="An exemplary image" /></p>
 <h3 id="play-modes">Play modes</h3>
 <h2 id="action-types">Action types</h2>
@@ -539,11 +582,6 @@ Hello <strong>World</strong>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/autoloader/prism-autoloader.min.js"></script>
         <script>Prism.plugins.autoloader.languages_path = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/";</script>
         <link rel="stylesheet" href="/assets/prism.css">
-        <!-- Livereload -->
-        <script>
-            document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-                    ':35729/livereload.js?snipver=1"></' + 'script>')
-        </script>
-        <!-- End Livereload -->
+
     </body>
 </html>
