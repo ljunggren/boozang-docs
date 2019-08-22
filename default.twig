@@ -14,7 +14,7 @@
         <link rel="icon" type="image/png" href="{{ baseUrl }}/icon.png">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share:400|Jaldi:400,700|Fira+Mono:400,700">
         <link rel="stylesheet" href="{{ baseUrl }}/assets/base.css">
-        <link rel="stylesheet" href="{{ baseUrl }}/assets/lindoc.css">
+        <link rel="stylesheet" href="{{ baseUrl }}/assets/boozang-docs.css">
         {% if color %}<style>
             a,.results strong{color:{{ color }}}
             button,input[type=submit],input[type=button],input[type=reset],.button,.search input[type=submit]{background-color:{{ color }}}
@@ -109,7 +109,8 @@
 {% else %}<p>{{ item.text }}</p>
 {% endif %}
 {% endfor %}
-            </aside>{% endif %}{% if footer %}
+            </aside>{% endif %}
+        </main>{% if footer %}
 
             <footer>
                 <hr>
@@ -125,7 +126,7 @@
 
             </footer>{% endif %}
 
-        </main>
+     
 
         <script src="{{ baseUrl }}/assets/toc.js"></script>
 

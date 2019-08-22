@@ -193,9 +193,13 @@ In this view you have access to all authoring tools, with the difference that bu
 
 The project settings allows the user to set: Environment, Content Policy, Notifications, and Preferences.
 
-**Report**
+**Reports**
 
 The report view contains the report of the latest test run. When running a test, the user can also swith to the report view to see the report being written as the test runs. 
+
+**Tools**
+
+In tools you will find import and export tools for the project. This allows an admin user to backup proejcts and also to import projects from other users. There is also a powerful free text search that can search both modules and test and data, and perform replacement as well. 
 
 ### The hamburger menu
 
@@ -239,18 +243,61 @@ Note: This video material can have been recorded on top of previous versions of 
 
 Logs out the user. 
 
-### Creating modules and tests
-
-
-
 ### The action list
 
+![example image](images/action-list.png "Tool bar")
+
+**Reload URL**
+
+Reloads the test url in the application browser window. USe this before playing the test or when starting recording a new test, to make sure the correct URL is loaded in the application window. 
+
+*Tip: Double-clicking the test row also runs action.* 
+
+**Action icon**
+
+An icon that indicates the action type. The different action types are **Validate Result**, **Mouse Event**, **Keyboard Event**, **Extract data**, **Javascript**, **Comment**, **Refresh Window**, **Plug Test**, and **Visit Links**.  
+
+Tip: Clicking the action icon toggles breakpoints, which is a convenient way to troubelshoot tests. 
+
+**Action description**
+
+This is the human-readable description of the action, and defaults to the actual action code. This can be changed in the action details page.
+
+**Data Indicator**
+
+Orange indicates that dynamic data is used. The following data stops are available: $parameter, $test, $module, $project, $loop
+
+**Add action in list**
+
+Inserts an action in the action list. It´s also possible to initiate a recording that inserts actions anywhere in the list. 
+
+**Run action**
+
+Executes a single action. 
+
+*Tip: Double-clicking the action row also runs action.* 
+
+**Custom timeouts**
+
+Indicates that the timeouts for that particular action has been customized. This can be done by editing timeouts in action details or can be automatically added by the recorder. 
+
+**Custom exit conditions**
+
+Indicates that exit conditions for the action has been customized. This can be set in action details in the kebab icon. 
+
+**Action details**
+
+Opens the action details panel. The action details can be pinned to stay open, or always be seen at the top or base of the action list. When pinned, action details simply shows the main controls. 
+
 ### Record / Play
+
 ### The toolbar
 
 ![example image](images/toolbar.png "Tool bar")
 
-sThe switch view button toggles between table and diagram view.
+**Switch view: List / GUI**
+
+The switch view button toggles between table and diagram view.
 
 The views are equivalent in functionality, but the diagram view better illustrate the flow between tests, while the table view displays the actions in a more linear fashion.
 
