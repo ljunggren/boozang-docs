@@ -49,7 +49,7 @@
                 <label for="language-select"><img src="{{ baseUrl }}/assets/flags/{{ pageLanguage }}.png"></label>
                 <div class="language-select-popup" data-default-language="{{ defaultLanguage }}">
 {% for lang in languages %}
-                    <a href="{{ baseUrl }}/{% if lang != defaultLanguage %}{{ lang }}/{% endif %}{{ _self.mdToHtml(_self.currentUrl(currentFile, languages)) }}"><img src="{{ baseUrl }}/assets/flags/{{ lang }}.png"></a>
+                    <a href="{{ baseUrl }}/{% if lang != defaultLanguage %}{{ lang }}/{% endif %}{{ _self.mdToHtml(_self.currentUrl("", languages)) }}"><img src="{{ baseUrl }}/assets/flags/{{ lang }}.png"></a>
 {% endfor %}
                 </div>
                 <script>

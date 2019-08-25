@@ -1,829 +1,775 @@
-# Boozanga Chinese
+#Boozang
 
-![](images/side-by-side.png)
+！[]（images/side-by-side.png）
 
-[Live Example](https://moqmar.github.io/shell-setup/)
+[实例]（https://moqmar.github.io/shell-setup/）
 
+图像
+##为什么要用Boozang？
+###核心
 
-## Why use Boozang?
-### At the core
+Boozang是一款无代码前端测试工具，仅使用Javascript为现代网络构建。它允许开发人员和质量保证工程师快速开发前端测试，无需编程。
 
-Boozang is a code-less front end testing tool built for the modern web using only Javascript. It allows developers and Quality Assurance engineers to develop front-end tests quickly without the need for programming. 
+Boozang不是基于Selenium，并没有Selenium和Selenium web驱动程序的限制。 Boozang使用自己的基于自然语言的选择语言，允许TDD / BDD（测试/行为驱动开发）的原生支持，并允许从模型自动生成测试。
 
-Boozang is not based on Selenium, and does not have the limitations of Selenium and Selenium web driver. Boozang uses it´s own selection language based on natural-language, allowing for native support of TTD / BDD (test/behavior driven developement) and allows for tests to be automatically generated from models. 
+###关于技术
 
-### About the Technology
+博藏测试技术分为两部分。该工具的专有部分允许您快速创建测试记录和基于Google Puppeteer构建的开源测试运行器，它允许您从命令行运行测试并将Boozang集成到您的CI流或其他工具中。
 
-The Boozang test technology is divided into two parts. The propreietary part of the tool which allows you to author tests record fast and the Open Source test runner which is built on Google Puppeteer, which allows you to run tests rom command-line and integrate Boozang into your CI flow or otther tools. 
+* ** Boozang工具**：在https://boozang.com注册免费和付费许可证。
 
-* **Boozang tool**: Sign up at https://boozang.com for free and paid license offerings.
+* ** Boozang test-runner：**对于Boozang Puppeteer开源测试运行器，请参阅https://github.com/ljunggren/bz-puppeteer和Docker容器https://github.com/degardinn/docker-boozang
 
-* **Boozang test-runner:** For the Boozang Puppeteer open source test runner see https://github.com/ljunggren/bz-puppeteer and the Docker container https://github.com/degardinn/docker-boozang
+＃＃＃ 特征
 
-### Features
+**稳定代码更改**
 
-**Stable to code changes**
+Boozang与其他测试工具根本不同。 Boozang使用自然语言来识别浏览器元素，而不是DOM元素，使得测试对于底层实现的更改非常稳定。实际上，可以在不影响测试的情况下完全改变底层技术。您可以从Java遗留应用程序转到Angular，只要业务要求可以，测试保持不变。
 
-Boozang is fundamentally different from other test tools. Boozang uses natural language to identify browser elements, instead of the DOM elements, making tests incredibly stable to changes of the underlying implementation. Actually, it´s possible to completely change the underlying technology without affecting the tests. You can go from a Java legacy application to Angular and the tests remain the same, as long as the business requirements do. 
+**自动文件**
 
-**Automated documentation**
+由于Boozang完全基于自然语言，所有录制的测试也是用户手册。当标签更改时，例如“创建项目”更改为“添加项目”，则需要相应地更新测试。这意味着所有测试文档始终是最新的。
 
-As Boozang is completely based on natural language, all recorded tests are also a user manual. When a label changes, such as "Create Project" being changed to "Add Project", the test will need to be updated accordingly. This means all test documentation is always up-to-date.
+** AI测试修复**
 
-**AI test repair**
+随着您的代码更改，Boozang测试保持稳定。如果您确实更改了任何标签或项目标识符，Boozang将自动建议如何修复测试，或者如果没有可用的建议，则允许您重新选择页面上的元素。这极大地减少了测试维护，并允许您即时修复损坏的测试。
 
-As your code changes, Boozang tests remain stable. If you do change any labels or item identifier, Boozang will automatically suggest how to repair your tests, or if no suggestion is available, allow you to reselect the element on the page. This reduces test maintenance immensely and allows you to repair broken tests on the fly. 
+** BDD / TDD **
 
-**BDD / TDD**
+Boozang专为测试驱动和行为驱动的开发而设计，减去了编程工作。开始直接从需求编写测试。 Boozang AI引擎将根据您记录的测试步骤自动构建测试。无需花时间维护测试中间件层。
 
-Boozang is built for Test-driven and Behavior-driven development minus the programming effort. Start writing tests directly from requirements. The Boozang AI engine will automatically build tests from your documented test steps. No need to spend the time to maintain a test middleware layer.
+** **可连接性
 
-**Linkability**
+Boozang完全用Javascript构建，基于CLoud，不需要任何客户端安装。只需将HTML片段添加到您的站点即可激活它以进行测试。
 
-Boozang is completely built in Javascript and being CLoud-based there is no need for any client-side installation. Simply add an HTML-fragment to your site to activate it for testing.
+**跨浏览器支持**
 
-**Cross-browser support**
+由于Boozang不依赖于浏览器扩展或客户端安装，它本身可以在任何Web浏览器（Chrome，Firefox，Safari，Opera）中运行。
 
-As Boozang doesn't rely on browser extensions or client-side install, it natively runs in any web browser (Chrome, Firefox, Safari, Opera). 
+** Web组件/ Shadow DOM支持和基于套接字的测试**
 
-**Web components / Shadow DOM support and socket-based testing**
+支持Web组件/ Shadow DOM测试和基于套接字的测试。
 
-Supports Web Components / Shadow DOM testing and socket-based testing. 
+###什么时候使用Boozang
 
-### When to use Boozang
+**身体健康与不合身**
 
-**Good fit vs bad fit**
+在测试Web浏览器中运行的任何内容时，Boozang非常棒。这包括任何现代SaaS应用程序，无论多么复杂。当您需要测试确定性使用流的自动化测试时，这很好，基本上可以由机器确定。
 
-Boozang is great when testing anything that runs in the web browser. This includes any modern SaaS application, no matter how complex. It´s great when you need to test automate testing for deterministic usage flows, basically conditions that can be determined by a machine. 
+根据经验，您认为运行回归测试的需求越多，您在Boozang实施中就会发现的价值越高。这意味着，如果您经常发布业务关键软件，您将发现Boozang的巨大价值。如果您很少发布并且错误没有产生重大影响，可能不是那么多。
 
-A rule of thumb is that the more you feel the need to run regression testing, the more value you will find in a Boozang implementation. This means, if you release business critical software often, you will find great value in Boozang. If you release rarely and bugs doen´t have a significant impact, maybe not so much. 
+一个不太理想的适合性也是SaaS应用程序，它们执行许多非常图形化的东西，需要人来做出判断。 Thiese流程永远不会完全自动化，自动化的价值可能会受到限制。
 
-A less than ideal fit is also SaaS applications that do a lot of very graphical stuff that needs a human to make a judgement call. Thiese flows can never be fully automated and the value of automation can be limited. 
+**关于支持技术的说明**
 
-**A note on supported technology**
+Boozang支持在Web浏览器中运行的任何应用程序。 Boozang还支持混合方法，如Cordova，Ionic和Xamarin。
 
-Boozang supports any application that runs in the web browser. Boozang also supports hybrid approaches, such as Cordova, Ionic and Xamarin.
+自2019年3月以来，Boozang还完全支持Shadow DOM / Web Components。
 
-Since March 2019, Boozang also fully supports Shadow DOM / Web Components. 
+Boozang不支持对本机IOS和Android应用程序或任何基于桌面的应用程序的任何测试。
 
-Boozang does not support any testing of native IOS and Android application, or any desktop-based applications. 
+＃＃ 入门
 
-## Getting started
+###注册/登录
 
-### Signing  up / Logging in
+您可以通过Hobps://boozang.com的Boozang主页注册Boozang。注册链接将带您到https://ai.boozang.com。这是Boozang应用服务器，它负责与Boozang工具的任何实例进行通信，该工具实际上是在客户端本地运行的。
 
-You can sign-up for Boozang from the Boozang homepage at Https://boozang.com. The sign-up link will take you to https://ai.boozang.com. This is the Boozang application server and this is responsible for communicating with the any instances of the Boozang tool, wbich is actually running locally on the client side. 
+这也是管理员可以维护不同团队和不同项目的地方，而无需在客户端启动任何内容。
 
-This is also where an administrator can maintain different teams and different projects, without having to launch anything client-side. 
+###创建和启动项目
 
-### Creating and launching a project
+注册后，您可以通过单击“创建项目”按钮继续在云仪表板中创建第一个项目。这里有很多选项，但唯一需要的是项目名称。
 
-As soon as you have signed up you can go ahead and create your first project in the Cloud dashboard, by clicking the button "Create Project". There are a lot of options available here, but the only thing required is the project name. 
+！[]（images/创建-project.png）
 
-![](images/create-project.png)
+###安装选项
+Boozang完全托管在云中，支持从客户端运行而无需客户端安装。对于无权访问应用程序根目录的用户，我们还提供Chrome浏览器扩展。
 
-### Installation Options
-Boozang is completely hosted in the Cloud and supports running from client-side without a client-side installation Simply create a project and download the bz.html snippet and put it into your web application root. For users who do not have access to the application root we also provide a Chrome browser extension. 
+**安装Chrome扩展程序**
 
-**Installing the Chrome extension** 
+对于无法访问应用程序Web根目录的用户，或者对于想要进行跨域测试的用户，我们提供Chrome扩展程序。 Chrome扩展程序可以从Chrome网上应用店下载：https：//chrome.google.com/webstore/detail/boozang/feijjbehfljebjillfefcehfmlolcomf。要使用Chrome扩展程序启动Boozang工具，只需在Cloud manegement界面中点击“启动”，系统就会提示您安装Chrome扩展程序。
 
-For users without access to the application web root, or for users who want to do cross-domain testing, we also provide a Chrome extension. The Chrome extension can be downloaded from the Chrome web store here: https://chrome.google.com/webstore/detail/boozang/feijjbehfljebjillfefcehfmlolcomf. To launch the Boozang tool using the Chrome extension, simply click "Launch" in the Cloud manegement interface, and you will be promted to install the Chrome extension. 
+**安装bz片段**
 
-**Installing the bz fragment**
+只需在http://ai.boozang.com上创建一个项目并下载HTML片段即可。该代码段将复制到Web根目录（您的index.html或类似代码所在的位置）。要启动Boozang工具，只需在任何浏览器中访问该代码段，例如http://myapplication.com/bz.html或http：// localhost：8080 / bz.html。
 
-The HTML snippet technology is completely secure as it´s reliant on the built-in security of the HTTP protocol. Simply create a project at http://ai.boozang.com and download the HTML snippet. The snippet is copied to the web root (where your index.html or similar would be located). In order to launch the Boozang tool, simply access the snippet in any browser, such as http://myapplication.com/bz.html or http://localhost:8080/bz.html. 
+提示：使用bz片段允许在无头浏览器模式下运行测试。这允许使用Boozang测试运行器进行简单的CI集成。
 
-**Setting the environment**
+**建立环境**
 
-Boozang supports many appliaction interfaces (mgmt, traffic, store) across many different environments (test, qa, staging, production). The purpose of this is to be able to allow a single test to be re-used across different environments without any risk of having to edit the test. If tests are duplicated and individually customized to run on an environment, over time maintaining these tests gets very expensive, so it´s better to set this up properly from the get-go. 
+！[示例图片]（images/environment.png“示例图片”）
 
-### Modules and Tests
+Boozang支持许多不同环境（测试，qa，升级，生产）的许多应用程序接口（管理，流量，存储）。这样做的目的是允许在不同环境中重复使用单个测试，而无需编辑测试的风险。如果测试是重复的并且单独定制以在环境中运行，那么随着时间的推移维护这些测试会变得非常昂贵，所以最好从一开始就正确地设置它。
 
-**Object-Oriented testing**
+###模块和测试
 
-Boozang takes an object-oriented approach to testing. Just like your application can be divided into modules and sub-modules, so can your tests. It takes some experience to make the perfect test break-down, and it´s different from application to application. Usually, it´s best to try and mirror the components, or modules, of the application in the Boozang tool. The below image gives an example of this
+**面向对象的测试**
 
-![example image](images/ootesting.png "An exemplary image")
+Boozang采用面向对象的方法进行测试。就像您的应用程序可以分为模块和子模块一样，您的测试也可以。完成测试分解需要一些经验，并且从应用程序到应用程序不同。通常，最好在Boozang工具中尝试镜像应用程序的组件或模块。下图给出了一个例子
 
-**Modules**
+！[示例图片]（images/ootesting.png“示例图片”）
 
-![example image](images/project-modules.png "An exemplary image")
+** **模块
 
-The modules are used to divide your tests into functional areas of your application. Where other tools usually have tests and test suites, or test suites are just another test in Boozang (using Plug test-case). Modules are used to organize tests to match the functional modules of the application. They work as folders to organize your tests, but also to allow data to be added on the module level. For instance, in the Inventory module in the example, the Test data for inventory should typically be saved as Module data. 
+！[示例图片]（images/project-modules.png“示例图片”）
 
-**Sub-modules**
+这些模块用于将测试划分为应用程序的功能区域。其他工具通常有测试和测试套件，或测试套件只是Boozang的另一个测试（使用Plug测试用例）。模块用于组织测试以匹配应用程序的功能模块。它们用作组织测试的文件夹，但也允许在模块级别添加数据。例如，在示例中的库存模块中，库存的测试数据通常应保存为模块数据。
 
-For very complex application it can sometimes be useful to introduce sub-modules. This is particularly useful when you clearly have sub-modules on the application side. For most SaaS applications, such as CMS (content-management system) or ERP (Enterprise resource planning), the application is organized in two levels, making the project-module-test hierarchy sufficient. 
+**子模块**
 
-### Recording your first test
+对于非常复杂的应用程序，引入子模块有时会很有用。当您在应用程序端明确拥有子模块时，这尤其有用。对于大多数SaaS应用程序，例如CMS（内容管理系统）或ERP（企业资源规划），应用程序分为两个级别，使项目模块测试层次结构足够。
 
-Boozang works within the browser which allows for a very stable recording function. Simply click on the record button in the tool. As you perfrom actions on your web page actions will be recorded. To remove an un-wanted action that was recorded simply press the trashbin next to the action in the main tool view. 
+###记录您的第一个测试
 
-As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports 3 different playback modes: Normal, demo and debug mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlight the error and allows you to correct it on the fly. When you have corrected the error simple press the play button again and the test will continue it´s execution. This is very useful when updating a test after a big code change. 
+Boozang在浏览器中工作，可以实现非常稳定的录制功能。只需单击工具中的记录按钮即可。当您在网页上执行操作时，将记录操作。要删除记录的不需要的操作，只需按下主工具视图中操作旁边的垃圾箱即可。
 
-A test is automatically saved in the local storage of the browser. As soon as you update a test, the test will be checked out by you, and it will appear as locked for your team-mates, which prevents them from making changes. As soon as you click save the test will be saved on the Boozang server, and the lock will be automatically removed, allowing other team-members to make changes. 
+一旦创建了测试，您就可以使用播放按钮重播测试步骤。 Boozang支持3种不同的播放模式：普通模式，演示模式和调试模式。演示模式会降低播放速度并对每个测试步骤进行注释。这对于演示以及尝试理解其他人撰写的测试非常有用。调试模式是一个非常强大的功能，可以进行测试，但遇到错误时会突出显示错误并允许您动态更正错误。纠正错误后，再次按下播放按钮，测试将继续执行。在大代码更改后更新测试时，这非常有用。
 
-**A note on Window aligment**
+测试会自动保存在浏览器的本地存储中。一旦您更新测试，测试将由您检出，并且对于您的队友来说它将显示为已锁定，这会阻止他们进行更改。单击保存后，测试将保存在Boozang服务器上，锁定将自动删除，允许其他团队成员进行更改。
 
-In order to use Boozang well, we recommend aligning the Boozang tool and your application next to each other side by side in the following way
+**关于窗口对齐的说明**
 
-![](images/side-by-side.png)
+为了更好地使用Boozang，我们建议您以下列方式将Boozang工具和您的应用程序并排放在一起
 
-This allows you to get a good overview of the recorded actions, and an easy way to modify or delete recorded actions.
+！[]（images/并排side.png）
 
-### In-tool help
+这使您可以很好地了解记录的操作，以及修改或删除记录的操作的简便方法。
 
-As Boozang is completely hosted in the Cloud it´s easy to do changes and add useful features quickly. This has a huge upside as we are able to deploy features that customer asks for to all our customers at the same time, to the benefit of all. This also means that new things can appear in the user interface without warning, and in some cases, that the documentation might not be up-to-date all the time. 
+###工具内帮助
 
-For this reason, to be able to deliver new features fast without forcing the end user to re-learn, we added an online help function inside the tool. Simply click the question mark in the user interface, and click the functionality and an explanation will appear. 
+由于Boozang完全托管在云中，因此很容易进行更改并快速添加有用的功能。这具有巨大的优势，因为我们能够同时为所有客户部署客户要求的功能，以造福所有客户。这也意味着新事物可以在没有警告的情况下出现在用户界面中，并且在某些情况下，文档可能不会始终是最新的。
 
-![example image](images/help-annotations.png "An exemplary image")
+因此，为了能够快速提供新功能而不强迫最终用户重新学习，我们在工具中添加了在线帮助功能。只需单击用户界面中的问号，然后单击该功能，将显示说明。
 
-In the help text, you will find an explanation of the function you selected. You will also find any related videos to that function, if available. When clicking a video link, a separate video window will appear and you will be able to follow along with the tool if needed. 
+！[示例图片]（images/help-annotations.png“示例图片”）
 
-## The tool
-### The top bar
+在帮助文本中，您将找到所选功能的说明。您还可以找到该功能的任何相关视频（如果有）。单击视频链接时，将显示一个单独的视频窗口，您可以根据需要使用该工具。
 
-![example image](images/topbar.png "Top bar")
+＃＃ 工具
+###侧边栏
 
-**Project Name**
+！[示例图片]（images/sidebar.png“边栏”）
 
-The first entry in the top bar will be the project name. Clicking on the project name will take you to the root of the project tree. 
+** Boozang图标**
 
-**Module name / View name**
+单击Boozang图标是将用户带回项目根目录的快捷方式。
 
-Clicking on the module name in test authoring view will take you to the module level of the tree. When being in a different view than test authoring view, this can be displaying the View name, such as Settings or Report.
+**测试创作视图**
 
-**Test Name**
+这是创建测试用例并在项目树中组织它们的主视图。您创建的测试用例被组织成模块，以确保最大的可重用性。
 
-Only displayed in Test Authoring view, and displays the selected test. 
+** **错误
 
-**Quick Navigation**
+Bug创作视图。使用此部分来记录错误，这些错误通常是评论功能突出显示的应用程序的视觉差异。
 
-Use the Caret down icon to qucikly switch between modules and tests. You can also create new mdoules, new test suites and new tests from here. 
+在此视图中，您可以访问所有创作工具，区别在于可以将错误分配给团队中的其他成员。
 
-**Search**
+[设定]
 
-To do free text search on any module or test simply hit the Search icon. As you type the search results will display. 
+项目设置允许用户设置：环境，内容策略，通知和首选项。
 
-**Hamburger**
+** **报告
 
-Click the hamburger icon to open the hamburger menu. 
+报告视图包含最新测试运行的报告。运行测试时，用户还可以切换到报告视图，以查看在测试运行时生成的报告。
 
-### The sidebar
-![example image](images/sidebar.png "Sidebar")
+** **工具
 
-**Boozang icon**
+在工具中，您可以找到项目的导入和导出工具。这允许管理员用户备份项目以及从其他用户导入项目。还有一个功能强大的自由文本搜索功能，可以搜索模块，测试和数据，也可以执行替换。
 
-Boozang icon is a shortcut to bring back the user to the project root. 
+###汉堡包菜单
 
-**Test Authoring View**
+！[示例图片]（images/hamburger.png“工具栏”）
 
-Test authoring view. This is the main view to create test cases and organize them in the project tree. The test cases you create is organized into modules, to ensure maximum reusability. 
+**管理**
 
-You can record test cases or manually write tests directly. You can also add data on any level in the project tree.
+将用户带到Boozang Cloud Management界面。这允许用户在项目之间切换。
 
-**Bugs**
+**帐户**
 
-Bug authoring view. Use this section to record bugs, which are most often visual discrepancies of your application highlighted by the comment function.
+访问帐户页面。在这里，您可以看到当前的服务使用情况和当前的许可证层
 
-In this view you have access to all authoring tools, with the difference that bugs can be assigned to other members in your team.
+**安慰**
 
-**Settings**
+打开Boozang控制台。允许用户检查数据和故障排除测试。
 
-The project settings allows the user to set: Environment, Content Policy, Notifications, and Preferences.
+**聊天和留言**
 
-**Reports**
+打开与团队的弹出式聊天。在这里，您可以监控项目活动并与其他项目成员聊天。
 
-The report view contains the report of the latest test run. When running a test, the user can also swith to the report view to see the report being written as the test runs. 
+**码头模式**
 
-**Tools**
+dock mdoe允许用户在未对接（两个单独的应用程序窗口）之间切换，停靠到左边（Boozang IDE在左边）和停靠到右边（Boozang在右边）。在某些情况下，测试中的应用程序不支持停靠模式，因此请使用此选项来取消停靠。
 
-In tools you will find import and export tools for the project. This allows an admin user to backup proejcts and also to import projects from other users. There is also a powerful free text search that can search both modules and test and data, and perform replacement as well. 
+**视频教程**
 
-### The hamburger menu
+这是主页上视频教程的链接。
 
-![example image](images/hamburger.png "Tool bar")
+**功能概述**
 
-**Management**
+这是本文档最新版本的链接。
 
-Takes the user to the Boozang Cloud Management interface. This allows the user to switch projects. 
+**视频助手**
 
-**Account**
+这将打开一个小帮手，根据特定主题为您提供基于主题的视频帮助。
 
-Access the account page. Here you can see current service usage and your current license tier. 
+注意：某些视频材料可能已记录在以前版本的Boozang之上。
 
-**Console**
+**登出**
 
-Opens the Boozang console. Allows the user to inspect data and trouble-shoot tests. 
+注销用户。
 
-**Chat & Message**
+###顶栏
 
-Opens a popup chat with the team. Here you can monitor project activity and chat with other project members. 
+！[示例图片]（images/topbar.png“顶栏”）
 
-**Dock mode**
+**项目名**
 
-The dock mdoe allows the user to switch between undocked (two separate application windows), dock to left (Boozang IDE is to the left) and dock to right (Boozang is on the right). In some cases the applications under test doesn´t support docked mode, so use this option to Undock. 
+顶部栏中的第一个条目是项目名称。单击项目名称将转到项目树的根目录。使用您的项目的解释名称来替换正在测试的产品，或者对于拥有单一产品的公司，公司名称。
 
-**Video Tutorials**
+**模块名称/视图名称**
 
-This links to the Video tutorials on the homepage. 
+单击测试创作视图中的模块名称将转到树的模块级别。当处于与测试创作视图不同的视图中时，将显示侧栏中给出的视图名称，例如“设置”或“报告”。
 
-**Functional Overview**
+**测试名称**
 
-THis is a link to the latest version of this document. 
+导航的第三级仅在选择测试时显示在测试创作视图中。在子模块的情况下，还可以有许多中间级别。
 
-**Video Helper**
+**快速导航**
 
-This opens a small helper that gives you topic based video help based on certain topics. 
+使用Caret down图标可以在模块和测试之间切换。您还可以从此处创建新的mdoules，新测试套件和新测试。
 
-Note: This video material can have been recorded on top of previous versions of Boozang. 
+**搜索**
 
-**Sign Out**
+要在任何模块或测试上进行自由文本搜索，只需单击“搜索”图标即可。键入时，将显示匹配的搜索结果。
 
-Logs out the user. 
+**汉堡包**
 
-### The action list
+单击汉堡包图标以打开汉堡包菜单。
 
-![example image](images/action-list.png "Tool bar")
 
-**Reload URL**
 
-Reloads the test url in the application browser window. USe this before playing the test or when starting recording a new test, to make sure the correct URL is loaded in the application window. 
+###动作列表
 
-*Tip: Double-clicking the test row also runs action.* 
+！[示例图片]（images/action-list.png“工具栏”）
 
-**Action icon**
+**重新加载网址**
 
-An icon that indicates the action type. The different action types are **Validate Result**, **Mouse Event**, **Keyboard Event**, **Extract data**, **Javascript**, **Comment**, **Refresh Window**, **Plug Test**, and **Visit Links**.  
+在应用程序浏览器窗口中重新加载测试URL。使用此选项可确保在应用程序窗口中加载正确的URL，例如在录制新测试时。
 
-Tip: Clicking the action icon toggles breakpoints, which is a convenient way to troubelshoot tests. 
+*提示：双击测试行也会执行此操作
 
-**Action description**
+**行动图标**
 
-This is the human-readable description of the action, and defaults to the actual action code. This can be changed in the action details page.
+一个指示操作类型的图标。不同的动作类型是**验证结果**，**鼠标事件**，**键盘事件**，**提取数据**，** Javascript **，**注释**，**刷新窗口* *，**插件测试**，和**访问链接**。
 
-**Data Indicator**
+提示：单击操作图标可切换断点。测试执行暂时在断点处停止，允许测试的麻烦。要继续播放测试，只需单击播放按钮即可。
 
-Orange indicates that dynamic data is used. The following data stops are available: $parameter, $test, $module, $project, $loop
+**行动说明**
 
-**Add action in list**
+这是操作的人类可读描述，默认为实际操作代码。如果需要，可以在操作详细信息页面中更改此设置。
 
-Inserts an action in the action list. It´s also possible to initiate a recording that inserts actions anywhere in the list. 
+**数据指标**
 
-**Run action**
+橙色表示使用动态数据。可以使用以下数据范围：$ parameter，$ test，$ module，$ project，$ loop
 
-Executes a single action. 
+**在列表中添加操作**
 
-*Tip: Double-clicking the action row also runs action.* 
+在操作列表中插入操作。还可以启动在列表中的任何位置插入操作的记录。
 
-**Custom timeouts**
+**运行**
 
-Indicates that the timeouts for that particular action has been customized. This can be done by editing timeouts in action details or can be automatically added by the recorder. 
+执行单个操作。
 
-**Custom exit conditions**
+*提示：双击操作行也会执行操作。*
 
-Indicates that exit conditions for the action has been customized. This can be set in action details in the kebab icon. 
+**自定义超时**
 
-**Action details**
+表示已自定义该特定操作的超时。这可以通过编辑操作详细信息中的超时来完成。如果录制过程中响应时间较慢，也会自动添加，以确保测试稳定性。
 
-Opens the action details panel. The action details can be pinned to stay open, or always be seen at the top or base of the action list. When pinned, action details simply shows the main controls. 
+**自定义退出条件**
 
-### Record / Play
+表示已自定义操作的退出条件。退出条件表示对某个行动结果采取的行动。行动结果是成功，失败和错误。成功意味着操作成功执行，失败意味着它执行错误，例如验证失败，错误意味着找不到元素。
 
-**Recording**
+**行动细节**
 
-In order to record a test, simply click on the record button. Boozang will now catch any action being made in the application window. To stop recording, simply click stop. In the case where the application window is closed, the record will open the application windo at the current URL. It´s good pratice to use the Reoad URL button to make sure that the URL is set correctly before recording.
+打开操作详细信息面板。可以固定操作详细信息以保持打开状态，或始终在操作列表的顶部或底部显示。固定时，操作详细信息只显示主要控件。
 
-**Playing a test**
+###录制/播放
 
-In order to play a test, simply click the Play button. To play the test from the start; make sure that the first row (gray) row of the action list has been selected as this signifies the actual test. You can also play a test from a specific action. Simply select the action you want to play from and clikc the Play button. You can choose to watch all the actions play and see the result in real-time, or switch to the report view to see the report being generated. 
+**记录**
 
-There are several play modes available
+要记录测试，只需单击记录按钮即可。 Boozang现在将捕获在应用程序窗口中进行的任何操作。要停止录制，只需单击停止。在关闭应用程序窗口的情况下，记录将在当前URL处打开应用程序窗口。使用“重新加载URL”按钮确保在录制之前正确设置了URL。
 
-**Play**
+**参加考试**
 
-Plays to end. Launches AI repair if element not found, but continues after a set time. 
+要进行测试，只需单击“播放”按钮即可。从一开始就参加考试;确保已选择操作列表的第一行（灰色）行，因为这表示实际测试。您还可以通过特定操作进行测试。只需选择您想要播放的动作并点击“播放”按钮即可。您可以选择观看所有播放的操作并实时查看结果，也可以切换到报告视图以查看正在生成的报告。
 
-**Play in repair mode**
+有几种播放模式可供选择
 
-Plays test but tries to repair it when element not found.
+**玩**
 
-**Play in demo mode**
+播放结束。如果找不到元素，则启动AI修复，但在设定的时间后继续。
 
-Plays the test case step-by-step and highlights all actions in the application window using annotations (compare comment function).
+**在维修模式下玩**
 
-**Step-by-step**
+播放测试但尝试在未找到元素时修复它。
 
-Plays the test one step ata  time.
+**以演示模式播放**
 
-**Automation mode**
+逐步播放测试用例并使用注释突出显示应用程序窗口中的所有操作（比较注释功能）。
 
-Emulates running the test from the command line. After test has been run browser will shut down if the user doesn't permit it. Running in this mode will activiate any notifications set on test reports. 
+**一步步**
 
-### The Toolbar
+一次一个地进行测试。
 
-![example image](images/toolbar.png "Tool bar")
+**自动化模式**
 
-**Switch view: List / GUI**
+使用Boozang测试运行器模拟从命令行运行测试。运行测试后，将显示一个对话框，允许用户选择退出浏览器关闭。在此模式下运行将通知所有报告订阅者，因此这是测试电子邮件通知的好方法。
 
-The switch view button toggles between table and diagram view.
+在自动化模式下运行永远不会激活AI修复。
 
-The views are equivalent in functionality, but the diagram view better illustrate the flow between tests, while the table view displays the actions in a more linear fashion.
+###工具栏
 
-**Parameter**
+！[示例图片]（images/toolbar.png“工具栏”）
 
-Use this to set dynamic data used by the test, to improve test re-usability. You can set this data when running the test, or pass it as a parameter from upstream test cases. When doing form fills, you can also bind the form data directly into the parameter.
+**切换视图：列表/ GUI **
 
-Group
+切换视图按钮在表视图和图表视图之间切换。
 
-The group function groups actions together. This allows you do keep your test in order, and to skip a set of actions using the exit condition Exit Group.
+视图在功能上是等效的，但是图表视图更好地说明了测试之间的流程，而表格视图以更线性的方式显示了操作。
 
-Use Ctrl/CMD functions to multi-select.
+提示：使用表格模式进行测试创作，并在执行测试时尝试图表视图。
 
-**Make test case**
+**参数**
 
-Breaks up a group of actions into a separate tests and replaces the group with a reference to that test (Plug-test case). A quick way to break up a recorded action sequence into re-usable test units.
+使用此选项设置测试使用的动态数据，以提高测试的可重用性。您可以在运行测试时设置此数据，并覆盖从上游测试用例调用测试时（使用插件测试用例）。在执行表单填充时，您还可以将表单数据直接绑定到参数中。
 
-**Cut / Copy /Paste**
+提示：将此视为传统编程中函数的参数/参数。这极大地促进了测试重用和良好的测试自动化实践。
 
-Standard Cut functionality. Use Cut and Paste to move actions between tests, tests between modules, or data between tests and modules.
+**组**
 
-Use Ctrl/CMD functions to multi-select.
+组功能将操作组合在一起。这允许您按顺序保持测试，并使用退出条件退出组跳过一组操作。通过使用Else-group，可以使用它来实现简单的条件功能（比较：if / else）
 
-**Undo / Redo**
+提示：使用Ctrl / CMD功能可以多选操作。
 
-Undo /Redo last un-saved action. In Boozang, you cannot undo saved changes as they have been committed to the Cloud.
+**制作测试用例**
 
-**Delete**
+将一组操作分解为单独的测试，并使用对该测试的引用替换该组（插件测试用例）。允许您快速重新测试您的测试以删除重复的操作序列。
 
-Deletes one or several actions. Use Ctrl/CMD functions to multi-select.
+使用Ctrl / CMD功能进行多选。
 
-**Disable**
+**剪切/复制/粘贴**
 
-Disables action so it´s skipped when test is run. Useful to debug tests. 
+标准切割功能。使用“剪切”和“粘贴”在测试之间移动操作，在模块之间测试，或在测试和模块之间移动数据
 
-### Action details
-## Element selection
-### Selecting the element
+使用Ctrl / CMD功能进行多选。
 
-Boozang uses custom element selectors based on what a user will see rather than classes, ids or other attributes. This means that in order to use class or id, this usually needs to be explicitly defined. By avoiding using classes and ids as primary identifiers, Boozang tests become very stable to code changes, and can automate applications with dynamic ids and classes freely.
+**撤销重做**
 
-**The element bar**
+撤消/重做上次未保存的操作。在Boozang中，您无法撤消已保存的更改，因为它们已提交到云。
 
-For most actions, the user can select an element (Validations, Events, Javascript and Extract Data). When recording or picking an element Boozang tries to guess the best path to the element. Usually, this is sufficient, but sometimes this needs to be edited. 
+**删除**
 
-**Re-picking an element**
+删除一个或多个操作。
 
-First step if an action isn´t working as expected is simply to re-pick the element in the application window. After re-picking, click in the element dialog and see if the correct element is highlighted. To make sure, double-click the action and confirm that the action is working. 
+提示：使用Ctrl / CMD功能进行多选。
 
-**Edit element with DOM picker**
+** **禁用
 
-If this is still not sufficient, you can try to edit the element. If the current element is not found in the application window, the user will be asked to pick the element. If found, the DOM picker window will be launched which allows the user to fine-tune the element path
+运行测试时会跳过禁用的操作。用于调试测试。
 
-### Understanding the DOM picker
-For this reason, to be able to deliver new features fast without forcing the end user to re-learn, we added an online help function inside the tool. Simply click the question mark in the user interface, and click the functionality and an explanation will appear. 
+###行动细节
+##元素选择
+###选择元素
 
-![example image](images/dom-picker.png "An exemplary image")
+Boozang根据用户将看到的内容而不是类，ID或其他属性使用自定义元素选择器。这意味着为了使用class或id，通常需要明确定义。通过避免使用类和ID作为主要标识符，Boozang测试对代码更改变得非常稳定，并且可以自由地使用动态ID和类自动化应用程序。
 
-**Element path operation**
+**元素栏**
 
-The element path has the following operations. We've expanded the jQuery selction standard to create a more human-readable code to identify elements. The basic pattern is that the lowercase jQuery standard operations, while uppercase operations are case-insensitive. All recorded will generate Uppercase operations. The operations that will be recorded for a test-case is marked by an asterix (*) 
+对于大多数操作，用户可以选择元素（Validations，Events，Javascript和Extract Data）。在录制或挑选元素时，Boozang会尝试猜测元素的最佳路径。通常，这已足够，但有时需要对其进行编辑。
 
-* nodeContains (*):  Is true if the selected element (case-insensitive) have the exact string alongside other strings
-  ```
-  Ex:div:match(lws)
-  Yes:<div>lws ok</div>
-  No:<div>lwsok</div>
-  Yes:<div>lws <span>ok</span></div>
-  No: <div><span>lws</span></div>
-  ```
+**重新挑选元素**
 
-* nodeEquals (*): Is true if the selected element (case-insensitive) have the exact string
+如果操作未按预期工作，则第一步只是重新选择应用程序窗口中的元素。要确保双击该操作并确认该操作正在运行。
+
+提示：单击元素对话框，查看是否在应用程序窗口中突出显示了正确的元素。
+
+**使用DOM选择器编辑元素**
+
+如果仍然不够，您可以尝试编辑元素。如果在应用程序窗口中找不到当前元素，则会要求用户选择该元素。如果找到，将启动DOM选择器窗口，允许用户微调元素路径
+
+###了解DOM选择器
+DOM选择器允许用户精确指定元素选择器。在录制过程中，Boozang会在正常情况下能够猜出最佳的独特元素路径。在某些情况下，希望覆盖预定的元素路径。
+
+需要更改元素路径的常见情况
+
+**选错了元素**
+
+单击元素时，如果突出显示错误的元素，则表示路径不正确。尝试重新选择元素。如果问题仍然存在，请使用DOM选取器编辑元素路径。
+
+**元素索引> 0 **
+
+如果元素索引> 0，则表示该元素未唯一标识。这将通过警告表示。使用DOM选择器确保复选框图标变为绿色（表示元素索引== 0）。
+
+**提取数据**
+
+在提取数据时，数据本身不应该用作元素选择器。将DOM选择器用于id或类的键或其他属性。
+
+！[示例图片]（images / dom-picker.png“示例图片”）
+
+**元素路径操作**
+
+元素路径具有以下操作。 Boozang使用jQuery选择标准的扩展版本来创建更易于理解的代码来识别元素。基本模式是小写jQuery标准操作，而大写操作是不区分大小写的。默认情况下，所有录音都将生成大写操作。将为测试用例记录的操作由星号（*）标记
+
+*`contains（*）`：如果所选元素（不区分大小写）与其他字符串一起具有完全字符串，则为true
   
   ```
-  Ex:div:equals(lws)
-  Yes:<div>lws</div>
-  No: <div>lws ok</div>
-  No: <div>lwsok</div>
-  No: <div><span>lws</span></div>
+  例如：DIV：endContains（LWS）
+  是的：<div> lws ok </ div>
+  号：<DIV> lwsok </ DIV>
+  是的：<div> lws <span> ok </ span> </ div>
+  否：<div> <span> lws </ span> </ div>
   ```
-* nodeOrChildrenEquals: Is true if the selected element or any of it's children (case-sensitive) have the exact string alongside other strings
+```
+  
+*`equals（*）`：如果所选元素（不区分大小写）具有完全字符串，则为true
+  
+```
+  例如：DIV：endEquals（LWS）
+  是：<DIV> LWS </ DIV>
+  不：<div> lws ok </ div>
+  不：<div> lwsok </ div>
+  否：<div> <span> lws </ span> </ div>
   ```
-  Ex:div:equal(lws)
-  Yes:<div><span>lws</span></div>
-  No: <div>lws ok</div>
-  ```
-* nodeOrChildrenEquals (*): Is true if the selected element or any it's children (case-insensitive) matches
+*`Contains`：如果所选元素或其任何子元素（区分大小写）与其他字符串一起具有完全字符串，则为true
   
   ```
-  Ex: div:Contains(lws)
-  Yes:<div><span>LWs ok</span></div>
-  No: <div>lwsok</div>
+  例如：DIV：等于（LWS）
+  是：<DIV> <跨度> LWS </ SPAN> </ DIV>
+  不：<div> lws ok </ div>
+  ```
+*`Equals（*）`：如果所选元素或其子元素（不区分大小写）具有完全字符串，则为true
+  
+  ```
+  例如：div：包含（lws）
+  是的：<div> <span> LWs ok </ span> </ div>
+  不：<div> lwsok </ div>
   ```
 
-* nodeOrChildrenContainsWord: Is true if the selected element and all it's children (case-insensitive) matches
+*`contains`：如果所选元素及其所有子元素（不区分大小写）匹配，则为true
+  
   ```
-  Ex: div:Contains(lws)
-  Yes:<div><span>lws ok</span></div>
-  Yes:<div>lwsok</div>
-  No: <div>lwok</div>
-  ```
-
-* RowCol (*):
-  ```
-  Ex: TD:RowCol([value|name])
-  Yes:<tr><td></td><td>name</td></tr>
-      <tr><td>value</td><td>1234</td></tr>
-      
-  No: <tr><td></td><td>name</td></tr>
-      <tr><td>VALUE</td><td>1234</td></tr>
-  ```
-* rowcol:
-  ```
-  Ex: TD:rowcol([value|name])
-  Yes:<tr><td></td><td>NAME</td></tr>
-      <tr><td>VALUE</td><td>1234</td></tr>
-      
-  No: <tr><td></td><td>name</td></tr>
-      <tr><td>value1</td><td>1234</td></tr>
-  ```
-* near (*):
-  ```
-  Ex: input:near(name)
-  Yes:<div><label>name: <input/></label></div>
-  Yes:<div><label>name: </label><input/></div>
-  Yes:<tr><td>Name</td><td><input/></td></tr>
-  No: <div>name</div><div><label>value</label><input/></div>
-  ```
-### Element policy
-
-The element policy 
-
-### Repairing an action
-
-When a test is run and an action element cannot be found the AI test rapair screen will be launched. This will allow the user to simply re-pick the element from the application window. If a matching element is found, Boozang will suggest the element for the user. This allows the user to repair tests ultra-fast even when there have been significant code changes.
-
-Tip: In normal playmode the user is asked if the test should be repaired. In Repair mode the AI repair is always launched, and in Automation mode AI repair is never launched. 
-
-## Recording and playback modes
-### Recording a test
-### Data bind
-
-![example image](images/binding-data-into-forms.png "An exemplary image")
-
-### Play modes
-
-
-
-## Action types
-### Mouse event
-
-### Keyboard event
-### Validation
-
-**Creating a simple validation**
-
-In a test, it´s common to make sure that a certain outcome is achieved. In Boozang we do this using validation, also known as assertions. To create a validation, simply click on the validation icon and select the element to validate in the application window. The default validation content format: "validate exists" will be created. If you want to change the validation content format to "innerText", "data", or "screenshot" you can do this in the tool window. 
-
-**Validate Exists**
-
-The default validation is "Validate Exists", that will simply verify that the element exists. To edit the validation content format simply change it from the action detail page. The expectation value will be automatically updated. 
-
-**Inner Text**
-
-If you want to validate the content of an element, change the Content format dropdown to innerText. This way the text content of an element is compared. When changing this, the result box will be populated with the content from your application but can be changed manually. This is very useful for string comparisons. One advantage of using Inner Text is that upon validation failure, the report will contain the difference between expected and real result. 
-
-**Data**
-
-The data format is very powerful, but TODO
-
-**Screenshot**
-
-You can also choose to take a picture of the element and compare that to the image of an element of future runs. This is useful TODO
-
-**The DOM picker**
-
-Sometimes the element you selected in the page isn't the one you intended. In this case, simply click the DOM picker and re-select the element. The DOM picker dialog will popup where you can select exactly what to validate in the DOM tree. Use the checkboxes to select which elements to include in the matching. Make sure that the checkbox has a green highlight, which means the element is uniquely matched (not indexed).
-
-**Javascript validations**
-
-The default validation is the HTML validation. By changing method to "Script", you can directly do validations using Javascript. The Javascript function is written in the standard Boozang format
-
+  例如：div：包含（lws）
+  是的：<div> <span> lws ok </ span> </ div>
+  是：<DIV> lwsok </ DIV>
+  不：<div> lwok </ div>
 ```
-(function(){
-    //return true/false;
-    })()
+  
+*`RowCol（*）`：用于标识表格单元格（区分大小写）。
+  
 ```
-and must return true or false. If an element has been picked with the DOM picker this will be available using the handle $element. Standard data handles, such as $project, $module, and $test will also be available, as well as the test window handles $TW. For more information about data see <a href="/doc/data.html">data</a> section. 
+  例：TD：RowCol（[value | name]）
+  是：<TR> <TD> </ TD> <TD>名称</ TD> </ TR>
+      <TR> <TD>值</ TD> <TD> 1234 </ TD> </ TR>
+      
+  否：<tr> <td> </ td> <td>名称</ td> </ tr>
+      <TR> <TD> VALUE </ TD> <TD> 1234 </ TD> </ TR>
+  ```
+*`rowcol`：用于标识表格单元格（不区分大小写）。
+  
+  ```
+  例：TD：rowcol（[value | name]）
+  是：<TR> <TD> </ TD> <TD> NAME </ TD> </ TR>
+      <TR> <TD> VALUE </ TD> <TD> 1234 </ TD> </ TR>
+      
+  否：<tr> <td> </ td> <td>名称</ td> </ tr>
+      <TR> <TD>值1 </ TD> <TD> 1234 </ TD> </ TR>
+  ```
+*`near（*）：用于根据标签选择（case-initiveitive）识别表单输入框。
+  
+  ```
+  例：输入：附近（姓名）
+  是：<div> <label> name：<input /> </ label> </ div>
+  是：<div> <label> name：</ label> <input /> </ div>
+  是：<TR> <TD>名称</ TD> <TD> <输入/> </ TD> </ TR>
+  否：<div> name </ div> <div> <label> value </ label> <input /> </ div>
+  ```
+###元素政策
 
-### Extract data
+在烤肉串菜单下，您还可以访问元素政策。
 
-Note: For API versions of these actions check the API section. 
+！[示例图片]（images/element-policy.png“示例图片”）
+
+**将隐藏的元素视为未找到**
+
+通常，仍然可以以编程方式单击隐藏元素。当隐藏元素时，选中此框以触发Error（）“找不到元素”。
+
+**元素重试政策**
+
+默认行为是**重试元素缺失**。将其自定义为**从不重试**或**重试内容不匹配**（在找到元素但内容错误时重新尝试）。
+
+###修复动作
+
+！[示例图片]（images/ai-repair.png“示例图片”）
+
+当运行测试并且找不到动作元素时，将启动AI测试rapair屏幕。这将允许用户简单地从应用程序窗口中重新选择元素。如果找到匹配元素，Boozang将为用户建议元素。这样，即使代码发生重大变化，用户也可以超快速地修复测试。
+
+提示：在正常的播放模式中，系统会询问用户是否应修复测试。在修复模式下，AI修复始终启动，在自动化模式下，AI修复永远不会启动。
+
+##动作类型
+###鼠标事件
+
+此事件对应于鼠标操作，即鼠标的单击或移动。默认情况下，Boozang会捕获录制内容中的点击次数（否则录制会变得非常嘈杂，捕获太多事件）。例外情况是按住鼠标按钮，模拟拖放。在这种情况下，Boozang注册了一个特定的拖放事件。您可以手动添加鼠标事件以模拟鼠标悬停事件并创建特定的鼠标条件。
+
+提示：在例如表单填充的情况下，尝试使用按键和鼠标点击以查看最佳效果是非常有用的。
+
+###键盘事件
+
+此事件对应于按键。每按一次键，就会在录音中捕获。
+
+提示：在例如表单填充的情况下，尝试使用按键和鼠标点击以查看最佳效果是非常有用的。
+
+###验证
+
+**创建简单的验证**
+
+在测试中，确保达到某种结果是很常见的。在Boozang中，我们使用验证来执行此操作，也称为断言。要创建验证，只需单击验证图标，然后在应用程序窗口中选择要验证的元素。将创建默认验证内容格式：“验证存在”。如果要将验证内容格式更改为“innerText”，“data”或“screenshot”，可以在工具窗口中执行此操作。
+
+**验证存在**
+
+默认验证是“验证存在”，它将简单地验证元素是否存在。要编辑验证内容格式，只需从操作详细信息页面进行更改即可。期望值将自动更新。
+
+**内文**
+
+如果要验证元素的内容，请将“内容格式”下拉列表更改为innerText。这样就比较了元素的文本内容。更改此设置时，结果框将填充应用程序中的内容，但可以手动更改。这对于字符串比较非常有用。使用内部文本的一个优点是，在验证失败时，报告将包含预期结果和实际结果之间的差异。
+
+**数据**
+
+数据格式非常强大，可在所选区域内查找一组数据。通常使用数据变量进行组合。
+
+** **截图
+
+您还可以选择拍摄元素的图片，并将其与未来运行元素的images进行比较。这在进行逐像素比较时很有用，但应谨慎使用，因为更改图像尺寸可能会使此断言失败。
+
+提示：当需要在指示器或开关上创建断言时，它可能很有用，只能直观地改变并且代码保持不变。
+
+** DOM选择器**
+
+有时，您在页面中选择的元素不是您想要的元素。在这种情况下，只需单击DOM选择器并重新选择元素即可。将弹出DOM选择器对话框，您可以在其中精确选择要在DOM树中验证的内容。使用复选框选择要包含在匹配中的元素。确保该复选框具有绿色突出显示，这意味着该元素是唯一匹配的（未编入索引）。
+
+** Javascript验证**
+
+默认验证是HTML验证。通过将方法更改为“脚本”，您可以使用Javascript直接进行验证。 Javascript函数以标准Boozang格式编写
+
+  ```
+（功能（）{
+    //返回true / false;
+    }）（）
+```
+并且必须返回true或false。如果使用DOM选择器拾取了一个元素，则可以使用句柄`$ element`。标准数据句柄，例如`$ project`，`$ module`和`$ test`也将可用，测试窗口处理`$ TW`。有关数据的详细信息，请参阅<a href="/doc/data.html">数据</a>部分。
+
+###提取数据
+
+注意：有关这些操作的API版本，请查看API部分。
 
 
-![example image](../images/action-extract.png "An exemplary image")
+！[示例图片]（/images/action-extract.png“示例图片”）
 
-**Similarities with Validation**
+**与验证的相似性**
 
-With Boozang it´s possible to extract data from the application window. This is very similar to the Validation action, with the difference that the element extracted is copied into a data variable. Make sure to familiarize yourself with the Validation action before reading this section. 
+使用Boozang可以从应用程序窗口中提取数据。这与验证操作非常相似，区别在于提取的元素被复制到数据变量中。在阅读本节之前，请务必熟悉验证操作。
 
-**Introducing data**
+**介绍数据**
 
-Start by defining a data variable in the data tab. For extraction, you typically want to use a property. The property can be defined on the project, module, and test level. Add it on test level if the data will only be used in the test case. Add it on module level if the data will be used across different tests in the module, but not on different modules. Add it on project level if it will be used globally. 
+首先在数据选项卡中定义数据变量。对于提取，您通常希望使用属性。可以在项目，模块和测试级别上定义属性。如果数据仅用于测试用例，则在测试级别添加它。 如果数据将在模块中的不同测试中使用，则在模块级别添加，但不在不同模块上使用。如果将全局使用，则在项目级别添加它。
 
-**Extracting data action**
+**提取数据动作**
 
-To add an extract data action, simply click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. 
+要添加提取数据操作，只需单击加号图标并选择提取数据，然后单击要提取的应用程序窗口中的元素。
 
 ### Javascript
 
-![example image](../images/action-javascript.png "An exemplary image")
+！[示例图片]（/images/action-javascript.png“示例图片”）
 
-**The Javascript action**
+** Javascript动作**
 
-Boozang also allows you to execute Javascript directly in the application. This can be very useful when trying to do more advanced things that aren't covered by the set of actions Boozang has out-of-the-box. 
+Boozang还允许您直接在应用程序中执行Javascript。这在尝试做更高级的事情时非常有用，这些事情没有被Boozang开箱即用的一系列行动所涵盖。
 
-**The handles**
+**把手**
 
-When writing Javascript there are some particularities in Boozang that needs to be respected. In order to access the application window, you will have to use the handle $TW (test window). This means to be able to manipulate the application window document tree (DOM) the user needs to use $TW.document. When referencing the only document it references the Boozang tool window, not the application window.
+在编写Javascript时，需要尊重Boozang的一些特殊性。要访问应用程序窗口，您必须使用句柄$ TW（测试窗口）。这意味着能够操作用户需要使用$ TW.document的应用程序窗口文档树（DOM）。引用唯一的文档时，它引用了Boozang工具窗口，而不是应用程序窗口。
 
-**Using data (variables)**
+**使用数据（变量）**
 
-In Boozang you can reference data directly in Javascript. To access data, use the handles $project, $module, or $test, depending on what level the data was added. For instance, to reference a username that was added on the module level, use $module.username. 
+在Boozang，您可以直接在Javascript中引用数据。要访问数据，请使用handle $ project，$ module或$ test，具体取决于添加数据的级别。例如，要引用在模块级别添加的用户名，请使用$ module.username。
 
-**Trouble-shooting**
+**故障排除**
 
-In order to troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module level data "username" use "console.log($module.username)" to write it to the tool window and $TW.console.log($module.username) to write it to the application window. You can use the Chrome developer tools to easily verify this.
+为了对应用程序进行故障排除，添加调试代码有时很有用。例如，要编写模块级数据“username”的内容，请使用“console.log（$ module.username）”将其写入工具窗口，并将$ TW.console.log（$ module.username）写入到应用程序窗口。您可以使用Chrome开发人员工具轻松验证这一点。
 
-Note: Avoid using $TW.alert() as Boozang interprets this as application popup windows and intercepts them. 
+注意：避免使用$ TW.alert（），因为Boozang将其解释为应用程序弹出窗口并拦截它们。
 
-### Comment
+###评论
 
-![example image](../images/action-comment.png "An exemplary image")
+！[示例图片]（/images/action-comment.png“示例图片”）
 
-**Why comment?**
+**为什么评论？**
 
-In a lot of cases, there are errors that can only be spotted by a human, such as look & feel bugs or poor choice of language. In this case, it´s very useful to be able to point this out and have a simple way for a team member on the receiving side being able to correct this. For these cases, we use the Comment action. 
+在很多情况下，只有人类才能发现错误，例如外观和感觉错误或语言选择不当。在这种情况下，能够指出这一点并且让接收方的团队成员能够纠正这一点的简单方法非常有用。对于这些情况，我们使用Comment操作。
 
-**The Comment action**
+**评论行动**
 
-The comment actions add a comment, or annotation, to the application. In order to add a Comment, simply click on the Plus icon and select Add Comment, and select the element in the application page to Comment. You can write directly into the Comment dialog on the application.
+注释操作会向应用程序添加注释或注释。要添加注释，只需单击加号图标并选择添加注释，然后在应用程序页面中选择要注释的元素。您可以直接写入应用程序的“注释”对话框。
 
-**Running a test with comments**
+**运行评论**
 
-When running a test with comments, the test will execute and stop at the first comment. In order to go to the next comment, simply press play again and the test will continue executing until it finishes or hits the next comment. This is very useful when fixing look & feel issues, as several issues can be recorded in the same test case. 
+使用注释运行测试时，测试将执行并在第一个注释处停止。要转到下一个评论，只需再次按下播放，测试将继续执行，直到完成或点击下一个评论。这在修复外观问题时非常有用，因为可以在同一测试用例中记录多个问题。
 
-### Refresh
-## Data types
+###刷新
+##数据类型
 
-![example image](../images/test-data.png "An exemplary image")
-
-
-### Introduction to data types
-Boozang supports a number of different data types: Property, Object, Array, CSV, File, Request data and JS (Javascript function). 
+！[示例图片]（/images/test-data.png“示例图片”）
 
 
-### Properties
-The property is a simple name-value pair and can be referenced directly. For instance, a property username = boozang added on test-level, can be referenced {{$test.username}} (=boozang). Pro-tip: You can verify this in execution by printing it to your application console window by creating the following Javascript action $TW.console.log($test.username).
+###数据类型简介
+Boozang支持许多不同的数据类型：属性，对象，数组，CSV，文件，请求数据和JS（Javascript函数）。
 
+** **属性
 
-### Objects
-Objects in Boozang are the one-level sub-set of JSON objects and are ideal for grouping related data together. For instance, create the Object loginInfo and add username = boozang and password = p@ssw0rd. The data can be referenced by typing {{$test.loginInfo.username}} and {{$test.loginInfo.password}}.
+该属性是一个简单的名称 - 值对，可以直接引用。例如，在测试级别添加属性username = boozang，可以引用`{{$ test.username}}（= boozang）`。
 
-### Array
-The arrays are rarely used but can be useful in Javascript functions, especially for advanced users. 
+专业提示：您可以通过创建以下Javascript操作`$ TW.console.log（$ test.username）'来将其打印到应用程序控制台窗口来验证执行情况。
 
-### CSV data
-CSV data allows you to handle a large collection of Objects and copy data from software such as Excel. Simply create a name for the collection, such as inventoryItems. Start by adding the field names as headings separated by tab-spaces. When you are done defining the data hit Enter and fill out the values tab separated. Pro-tip: You can copy a whole table from Excel simply by using copy-paste. 
+** **的对象
 
+Boozang中的对象是JSON对象的单级子集，非常适合将相关数据分组在一起。例如，创建Object loginInfo并添加username = boozang和password = p @ ssw0rd。可以通过键入`{{$ test.loginInfo.username}}`和`{{$ test.loginInfo.password}}`来引用数据。
 
-### File data
-File data is used to test file upload and similar user interactions. Try and use small sample files as large files tends to weight down on the test client, consuming memory or slowing down performance. It is also recommended to fetch files from an external source (see Request Data). 
+** **阵列
 
-### Request Data
-It is also possible to fetch data from an external source. Simply type in a URL and choose CSV, JSON or File. The CSV file should be comma-separated (field1name1, fieldname2, \n value1, value2) and not tab-separated. 
+这些数组非常适合存储项目列表。
 
-### JS (Javascript functions)
-It is also possible to specify Javascript functions directly. The functions can be in two forms: Date.now() or fining the data hit Enter and fill out the values tab separated. Pro-tip: You can copy a whole table from Excel simply by using copy-paste. 
+提示：数组可用于驱动数据循环
 
+** CSV数据**
 
-### File data
-File data is used to test file upload and similar user interactions. Try and use small sample files as large files tends to weight down on the test client, consuming memory or slowing down performance. It is also recommeded to fecth files from an external source (see Request Data). 
+CSV数据允许您处理大量对象并从Excel等软件复制数据。只需为集合创建名称，例如inventoryItems。首先将字段名称添加为由制表符空格分隔的标题。完成定义数据后，按Enter键并填写值分隔符选项卡。专业提示：您只需使用复制粘贴即可从Excel复制整个表格。
 
-## Advanced action types
-### Visit links
-## Data binding
-### Binding from forms to variables
-### Binding from variables to forms
-## Advanced data functionality
-### Boozang regular expression engine
-### Setting up regular expressions
-### Using auto-fill functionality
-### Binding auto-fill with data bind
-## Settings
-### Environment
-### Content-policy
-### Preferences
-### Notifications
-## Reports
-### The report view
-## Team
-### Adding team members
-### Access policy
-### The CI user
-## Synchronize
-## Tools
-### Import
-### Export
-### Search
-## Loops, matrix testing and bz-skip keywords
-### Setting up a simple data loop
-### Matrix testing
-### Keywords: bz-skip and bz-stop
-## API testing
-### Validate API call
+提示：CSV数据可用于驱动数据循环。
 
-**Useful resources**
+**文件数据**
 
-In order to simply mockup a REST server, we strongly recommend https://github.com/typicode/json-server that allows you to create a fake REST API from a JSON file in less than 30 seconds. 
+文件数据用于测试文件上载和类似的用户交互。尝试使用小样本文件，因为大文件往往会降低测试客户端的负担，消耗内存或降低性能。还建议从外部源获取文件（请参阅请求数据）。
 
-**Introduction to API validations**
+**申请数据**
 
-The API validation is very similar to an HTML validation except that the validation is done towards an API end-point. Simply click on the Plus-sign and choose "Validation", and select Request/Response (API). In actions details, you can now input the API end-point URL and HTTP method (GET, POST, DELETE, etc.).
+也可以从外部源获取数据。只需输入一个URL，然后选择CSV，JSON或File。 CSV文件应以逗号分隔（`field1name1，fieldname2，\ n value1，value2`），而不是以制表符分隔。
 
-**Doing HTTP GET validation**
+** JS（Javascript函数）**
 
-Use the HTTP method GET to validate a response from a REST API. Simply select HTTP method GET and enter the end-point URL. Click Play on the action to automatically populate the expectation value. 
+也可以直接指定Javascript函数。这些函数可以有两种形式：Date.now（）或修复数据按Enter键并填写值分隔符选项卡。
 
-**Doing an HTTP GET without validation**
+提示：您只需使用复制粘贴即可从Excel复制整个表格。
 
-In order to trigger the HTTP GET without validating the result simply use a comparison operator to "regexp" and set the expectation field to ".*". 
+**文件数据**
 
-**Adding custom headers**
+文件数据用于测试文件上载和类似的用户交互。尝试使用小样本文件，因为大文件往往会降低测试客户端的负担，消耗内存或降低性能。还建议从外部源获取文件（请参阅请求数据）。
 
-When doing API calls it's very common that you need to add custom HTTP request headers. In order to do this click HTTP header and add header data. This needs to be in data format, i.e.
+##高级操作类型
+###访问链接
+##数据绑定
+###从表单绑定到变量
+###从变量绑定到表单
+##高级数据功能
+### Boozang正则表达式引擎
+###设置正则表达式
+###使用自动填充功能
+###使用数据绑定绑定自动填充
+##设置
+
+＃＃＃ 环境
+###内容政策
+＃＃＃ 喜好
+###通知
+##报告
+###报告视图
+##团队
+###添加团队成员
+###访问政策
+### CI用户
+##同步
+##工具
+###导入
+＃＃＃ 出口
+###搜索
+##循环，矩阵测试和bz-skip关键字
+###设置一个简单的数据循环
+###矩阵测试
+###关键字：bz-skip和bz-stop
+## API测试
+###验证API调用
+
+**有用的资源**
+
+为了简单地模拟REST服务器，我们强烈建议使用https://github.com/typicode/json-server，它允许您在不到30秒的时间内从JSON文件创建虚假的REST API。
+
+** API验证简介**
+
+API验证与HTML验证非常相似，只是验证是针对API端点进行的。只需单击加号并选择“验证”，然后选择“请求/响应”（API）。在操作详细信息中，您现在可以输入API端点URL和HTTP方法（GET，POST，DELETE等）。
+
+**进行HTTP GET验证**
+
+使用HTTP方法GET验证REST API的响应。只需选择HTTP方法GET并输入终点URL。单击操作上的“播放”以自动填充期望值。
+
+**在没有验证的情况下进行HTTP GET **
+
+为了在不验证结果的情况下触发HTTP GET，只需使用比较运算符“regexp”并将期望字段设置为“。*”。
+
+**添加自定义标题**
+
+在进行API调用时，您需要添加自定义HTTP请求标头。为此，请单击HTTP标头并添加标头数据。这需要采用数据格式，即
 
 {
-  Accept:"json"
+  接受： “JSON”
 }
 
-**Doing HTTP POST validation**
+**进行HTTP POST验证**
 
-You can post data to an API end-point using HTTP method POST. When doing this make sure to add the POST data to the HTTP data field. 
+您可以使用HTTP方法POST将数据发布到API端点。执行此操作时，请确保将POST数据添加到HTTP数据字段。
 
-**Data**
+**数据**
 
-In all these fields you can also bind data. As an example, in order to set headers as data this can be done as an object, for instance, "jsonheader","Accept","json". In order to reference it on the actions-details use {{$test.jsonheader}} in the header field. 
+在所有这些字段中，您还可以绑定数据。例如，为了将标题设置为数据，这可以作为对象来完成，例如，“jsonheader”，“Accept”，“json”。要在actions-details上引用它，请在header字段中使用{{$ test.jsonheader}}。
 
-### Extract data API call
+###提取数据API调用
 
-**Similarities with Validation**
+**与验证的相似性**
 
-Extracting data is identical to API validation except that the returned response will be saved in a data variable. Make sure to familiarize yourself with the API Validation action before reading this section. 
+提取数据与API验证相同，只是返回的响应将保存在数据变量中。在阅读本节之前，请务必熟悉API验证操作。
 
-**Introducing data**
+**介绍数据**
 
-Start by defining a data variable in the data tab. For extraction of API data you typically want to use an Object. The Object can be defined on the project, module, and test level. Add it on test level if the data will only be used in the test case. Add it on module level if the data will be used across different tests in the module, but not on different modules. Add it on project level if it will be used globally. 
+首先在数据选项卡中定义数据变量。要提取API数据，通常需要使用Object。可以在项目，模块和测试级别上定义对象。如果数据仅用于测试用例，则在测试级别添加它。如果数据将在模块中的不同测试中使用，则在模块级别添加，但不在不同模块上使用。如果将全局使用，则在项目级别添加它。
 
-**Assigning data**
+**分配数据**
 
-The result will be contained in the $result variable. To assign the API response to test data called "dummy" write the following in the Extract Data window
+结果将包含在$ result变量中。要将API响应分配给名为“dummy”的测试数据，请在“提取数据”窗口中写入以下内容
 
-$test.dummy = $result
+$ test.dummy = $ result
 
-**Data Conversion**
-
-
-
-**Extracting data action**
-
-To add an extract data action, simply click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. 
-
-## AI build login / logout cases
+**数据转换**
 
 
-## Features
 
-- Search function
-- Language selection
-- Pagination (previous/next)
-- Syntax highlighting
-- Customizable sidebar and footer
-- Configurable accent color
+**提取数据动作**
 
-## Usage
+要添加提取数据操作，只需单击加号图标并选择提取数据，然后单击要提取的应用程序窗口中的元素。
 
-To use the template, set it up in your `couscous.yml` configuration file:
+## AI构建登录/注销案例
 
-```yaml
-template:
-    url: https://github.com/moqmar/mintlook-couscous
 ```
 
-You should also add the file [`404.md`](https://github.com/moqmar/mintlook-couscous/blob/master/404.md) to your documentation and configure your webserver to point to `/404.html` on missing pages.
+版权所有（c）2019 Boozang Technologies Inc.
 
-A file `icon.png` in the project root (`baseUrl`) will be used as a favicon.
-
-## Configuration
-```yaml
-title: Couscous # Page Title
-logo: https://cdn0.iconfinder.com/data/icons/ie_Shine/128/shine_19.png # Icon URL
-color: "#d21"   # Accent color
-
-languages: ["en", "de"] # List of supported languages. Comment out to disable language selection.
-defaultLanguage: world  # Default language icon, and the value of the html lang attribute. It is recommended to set this even (especially) if you're not using language selection.
-
-search: true # Enable search
-scripts:
-    after:
-        - php .couscous/generated/.scripts/generate-search-index.php # Required for search
-        - rm -rf .couscous/generated/.scripts # Clean up unneccessary files
-
-sidebar:
-    - title: About mintlook
-    - subtitle: Links
-    - text: Homepage
-      link: https://moqmar.github.io/mintlook # absolute link
-    - text: Mintlook and Couscous
-      page: / # relative link
-    - line: true
-    - html: |
-            <p>Follow us on <a href="">Facebook</a>, <a href="">Twitter</a>, and other <a href="">social networks</a>.</p>
-# you can also define the sidebar per language
-sidebar:
-  de:
-    - title: Über mintlook
-  default: # fallback for all other languages
-    - title: About mintlook
-
-footer: |
-    Hello <strong>World</strong>
-# you can also define the footer per language
-footer: # fallback for all other languages
-  de: Hallo <strong>Welt</strong>
-  default: Hello <strong>World</strong>
 ```
 
-### Language selection
-If the `languages` configuration option is set, you should have a directory structure in the form of `/<language>/<...>`, with the pages in the `defaultLanguage` located at just `/<...>` - e.g. **/de/something.html** for the german version and **/something.html** for the english version.
-
-Setting the `defaultLanguage` to `world`, enforces the `/<language>/<...>` structure for all sites, and shows a world map instead of a flag for the language selection on pages not adhering to that structure.
-
-You can also override the displayed language for a single file using the `pageLanguage` metadata field.
-
-If you want to automatically go to the user's browser language, you can use the following `index.html` file in your repository:
-
-```html
-<!doctype html>
-<!-- default language -->
-<meta http-equiv="refresh" content="1; URL=en/">
-<!-- browser language -->
-<script>
-var supportedLanguages = ["en", "de"]; // Should be the same as in couscous.yml
-for (var i in navigator.languages) if (supportedLanguages.indexOf(navigator.languages[i]) > -1) {
-    location.replace(navigator.languages[i] + "/"); break;
-}
-</script>
-```
-
-### Document metadata
-```yaml
-noIndex: false              # if true, the document will be excluded from search index
-
-description: A page.        # description as shown in search, also used for metaDescription if not explicitly set
-metaDescription: A page.    # description as used for the <meta name="description"> content
-
-pageLanguage: en            # language of the page
-
-prev: /page-before.md       # previous page if pagination is used
-prevTitle: The Page Before  # title of previous page (default would be "page-before" here)
-
-next: /test/example.md      # next page if pagination is used
-nextTitle: An example page  # title of next page (default would be "example" here)
-```
-
-## License
-```
-MIT License
-
-Copyright (c) 2018 Moritz Marquardt
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 ```
