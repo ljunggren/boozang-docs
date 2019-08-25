@@ -266,49 +266,52 @@
 <p>The element path has the following operations. Boozang uses an expanded version of the jQuery selction standard to create a more human-readable code to identify elements. The basic pattern is that the lowercase jQuery standard operations, while uppercase operations are case-insensitive. All recordings will generate Uppercase operations by default. The operations that will be recorded for a test-case is marked by an asterix (*) </p>
 <ul>
 <li>
-<p>nodeContains (*):  Is true if the selected element (case-insensitive) have the exact string alongside other strings</p>
-<pre><code>Ex:div:match(lws)
+<p><code>contains (*)</code>:  Is true if the selected element (case-insensitive) have the exact string alongside other strings</p>
+<pre><code>Ex:div:endContains(lws)
 Yes:&lt;div&gt;lws ok&lt;/div&gt;
 No:&lt;div&gt;lwsok&lt;/div&gt;
 Yes:&lt;div&gt;lws &lt;span&gt;ok&lt;/span&gt;&lt;/div&gt;
 No: &lt;div&gt;&lt;span&gt;lws&lt;/span&gt;&lt;/div&gt;</code></pre>
+<pre><code></code></pre>
 </li>
+<li><code>equals (*)</code>: Is true if the selected element (case-insensitive) have the exact string</li>
+</ul>
+<pre><code>  Ex:div:endEquals(lws)
+  Yes:&lt;div&gt;lws&lt;/div&gt;
+  No: &lt;div&gt;lws ok&lt;/div&gt;
+  No: &lt;div&gt;lwsok&lt;/div&gt;
+  No: &lt;div&gt;&lt;span&gt;lws&lt;/span&gt;&lt;/div&gt;</code></pre>
+<ul>
 <li>
-<p>nodeEquals (*): Is true if the selected element (case-insensitive) have the exact string</p>
+<p><code>Contains</code>: Is true if the selected element or any of it's children (case-sensitive) have the exact string alongside other strings</p>
 <pre><code>Ex:div:equals(lws)
-Yes:&lt;div&gt;lws&lt;/div&gt;
-No: &lt;div&gt;lws ok&lt;/div&gt;
-No: &lt;div&gt;lwsok&lt;/div&gt;
-No: &lt;div&gt;&lt;span&gt;lws&lt;/span&gt;&lt;/div&gt;</code></pre>
-</li>
-<li>nodeOrChildrenEquals: Is true if the selected element or any of it's children (case-sensitive) have the exact string alongside other strings
-<pre><code>Ex:div:equal(lws)
 Yes:&lt;div&gt;&lt;span&gt;lws&lt;/span&gt;&lt;/div&gt;
-No: &lt;div&gt;lws ok&lt;/div&gt;</code></pre></li>
+No: &lt;div&gt;lws ok&lt;/div&gt;</code></pre>
+</li>
 <li>
-<p>nodeOrChildrenEquals (*): Is true if the selected element or any it's children (case-insensitive) matches</p>
+<p><code>Equals (*)</code>: Is true if the selected element or any it's children (case-insensitive) have the exact string</p>
 <pre><code>Ex: div:Contains(lws)
 Yes:&lt;div&gt;&lt;span&gt;LWs ok&lt;/span&gt;&lt;/div&gt;
 No: &lt;div&gt;lwsok&lt;/div&gt;</code></pre>
 </li>
 <li>
-<p>nodeOrChildrenContainsWord: Is true if the selected element and all it's children (case-insensitive) matches</p>
+<p><code>contains</code>: Is true if the selected element and all it's children (case-insensitive) matches</p>
 <pre><code>Ex: div:Contains(lws)
 Yes:&lt;div&gt;&lt;span&gt;lws ok&lt;/span&gt;&lt;/div&gt;
 Yes:&lt;div&gt;lwsok&lt;/div&gt;
 No: &lt;div&gt;lwok&lt;/div&gt;</code></pre>
 </li>
-<li>
-<p>RowCol (*):</p>
-<pre><code>Ex: TD:RowCol([value|name])
-Yes:&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;name&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;value&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;
+<li><code>RowCol (*)</code>: Used to identify table cell (case-sensitive).</li>
+</ul>
+<pre><code>  Ex: TD:RowCol([value|name])
+  Yes:&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;name&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;value&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;
 
-No: &lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;name&lt;/td&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;VALUE&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;</code></pre>
-</li>
+  No: &lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;name&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;VALUE&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;</code></pre>
+<ul>
 <li>
-<p>rowcol:</p>
+<p><code>rowcol</code>: Used to identify table cell (case-insensitive).</p>
 <pre><code>Ex: TD:rowcol([value|name])
 Yes:&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;NAME&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;VALUE&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;
@@ -316,13 +319,15 @@ Yes:&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;NAME&lt;/td&gt;&lt;/tr&gt;
 No: &lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;name&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;value1&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;</code></pre>
 </li>
-<li>near (*):
+<li>
+<p>`near (*): Used to identify form input box based on label selection (case-insesitive). </p>
 <pre><code>Ex: input:near(name)
 Yes:&lt;div&gt;&lt;label&gt;name: &lt;input/&gt;&lt;/label&gt;&lt;/div&gt;
 Yes:&lt;div&gt;&lt;label&gt;name: &lt;/label&gt;&lt;input/&gt;&lt;/div&gt;
 Yes:&lt;tr&gt;&lt;td&gt;Name&lt;/td&gt;&lt;td&gt;&lt;input/&gt;&lt;/td&gt;&lt;/tr&gt;
 No: &lt;div&gt;name&lt;/div&gt;&lt;div&gt;&lt;label&gt;value&lt;/label&gt;&lt;input/&gt;&lt;/div&gt;</code></pre>
-<h3 id="element-policy">Element policy</h3></li>
+<h3 id="element-policy">Element policy</h3>
+</li>
 </ul>
 <p>Under the kebab menu you can also access the element policy. </p>
 <p><img src="images/element-policy.png" alt="example image" title="An exemplary image" /></p>
@@ -336,7 +341,11 @@ No: &lt;div&gt;name&lt;/div&gt;&lt;div&gt;&lt;label&gt;value&lt;/label&gt;&lt;in
 <p>Tip: In normal playmode the user is asked if the test should be repaired. In Repair mode the AI repair is always launched, and in Automation mode AI repair is never launched. </p>
 <h2 id="action-types">Action types</h2>
 <h3 id="mouse-event">Mouse event</h3>
+<p>This event corresponds to a mouse action, meaning a click or a movement of the mouse. By default, Boozang captures on clicks in the recording (otherwise the recording becomes very noisy catching too many events). The exception to this is when holding the mouse button down, to emulate drag and drop. In this case Boozang registers a particular drag-and-drop event.  You can add mouse events manually to emulate mouse-over event and to create specific mouse conditions. </p>
+<p>Tip: In the case of for instance form fills it can be useful to try both using key-presses and mouseclicks to see what works best. </p>
 <h3 id="keyboard-event">Keyboard event</h3>
+<p>This event corresponds to a keypress. This is captured in the recording for every time a key is pressed. </p>
+<p>Tip: In the case of for instance form fills it can be useful to try both using key-presses and mouseclicks to see what works best. </p>
 <h3 id="validation">Validation</h3>
 <p><strong>Creating a simple validation</strong></p>
 <p>In a test, it´s common to make sure that a certain outcome is achieved. In Boozang we do this using validation, also known as assertions. To create a validation, simply click on the validation icon and select the element to validate in the application window. The default validation content format: &quot;validate exists&quot; will be created. If you want to change the validation content format to &quot;innerText&quot;, &quot;data&quot;, or &quot;screenshot&quot; you can do this in the tool window. </p>
@@ -345,9 +354,10 @@ No: &lt;div&gt;name&lt;/div&gt;&lt;div&gt;&lt;label&gt;value&lt;/label&gt;&lt;in
 <p><strong>Inner Text</strong></p>
 <p>If you want to validate the content of an element, change the Content format dropdown to innerText. This way the text content of an element is compared. When changing this, the result box will be populated with the content from your application but can be changed manually. This is very useful for string comparisons. One advantage of using Inner Text is that upon validation failure, the report will contain the difference between expected and real result. </p>
 <p><strong>Data</strong></p>
-<p>The data format is very powerful, but TODO</p>
+<p>The data format is very powerful, and looks for a set of data inside the selected area. Usually it´s combined using data variables.</p>
 <p><strong>Screenshot</strong></p>
-<p>You can also choose to take a picture of the element and compare that to the image of an element of future runs. This is useful TODO</p>
+<p>You can also choose to take a picture of the element and compare that to the image of an element of future runs. This is useful when doing exact pixel by pixel comparisons, but should be used with caution as changing image dimensioning can make this assetion fail. </p>
+<p>Tip: It can be useful when needing to create assertions on indicators or switches, that only changes visually and code stays the same. </p>
 <p><strong>The DOM picker</strong></p>
 <p>Sometimes the element you selected in the page isn't the one you intended. In this case, simply click the DOM picker and re-select the element. The DOM picker dialog will popup where you can select exactly what to validate in the DOM tree. Use the checkboxes to select which elements to include in the matching. Make sure that the checkbox has a green highlight, which means the element is uniquely matched (not indexed).</p>
 <p><strong>Javascript validations</strong></p>
@@ -355,7 +365,7 @@ No: &lt;div&gt;name&lt;/div&gt;&lt;div&gt;&lt;label&gt;value&lt;/label&gt;&lt;in
 <pre><code>(function(){
     //return true/false;
     })()</code></pre>
-<p>and must return true or false. If an element has been picked with the DOM picker this will be available using the handle $element. Standard data handles, such as $project, $module, and $test will also be available, as well as the test window handles $TW. For more information about data see <a href="/doc/data.html">data</a> section. </p>
+<p>and must return true or false. If an element has been picked with the DOM picker this will be available using the handle <code>$element</code>. Standard data handles, such as <code>$project</code>, <code>$module</code>, and <code>$test</code> will also be available, as well as the test window handles <code>$TW</code>. For more information about data see <a href="/doc/data.html">data</a> section. </p>
 <h3 id="extract-data">Extract data</h3>
 <p>Note: For API versions of these actions check the API section. </p>
 <p><img src="../images/action-extract.png" alt="example image" title="An exemplary image" /></p>
@@ -366,7 +376,7 @@ No: &lt;div&gt;name&lt;/div&gt;&lt;div&gt;&lt;label&gt;value&lt;/label&gt;&lt;in
 <p><strong>Extracting data action</strong></p>
 <p>To add an extract data action, simply click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. </p>
 <h3 id="javascript">Javascript</h3>
-<p><img src="../images/action-javascript.png" alt="example image" title="An exemplary image" /></p>
+<p><img src="/images/action-javascript.png" alt="example image" title="An exemplary image" /></p>
 <p><strong>The Javascript action</strong></p>
 <p>Boozang also allows you to execute Javascript directly in the application. This can be very useful when trying to do more advanced things that aren't covered by the set of actions Boozang has out-of-the-box. </p>
 <p><strong>The handles</strong></p>
@@ -389,23 +399,25 @@ No: &lt;div&gt;name&lt;/div&gt;&lt;div&gt;&lt;label&gt;value&lt;/label&gt;&lt;in
 <p><img src="../images/test-data.png" alt="example image" title="An exemplary image" /></p>
 <h3 id="introduction-to-data-types">Introduction to data types</h3>
 <p>Boozang supports a number of different data types: Property, Object, Array, CSV, File, Request data and JS (Javascript function). </p>
-<h3 id="properties">Properties</h3>
-<p>The property is a simple name-value pair and can be referenced directly. For instance, a property username = boozang added on test-level, can be referenced {{$test.username}} (=boozang). Pro-tip: You can verify this in execution by printing it to your application console window by creating the following Javascript action $TW.console.log($test.username).</p>
-<h3 id="objects">Objects</h3>
-<p>Objects in Boozang are the one-level sub-set of JSON objects and are ideal for grouping related data together. For instance, create the Object loginInfo and add username = boozang and password = p@ssw0rd. The data can be referenced by typing {{$test.loginInfo.username}} and {{$test.loginInfo.password}}.</p>
-<h3 id="array">Array</h3>
+<p><strong>Properties</strong></p>
+<p>The property is a simple name-value pair and can be referenced directly. For instance, a property username = boozang added on test-level, can be referenced <code>{{$test.username}} (=boozang)</code>. </p>
+<p>Pro-tip: You can verify this in execution by printing it to your application console window by creating the following Javascript action <code>$TW.console.log($test.username)´</code>.</p>
+<p><strong>Objects</strong></p>
+<p>Objects in Boozang are the one-level sub-set of JSON objects and are ideal for grouping related data together. For instance, create the Object loginInfo and add username = boozang and password = p@ssw0rd. The data can be referenced by typing <code>{{$test.loginInfo.username}}</code> and <code>{{$test.loginInfo.password}}</code>.</p>
+<p><strong>Array</strong></p>
 <p>The arrays are great for storing a list of items. </p>
 <p>Tip: Arrays can be used to drive data loops</p>
-<h3 id="csv-data">CSV data</h3>
+<p><strong>CSV data</strong></p>
 <p>CSV data allows you to handle a large collection of Objects and copy data from software such as Excel. Simply create a name for the collection, such as inventoryItems. Start by adding the field names as headings separated by tab-spaces. When you are done defining the data hit Enter and fill out the values tab separated. Pro-tip: You can copy a whole table from Excel simply by using copy-paste. </p>
 <p>Tips: CSV data can be used to drive data loops. </p>
-<h3 id="file-data">File data</h3>
+<p><strong>File data</strong></p>
 <p>File data is used to test file upload and similar user interactions. Try and use small sample files as large files tends to weight down on the test client, consuming memory or slowing down performance. It is also recommended to fetch files from an external source (see Request Data). </p>
-<h3 id="request-data">Request Data</h3>
-<p>It is also possible to fetch data from an external source. Simply type in a URL and choose CSV, JSON or File. The CSV file should be comma-separated (field1name1, fieldname2, \n value1, value2) and not tab-separated. </p>
-<h3 id="js-javascript-functions">JS (Javascript functions)</h3>
-<p>It is also possible to specify Javascript functions directly. The functions can be in two forms: Date.now() or fining the data hit Enter and fill out the values tab separated. Pro-tip: You can copy a whole table from Excel simply by using copy-paste. </p>
-<h3 id="file-data-1">File data</h3>
+<p><strong>Request Data</strong></p>
+<p>It is also possible to fetch data from an external source. Simply type in a URL and choose CSV, JSON or File. The CSV file should be comma-separated (<code>field1name1, fieldname2, \n value1, value2</code>) and not tab-separated. </p>
+<p><strong>JS (Javascript functions)</strong></p>
+<p>It is also possible to specify Javascript functions directly. The functions can be in two forms: Date.now() or fining the data hit Enter and fill out the values tab separated. </p>
+<p>Tip: You can copy a whole table from Excel simply by using copy-paste. </p>
+<p><strong>File data</strong></p>
 <p>File data is used to test file upload and similar user interactions. Try and use small sample files as large files tends to weight down on the test client, consuming memory or slowing down performance. It is also recommeded to fecth files from an external source (see Request Data). </p>
 <h2 id="advanced-action-types">Advanced action types</h2>
 <h3 id="visit-links">Visit links</h3>
@@ -467,109 +479,11 @@ Accept:&quot;json&quot;
 <p><strong>Data Conversion</strong></p>
 <p><strong>Extracting data action</strong></p>
 <p>To add an extract data action, simply click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. </p>
-<h2 id="ai-build-login--logout-cases">AI build login / logout cases</h2>
-<h2 id="features-1">Features</h2>
-<ul>
-<li>Search function</li>
-<li>Language selection</li>
-<li>Pagination (previous/next)</li>
-<li>Syntax highlighting</li>
-<li>Customizable sidebar and footer</li>
-<li>Configurable accent color</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<p>To use the template, set it up in your <code>couscous.yml</code> configuration file:</p>
-<pre><code class="language-yaml">template:
-    url: https://github.com/moqmar/mintlook-couscous</code></pre>
-<p>You should also add the file <a href="https://github.com/moqmar/mintlook-couscous/blob/master/404.html"><code>404.md</code></a> to your documentation and configure your webserver to point to <code>/404.html</code> on missing pages.</p>
-<p>A file <code>icon.png</code> in the project root (<code>baseUrl</code>) will be used as a favicon.</p>
-<h2 id="configuration">Configuration</h2>
-<pre><code class="language-yaml">title: Couscous # Page Title
-logo: https://cdn0.iconfinder.com/data/icons/ie_Shine/128/shine_19.png # Icon URL
-color: "#d21"   # Accent color
-
-languages: ["en", "de"] # List of supported languages. Comment out to disable language selection.
-defaultLanguage: world  # Default language icon, and the value of the html lang attribute. It is recommended to set this even (especially) if you're not using language selection.
-
-search: true # Enable search
-scripts:
-    after:
-        - php .couscous/generated/.scripts/generate-search-index.php # Required for search
-        - rm -rf .couscous/generated/.scripts # Clean up unneccessary files
-
-sidebar:
-    - title: About mintlook
-    - subtitle: Links
-    - text: Homepage
-      link: https://moqmar.github.io/mintlook # absolute link
-    - text: Mintlook and Couscous
-      page: / # relative link
-    - line: true
-    - html: |
-            &lt;p&gt;Follow us on &lt;a href=""&gt;Facebook&lt;/a&gt;, &lt;a href=""&gt;Twitter&lt;/a&gt;, and other &lt;a href=""&gt;social networks&lt;/a&gt;.&lt;/p&gt;
-# you can also define the sidebar per language
-sidebar:
-  de:
-    - title: Über mintlook
-  default: # fallback for all other languages
-    - title: About mintlook
-
-footer: |
-    Hello &lt;strong&gt;World&lt;/strong&gt;
-# you can also define the footer per language
-footer: # fallback for all other languages
-  de: Hallo &lt;strong&gt;Welt&lt;/strong&gt;
-  default: Hello &lt;strong&gt;World&lt;/strong&gt;</code></pre>
-<h3 id="language-selection">Language selection</h3>
-<p>If the <code>languages</code> configuration option is set, you should have a directory structure in the form of <code>/&lt;language&gt;/&lt;...&gt;</code>, with the pages in the <code>defaultLanguage</code> located at just <code>/&lt;...&gt;</code> - e.g. <strong>/de/something.html</strong> for the german version and <strong>/something.html</strong> for the english version.</p>
-<p>Setting the <code>defaultLanguage</code> to <code>world</code>, enforces the <code>/&lt;language&gt;/&lt;...&gt;</code> structure for all sites, and shows a world map instead of a flag for the language selection on pages not adhering to that structure.</p>
-<p>You can also override the displayed language for a single file using the <code>pageLanguage</code> metadata field.</p>
-<p>If you want to automatically go to the user's browser language, you can use the following <code>index.html</code> file in your repository:</p>
-<pre><code class="language-html">&lt;!doctype html&gt;
-&lt;!-- default language --&gt;
-&lt;meta http-equiv="refresh" content="1; URL=en/"&gt;
-&lt;!-- browser language --&gt;
-&lt;script&gt;
-var supportedLanguages = ["en", "de"]; // Should be the same as in couscous.yml
-for (var i in navigator.languages) if (supportedLanguages.indexOf(navigator.languages[i]) &gt; -1) {
-    location.replace(navigator.languages[i] + "/"); break;
-}
-&lt;/script&gt;</code></pre>
-<h3 id="document-metadata">Document metadata</h3>
-<pre><code class="language-yaml">noIndex: false              # if true, the document will be excluded from search index
-
-description: A page.        # description as shown in search, also used for metaDescription if not explicitly set
-metaDescription: A page.    # description as used for the &lt;meta name="description"&gt; content
-
-pageLanguage: en            # language of the page
-
-prev: /page-before.md       # previous page if pagination is used
-prevTitle: The Page Before  # title of previous page (default would be "page-before" here)
-
-next: /test/example.md      # next page if pagination is used
-nextTitle: An example page  # title of next page (default would be "example" here)</code></pre>
-<h2 id="license">License</h2>
-<pre><code>MIT License
-
-Copyright (c) 2018 Moritz Marquardt
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</code></pre>
+<h2 id="ai-build-login--logout-case">AI build login / logout case</h2>
+<pre><code>
+Copyright (c) 2019 Boozang Technologies Inc.
+</code></pre>
+<pre><code></code></pre>
 <!-- CONTENT END -->
 
             </article>
