@@ -87,7 +87,7 @@ Boozang is completely hosted in the Cloud and supports running from client-side 
 
 **Installing the Chrome extension** 
 
-For users without access to the application web root, or for users who want to do cross-domain testing, we  provide a Chrome extension. The Chrome extension can be downloaded from the Chrome web store [here] (https://chrome.google.com/webstore/detail/boozang-ai/bnaebcjlolajbgllgjlmlfobobdemmki). To launch the Boozang tool using the Chrome extension, simply click "Launch" in the Cloud manegement interface, and you will be prompted to install the Chrome extension. 
+For users without access to the application web root, or for users who want to do cross-domain testing, we  provide a Chrome extension. The Chrome extension can be downloaded from the Chrome web store [here](https://chrome.google.com/webstore/detail/boozang-ai/bnaebcjlolajbgllgjlmlfobobdemmki). To launch the Boozang tool using the Chrome extension, simply click "Launch" in the Cloud manegement interface, and you will be prompted to install the Chrome extension. 
 
 **Installing the bz fragment**
 
