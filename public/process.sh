@@ -1,5 +1,6 @@
 couscous clear
 couscous generate
+rm -rf .couscous/generated/public/
 cp -r .couscous/generated/* public/
 git add public/*
 git add README.md
