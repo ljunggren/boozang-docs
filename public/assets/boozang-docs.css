@@ -122,10 +122,10 @@ article img {
 	main {
 		flex-direction: row;
 	}
-
-	article {
+article {
 		width: 60%;
 		padding: 6rem 1rem 8rem 1rem;
+		margin-left: 25%;
 	}
 }
 aside.toc {
@@ -160,14 +160,14 @@ aside.toc {
 }
 
 @media screen and (min-width: 992px) {
-	.toc {
-		position: absolute;
+	aside.toc {
+		position: fixed;
 		bottom: 0;
 		overflow: hidden;
 		overflow-y: auto;
 		width: 25%;
 		line-height: 20px;
-		padding: 4rem 1rem 4rem 2rem;
+		padding: 3rem 1rem 4rem 2rem;
 	}
 	.toc::-webkit-scrollbar-track {
 		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -188,14 +188,14 @@ aside.toc {
 	.toc li {
 		margin-bottom: 7px;
 	}
-	.livetoc {
-		position: fixed;
+	aside.toc.livetoc {
+		/* position: fixed; */
 	}
 	.livetoc a.active {
 		color: #04ab90;
 		font-weight: bold;
 	}
-}
+}}
 /* @media screen and (min-width: 1800px) {
 	.toc {
 		width: 250px;

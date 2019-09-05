@@ -38,7 +38,7 @@ Boozang is built for Test-driven and Behavior-driven development minus the progr
 
 **Linkability**
 
-Boozang is completely built-in Javascript and being CLoud-based there is no need for any client-side installation. Simply add an HTML-fragment to your site to activate it for testing.
+Boozang is completely built-in Javascript and being Cloud-based there is no need for any client-side installation. Simply add an HTML-fragment to your site to activate it for testing.
 
 **Cross-browser support**
 
@@ -65,44 +65,6 @@ Boozang supports any application that runs in the web browser. Boozang also supp
 Since March 2019, Boozang also fully supports Shadow DOM / Web Components. 
 
 Boozang does not support any testing of native IOS and Android application, or any desktop-based applications. 
-
-## Security
-
-**Fragment security**
-
-When installing the bz-fragment we get the 
-
-**GDPR**
-
-As we are running locally in your web browser it´s been easier to be GDPR compliant than for regular Cloud-testing services. We recommend that you'll host sensitive test data in CSV files hosted on your servers. That way, the data will never be loaded into our Cloud, and simply be present in the browser local storage on the test computers.
-
-**Hosting**
-
-In our Cloud, we simply host the data you enter into our system and the tests, including our proprietary element selectors. To get an understanding of the kind of data we store, you can look at the Source tab on any test. Our servers are located in Canada. 
-
-## Trade-offs
-
-There are several limitations to the Boozang technology, some that are a limiting factor of the technology and security of the browser context, and others that are conscious product decisions. Here is an attempt to address some of them head-on.
-
-**Only web**
-
-Boozang support only testing web and hybrid applications. There are plenty of good tools to test native and desktop applications in the market, and we will be happy to recommend some. When doing testing across web and native/desktop, we recommend driving the tests on the web over Boozang, while driving the other tests over another tool. Boozang has excellent support to read data from external sources and is designed to be able to have a source of truth outside the tool. 
-
-**No tests are driven from the Cloud**
-
-Boozang doesn´t currently drive your tests from the Cloud. The Boozang technology allows us to host your tests and allow you to drive them locally from your browser. This has the benefits that we can operate behind your company firewall without any problem. It also means that you can host the test data locally, and serve it up to your local web browser. 
-
-As our test runner is open source and can be used and modified freely, we welcome companies and Cloud testing providers to do so, and we welcome serious partnership proposals. 
-
-**Limited BI** 
-
-Long-term we will expand our reporting capability and business intelligence functions. As we expose our reports in both JSON and HTML, and fully support integration over REST or via our test-runner (DIY), we are welcoming you to integrate into your Business Intelligence system of choice, and for you to see Boozang as one source of insights among many.
-
-**Frequent Maintenance Releases**
-
-We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this time-slot works for both European and American customers, and amounts to maximum 30 seconds of service down-time). This means that we generally can provide less than one-week turn-around on bugs reported by our customers.
-
-  
 
 # Getting started
 
@@ -159,7 +121,7 @@ For very complex application it can sometimes be useful to introduce sub-modules
 
 Boozang works within the browser which allows for a very stable recording function. Simply click on the record button in the tool. As you perform actions on your web page actions will be recorded. To remove an un-wanted action that was recorded simply press the trashbin next to the action in the main tool view. 
 
-As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports 3 different playback modes: Normal, demo and debugs mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlights the error and allows you to correct it on the fly. When you have corrected the error simple press the play button again and the test will continue its execution. This is very useful when updating a test after a big code change. 
+As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports four different playback modes: Normal, demo, debug and automation mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlights the error and allows you to correct it on the fly. When you have corrected the error simple press the play button again and the test will continue its execution. This is very useful when updating a test after a big code change. 
 
 A test is automatically saved in the local storage of the browser. As soon as you update a test, the test will be checked out by you, and it will appear as locked for your team-mates, which prevents them from making changes. As soon as you click save the test will be saved on the Boozang server, and the lock will be automatically removed, allowing other team members to make changes. 
 
@@ -671,13 +633,17 @@ The comment actions add a comment, or annotation, to the application. To add a c
 
 When running a test with comments, the test will execute and stop at the first comment. To go to the next comment, simply press play again and the test will continue executing until it finishes or hits the next comment. This is very useful when fixing look & feel issues, as several issues can be recorded in the same test case. 
 
-## Refresh
+## Refresh window/Load page
 
+The refresh window/load page action is used to force a reload of th browser window. This can also be used to force loading a new page (meaning going to a new page without having to navigate to it). There is also an option to **Clear Cookies** and **Clear Localstorage**.
 
+**Note**: There are security limitations for what a browser allows being deleted. For instance, the browser does not allow session cookies to be deleted, so this cannot be triggered from the Boozang tool.
 
-## Advanced action types
+## Visit Links
 
-**Visit links**
+The visit links action is used to automatically crawl a set of pages based on a navigation bar. In order to crawl a full navigation panel, such as a side navigation or hamburger menu, select this in the **Panel** option. **Target element** defaults to "A" tags, but can be changed using the DOM picker in case the navigation contains a different element than regular links. It's possible to execute a script before each click, but this can normally be left blank.
+
+For each click it´s normal to call a test case. Use **Goto Test Case** to select a downstream test case. This test case will be called for each link in the selected navigation panel.
 
 # Using data
 
@@ -730,24 +696,110 @@ File data is used to test file upload and similar user interactions. Try and use
 
 
 ## Data binding
-**Binding from forms to variables**
 
-**Binding from variables to forms**
+**A note on form fills and data**
+
+When recording a test, any data entered into a form will be recorded as well. Usually this will happen when pressing enter, tab key or simply when using the mouse to click the next field or submitting the form. Sometimes it's sufficient to record a test with a certain hard-coded set of data. More often, it´s desirable to capture data into variables so that the test can be re-used for several different sets of data. Boozang makes this very easy to do.  
+
+**Binding from forms to data**
+
+One way of capturing data into variables, is to start on the application side. When entering data into the form, simply click the "Bind data" checkbox in the toolbar and select the data scope you would like to capture the data. While typing, you can see that you are promted to save the data in a variable. When you fully typed out the field, simply click the desired field name and you the data will be saved at the appropriate data scope that you selected.
+
+**Binding from data to forms**
+
+There is also a different way to fill the data. Start by entering the data (normally as a JSON object) and after this click the "Bind data" checkboxa and select the data scope where you entered the data. When starting typing you can see that the data in the data scope is suggested to you. Simply click on the suggested data, and it will be automatically typed into the form for you, and bound into the event action.
+
+**Auto-filling forms from data**
+
+As you can see, any data key names that correspond (matches case-insensitive / white-space insensitive) to the form labels will be suggested when binding data to forms. If you have organized your data well and made sure all data keys matches the form labels, you can simply click the Autofill-link and all the form events will be generated automatically.
+
+Tip: This can greatly speed up test creation of form fill tests, so try and learn this naming convention.  
 
 ## Advanced data functionality
 **Boozang regular expression engine**
 
+Boozang also supports a regular expression engine that can generate random data that complies to a certain regular expression. This can be useful when generating random test data, but also when creating tests to make sure certain field constraints are being enforced. 
+
 **Setting up regular expressions**
+
+To set up a new regular expression, click Settings -> Content Policy and scroll down to the regular expressions. Here you can find a number of pre-defined regexps and associated lables. First make sure the type of regular expression isn´t in the list. As a phone number or zipcode will vary from country to country, it´s natural that these are modifed to match your specific project. 
+
+Also make sure that all possible labels are matching the indicated regular expressions. This way, auto-fill functionality and future AI functions will be able to better idendify different fields and make "better guesses".  
+
+**Setting up a new regular expression**
+
+To setup avnew regular expression, simply click new and add in the necessary fields. The Field mapping will determine which form labels to look for when trying to match data. Use the OR sign ("|") to seperate several fields. 
 
 **Using auto-fill functionality**
 
+When using the auto-fill functionality in the toolbar the Boozang tool without choosing to data-bind, Boozang will use the regexp engine to generate data into the form. When recording this can be used to quickly create test cases with temp data. 
+
 **Binding auto-fill with data-bind**
+
+When enabling data bind and clicking autofill form, Boozang will look in the current data scope for matching data. If that isn´t found, Boozang will use the regexp engine to generate the data in the current scope, and automatically bind the data scope to the form. This is a great way to quicky create a data-driven test case.
+
+Tip: Using autofill with data bind on `$parameter` scope is a quick way to create a very versatile  data-driven test case. 
+
+## Troubleshooting data
+
+**Console window**
+
+When running a test it is sometikes desirable to inspect the data that is being run. In many cases, upstream test cases are sending data as parameters, and it gets even more tricky when data is being loaded from external data sources or Javascript functions. In order to inspect the data that is being used, you can use the console window. This window is located in the hamburger menu and allows users to spy on data.
+
+**Tmp data**
+
+There is also another way to inspect data and do more advanced trouble-shooting. For each action, in the action details menu you can find a link called "Tmp data". This data is updated every time a test is run and will show the data that was used when the action was run. This also allows you to keep the last input data that was used, and replay the action with this data.
+
+To re-run the action with the data displayed, simply check the checkbox "As initial data for playing the action". In order to keep this data (not override the data in the next run) hit the "keep" button, and the data will be saved in the keep tab. 
+
+Tip: Hit keep and Save to save the action data in data-base to trouble-shoot with other team members.
 
 # Settings
 
 ## Environment
+
+In the Environment tab you can find a number of useful functionality. You can manage environments and different application interfaces, configure settings on an application interface level and also setup AI login / logout for diffrent roles / users.
+
+**Enviroment and application interfaces**
+
+There has been some confusion around environment and application interfaces, so it's important to make sure you get this right as it will save you potential work in the future. Environments signifies an environment, such as *development*, *staging*, *QA* or *production*. By specifying different entry URLs for these environments test become completely re-usable. This means there is no need to maintain different tests or projects across different enviroments. Simply change the environment setting and re-run the same test.
+
+The application interface setting handles when there are different applications within the same environment. For instance, in the E-commerce case, there might be a *storefront* and a *mgmt* interface. When creating a test, simply pick the interface that the test is for. If this changes during the course of the project, it simply has to be changed in one place, not across several tests.
+
+**Advanced / Configure**
+
+This setting allows you to configure certain things on an Environment / App interface level. These settings will typically be things that could vary across environments, such as delays and other performance related settings. 
+
 ## Content-policy
+
+Content policy contains a number of advanced features. Nevertheless, spending some time here to fine-tune the project can increase the stability of tests and also speed-up test creation significantly.
+
+**Ignore validation on pop window**
+
+When checked, any pop windows (alerts, prompts, confirm pop up dialogs) will not be verified by Boozang. When un-checked, Boozang will add assertion during recording based on pop windows that appeared. On playing back the tests, Boozang will make sure that the same pop windows appears as during the recording, and fail the test otherwise. 
+
+**Ignore Classes**
+
+Normally when clicking or asserting an element, classes are ignored. There is also an explicit setting for you to highlight your dynamic classes to make sure it´s ignored. 
+
+**Text Attribute**
+
+**Clickable Elements**
+
+A lit of elements that are clickable in your application. Add elements here to be able to easily capture clicks on these elements during recording. 
+
+**Customize Input Component**
+
+Use this to record customized input components. This will allow you to capture customized drop-down and special controls, such as date-pickers.
+
+Tip: After setting up a date-pickers,t his can be recorded as a single action, and data can be used in the format you specify (for instance: YYYY-MM-DD).
+
+**Attribute Content for Autofill**
+
+Use this to set regular expressions to be used for content generation. 
+
 ## Preferences
+
 ## Notifications
 # Other tool views
 
@@ -845,6 +897,42 @@ To add an extract data action, simply click on the Plus icon and select Extract 
 ## AI build login / logout case
 
 # References
+
+## Security
+
+**Fragment security**
+
+When installing the bz-fragment we get the 
+
+**GDPR**
+
+As we are running locally in your web browser it´s been easier to be GDPR compliant than for regular Cloud-testing services. We recommend that you'll host sensitive test data in CSV files hosted on your servers. That way, the data will never be loaded into our Cloud, and simply be present in the browser local storage on the test computers.
+
+**Hosting**
+
+In our Cloud, we simply host the data you enter into our system and the tests, including our proprietary element selectors. To get an understanding of the kind of data we store, you can look at the Source tab on any test. Our servers are located in Canada. 
+
+## Trade-offs
+
+There are several limitations to the Boozang technology, some that are a limiting factor of the technology and security of the browser context, and others that are conscious product decisions. Here is an attempt to address some of them head-on.
+
+**Only web**
+
+Boozang support only testing web and hybrid applications. There are plenty of good tools to test native and desktop applications in the market, and we will be happy to recommend some. When doing testing across web and native/desktop, we recommend driving the tests on the web over Boozang, while driving the other tests over another tool. Boozang has excellent support to read data from external sources and is designed to be able to have a source of truth outside the tool. 
+
+**No tests are driven from the Cloud**
+
+Boozang doesn´t currently drive your tests from the Cloud. The Boozang technology allows us to host your tests and allow you to drive them locally from your browser. This has the benefits that we can operate behind your company firewall without any problem. It also means that you can host the test data locally, and serve it up to your local web browser. 
+
+As our test runner is open source and can be used and modified freely, we welcome companies and Cloud testing providers to do so, and we welcome serious partnership proposals. 
+
+**Limited BI** 
+
+Long-term we will expand our reporting capability and business intelligence functions. As we expose our reports in both JSON and HTML, and fully support integration over REST or via our test-runner (DIY), we are welcoming you to integrate into your Business Intelligence system of choice, and for you to see Boozang as one source of insights among many.
+
+**Frequent Maintenance Releases**
+
+We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this time-slot works for both European and American customers, and amounts to maximum 30 seconds of service down-time). This means that we generally can provide less than one-week turn-around on bugs reported by our customers.
 
 ```
 
