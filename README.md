@@ -607,17 +607,17 @@ Boozang also allows you to execute Javascript directly in the application. This 
 
 **The handles**
 
-When writing Javascript there are some particularities in Boozang that needs to be respected. To access the application window, you will have to use the handle $TW (test window). This means to be able to manipulate the application window document tree (DOM) the user needs to use $TW.document. When referencing the only document it references the Boozang tool window, not the application window.
+When writing Javascript there are some particularities in Boozang that needs to be respected. To access the application window, you will have to use the handle `$TW (test window)`. This means to be able to manipulate the application window document tree (DOM) the user needs to use `$TW.document`. When referencing the only document it references the Boozang tool window, not the application window.
 
 **Using data (variables)**
 
-In Boozang you can reference data directly in Javascript. To access data, use the handles $project, $module, or $test, depending on what level the data was added. For instance, to reference a username that was added on the module level, use $module.username. 
+In Boozang you can reference data directly in Javascript. To access data, use the handles `$project`, `$module`, or `$test`, depending on what level the data was added. For instance, to reference a username that was added on the module level, use `$module.username`. 
 
 **Trouble-shooting**
 
-To troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module-level data "username" use "console.log($module.username)" to write it to the tool window and $TW.console.log($module.username) to write it to the application window. You can use the Chrome developer tools to easily verify this.
+To troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module-level data "username" use `console.log($module.username)` to write it to the tool window and `$TW.console.log($module.username)` to write it to the application window. You can use the Chrome developer tools to easily verify this.
 
-Note: Avoid using $TW.alert() as Boozang interprets this as application popup windows and intercepts them. 
+Note: Avoid using `$TW.alert()` as Boozang interprets this as application popup windows and intercepts them. 
 
 ### Comment
 
@@ -730,7 +730,7 @@ Also make sure that all possible labels are matching the indicated regular expre
 
 **Setting up a new regular expression**
 
-To setup avnew regular expression, simply click new and add in the necessary fields. The Field mapping will determine which form labels to look for when trying to match data. Use the OR sign ("|") to seperate several fields. 
+To setup avnew regular expression, simply click new and add in the necessary fields. The Field mapping will determine which form labels to look for when trying to match data. Use the OR sign ("|") to separate several fields. 
 
 **Using auto-fill functionality**
 
@@ -802,12 +802,33 @@ Use this to set regular expressions to be used for content generation.
 
 ### Preferences
 
+This controls individual user preferences. These setting will only apply to your user and not to the project as a whole. 
+
 ### Notifications
+
+This view allows a user to setup email notifications for a report. It means that everytime a test is run from the command line any users that has subscribed to notifications will recieve the report in his/her mailbox. To test out the notifications from the tool, make sure to run the test in Automation play mode. This will trigger the notifications.
+
+Tip: A user can only setup his/her won email notifications. This allows team collaborators to simply opt-in and opt-out from report emails, and prevents un-wanted spamming.
+
 ## Other tool views
 
 ### Reports
 
 **The report view**
+
+The main report view contains the report from the test that was run in the browser last. The report view reflects only local runs of the test, and is not in any way a consolidated view of reports (this consolidation can be done in a data warehouse or CI server). 
+
+**The view link**
+
+In order to find tests quickly, simply click the View link to go to the test. This is especially helpful when the testing report has been sent via email. 
+
+**The diff link**
+
+If an assertion fails that has content, such as Validate -> innerText, you can use the diff link to see the difference in content between the reference and resulted response. For dynamic data, simply hover over the name to see the values that were used. 
+
+**Performance warnings**
+
+In order to highlight slow actions or tests, this can be done under Environment -> Advanced -> Performance Reminder. Here you can adjust settings than can trigger slow tests to trigger warnings or even fail tests. 
 
 ### Team
 **Adding team members**
@@ -815,6 +836,8 @@ Use this to set regular expressions to be used for content generation.
 **Access policy**
 
 **The CI user**
+
+**Chat**
 
 ### Synchronize
 ### Tools

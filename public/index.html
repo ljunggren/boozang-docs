@@ -364,12 +364,12 @@
 <p><strong>The Javascript action</strong></p>
 <p>Boozang also allows you to execute Javascript directly in the application. This can be very useful when trying to do more advanced things that aren't covered by the set of actions Boozang has out-of-the-box. </p>
 <p><strong>The handles</strong></p>
-<p>When writing Javascript there are some particularities in Boozang that needs to be respected. To access the application window, you will have to use the handle $TW (test window). This means to be able to manipulate the application window document tree (DOM) the user needs to use $TW.document. When referencing the only document it references the Boozang tool window, not the application window.</p>
+<p>When writing Javascript there are some particularities in Boozang that needs to be respected. To access the application window, you will have to use the handle <code>$TW (test window)</code>. This means to be able to manipulate the application window document tree (DOM) the user needs to use <code>$TW.document</code>. When referencing the only document it references the Boozang tool window, not the application window.</p>
 <p><strong>Using data (variables)</strong></p>
-<p>In Boozang you can reference data directly in Javascript. To access data, use the handles $project, $module, or $test, depending on what level the data was added. For instance, to reference a username that was added on the module level, use $module.username. </p>
+<p>In Boozang you can reference data directly in Javascript. To access data, use the handles <code>$project</code>, <code>$module</code>, or <code>$test</code>, depending on what level the data was added. For instance, to reference a username that was added on the module level, use <code>$module.username</code>. </p>
 <p><strong>Trouble-shooting</strong></p>
-<p>To troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module-level data &quot;username&quot; use &quot;console.log($module.username)&quot; to write it to the tool window and $TW.console.log($module.username) to write it to the application window. You can use the Chrome developer tools to easily verify this.</p>
-<p>Note: Avoid using $TW.alert() as Boozang interprets this as application popup windows and intercepts them. </p>
+<p>To troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module-level data &quot;username&quot; use <code>console.log($module.username)</code> to write it to the tool window and <code>$TW.console.log($module.username)</code> to write it to the application window. You can use the Chrome developer tools to easily verify this.</p>
+<p>Note: Avoid using <code>$TW.alert()</code> as Boozang interprets this as application popup windows and intercepts them. </p>
 <h3 id="comment">Comment</h3>
 <p><img src="../images/action-comment.png" alt="example image" title="An exemplary image" /></p>
 <p><strong>Why comment?</strong></p>
@@ -425,7 +425,7 @@
 <p>To set up a new regular expression, click Settings -&gt; Content Policy and scroll down to the regular expressions. Here you can find a number of pre-defined regexps and associated lables. First make sure the type of regular expression isn´t in the list. As a phone number or zipcode will vary from country to country, it´s natural that these are modifed to match your specific project. </p>
 <p>Also make sure that all possible labels are matching the indicated regular expressions. This way, auto-fill functionality and future AI functions will be able to better idendify different fields and make &quot;better guesses&quot;.  </p>
 <p><strong>Setting up a new regular expression</strong></p>
-<p>To setup avnew regular expression, simply click new and add in the necessary fields. The Field mapping will determine which form labels to look for when trying to match data. Use the OR sign (&quot;|&quot;) to seperate several fields. </p>
+<p>To setup avnew regular expression, simply click new and add in the necessary fields. The Field mapping will determine which form labels to look for when trying to match data. Use the OR sign (&quot;|&quot;) to separate several fields. </p>
 <p><strong>Using auto-fill functionality</strong></p>
 <p>When using the auto-fill functionality in the toolbar the Boozang tool without choosing to data-bind, Boozang will use the regexp engine to generate data into the form. When recording this can be used to quickly create test cases with temp data. </p>
 <p><strong>Binding auto-fill with data-bind</strong></p>
@@ -461,14 +461,25 @@
 <p><strong>Attribute Content for Autofill</strong></p>
 <p>Use this to set regular expressions to be used for content generation. </p>
 <h3 id="preferences">Preferences</h3>
+<p>This controls individual user preferences. These setting will only apply to your user and not to the project as a whole. </p>
 <h3 id="notifications">Notifications</h3>
+<p>This view allows a user to setup email notifications for a report. It means that everytime a test is run from the command line any users that has subscribed to notifications will recieve the report in his/her mailbox. To test out the notifications from the tool, make sure to run the test in Automation play mode. This will trigger the notifications.</p>
+<p>Tip: A user can only setup his/her won email notifications. This allows team collaborators to simply opt-in and opt-out from report emails, and prevents un-wanted spamming.</p>
 <h2 id="other-tool-views">Other tool views</h2>
 <h3 id="reports">Reports</h3>
 <p><strong>The report view</strong></p>
+<p>The main report view contains the report from the test that was run in the browser last. The report view reflects only local runs of the test, and is not in any way a consolidated view of reports (this consolidation can be done in a data warehouse or CI server). </p>
+<p><strong>The view link</strong></p>
+<p>In order to find tests quickly, simply click the View link to go to the test. This is especially helpful when the testing report has been sent via email. </p>
+<p><strong>The diff link</strong></p>
+<p>If an assertion fails that has content, such as Validate -&gt; innerText, you can use the diff link to see the difference in content between the reference and resulted response. For dynamic data, simply hover over the name to see the values that were used. </p>
+<p><strong>Performance warnings</strong></p>
+<p>In order to highlight slow actions or tests, this can be done under Environment -&gt; Advanced -&gt; Performance Reminder. Here you can adjust settings than can trigger slow tests to trigger warnings or even fail tests. </p>
 <h3 id="team">Team</h3>
 <p><strong>Adding team members</strong></p>
 <p><strong>Access policy</strong></p>
 <p><strong>The CI user</strong></p>
+<p><strong>Chat</strong></p>
 <h3 id="synchronize">Synchronize</h3>
 <h3 id="tools">Tools</h3>
 <p><strong>Import</strong></p>
