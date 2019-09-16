@@ -60,7 +60,7 @@
 <li>
 <p><strong>Boozang tool</strong>: Sign up at <a href="https://boozang.com">https://boozang.com</a> for free and paid license offerings.</p>
 </li>
-<li><strong>Boozang test-runner:</strong> For the Boozang Puppeteer open-source test runner see <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a> and the Docker container <a href="https://github.com/degardinn/docker-boozang">https://github.com/degardinn/docker-boozang</a></li>
+<li><strong>Boozang test-runner:</strong> For the Boozang Puppeteer open-source test runner see <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a> and the Docker container <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a></li>
 </ul>
 <h3 id="features">Features</h3>
 <p><strong>Stable to code changes</strong></p>
@@ -228,7 +228,7 @@
 <p><strong>Group</strong></p>
 <p>The group function groups actions together. This allows you do keep your test in order, and to skip a set of actions using the exit condition Exit Group. By using Else-group, this can be used to implement simple conditional functionality (compare: if / else)</p>
 <p>Tip: Use Ctrl/CMD functions to multi-select actions.</p>
-<p><strong>Make test case</strong></p>
+<p><strong>Generate test case</strong></p>
 <p>Breaks up a group of actions into a separate test and replaces the group with a reference to that test (Plug-test case). Allows you to quickly refactor your tests to remove duplicate action sequences.</p>
 <p>Use Ctrl/CMD functions to multi-select.</p>
 <p><strong>Cut / Copy /Paste</strong></p>
@@ -256,7 +256,7 @@
 <p>The DOM picker allows the user to precisely specify the element selector. During recording, Boozang will under normal circumstances be able to guess the best unique element path. In some cases,  it´s desirable to override the predetermined element path.  </p>
 <p>Common cases when the element path needs to be changed</p>
 <p><strong>Wrong element picked</strong></p>
-<p>When clicking on the element, if the wrong element is highlighted, this means the path isn´t good. Try re-packing the element. If the problem is still there, edit the element path using the DOM picker. </p>
+<p>When clicking on the element, if the wrong element is highlighted, this means the path isn´t good. Try picking the element once more using the &quot;Select element path&quot; button. If the problem is still there, edit the element path by clicking &quot;Edit element path&quot; button. This will open the DOM picker and allow you to adjust the policy for how the element is selected.</p>
 <p><strong>Element index &gt; 0</strong></p>
 <p>If the element index &gt; 0 it means that the element isn´t uniquely identified. This will be indicated by a warning. Use the DOM picker to make sure the checkbox icon turns green (meaning element index ==0).</p>
 <p><strong>Extract data</strong></p>
@@ -264,52 +264,54 @@
 <p><img src="images/dom-picker.png" alt="example image" title="An exemplary image" /></p>
 <p><strong>Element path operation</strong></p>
 <p>The element path has the following operations. Boozang uses an expanded version of the jQuery selection standard to create a more human-readable code to identify elements. The basic pattern is that the lowercase jQuery standard operations, while uppercase operations are case-insensitive. All recordings will generate Uppercase operations by default. The operations that will be recorded for a test-case is marked by an asterisk (*) </p>
-<p><code>contains (*)</code>:  Is true if the selected element (case-insensitive) have the exact string alongside other strings</p>
+<p><code>endContains (*)</code>:  Is true if the selected element (case-insensitive) have the exact string alongside other strings</p>
 <pre><code>  Ex:div:endContains(lws)
   Yes:&lt;div&gt;lws ok&lt;/div&gt;
   No:&lt;div&gt;lwsok&lt;/div&gt;
   Yes:&lt;div&gt;lws &lt;span&gt;ok&lt;/span&gt;&lt;/div&gt;
   No: &lt;div&gt;&lt;span&gt;lws&lt;/span&gt;&lt;/div&gt;</code></pre>
-<p><code>equals (*)</code>: Is true if the selected element (case-insensitive) have the exact string</p>
+<p><code>endEquals (*)</code>: Is true if the selected element (case-insensitive) have the exact string</p>
 <pre><code>  Ex:div:endEquals(lws)
   Yes:&lt;div&gt;lws&lt;/div&gt;
   No: &lt;div&gt;lws ok&lt;/div&gt;
   No: &lt;div&gt;lwsok&lt;/div&gt;
   No: &lt;div&gt;&lt;span&gt;lws&lt;/span&gt;&lt;/div&gt;</code></pre>
-<p><code>Contains</code>: Is true if the selected element or any of it's children (case-sensitive) have the exact string alongside other strings</p>
+<p><code>equals</code>: Is true if the selected element or any of it's children (case-sensitive) have the exact string alongside other strings</p>
 <pre><code>  Ex:div:equals(lws)
   Yes:&lt;div&gt;&lt;span&gt;lws&lt;/span&gt;&lt;/div&gt;
   No: &lt;div&gt;lws ok&lt;/div&gt;
 </code></pre>
-<p><code>Equals (*)</code>: Is true if the selected element or any it's children (case-insensitive) have the exact string</p>
+<p><code>Contains (*)</code>: Is true if the selected element or any it's children (case-insensitive) have the exact string</p>
 <pre><code>  Ex: div:Contains(lws)
   Yes:&lt;div&gt;&lt;span&gt;LWs ok&lt;/span&gt;&lt;/div&gt;
   No: &lt;div&gt;lwsok&lt;/div&gt;</code></pre>
-<p><code>contains</code>: Is true if the selected element and all it's children (case-insensitive) matches</p>
-<pre><code>  Ex: div:Contains(lws)
+<p><code>contains</code>: Is true if the selected element and all it's children (case-sensitive) matches</p>
+<pre><code>  Ex: div:contains(lws)
   Yes:&lt;div&gt;&lt;span&gt;lws ok&lt;/span&gt;&lt;/div&gt;
   Yes:&lt;div&gt;lwsok&lt;/div&gt;
   No: &lt;div&gt;lwok&lt;/div&gt;</code></pre>
-<p><code>RowCol (*)</code>: Used to identify table cell (case-sensitive).</p>
-<pre><code>  Ex: TD:RowCol([value|name])
-  Yes:&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;name&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;value&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;
-
-  No: &lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;name&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;VALUE&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;</code></pre>
-<p><code>rowcol</code>: Used to identify a table cell (case-insensitive).</p>
-<pre><code>  Ex: TD:rowcol([value|name])
+<p><code>RowCol (*)</code>: Used to identify table cell (case-insensitive).</p>
+<pre><code>  Ex: td:RowCol([value|name])
   Yes:&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;NAME&lt;/td&gt;&lt;/tr&gt;
       &lt;tr&gt;&lt;td&gt;VALUE&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;
 
   No: &lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;name&lt;/td&gt;&lt;/tr&gt;
       &lt;tr&gt;&lt;td&gt;value1&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;</code></pre>
-<p><code>near (*)</code>: Used to identify form input box based on label selection (case-insensitive). </p>
+<p><code>rowcol</code>: Used to identify a table cell (case-sensitive).</p>
+<pre><code>  Ex: td:rowcol([value|name])
+    Yes:&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;name&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;value&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;
+
+  No: &lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;name&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;VALUE&lt;/td&gt;&lt;td&gt;1234&lt;/td&gt;&lt;/tr&gt;
+</code></pre>
+<p><code>near (*)</code>: Used to identify form input box based on labels (case-insensitive). The rule to match the first element before that share a common parent element.</p>
 <pre><code>  Ex: input:near(name)
   Yes:&lt;div&gt;&lt;label&gt;name: &lt;input/&gt;&lt;/label&gt;&lt;/div&gt;
   Yes:&lt;div&gt;&lt;label&gt;name: &lt;/label&gt;&lt;input/&gt;&lt;/div&gt;
   Yes:&lt;tr&gt;&lt;td&gt;Name&lt;/td&gt;&lt;td&gt;&lt;input/&gt;&lt;/td&gt;&lt;/tr&gt;
   No: &lt;div&gt;name&lt;/div&gt;&lt;div&gt;&lt;label&gt;value&lt;/label&gt;&lt;input/&gt;&lt;/div&gt;
+  No: &lt;div&gt;&lt;div&gt;name&lt;/div&gt;&lt;div&gt;value&lt;/div&gt;&lt;input/&gt;&lt;/div&gt;
 </code></pre>
 <h3 id="element-policy">Element policy</h3>
 <p>Under the kebab menu, you can also access the element policy. </p>
@@ -446,6 +448,8 @@
 <p>The application interface setting handles when there are different applications within the same environment. For instance, in the E-commerce case, there might be a <em>storefront</em> and a <em>mgmt</em> interface. When creating a test, simply pick the interface that the test is for. If this changes during the course of the project, it simply has to be changed in one place, not across several tests.</p>
 <p><strong>Advanced / Configure</strong></p>
 <p>This setting allows you to configure certain things on an Environment / App interface level. These settings will typically be things that could vary across environments, such as delays and other performance related settings. </p>
+<p><strong>AI login / logout (Authorization Setting)</strong></p>
+<p>This allows the user to define a number of user roles, and automatically generate login and logout scenarios for these roles. The user roles can be set as pre-requisites for tests, automatically switching between users. For more information, read more under the <strong>Model-based testing</strong> chapter. </p>
 <h3 id="content-policy">Content-policy</h3>
 <p>Content policy contains a number of advanced features. Nevertheless, spending some time here to fine-tune the project can increase the stability of tests and also speed-up test creation significantly.</p>
 <p><strong>Ignore validation on pop window</strong></p>
@@ -460,6 +464,11 @@
 <p>Tip: After setting up a date-pickers,t his can be recorded as a single action, and data can be used in the format you specify (for instance: YYYY-MM-DD).</p>
 <p><strong>Attribute Content for Autofill</strong></p>
 <p>Use this to set regular expressions to be used for content generation. </p>
+<h3 id="element-definitions">Element Definitions</h3>
+<p>Element definitions contains the classification of all elements in the customer applications. This is mostly used for for the model-based test generation. See chapter on model-based test geenration in a later chapter. </p>
+<h3 id="aliases">Aliases</h3>
+<p>Aliases are used to define shortcuts to certain test suites. This is most often used to be able to easily control which tests are being run, without having to update any upstream services, such as CI servers or similar. </p>
+<p>Image the scenario where you have a CI server that runs smoke-tests, regression tests, and full product tests. Now it's simple to simply define the aliases &quot;smoke&quot;, &quot;regression&quot;, and &quot;full&quot; and simply point these aliases to the tests in question. If you want to try to temporarily swith any of these aliases to runa  different test suite this can be done without updatin anything on the CI server.</p>
 <h3 id="preferences">Preferences</h3>
 <p>This controls individual user preferences. These setting will only apply to your user and not to the project as a whole. </p>
 <h3 id="notifications">Notifications</h3>
@@ -483,8 +492,12 @@
 <h3 id="synchronize">Synchronize</h3>
 <h3 id="tools">Tools</h3>
 <p><strong>Import</strong></p>
+<p>This is used to import a project file that has been generated using the Boozang export function. This is useful when restoring a backup, or replicating a project.</p>
+<p>Note: Before running the import it's best to toally clear the exisiting project, meaning delete all modules. </p>
 <p><strong>Export</strong></p>
-<p><strong>Search</strong></p>
+<p>Use this function to export the whole Boozang project to a data file. This project export file can be saved on disk or in a secure location and restored using the import function. This can be used to backup a project, create a project duplicate, or share a project with Boozang support.</p>
+<p><strong>Batch</strong></p>
+<p>This powerful wild-card batch operation is used to search both for project, modules, tests and data. Useful for large projects to locate lost data and for doing quick project cleanups. </p>
 <h2 id="advanced-testing-methods">Advanced testing methods</h2>
 <h3 id="loops">Loops</h3>
 <h2></h2>
@@ -521,8 +534,8 @@ Accept:&quot;json&quot;
 <p><strong>Data Conversion</strong></p>
 <p><strong>Extracting data action</strong></p>
 <p>To add an extract data action, simply click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. </p>
-<h2 id="ai-functionality">AI functionality</h2>
-<h3 id="ai-build-login--logout-case">AI build login / logout case</h3>
+<h2 id="model-based-testing">Model-based testing</h2>
+<h3 id="ai-authorization">AI authorization</h3>
 <h2 id="references">References</h2>
 <h3 id="security">Security</h3>
 <p><strong>Fragment security</strong></p>

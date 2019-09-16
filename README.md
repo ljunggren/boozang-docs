@@ -18,7 +18,7 @@ Boozang test technology is divided into two parts. The proprietary part of the t
 
 * **Boozang tool**: Sign up at https://boozang.com for free and paid license offerings.
 
-* **Boozang test-runner:** For the Boozang Puppeteer open-source test runner see https://github.com/ljunggren/bz-puppeteer and the Docker container https://github.com/degardinn/docker-boozang
+* **Boozang test-runner:** For the Boozang Puppeteer open-source test runner see https://github.com/ljunggren/bz-puppeteer and the Docker container https://github.com/ljunggren/bz-docker-xvfb
 
 ### Features
 
@@ -352,7 +352,7 @@ The group function groups actions together. This allows you do keep your test in
 
 Tip: Use Ctrl/CMD functions to multi-select actions.
 
-**Make test case**
+**Generate test case**
 
 Breaks up a group of actions into a separate test and replaces the group with a reference to that test (Plug-test case). Allows you to quickly refactor your tests to remove duplicate action sequences.
 
@@ -405,7 +405,7 @@ Common cases when the element path needs to be changed
 
 **Wrong element picked**
 
-When clicking on the element, if the wrong element is highlighted, this means the path isn´t good. Try re-packing the element. If the problem is still there, edit the element path using the DOM picker. 
+When clicking on the element, if the wrong element is highlighted, this means the path isn´t good. Try picking the element once more using the "Select element path" button. If the problem is still there, edit the element path by clicking "Edit element path" button. This will open the DOM picker and allow you to adjust the policy for how the element is selected.
 
 **Element index > 0**
 
@@ -421,8 +421,7 @@ When extracting data, the data itself should not be used as an element selector.
 
 The element path has the following operations. Boozang uses an expanded version of the jQuery selection standard to create a more human-readable code to identify elements. The basic pattern is that the lowercase jQuery standard operations, while uppercase operations are case-insensitive. All recordings will generate Uppercase operations by default. The operations that will be recorded for a test-case is marked by an asterisk (*) 
 
-
-`contains (*)`:  Is true if the selected element (case-insensitive) have the exact string alongside other strings
+`endContains (*)`:  Is true if the selected element (case-insensitive) have the exact string alongside other strings
 
   ```
   Ex:div:endContains(lws)
@@ -432,7 +431,7 @@ The element path has the following operations. Boozang uses an expanded version 
   No: <div><span>lws</span></div>
   ```
 
-`equals (*)`: Is true if the selected element (case-insensitive) have the exact string
+`endEquals (*)`: Is true if the selected element (case-insensitive) have the exact string
 
   ```
   Ex:div:endEquals(lws)
@@ -442,7 +441,7 @@ The element path has the following operations. Boozang uses an expanded version 
   No: <div><span>lws</span></div>
   ```
 
-`Contains`: Is true if the selected element or any of it's children (case-sensitive) have the exact string alongside other strings
+`equals`: Is true if the selected element or any of it's children (case-sensitive) have the exact string alongside other strings
 
   ```
   Ex:div:equals(lws)
@@ -451,7 +450,7 @@ The element path has the following operations. Boozang uses an expanded version 
 
   ```
 
-`Equals (*)`: Is true if the selected element or any it's children (case-insensitive) have the exact string
+`Contains (*)`: Is true if the selected element or any it's children (case-insensitive) have the exact string
 
   ```
   Ex: div:Contains(lws)
@@ -459,30 +458,19 @@ The element path has the following operations. Boozang uses an expanded version 
   No: <div>lwsok</div>
   ```
 
-`contains`: Is true if the selected element and all it's children (case-insensitive) matches
+`contains`: Is true if the selected element and all it's children (case-sensitive) matches
 
   ```
-  Ex: div:Contains(lws)
+  Ex: div:contains(lws)
   Yes:<div><span>lws ok</span></div>
   Yes:<div>lwsok</div>
   No: <div>lwok</div>
   ```
 
-`RowCol (*)`: Used to identify table cell (case-sensitive).
+`RowCol (*)`: Used to identify table cell (case-insensitive).
 
   ```
-  Ex: TD:RowCol([value|name])
-  Yes:<tr><td></td><td>name</td></tr>
-      <tr><td>value</td><td>1234</td></tr>
-      
-  No: <tr><td></td><td>name</td></tr>
-      <tr><td>VALUE</td><td>1234</td></tr>
-  ```
-
-`rowcol`: Used to identify a table cell (case-insensitive).
-
-  ```
-  Ex: TD:rowcol([value|name])
+  Ex: td:RowCol([value|name])
   Yes:<tr><td></td><td>NAME</td></tr>
       <tr><td>VALUE</td><td>1234</td></tr>
       
@@ -490,7 +478,19 @@ The element path has the following operations. Boozang uses an expanded version 
       <tr><td>value1</td><td>1234</td></tr>
   ```
 
-`near (*)`: Used to identify form input box based on label selection (case-insensitive). 
+`rowcol`: Used to identify a table cell (case-sensitive).
+
+  ```
+  Ex: td:rowcol([value|name])
+    Yes:<tr><td></td><td>name</td></tr>
+      <tr><td>value</td><td>1234</td></tr>
+      
+  No: <tr><td></td><td>name</td></tr>
+      <tr><td>VALUE</td><td>1234</td></tr>
+
+  ```
+
+`near (*)`: Used to identify form input box based on labels (case-insensitive). The rule to match the first element before that share a common parent element.
 
   ```
   Ex: input:near(name)
@@ -498,6 +498,7 @@ The element path has the following operations. Boozang uses an expanded version 
   Yes:<div><label>name: </label><input/></div>
   Yes:<tr><td>Name</td><td><input/></td></tr>
   No: <div>name</div><div><label>value</label><input/></div>
+  No: <div><div>name</div><div>value</div><input/></div>
 
   ```
 
@@ -772,6 +773,10 @@ The application interface setting handles when there are different applications 
 
 This setting allows you to configure certain things on an Environment / App interface level. These settings will typically be things that could vary across environments, such as delays and other performance related settings. 
 
+**AI login / logout (Authorization Setting)**
+
+This allows the user to define a number of user roles, and automatically generate login and logout scenarios for these roles. The user roles can be set as pre-requisites for tests, automatically switching between users. For more information, read more under the **Model-based testing** chapter. 
+
 ### Content-policy
 
 Content policy contains a number of advanced features. Nevertheless, spending some time here to fine-tune the project can increase the stability of tests and also speed-up test creation significantly.
@@ -799,6 +804,18 @@ Tip: After setting up a date-pickers,t his can be recorded as a single action, a
 **Attribute Content for Autofill**
 
 Use this to set regular expressions to be used for content generation. 
+
+### Element Definitions
+
+Element definitions contains the classification of all elements in the customer applications. This is mostly used for for the model-based test generation. See chapter on model-based test geenration in a later chapter. 
+
+### Aliases
+
+Aliases are used to define shortcuts to certain test suites. This is most often used to be able to easily control which tests are being run, without having to update any upstream services, such as CI servers or similar. 
+
+Image the scenario where you have a CI server that runs smoke-tests, regression tests, and full product tests. Now it's simple to simply define the aliases "smoke", "regression", and "full" and simply point these aliases to the tests in question. If you want to try to temporarily swith any of these aliases to runa  different test suite this can be done without updatin anything on the CI server.
+
+
 
 ### Preferences
 
@@ -831,6 +848,7 @@ If an assertion fails that has content, such as Validate -> innerText, you can u
 In order to highlight slow actions or tests, this can be done under Environment -> Advanced -> Performance Reminder. Here you can adjust settings than can trigger slow tests to trigger warnings or even fail tests. 
 
 ### Team
+
 **Adding team members**
 
 **Access policy**
@@ -843,9 +861,17 @@ In order to highlight slow actions or tests, this can be done under Environment 
 ### Tools
 **Import**
 
+This is used to import a project file that has been generated using the Boozang export function. This is useful when restoring a backup, or replicating a project.
+
+Note: Before running the import it's best to toally clear the exisiting project, meaning delete all modules. 
+
 **Export**
 
-**Search**
+Use this function to export the whole Boozang project to a data file. This project export file can be saved on disk or in a secure location and restored using the import function. This can be used to backup a project, create a project duplicate, or share a project with Boozang support.
+
+**Batch**
+
+This powerful wild-card batch operation is used to search both for project, modules, tests and data. Useful for large projects to locate lost data and for doing quick project cleanups. 
 
 ## Advanced testing methods
 
@@ -917,9 +943,11 @@ $test.dummy = $result
 
 To add an extract data action, simply click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. 
 
-## AI functionality
+## Model-based testing
 
-### AI build login / logout case
+### AI authorization
+
+
 
 ## References
 
