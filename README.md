@@ -584,7 +584,7 @@ and must return true or false. If an element has been picked with the DOM picker
 Note: For API versions of these actions check the API section. 
 
 
-![example image](../images/action-extract.png "An exemplary image")
+![example image](images/action-extract.png "An exemplary image")
 
 **Similarities with Validation**
 
@@ -600,7 +600,7 @@ To add an extract data action, simply click on the Plus icon and select Extract 
 
 ### Javascript
 
-![example image](/images/action-javascript.png "An exemplary image")
+![example image](images/action-javascript.png "An exemplary image")
 
 **The Javascript action**
 
@@ -650,7 +650,7 @@ For each click it´s normal to call a test case. Use **Goto Test Case** to selec
 
 ## Using data
 
-![example image](../images/test-data.png "An exemplary image")
+![testdata](images/data.png)
 
 
 ### Introduction to data types
@@ -704,9 +704,13 @@ File data is used to test file upload and similar user interactions. Try and use
 
 When recording a test, any data entered into a form will be recorded as well. Usually this will happen when pressing enter, tab key or simply when using the mouse to click the next field or submitting the form. Sometimes it's sufficient to record a test with a certain hard-coded set of data. More often, it´s desirable to capture data into variables so that the test can be re-used for several different sets of data. Boozang makes this very easy to do.  
 
+![databind](images/databind.png)
+
 **Binding from forms to data**
 
 One way of capturing data into variables, is to start on the application side. When entering data into the form, simply click the "Bind data" checkbox in the toolbar and select the data scope you would like to capture the data. While typing, you can see that you are promted to save the data in a variable. When you fully typed out the field, simply click the desired field name and you the data will be saved at the appropriate data scope that you selected.
+
+![databind-into](images/databind-into.png)
 
 **Binding from data to forms**
 
@@ -719,6 +723,9 @@ As you can see, any data key names that correspond (matches case-insensitive / w
 Tip: This can greatly speed up test creation of form fill tests, so try and learn this naming convention.  
 
 ### Advanced data functionality
+
+![regexp](images/regexp.png)
+
 **Boozang regular expression engine**
 
 Boozang also supports a regular expression engine that can generate random data that complies to a certain regular expression. This can be useful when generating random test data, but also when creating tests to make sure certain field constraints are being enforced. 
@@ -731,7 +738,9 @@ Also make sure that all possible labels are matching the indicated regular expre
 
 **Setting up a new regular expression**
 
-To setup avnew regular expression, simply click new and add in the necessary fields. The Field mapping will determine which form labels to look for when trying to match data. Use the OR sign ("|") to separate several fields. 
+To setup a new regular expression, simply click new and add in the necessary fields. The Field mapping will determine which form labels to look for when trying to match data. Use the OR sign ("|") to separate several fields. 
+
+![autofill](images/autofill.png)
 
 **Using auto-fill functionality**
 
@@ -745,7 +754,7 @@ Tip: Using autofill with data bind on `$parameter` scope is a quick way to creat
 
 ### Troubleshooting data
 
-**Console window**
+**![console](images/console.png)Console window**
 
 When running a test it is sometikes desirable to inspect the data that is being run. In many cases, upstream test cases are sending data as parameters, and it gets even more tricky when data is being loaded from external data sources or Javascript functions. In order to inspect the data that is being used, you can use the console window. This window is located in the hamburger menu and allows users to spy on data.
 
@@ -760,6 +769,8 @@ Tip: Hit keep and Save to save the action data in data-base to trouble-shoot wit
 ## Settings
 
 ### Environment
+
+![environment](images/environment.png)
 
 In the Environment tab you can find a number of useful functionality. You can manage environments and different application interfaces, configure settings on an application interface level and also setup AI login / logout for diffrent roles / users.
 
@@ -778,6 +789,10 @@ This setting allows you to configure certain things on an Environment / App inte
 This allows the user to define a number of user roles, and automatically generate login and logout scenarios for these roles. The user roles can be set as pre-requisites for tests, automatically switching between users. For more information, read more under the **Model-based testing** chapter. 
 
 ### Content-policy
+
+![content-policy](images/content-policy.png)
+
+
 
 Content policy contains a number of advanced features. Nevertheless, spending some time here to fine-tune the project can increase the stability of tests and also speed-up test creation significantly.
 
@@ -807,9 +822,13 @@ Use this to set regular expressions to be used for content generation.
 
 ### Element Definitions
 
+![element-definitions](images/element-definitions.png)
+
 Element definitions contains the classification of all elements in the customer applications. This is mostly used for for the model-based test generation. See chapter on model-based test geenration in a later chapter. 
 
 ### Aliases
+
+![alias](images/alias.png)
 
 Aliases are used to define shortcuts to certain test suites. This is most often used to be able to easily control which tests are being run, without having to update any upstream services, such as CI servers or similar. 
 
@@ -819,17 +838,23 @@ Image the scenario where you have a CI server that runs smoke-tests, regression 
 
 ### Preferences
 
+![preferences](images/preferences.png)
+
 This controls individual user preferences. These setting will only apply to your user and not to the project as a whole. 
 
 ### Notifications
 
-This view allows a user to setup email notifications for a report. It means that everytime a test is run from the command line any users that has subscribed to notifications will recieve the report in his/her mailbox. To test out the notifications from the tool, make sure to run the test in Automation play mode. This will trigger the notifications.
+
+
+![notifications](images/notifications.png)This view allows a user to setup email notifications for a report. It means that everytime a test is run from the command line any users that has subscribed to notifications will recieve the report in his/her mailbox. To test out the notifications from the tool, make sure to run the test in Automation play mode. This will trigger the notifications.
 
 Tip: A user can only setup his/her won email notifications. This allows team collaborators to simply opt-in and opt-out from report emails, and prevents un-wanted spamming.
 
 ## Other tool views
 
 ### Reports
+
+![report](images/report.png)
 
 **The report view**
 
@@ -849,7 +874,11 @@ In order to highlight slow actions or tests, this can be done under Environment 
 
 ### Team
 
+![team](images/team.png)
+
 **Adding team members**
+
+It's quite straightforward to 
 
 **Access policy**
 
@@ -858,7 +887,13 @@ In order to highlight slow actions or tests, this can be done under Environment 
 **Chat**
 
 ### Synchronize
+
+![synchronize](images/synchronize.png)
+
 ### Tools
+
+![import](images/import.png)
+
 **Import**
 
 This is used to import a project file that has been generated using the Boozang export function. This is useful when restoring a backup, or replicating a project.
