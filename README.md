@@ -123,7 +123,7 @@ For very complex application it can sometimes be useful to introduce sub-modules
 
 Boozang works within the browser which allows for a very stable recording function. Simply click on the record button in the tool. As you perform actions on your web page actions will be recorded. To remove an un-wanted action that was recorded simply press the trashbin next to the action in the main tool view. 
 
-As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports four different playback modes: Normal, demo, debug and automation mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlights the error and allows you to correct it on the fly. When you have corrected the error simple press the play button again and the test will continue its execution. This is very useful when updating a test after a big code change. 
+As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports four different playback modes: **Normal**, **demo**, **debug** and **automation** mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlights the error and allows you to correct it on the fly. When you have corrected the error simple press the play button again and the test will continue its execution. This is very useful when updating a test after a big code change. 
 
 A test is automatically saved in the local storage of the browser. As soon as you update a test, the test will be checked out by you, and it will appear as locked for your team-mates, which prevents them from making changes. As soon as you click save the test will be saved on the Boozang server, and the lock will be automatically removed, allowing other team members to make changes. 
 
@@ -588,7 +588,7 @@ Note: For API versions of these actions check the API section.
 
 **Similarities with Validation**
 
-With Boozang it´s possible to extract data from the application window. This is very similar to the Validation action, with the difference that the element extracted is copied into a data variable. Make sure to familiarize yourself with the Validation action before reading this section. 
+With Boozang it's possible to extract data from the application window. This is very similar to the Validation action, with the difference that the element extracted is copied into a data variable. Make sure to familiarize yourself with the Validation action before reading this section. 
 
 **Introducing data**
 
@@ -650,7 +650,7 @@ For each click it´s normal to call a test case. Use **Goto Test Case** to selec
 
 ## Using data
 
-![testdata](images/data.png)
+![data](images/data.png)
 
 
 ### Introduction to data types
@@ -843,6 +843,34 @@ Image the scenario where you have a CI server that runs smoke-tests, regression 
 ![preferences](images/preferences.png)
 
 This controls individual user preferences. These setting will only apply to your user and not to the project as a whole. 
+
+**Accept to be monitored**
+
+Experimental functionality to allow for other user to see all work done by the user to be monitored by other team member.
+
+**Disable alerts for load file errors**
+
+Do not show any popup warnings for external files that cannot be loaded.
+
+**Disbale alers for AI repair (on test execution error)**
+
+Don't show AI repair dialog when element not found.
+
+*Note: This will never be shown when running in automation mode.*
+
+**Disable alerts for un-saved data**
+
+Never show save test case dialog when leaving a test with un-saved data.
+
+**Auto data-bind**
+
+When enabled, try and auto bind data always.
+
+**Auto insert data validation**
+
+Deprecated. 
+
+
 
 ### Notifications
 

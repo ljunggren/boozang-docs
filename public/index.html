@@ -114,7 +114,7 @@
 <p>For very complex application it can sometimes be useful to introduce sub-modules. This is particularly useful when you have sub-modules on the application side. For most SaaS applications, such as CMS (content management system) or ERP (Enterprise resource planning), the application is organized in two levels, making the project-module-test hierarchy sufficient. </p>
 <h3 id="recording-your-first-test">Recording your first test</h3>
 <p>Boozang works within the browser which allows for a very stable recording function. Simply click on the record button in the tool. As you perform actions on your web page actions will be recorded. To remove an un-wanted action that was recorded simply press the trashbin next to the action in the main tool view. </p>
-<p>As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports four different playback modes: Normal, demo, debug and automation mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlights the error and allows you to correct it on the fly. When you have corrected the error simple press the play button again and the test will continue its execution. This is very useful when updating a test after a big code change. </p>
+<p>As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports four different playback modes: <strong>Normal</strong>, <strong>demo</strong>, <strong>debug</strong> and <strong>automation</strong> mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlights the error and allows you to correct it on the fly. When you have corrected the error simple press the play button again and the test will continue its execution. This is very useful when updating a test after a big code change. </p>
 <p>A test is automatically saved in the local storage of the browser. As soon as you update a test, the test will be checked out by you, and it will appear as locked for your team-mates, which prevents them from making changes. As soon as you click save the test will be saved on the Boozang server, and the lock will be automatically removed, allowing other team members to make changes. </p>
 <p><strong>A note on Window alignment</strong></p>
 <p>To use Boozang well, we recommend aligning the Boozang tool and your application next to each other side by side in the following way</p>
@@ -356,7 +356,7 @@
 <p>Note: For API versions of these actions check the API section. </p>
 <p><img src="images/action-extract.png" alt="example image" title="An exemplary image" /></p>
 <p><strong>Similarities with Validation</strong></p>
-<p>With Boozang it´s possible to extract data from the application window. This is very similar to the Validation action, with the difference that the element extracted is copied into a data variable. Make sure to familiarize yourself with the Validation action before reading this section. </p>
+<p>With Boozang it's possible to extract data from the application window. This is very similar to the Validation action, with the difference that the element extracted is copied into a data variable. Make sure to familiarize yourself with the Validation action before reading this section. </p>
 <p><strong>Introducing data</strong></p>
 <p>Start by defining a data variable in the data tab. For extraction, you typically want to use a property. The property can be defined on the project, module, and test level. Add it on test level if the data will only be used in the test case. Add it on module level if the data will be used across different tests in the module, but not on different modules. Add it on project level if it will be used globally. </p>
 <p><strong>Extracting data action</strong></p>
@@ -387,7 +387,7 @@
 <p>The visit links action is used to automatically crawl a set of pages based on a navigation bar. In order to crawl a full navigation panel, such as a side navigation or hamburger menu, select this in the <strong>Panel</strong> option. <strong>Target element</strong> defaults to &quot;A&quot; tags, but can be changed using the DOM picker in case the navigation contains a different element than regular links. It's possible to execute a script before each click, but this can normally be left blank.</p>
 <p>For each click it´s normal to call a test case. Use <strong>Goto Test Case</strong> to select a downstream test case. This test case will be called for each link in the selected navigation panel.</p>
 <h2 id="using-data">Using data</h2>
-<p><img src="images/data.png" alt="testdata" /></p>
+<p><img src="images/data.png" alt="data" /></p>
 <h3 id="introduction-to-data-types">Introduction to data types</h3>
 <p>Boozang supports several different data types: Property, Object, Array, CSV, File, Request data and JS (Javascript function). </p>
 <p><strong>Properties</strong></p>
@@ -480,6 +480,19 @@
 <h3 id="preferences">Preferences</h3>
 <p><img src="images/preferences.png" alt="preferences" /></p>
 <p>This controls individual user preferences. These setting will only apply to your user and not to the project as a whole. </p>
+<p><strong>Accept to be monitored</strong></p>
+<p>Experimental functionality to allow for other user to see all work done by the user to be monitored by other team member.</p>
+<p><strong>Disable alerts for load file errors</strong></p>
+<p>Do not show any popup warnings for external files that cannot be loaded.</p>
+<p><strong>Disbale alers for AI repair (on test execution error)</strong></p>
+<p>Don't show AI repair dialog when element not found.</p>
+<p><em>Note: This will never be shown when running in automation mode.</em></p>
+<p><strong>Disable alerts for un-saved data</strong></p>
+<p>Never show save test case dialog when leaving a test with un-saved data.</p>
+<p><strong>Auto data-bind</strong></p>
+<p>When enabled, try and auto bind data always.</p>
+<p><strong>Auto insert data validation</strong></p>
+<p>Deprecated. </p>
 <h3 id="notifications">Notifications</h3>
 <p><img src="images/notifications.png" alt="notifications" />This view allows a user to setup email notifications for a report. It means that everytime a test is run from the command line any users that has subscribed to notifications will recieve the report in his/her mailbox. To test out the notifications from the tool, make sure to run the test in Automation play mode. This will trigger the notifications.</p>
 <p><em>Tip: A user can only setup his/her won email notifications. This allows team collaborators to simply opt-in and opt-out from report emails, and prevents un-wanted spamming.</em></p>
