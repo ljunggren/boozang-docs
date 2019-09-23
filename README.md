@@ -756,7 +756,15 @@ When enabling data bind and clicking autofill form, Boozang will look in the cur
 
 **![console](images/console.png)Console window**
 
-When running a test it is sometikes desirable to inspect the data that is being run. In many cases, upstream test cases are sending data as parameters, and it gets even more tricky when data is being loaded from external data sources or Javascript functions. In order to inspect the data that is being used, you can use the console window. This window is located in the hamburger menu and allows users to spy on data.
+When running a test it is sometimes desirable to inspect the data that is being run. In many cases, upstream test cases are sending data as parameters, and it gets even more tricky when data is being loaded from external data sources or Javascript functions. In order to inspect the data that is being used, you can use the console window. This window is located in the hamburger menu and allows users to spy on data.
+
+**Commands**
+
+There will be command soon (roadmap). 
+
+
+
+
 
 **Tmp data**
 
@@ -846,13 +854,15 @@ This controls individual user preferences. These setting will only apply to your
 
 **Accept to be monitored**
 
-Experimental functionality to allow for other user to see all work done by the user to be monitored by other team member.
+Functionality to allow for other user to see all work done by the user to be monitored by other team member. 
+
+*Tip: This can be used to display the CI server runs on a dashboard*
 
 **Disable alerts for load file errors**
 
 Do not show any popup warnings for external files that cannot be loaded.
 
-**Disbale alers for AI repair (on test execution error)**
+**Disable alers for AI repair (on test execution error)**
 
 Don't show AI repair dialog when element not found.
 
@@ -864,11 +874,11 @@ Never show save test case dialog when leaving a test with un-saved data.
 
 **Auto data-bind**
 
-When enabled, try and auto bind data always.
+When enabled, data bind will be enabled by default. 
 
 **Auto insert data validation**
 
-Deprecated. 
+This still exits. 
 
 
 
@@ -924,7 +934,7 @@ Tip: It's highly recommended to create a CI user with limited privelegies and us
 
 There is also project collaboration built-in. Use this to communicate to team members and see test updates as they happen in the project.
 
-*Tip: This will also be used to link to Slack updates (roadmap).* 
+*Tip: This will also be used to link to Slack updates (Roadmap).* 
 
 ### Synchronize
 
@@ -952,6 +962,8 @@ Use this function to export the whole Boozang project to a data file. This proje
 
 This powerful wild-card batch operation is used to search both for project, modules, tests and data. Useful for large projects to locate lost data and for doing quick project cleanups. 
 
+
+
 ## Advanced testing methods
 
 ### Loops
@@ -967,7 +979,10 @@ Loops are supported over CSV data, Arrays, Matrix data, and External data (if da
 
 In data-driven testing we support keywords "bz-skip" and "bz-stop" to be able to trigger conditional functionality based on data. As soon as "bz-skip" occurs the test will skip without generating a failure. If "bz-stop" occurs the all upstream tests will stop without generating an error.  
 
+
+
 ### API testing
+
 ### Validate API call
 
 **Useful resources**
@@ -1030,7 +1045,228 @@ To add an extract data action, simply click on the Plus icon and select Extract 
 
 ### AI authorization
 
+In model based testing there will be a need to establish pre-conditions. In most SaaS applications this is simply a matter of determining who is logged in. Instead of relying on trying to mimic users by spoofing cookies or othe tricks, it can be done by recording the login and logout sequence of users, and being able to automatically shift between users.
 
+A key in this procedure is to have login credentials for the different roles that has access to the application, and record a single login / logout sequence for that user and find and identifier for who is logged in.
+
+**The wizard**
+
+Launch the authorization wizard by simply click **Enable AI authorization** when setting up the environment. 
+
+## Integrations and test scheduling
+
+Note: This section will focus on running Boozang from command line.  For readers not familiar with CLI and Docker this might be a little technical, even though most of the commands should be working doing a direct copy.
+
+### Test URLs and authorization
+
+Even though tests can easily be run using the web browser, there will be a need to trigger these tests without manual interaction. The most common scenario is to run a set of tests when code is pushed into GitHub or other versioning systems, normally through a Continous Integration (CI) server integration. There are also other applications: one might want to trigger tests via a server cronjob, or trigger it directly via a build job or Ansible command. The basis of all this is to be able to trigger a test from command line. 
+
+**Test Stability**
+
+All tests in Boozang are dependant on the web browser. As no special APIs such as Selenium Webdriver is being used, tests in Boozang operate exactly the same way when playing in the web browser and when playing back from command line. This means tests that are stable upon authoring, should run stable when run from CI server too.
+
+**Test URLs**
+
+The first thing to recognize when running from command-line (CLI) is that all tests in Boozang are unique URLs. This means they can be shared, linked and referenced freely from ticketing systems, reports and emails. 
+
+**Authorization token**
+
+When running a test from command line it's important that the user running has the right access rights. This is done by specifying an access token. The access token logs in the user with limited access rights, so the user can read the test and execute it, but all write and admin permissions are revoked. This is for security purposes as the token is long-lived. 
+
+**Getting the Access token**
+
+An access token can retrived in the Boozang Management UI by clicking the Account -> Get Token and entering your password. Keep this token secret and safe. 
+
+**Generating a tokenized test URL**
+
+It can also be retrived from the IDE interface when sharing a single test. The user will again be prompted for a password to get a tokenized test URL, which can be run from command-line.  
+
+**Running from command-line**
+
+There are many ways to run Boozang tests from the command line but here are the recommended options: Installing the test runner using the **Docker Xvfb container** or **Boozang npm package**. 
+
+### Docker Xvfb container 
+
+The test runner is Open Source and the Docker container can be found here: https://hub.docker.com/r/styrman/boozang-runner/ and corresponding source code here: https://github.com/ljunggren/bz-docker-xvfb
+
+**Installing Docker CE** 
+
+Docker is widely supported but does require some amount of disk space. In order to find installation intructions for your operation system, follow the guide here: https://docs.docker.com/install/ (make sure to select your operating system in the left menu navigation) .
+
+Make sure docker is running by typing
+
+`docker`
+
+and make sure the following output is generated
+
+`Usage:	docker [OPTIONS] COMMAND`
+
+**Running a test**
+
+In order to run a test, simply type
+
+`docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner "[tokenized-test-url]"`
+
+**Getting the latest image**
+
+The boozang-runner image will be cached so to make sure you are running the latest Docker image, simply type
+
+`docker pull styrman/boozang-runner:latest`
+
+**Modifying the Boozang docker image**
+
+In order to modify the Docker image, re-treive it using the following command
+
+ `docker pull styrman/boozang-runner:latest`
+
+As you will not be able to update the official Boozang Docker image, make sure to tag it with your own user-name
+
+`docker tag boozang-runner your-docker-user/boozang-runner`
+
+do the modifications, build the container
+
+`docker build -t your-docker-user/boozang-runner`
+
+and when you are happy with it, finally push it to the Cloud
+
+`docker push your-docker-user/boozang-runner:latest`
+
+**Additional CLI options**
+
+To find current supported command-line options, see Docker Github readme: https://github.com/ljunggren/bz-docker-xvfb and command-line runner README: https://github.com/ljunggren/bz-puppeteer.
+
+### NPM Package
+
+The NPM package is Open source and the source code can be found here: https://github.com/ljunggren/bz-puppeteer
+
+**Installing NodeJS**
+
+NodeJS is widely supported. We recommend that you run Node v8.9.0+ (we rely on async/await so NodeJS 6.x is not supported). To install NodeJS we recommend using a package manager (https://nodejs.org/en/download/package-manager/) but you can also install it from source (https://nodejs.org/en/download/). 
+
+After installation, verify that node and npm versions the following way
+
+`npm --version`
+
+`5.5.1`
+
+`node --version`
+
+`v8.9.0`
+
+**Installing the Boozang package**
+
+To install the Boozang test runner, simply type
+
+`npm install -g boozang`
+
+The Boozang package will be installedm alongside with a Chrome browser compatible with Puppeteer. Make sure the Boozang package has been installed by typing
+
+`boozang`
+
+`USAGE: boozang [--token] [--headfull] [--verbose] [--screenshot] [--file=report] [--device=default] [url]`
+
+**Running a test**
+
+In order to run a test, simply type
+
+`boozang "[tokenized-test-url]"`
+
+The test should start executing in headless or headfull mode and return a report in the prompt. 
+
+**Modifying the NPM package**
+
+To modify the Boozang test runner and do custom development work, simply clone the code locally
+
+`git clone https://github.com/ljunggren/bz-puppeteer`
+
+In order to install any dependencies, run
+
+`npm install`
+
+This will automatically download and install a Chrome browser compatible with Puppeteer. 
+
+In order to test run you package, simply run
+
+`node index  "[tokenized-test-url]"`
+
+Update the package by modifying `index.js`and commit your changes to your versioning system. 
+
+When you want to publish the package to `npm`, update `package.json`to reflect your package name (don't use `"boozang"`) 
+
+`"name": "your-npm-name",
+  "version": "3.1.7",
+  "description": "An Simple Driver for Chrome Headless basded on Puppeteer",
+  "dependencies": {
+    "node-options": "latest",
+    "puppeteer": "latest"
+  }`
+
+and 
+
+`"bin": {
+    "your-npm-name": "index.js"
+  }`
+
+and publish it to npm using
+
+`npm publish`
+
+Your package should now be available for installation anywhere running
+
+`npm install -g your-npm-name`
+
+and you can test run it by typing
+
+`your-npm-name`
+
+anywhere. 
+
+**Additional CLI options**
+
+To find current supported command-line options, see Github readme: https://github.com/ljunggren/bz-puppeteer
+
+### Parallel test execution and test scheduling
+
+Installing the Docker container makes it dead simple to create your own test excution scripts. Here are a few examples 
+
+**Running from cronjob**
+
+It's easy to setup a cronjob that runs a Boozang test at a scheduled time. Simply type
+
+`crontab -e`
+
+to edit crontab settings create a custiom script that runs your test. See blow example from Centos
+
+`cd`
+
+`mkdir scripts`
+
+`vi scripts/run_boozang_tests`
+
+and add the tests needed (either using npm package or Docker container).
+
+**Running tests in parallel**
+
+In order to run tests in parallel, we simply utilize `nohup`and the `&`operator.
+
+`nohup docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file=test1 "[tokenized-test-url-1]"> test1.log &`
+
+`nohup docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file=test2 "[tokenized-test-url-2]"> test2.log &`
+
+In this example, you can follow the progress of the tests in `test1.log` and `test2.log` respecively, and the report will be found in html format in `test1.html` and `test2.html`, and in JSON format in `test1.json` and `test2.json`.
+
+**More examples**
+
+You can find these examples and more at  https://github.com/ljunggren/bz-utils
+
+### A note on Open Source
+
+In order to build a strong ecosystem around Boozang we have decided to keep all client-side code Open Source and allow our customers to customize it as they wish. The reason for this is two-fold: 
+
+1. All customer systems are slightly different, and even if we can cover most scenarios we cannot cover all. 
+2. As our customer base grows, custom code made by one customer can directly be re-used by another customer, creating benefit that scale with our customer base. 
+
+We therefore encourage our users to keep there custom code open source, and share it openly. We also encourage you to let us know at *opensource@boozang.com* so we can link to it. 
 
 ## References
 
