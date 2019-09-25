@@ -673,7 +673,7 @@ For each click it´s normal to call a test case. Use **Goto Test Case** to selec
 
 ## Using data
 
-![files-1614223_1280](/Users/matsljunggren/Workspace/boozang-docs/images/files-1614223_1280.jpg)
+![files-1614223_1280](images/files-1614223_1280.jpg)
 
 ### Introduction to data types
 
@@ -796,7 +796,7 @@ The console can be used to check the following data:
 
 **Tmp data**
 
-![tmpdata](/Users/matsljunggren/Workspace/boozang-docs/images/tmpdata.png)
+![tmpdata](images/tmpdata.png)
 
 There is also another way to inspect data and do more advanced trouble-shooting. For each action, in the action details menu you can find a link called "Tmp data". This data is updated every time a test is run and will show the data that was used when the action was run. This also allows you to keep the last input data that was used, and replay the action with this data.
 
@@ -808,7 +808,7 @@ To re-run the action with the data that you see in the "Tmp data" window, simply
 
 ## Settings
 
-![rima-kruciene-gpKe3hmIawg-unsplash](/Users/matsljunggren/Workspace/boozang-docs/images/rima-kruciene-gpKe3hmIawg-unsplash.jpg)
+![rima-kruciene-gpKe3hmIawg-unsplash](images/rima-kruciene-gpKe3hmIawg-unsplash.jpg)
 
 ### Environment
 
