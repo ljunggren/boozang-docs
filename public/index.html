@@ -60,7 +60,8 @@
 <p>For any suggestions / improvements send us an email at: support@boozang.com</p>
 <h2 id="overview">Overview</h2>
 <p><img src="images/max-ostrozhinskiy-18wn7B2y-SU-unsplash.jpg" alt="max-ostrozhinskiy-18wn7B2y-SU-unsplash" /></p>
-<h3 id="why-use-boozang">Why use Boozang?</h3>
+<p>In this section we give a brief overview of the Boozang features and when it's a good idea to use the Boozang tool. </p>
+<h3 id="introducing-boozang">Introducing Boozang</h3>
 <p><strong>At the core</strong></p>
 <p>Boozang is a code-less front end testing tool built for the modern web using only Javascript. It allows developers and Quality Assurance engineers to develop front-end tests quickly without the need for programming. </p>
 <p>Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium web driver. Boozang uses it's own selection language based on natural-language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models. </p>
@@ -98,6 +99,7 @@
 <p>Boozang does not support any testing of native IOS and Android application, or any desktop-based applications. </p>
 <h2 id="getting-started">Getting started</h2>
 <p><img src="images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg" alt="danielle-macinnes-IuLgi9PWETU-unsplash" /></p>
+<p>In this section we cover the onboarding process of the Boozang tool, and some important concepts that might be puzzling (such as Modules). After this section you should have a some ideas of the Boozang concepts and how to record a test. </p>
 <h3 id="signing--up--logging-in">Signing  up / Logging in</h3>
 <p>You can sign-up for Boozang from the Boozang homepage at <a href="Https://boozang.com">Https://boozang.com</a>. The sign-up link will take you to <a href="https://ai.boozang.com">https://ai.boozang.com</a>. This is the Boozang application server and this is responsible for communicating with any instances of the Boozang tool, which is running locally on the client-side. </p>
 <p>This is also where an administrator can maintain different teams and different projects, without having to launch anything client-side. </p>
@@ -138,6 +140,7 @@
 <p>In the help text, you will find an explanation of the function you selected. You will also find any related videos to that function, if available. When clicking a video link, a separate video window will appear and you will be able to follow along with the tool if needed. </p>
 <h2 id="the-tool">The tool</h2>
 <p><img src="images/philip-swinburn-vS7LVkPyXJU-unsplash.jpg" alt="philip-swinburn-vS7LVkPyXJU-unsplash" /></p>
+<p>In this section we explain all the toolbars and controls, basically what does what. You can skip this section and use as a reference when you get stuck or have some questions. </p>
 <h3 id="the-sidebar">The sidebar</h3>
 <p><img src="images/sidebar.png" alt="example image" title="Sidebar" /></p>
 <p><strong>Boozang icon</strong></p>
@@ -256,6 +259,7 @@
 <h3 id="action-details">Action details</h3>
 <h2 id="elements">Elements</h2>
 <p><img src="images/darts-2966934_1280.jpg" alt="darts-2966934_1280" /></p>
+<p>Being able to identify html elements in your application is central to test automation. Boozang has a unique approach to this, so it's worth spending some time learning about it. Normally, the record function takes care of capturing elements very well, but the unique Boozang selection policy enables us to do very powerful data-driven development, where dynamical data can be used as selectors.  </p>
 <h3 id="selecting-the-element">Selecting the element</h3>
 <p>Boozang uses custom element selectors based on what a user will see rather than classes, ids or other attributes. This means that to use class or id, this usually needs to be explicitly defined. By avoiding using classes and ids as primary identifiers, Boozang tests become very stable to code changes and can automate applications with dynamic ids and classes freely.</p>
 <p><strong>The element bar</strong></p>
@@ -339,6 +343,7 @@
 <p><em>Tip: In normal play mode, the user is asked if the test should be repaired. In Repair mode, the AI repair is always launched, and in Automation, mode AI repair is never launched.</em> </p>
 <h2 id="actions">Actions</h2>
 <p><img src="images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg" alt="glenn-carstens-peters-RLw-UC03Gwc-unsplash" /></p>
+<p>Actions are the steps that comprises a test case. This could be a mouse or keyword event, simulating a user action, or a validation (assertion) or even Javascript. There are also AI actions supportedm which are more elaborate actionsm such as &quot;Visit Links&quot; or &quot;Form Fill&quot;.</p>
 <h3 id="events">Events</h3>
 <p><strong>Mouse event</strong></p>
 <p>This event corresponds to a mouse action, meaning a click or a movement of the mouse. By default, Boozang captures on clicks in the recording (otherwise the recording becomes very noisy catching too many events). The exception to this is when holding the mouse button down, to emulate drag and drop. In this case, Boozang registers a particular drag-and-drop event.  You can add mouse events manually to emulate mouse-over event and to create specific mouse conditions. </p>
@@ -402,6 +407,7 @@
 <p>For each click it´s normal to call a test case. Use <strong>Goto Test Case</strong> to select a downstream test case. This test case will be called for each link in the selected navigation panel.</p>
 <h2 id="using-data">Using data</h2>
 <p><img src="images/files-1614223_1280.jpg" alt="files-1614223_1280" /></p>
+<p>Data is used to be able to create data-driven tests. This means that a test that takes data as input (for instance &quot;Login&quot; or &quot;Create Project&quot;) can be re-used for different data sets. Data handling is at the core of Boozang, and a large variety of data types are supported. </p>
 <h3 id="introduction-to-data-types">Introduction to data types</h3>
 <p><img src="images/data.png" alt="data" /></p>
 <p>Boozang supports several different data types: Property, Object, Array, CSV, File, Request data and JS (Javascript function). </p>
@@ -471,6 +477,7 @@
 <p><em>Tip: Hit keep and Save to save the action data in data-base to trouble-shoot with other team members.</em></p>
 <h2 id="settings">Settings</h2>
 <p><img src="images/rima-kruciene-gpKe3hmIawg-unsplash.jpg" alt="rima-kruciene-gpKe3hmIawg-unsplash" /></p>
+<p>Settings allow you to customize Boozang to work with your application. It also allows you to set your personal user preferences. &quot;Content-Policy&quot; and &quot;Element Defintions&quot; are somewhat complex, but can be potentially very helpful for more comples testing scenarios. </p>
 <h3 id="environment">Environment</h3>
 <p><img src="images/environment.png" alt="environment" /></p>
 <p>In the Environment tab you can find a number of useful functionality. You can manage environments and different application interfaces, configure settings on an application interface level and also setup AI login / logout for diffrent roles / users.</p>
@@ -521,7 +528,8 @@
 <p><strong>Auto insert data validation</strong></p>
 <p>This still exits. </p>
 <h3 id="notifications">Notifications</h3>
-<p><img src="images/notifications.png" alt="notifications" />This view allows a user to setup email notifications for a report. It means that everytime a test is run from the command line any users that has subscribed to notifications will recieve the report in his/her mailbox. To test out the notifications from the tool, make sure to run the test in Automation play mode. This will trigger the notifications.</p>
+<p><img src="images/notifications.png" alt="notifications" /></p>
+<p>This view allows a user to setup email notifications for a report. It means that everytime a test is run from the command line any users that has subscribed to notifications will recieve the report in his/her mailbox. To test out the notifications from the tool, make sure to run the test in Automation play mode. This will trigger the notifications.</p>
 <p><em>Tip: A user can only setup his/her won email notifications. This allows team collaborators to simply opt-in and opt-out from report emails, and prevents un-wanted spamming.</em></p>
 <h2 id="other-tool-views">Other tool views</h2>
 <h3 id="reports">Reports</h3>
@@ -561,14 +569,22 @@
 <p>This powerful wild-card batch operation is used to search both for project, modules, tests and data. Useful for large projects to locate lost data and for doing quick project cleanups. </p>
 <h2 id="advanced-testing-methods">Advanced testing methods</h2>
 <p><img src="images/rollercoaster-801833_1280.jpg" alt="rollercoaster-801833_1280" /></p>
-<h3 id="loops">Loops</h3>
-<p>Loops are supported over CSV data, Arrays, Matrix data, and External data (if data is in CSV or Matrix format) .</p>
-<p><strong>Setting up a simple data loop</strong></p>
+<h3 id="data-loops">Data Loops</h3>
+<p>A loop means to repeat execution until a certain condition is fulfilled. In Boozang, a data loop is like a for-condition running over a data set, meaning the test gets executed once for each data entry. </p>
+<p><img src="images/loop.png" alt="loop" /></p>
+<p>In order to set a test to loop over a set of data (to repeat it's execution for each data entry) click on the first line of the test (denoting the test settings) and click the Kebab icon -&gt; Advanced. In &quot;Loop data&quot; select the data you want to loop over. The test will be run once for each data entry, and the currrent data entry will be available in the <code>$loop</code>handle. </p>
+<p>The following data formats are supported to drive loops</p>
+<ul>
+<li>CSV: The assigned <code>$loop</code>item will be of <code>Object</code> format (JSON) </li>
+<li>Arrays:  The assigned <code>$loop</code>item will be of <code>Property</code> format (String) </li>
+<li>Request data: This is supported if the fetched data is <code>CSV</code>or <code>Array</code>.</li>
+</ul>
 <h3 id="matrix-testing">Matrix testing</h3>
 <p><strong>Keywords: bz-skip and bz-stop</strong></p>
 <p>In data-driven testing we support keywords &quot;bz-skip&quot; and &quot;bz-stop&quot; to be able to trigger conditional functionality based on data. As soon as &quot;bz-skip&quot; occurs the test will skip without generating a failure. If &quot;bz-stop&quot; occurs the all upstream tests will stop without generating an error.  </p>
 <h3 id="api-testing">API testing</h3>
 <p><img src="images/clint-patterson-exfrR9KkzlE-unsplash.jpg" alt="clint-patterson-exfrR9KkzlE-unsplash" /></p>
+<p>Even though Boozang is mainly a UI testing tool, it also supports full API testing (compare Postman). This can be especially useful when creating mixed API and UI tests, doing extra validation, or pre-testing features that hasn't been fully built.  </p>
 <h3 id="validate-api-call">Validate API call</h3>
 <p><strong>Useful resources</strong></p>
 <p>To simply mockup a REST server, we strongly recommend <a href="https://github.com/typicode/json-server">https://github.com/typicode/json-server</a> that allows you to create a fake REST API from a JSON file in less than 30 seconds. </p>
@@ -598,12 +614,12 @@ Accept:&quot;json&quot;
 <p><strong>Data Conversion</strong></p>
 <p><strong>Extracting data action</strong></p>
 <p>To add an extract data action, simply click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. </p>
-<h2 id="model-based-testing">Model-based testing</h2>
-<h3 id="ai-authorization">AI authorization</h3>
-<p>In model based testing there will be a need to establish pre-conditions. In most SaaS applications this is simply a matter of determining who is logged in. Instead of relying on trying to mimic users by spoofing cookies or othe tricks, it can be done by recording the login and logout sequence of users, and being able to automatically shift between users.</p>
+<h2 id="ai-authorization">AI authorization</h2>
+<p><img src="images/registration-3938434_1280.jpg" alt="registration-3938434_1280" />In applications testing there will be a need to establish pre-conditions. In most SaaS applications this is simply a matter of determining who is logged in. Instead of relying on trying to mimic users by spoofing cookies or other tricks, it can be done by recording the login and logout sequence of users, and being able to automatically shift between users.</p>
 <p>A key in this procedure is to have login credentials for the different roles that has access to the application, and record a single login / logout sequence for that user and find and identifier for who is logged in.</p>
 <p><strong>The wizard</strong></p>
 <p>Launch the authorization wizard by simply click <strong>Enable AI authorization</strong> when setting up the environment. </p>
+<h2 id="model-based-testing">Model-based testing</h2>
 <h2 id="integrations-and-test-scheduling">Integrations and test scheduling</h2>
 <p><img src="images/day-planner-828611_1280.jpg" alt="parallel-unsplash" /></p>
 <p>Note: This section will focus on running Boozang from command line.  For readers not familiar with CLI and Docker this might be a little technical, even though most of the commands should be working doing a direct copy.</p>
@@ -744,8 +760,7 @@ also supports multiple, such as: on=wed, fri, or on=workday, Sat</p>
 <li>As our customer base grows, custom code made by one customer can directly be re-used by another customer, creating benefit that scale with our customer base. </li>
 </ol>
 <p>We therefore encourage our users to keep there custom code open source, and share it openly. We also encourage you to let us know at <em>opensource@boozang.com</em> so we can link to it. </p>
-<h2 id="references">References</h2>
-<h3 id="security">Security</h3>
+<h2 id="security">Security</h2>
 <p><img src="images/hacker-1944688_1280.jpg" alt="hacker-1944688_1280" /></p>
 <p><strong>Fragment security</strong></p>
 <p>When installing the bz-fragment we get the security of the web browser without the limitation of being bound to Chrome extension policy. This limits cross-browser execution, but allows running Boozang without the need of any Extension. </p>
@@ -754,7 +769,7 @@ also supports multiple, such as: on=wed, fri, or on=workday, Sat</p>
 <p>As we are running locally in your web browser it´s been easier to be GDPR compliant than for regular Cloud-testing services. We recommend that you'll host sensitive test data in CSV files hosted on your servers. That way, the data will never be loaded into our Cloud, and simply be present in the browser local storage on the test computers.</p>
 <p><strong>Hosting</strong></p>
 <p>In our Cloud, we simply host the data you enter into our system and the tests, including our proprietary element selectors. To get an understanding of the kind of data we store, you can look at the Source tab on any test. Our servers are located in Canada. </p>
-<h3 id="trade-offs">Trade-offs</h3>
+<h2 id="trade-offs">Trade-offs</h2>
 <p><img src="images/justice-423446_1280.jpg" alt="justice-423446_1280" /></p>
 <p>There are several limitations to the Boozang technology, some that are a limiting factor of the technology and security of the browser context, and others that are conscious product decisions. Here is an attempt to address some of them head-on.</p>
 <p><strong>Only web</strong></p>
