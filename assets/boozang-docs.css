@@ -116,7 +116,7 @@ article {
 }
 
 article img {
-	width: 100% !important;
+	width: 70% !important;
 }
 @media (min-width: 992px) {
 	main {
