@@ -438,13 +438,21 @@
 <p>When enabling data bind and clicking autofill form, Boozang will look in the current data scope for matching data. If that isn´t found, Boozang will use the regexp engine to generate the data in the current scope, and automatically bind the data scope to the form. This is a great way to quicky create a data-driven test case.</p>
 <p><em>Tip: Using autofill with data bind on <code>$parameter</code> scope is a quick way to create a very versatile  data-driven test case.</em> </p>
 <h3 id="troubleshooting-data">Troubleshooting data</h3>
-<p><strong><img src="images/console.png" alt="console" />Console window</strong></p>
+<p><strong>Console window</strong></p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/console.png" alt="console" /></p>
 <p>When running a test it is sometimes desirable to inspect the data that is being run. In many cases, upstream test cases are sending data as parameters, and it gets even more tricky when data is being loaded from external data sources or Javascript functions. In order to inspect the data that is being used, you can use the console window. This window is located in the hamburger menu and allows users to spy on data.</p>
-<p><strong>Commands</strong></p>
-<p>There will be command soon (roadmap). </p>
+<p>The console can be used to check the following data:</p>
+<ul>
+<li>Assigned data: <code>$parameter</code>, <code>$test</code>, <code>$module</code>, and <code>$project</code></li>
+<li>Loop data: <code>$loop</code></li>
+<li>Regexp data generators: <code>/[a-z]{3,10}@bzmail[.]com/</code> (email),  <code>/[A-Z][0-9][A-Z] [0-9][A-Z][0-9]/</code> (Canadian zipcode)</li>
+<li>Complex data generators: <code>/{today|YYYY-MM-DD}/</code>, <code>/{tomorrow|MM/DD hh:ss}/</code></li>
+</ul>
 <p><strong>Tmp data</strong></p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/tmpdata.png" alt="tmpdata" /></p>
 <p>There is also another way to inspect data and do more advanced trouble-shooting. For each action, in the action details menu you can find a link called &quot;Tmp data&quot;. This data is updated every time a test is run and will show the data that was used when the action was run. This also allows you to keep the last input data that was used, and replay the action with this data.</p>
-<p>To re-run the action with the data displayed, simply check the checkbox &quot;As initial data for playing the action&quot;. In order to keep this data (not override the data in the next run) hit the &quot;keep&quot; button, and the data will be saved in the keep tab. </p>
+<p>To inpect data during a run, simply add a breakpoint to the test or pause the test case during a run. Click on the action that uses the data, and click &quot;Tmp data&quot; in action details. </p>
+<p>To re-run the action with the data that you see in the &quot;Tmp data&quot; window, simply check the checkbox &quot;As initial data for playing the action&quot;. In order to keep this data (not override the data in the next run) hit the &quot;keep&quot; button, and the data will be saved in the keep tab. </p>
 <p><em>Tip: Hit keep and Save to save the action data in data-base to trouble-shoot with other team members.</em></p>
 <h2 id="settings">Settings</h2>
 <h3 id="environment">Environment</h3>
@@ -537,6 +545,7 @@
 <p>This powerful wild-card batch operation is used to search both for project, modules, tests and data. Useful for large projects to locate lost data and for doing quick project cleanups. </p>
 <h2 id="advanced-testing-methods">Advanced testing methods</h2>
 <h3 id="loops">Loops</h3>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/rollercoaster-801833_1280.jpg" alt="rollercoaster-801833_1280" /></p>
 <p>Loops are supported over CSV data, Arrays, Matrix data, and External data (if data is in CSV or Matrix format) .</p>
 <p><strong>Setting up a simple data loop</strong></p>
 <h3 id="matrix-testing">Matrix testing</h3>
@@ -591,10 +600,12 @@ Accept:&quot;json&quot;
 <p><strong>Getting the Access token</strong></p>
 <p>An access token can retrived in the Boozang Management UI by clicking the Account -&gt; Get Token and entering your password. Keep this token secret and safe. </p>
 <p><strong>Generating a tokenized test URL</strong></p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/share-test-tokenized.png" alt="share-test-tokenized" /></p>
 <p>It can also be retrived from the IDE interface when sharing a single test. The user will again be prompted for a password to get a tokenized test URL, which can be run from command-line.  </p>
 <p><strong>Running from command-line</strong></p>
 <p>There are many ways to run Boozang tests from the command line but here are the recommended options: Installing the test runner using the <strong>Docker Xvfb container</strong> or <strong>Boozang npm package</strong>. </p>
 <h3 id="docker-xvfb-container">Docker Xvfb container</h3>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/docker-logo.png" alt="docker-logo" /></p>
 <p>The test runner is Open Source and the Docker container can be found here: <a href="https://hub.docker.com/r/styrman/boozang-runner/">https://hub.docker.com/r/styrman/boozang-runner/</a> and corresponding source code here: <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a></p>
 <p><strong>Installing Docker CE</strong> </p>
 <p>Docker is widely supported but does require some amount of disk space. In order to find installation intructions for your operation system, follow the guide here: <a href="https://docs.docker.com/install/">https://docs.docker.com/install/</a> (make sure to select your operating system in the left menu navigation) .</p>
@@ -620,6 +631,7 @@ Accept:&quot;json&quot;
 <p><strong>Additional CLI options</strong></p>
 <p>To find current supported command-line options, see Docker Github readme: <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a> and command-line runner README: <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a>.</p>
 <h3 id="npm-package">NPM Package</h3>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/nodejs-logo.jpg" alt="nodejs-logo" /></p>
 <p>The NPM package is Open source and the source code can be found here: <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a></p>
 <p><strong>Installing NodeJS</strong></p>
 <p>NodeJS is widely supported. We recommend that you run Node v8.9.0+ (we rely on async/await so NodeJS 6.x is not supported). To install NodeJS we recommend using a package manager (<a href="https://nodejs.org/en/download/package-manager/">https://nodejs.org/en/download/package-manager/</a>) but you can also install it from source (<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>). </p>
@@ -661,6 +673,7 @@ Accept:&quot;json&quot;
 <p><strong>Additional CLI options</strong></p>
 <p>To find current supported command-line options, see Github readme: <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a></p>
 <h3 id="parallel-test-execution-and-test-scheduling">Parallel test execution and test scheduling</h3>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/parallel-unsplash.jpg" alt="parallel-unsplash" /></p>
 <p>Installing the Docker container makes it dead simple to create your own test excution scripts. Here are a few examples </p>
 <p><strong>Running from cronjob</strong></p>
 <p>It's easy to setup a cronjob that runs a Boozang test at a scheduled time. Simply type</p>
@@ -686,6 +699,7 @@ Accept:&quot;json&quot;
 <p>We therefore encourage our users to keep there custom code open source, and share it openly. We also encourage you to let us know at <em>opensource@boozang.com</em> so we can link to it. </p>
 <h2 id="references">References</h2>
 <h3 id="security">Security</h3>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/hacker-1944688_1280.jpg" alt="hacker-1944688_1280" /></p>
 <p><strong>Fragment security</strong></p>
 <p>When installing the bz-fragment we get the security of the web browser without the limitation of being bound to Chrome extension policy. This limits cross-browser execution, but allows running Boozang without the need of any Extension. </p>
 <p>Note: This requires access to the application directory to install an HTML fragment. </p>
@@ -694,6 +708,7 @@ Accept:&quot;json&quot;
 <p><strong>Hosting</strong></p>
 <p>In our Cloud, we simply host the data you enter into our system and the tests, including our proprietary element selectors. To get an understanding of the kind of data we store, you can look at the Source tab on any test. Our servers are located in Canada. </p>
 <h3 id="trade-offs">Trade-offs</h3>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/justice-423446_1280.jpg" alt="justice-423446_1280" /></p>
 <p>There are several limitations to the Boozang technology, some that are a limiting factor of the technology and security of the browser context, and others that are conscious product decisions. Here is an attempt to address some of them head-on.</p>
 <p><strong>Only web</strong></p>
 <p>Boozang support only testing web and hybrid applications. There are plenty of good tools to test native and desktop applications in the market, and we will be happy to recommend some. When doing testing across web and native/desktop, we recommend driving the tests on the web over Boozang, while driving the other tests over another tool. Boozang has excellent support to read data from external sources and is designed to be able to have a source of truth outside the tool. </p>

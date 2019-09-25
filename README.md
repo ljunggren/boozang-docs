@@ -754,23 +754,30 @@ When enabling data bind and clicking autofill form, Boozang will look in the cur
 
 ### Troubleshooting data
 
-**![console](images/console.png)Console window**
+**Console window**
+
+![console](/Users/matsljunggren/Workspace/boozang-docs/images/console.png)
 
 When running a test it is sometimes desirable to inspect the data that is being run. In many cases, upstream test cases are sending data as parameters, and it gets even more tricky when data is being loaded from external data sources or Javascript functions. In order to inspect the data that is being used, you can use the console window. This window is located in the hamburger menu and allows users to spy on data.
 
-**Commands**
+The console can be used to check the following data:
 
-There will be command soon (roadmap). 
-
-
+- Assigned data: `$parameter`, `$test`, `$module`, and `$project`
+- Loop data: `$loop`
+- Regexp data generators: `/[a-z]{3,10}@bzmail[.]com/` (email),  `/[A-Z][0-9][A-Z] [0-9][A-Z][0-9]/` (Canadian zipcode)
+- Complex data generators: `/{today|YYYY-MM-DD}/`, `/{tomorrow|MM/DD hh:ss}/`
 
 
 
 **Tmp data**
 
+![tmpdata](/Users/matsljunggren/Workspace/boozang-docs/images/tmpdata.png)
+
 There is also another way to inspect data and do more advanced trouble-shooting. For each action, in the action details menu you can find a link called "Tmp data". This data is updated every time a test is run and will show the data that was used when the action was run. This also allows you to keep the last input data that was used, and replay the action with this data.
 
-To re-run the action with the data displayed, simply check the checkbox "As initial data for playing the action". In order to keep this data (not override the data in the next run) hit the "keep" button, and the data will be saved in the keep tab. 
+To inpect data during a run, simply add a breakpoint to the test or pause the test case during a run. Click on the action that uses the data, and click "Tmp data" in action details. 
+
+To re-run the action with the data that you see in the "Tmp data" window, simply check the checkbox "As initial data for playing the action". In order to keep this data (not override the data in the next run) hit the "keep" button, and the data will be saved in the keep tab. 
 
 *Tip: Hit keep and Save to save the action data in data-base to trouble-shoot with other team members.*
 
@@ -968,6 +975,8 @@ This powerful wild-card batch operation is used to search both for project, modu
 
 ### Loops
 
+![rollercoaster-801833_1280](/Users/matsljunggren/Workspace/boozang-docs/images/rollercoaster-801833_1280.jpg)
+
 Loops are supported over CSV data, Arrays, Matrix data, and External data (if data is in CSV or Matrix format) .
 
 
@@ -1079,6 +1088,8 @@ An access token can retrived in the Boozang Management UI by clicking the Accoun
 
 **Generating a tokenized test URL**
 
+![share-test-tokenized](/Users/matsljunggren/Workspace/boozang-docs/images/share-test-tokenized.png)
+
 It can also be retrived from the IDE interface when sharing a single test. The user will again be prompted for a password to get a tokenized test URL, which can be run from command-line.  
 
 **Running from command-line**
@@ -1086,6 +1097,8 @@ It can also be retrived from the IDE interface when sharing a single test. The u
 There are many ways to run Boozang tests from the command line but here are the recommended options: Installing the test runner using the **Docker Xvfb container** or **Boozang npm package**. 
 
 ### Docker Xvfb container 
+
+![docker-logo](/Users/matsljunggren/Workspace/boozang-docs/images/docker-logo.png)
 
 The test runner is Open Source and the Docker container can be found here: https://hub.docker.com/r/styrman/boozang-runner/ and corresponding source code here: https://github.com/ljunggren/bz-docker-xvfb
 
@@ -1136,6 +1149,8 @@ and when you are happy with it, finally push it to the Cloud
 To find current supported command-line options, see Docker Github readme: https://github.com/ljunggren/bz-docker-xvfb and command-line runner README: https://github.com/ljunggren/bz-puppeteer.
 
 ### NPM Package
+
+![nodejs-logo](/Users/matsljunggren/Workspace/boozang-docs/images/nodejs-logo.jpg)
 
 The NPM package is Open source and the source code can be found here: https://github.com/ljunggren/bz-puppeteer
 
@@ -1227,6 +1242,8 @@ To find current supported command-line options, see Github readme: https://githu
 
 ### Parallel test execution and test scheduling
 
+![parallel-unsplash](/Users/matsljunggren/Workspace/boozang-docs/images/parallel-unsplash.jpg)
+
 Installing the Docker container makes it dead simple to create your own test excution scripts. Here are a few examples 
 
 **Running from cronjob**
@@ -1272,6 +1289,8 @@ We therefore encourage our users to keep there custom code open source, and shar
 
 ### Security
 
+![hacker-1944688_1280](/Users/matsljunggren/Workspace/boozang-docs/images/hacker-1944688_1280.jpg)
+
 **Fragment security**
 
 When installing the bz-fragment we get the security of the web browser without the limitation of being bound to Chrome extension policy. This limits cross-browser execution, but allows running Boozang without the need of any Extension. 
@@ -1287,6 +1306,8 @@ As we are running locally in your web browser it´s been easier to be GDPR compl
 In our Cloud, we simply host the data you enter into our system and the tests, including our proprietary element selectors. To get an understanding of the kind of data we store, you can look at the Source tab on any test. Our servers are located in Canada. 
 
 ### Trade-offs
+
+![justice-423446_1280](/Users/matsljunggren/Workspace/boozang-docs/images/justice-423446_1280.jpg)
 
 There are several limitations to the Boozang technology, some that are a limiting factor of the technology and security of the browser context, and others that are conscious product decisions. Here is an attempt to address some of them head-on.
 
