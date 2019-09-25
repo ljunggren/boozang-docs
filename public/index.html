@@ -49,7 +49,17 @@
 <!-- CONTENT START -->
 <h1 id="boozang-documentation">Boozang Documentation</h1>
 <p><img src="images/side-by-side.png" alt="" /></p>
+<p>This is the official documentation for the Boozang test automation tool. It can be read as a book or used as a reference. Use the left navigation bar to navigate to the topic of interest. This documentatation is available in English and Chinese.   </p>
+<p>There are also a number of other resources to learn about Boozang</p>
+<ul>
+<li>Video page: <a href="https://boozang.com/videos/">https://boozang.com/videos/</a></li>
+<li>Free Udemy course: <a href="https://www.udemy.com/course/advanced-test-automation-using-boozang/">https://www.udemy.com/course/advanced-test-automation-using-boozang/</a></li>
+<li>In-tool help: Activated by clicking the Question mark in the toolbar</li>
+<li>Our blog: <a href="https://boozang.com/blog/">https://boozang.com/blog/</a></li>
+</ul>
+<p>For any suggestions / improvements send us an email at: support@boozang.com</p>
 <h2 id="overview">Overview</h2>
+<p><img src="images/max-ostrozhinskiy-18wn7B2y-SU-unsplash.jpg" alt="max-ostrozhinskiy-18wn7B2y-SU-unsplash" /></p>
 <h3 id="why-use-boozang">Why use Boozang?</h3>
 <p><strong>At the core</strong></p>
 <p>Boozang is a code-less front end testing tool built for the modern web using only Javascript. It allows developers and Quality Assurance engineers to develop front-end tests quickly without the need for programming. </p>
@@ -87,6 +97,7 @@
 <p>Since March 2019, Boozang also fully supports Shadow DOM / Web Components. </p>
 <p>Boozang does not support any testing of native IOS and Android application, or any desktop-based applications. </p>
 <h2 id="getting-started">Getting started</h2>
+<p><img src="images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg" alt="danielle-macinnes-IuLgi9PWETU-unsplash" /></p>
 <h3 id="signing--up--logging-in">Signing  up / Logging in</h3>
 <p>You can sign-up for Boozang from the Boozang homepage at <a href="Https://boozang.com">Https://boozang.com</a>. The sign-up link will take you to <a href="https://ai.boozang.com">https://ai.boozang.com</a>. This is the Boozang application server and this is responsible for communicating with any instances of the Boozang tool, which is running locally on the client-side. </p>
 <p>This is also where an administrator can maintain different teams and different projects, without having to launch anything client-side. </p>
@@ -126,6 +137,7 @@
 <p><img src="images/help-annotations.png" alt="example image" title="An exemplary image" /></p>
 <p>In the help text, you will find an explanation of the function you selected. You will also find any related videos to that function, if available. When clicking a video link, a separate video window will appear and you will be able to follow along with the tool if needed. </p>
 <h2 id="the-tool">The tool</h2>
+<p><img src="images/philip-swinburn-vS7LVkPyXJU-unsplash.jpg" alt="philip-swinburn-vS7LVkPyXJU-unsplash" /></p>
 <h3 id="the-sidebar">The sidebar</h3>
 <p><img src="images/sidebar.png" alt="example image" title="Sidebar" /></p>
 <p><strong>Boozang icon</strong></p>
@@ -243,6 +255,7 @@
 <p>A disabled action is skipped when a test is run. Useful to debug tests. </p>
 <h3 id="action-details">Action details</h3>
 <h2 id="elements">Elements</h2>
+<p><img src="images/darts-2966934_1280.jpg" alt="darts-2966934_1280" /></p>
 <h3 id="selecting-the-element">Selecting the element</h3>
 <p>Boozang uses custom element selectors based on what a user will see rather than classes, ids or other attributes. This means that to use class or id, this usually needs to be explicitly defined. By avoiding using classes and ids as primary identifiers, Boozang tests become very stable to code changes and can automate applications with dynamic ids and classes freely.</p>
 <p><strong>The element bar</strong></p>
@@ -325,6 +338,7 @@
 <p>When a test is run and an action element cannot be found the AI test repair screen will be launched. This will allow the user to simply re-pick the element from the application window. If a matching element is found, Boozang will suggest the element for the user. This allows the user to repair tests ultra-fast even when there have been significant code changes.</p>
 <p><em>Tip: In normal play mode, the user is asked if the test should be repaired. In Repair mode, the AI repair is always launched, and in Automation, mode AI repair is never launched.</em> </p>
 <h2 id="actions">Actions</h2>
+<p><img src="images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg" alt="glenn-carstens-peters-RLw-UC03Gwc-unsplash" /></p>
 <h3 id="events">Events</h3>
 <p><strong>Mouse event</strong></p>
 <p>This event corresponds to a mouse action, meaning a click or a movement of the mouse. By default, Boozang captures on clicks in the recording (otherwise the recording becomes very noisy catching too many events). The exception to this is when holding the mouse button down, to emulate drag and drop. In this case, Boozang registers a particular drag-and-drop event.  You can add mouse events manually to emulate mouse-over event and to create specific mouse conditions. </p>
@@ -387,8 +401,9 @@
 <p>The visit links action is used to automatically crawl a set of pages based on a navigation bar. In order to crawl a full navigation panel, such as a side navigation or hamburger menu, select this in the <strong>Panel</strong> option. <strong>Target element</strong> defaults to &quot;A&quot; tags, but can be changed using the DOM picker in case the navigation contains a different element than regular links. It's possible to execute a script before each click, but this can normally be left blank.</p>
 <p>For each click it´s normal to call a test case. Use <strong>Goto Test Case</strong> to select a downstream test case. This test case will be called for each link in the selected navigation panel.</p>
 <h2 id="using-data">Using data</h2>
-<p><img src="images/data.png" alt="data" /></p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/files-1614223_1280.jpg" alt="files-1614223_1280" /></p>
 <h3 id="introduction-to-data-types">Introduction to data types</h3>
+<p><img src="images/data.png" alt="data" /></p>
 <p>Boozang supports several different data types: Property, Object, Array, CSV, File, Request data and JS (Javascript function). </p>
 <p><strong>Properties</strong></p>
 <p>The property is a simple name-value pair and can be referenced directly. For instance, a property username = boozang added on test-level, can be referenced <code>{{$test.username}} (=boozang)</code>. </p>
@@ -439,7 +454,7 @@
 <p><em>Tip: Using autofill with data bind on <code>$parameter</code> scope is a quick way to create a very versatile  data-driven test case.</em> </p>
 <h3 id="troubleshooting-data">Troubleshooting data</h3>
 <p><strong>Console window</strong></p>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/console.png" alt="console" /></p>
+<p><img src="images/console.png" alt="console" /></p>
 <p>When running a test it is sometimes desirable to inspect the data that is being run. In many cases, upstream test cases are sending data as parameters, and it gets even more tricky when data is being loaded from external data sources or Javascript functions. In order to inspect the data that is being used, you can use the console window. This window is located in the hamburger menu and allows users to spy on data.</p>
 <p>The console can be used to check the following data:</p>
 <ul>
@@ -455,6 +470,7 @@
 <p>To re-run the action with the data that you see in the &quot;Tmp data&quot; window, simply check the checkbox &quot;As initial data for playing the action&quot;. In order to keep this data (not override the data in the next run) hit the &quot;keep&quot; button, and the data will be saved in the keep tab. </p>
 <p><em>Tip: Hit keep and Save to save the action data in data-base to trouble-shoot with other team members.</em></p>
 <h2 id="settings">Settings</h2>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/rima-kruciene-gpKe3hmIawg-unsplash.jpg" alt="rima-kruciene-gpKe3hmIawg-unsplash" /></p>
 <h3 id="environment">Environment</h3>
 <p><img src="images/environment.png" alt="environment" /></p>
 <p>In the Environment tab you can find a number of useful functionality. You can manage environments and different application interfaces, configure settings on an application interface level and also setup AI login / logout for diffrent roles / users.</p>
@@ -544,14 +560,15 @@
 <p><strong>Batch</strong></p>
 <p>This powerful wild-card batch operation is used to search both for project, modules, tests and data. Useful for large projects to locate lost data and for doing quick project cleanups. </p>
 <h2 id="advanced-testing-methods">Advanced testing methods</h2>
-<h3 id="loops">Loops</h3>
 <p><img src="images/rollercoaster-801833_1280.jpg" alt="rollercoaster-801833_1280" /></p>
+<h3 id="loops">Loops</h3>
 <p>Loops are supported over CSV data, Arrays, Matrix data, and External data (if data is in CSV or Matrix format) .</p>
 <p><strong>Setting up a simple data loop</strong></p>
 <h3 id="matrix-testing">Matrix testing</h3>
 <p><strong>Keywords: bz-skip and bz-stop</strong></p>
 <p>In data-driven testing we support keywords &quot;bz-skip&quot; and &quot;bz-stop&quot; to be able to trigger conditional functionality based on data. As soon as &quot;bz-skip&quot; occurs the test will skip without generating a failure. If &quot;bz-stop&quot; occurs the all upstream tests will stop without generating an error.  </p>
 <h3 id="api-testing">API testing</h3>
+<p><img src="images/clint-patterson-exfrR9KkzlE-unsplash.jpg" alt="clint-patterson-exfrR9KkzlE-unsplash" /></p>
 <h3 id="validate-api-call">Validate API call</h3>
 <p><strong>Useful resources</strong></p>
 <p>To simply mockup a REST server, we strongly recommend <a href="https://github.com/typicode/json-server">https://github.com/typicode/json-server</a> that allows you to create a fake REST API from a JSON file in less than 30 seconds. </p>
@@ -588,6 +605,7 @@ Accept:&quot;json&quot;
 <p><strong>The wizard</strong></p>
 <p>Launch the authorization wizard by simply click <strong>Enable AI authorization</strong> when setting up the environment. </p>
 <h2 id="integrations-and-test-scheduling">Integrations and test scheduling</h2>
+<p><img src="images/day-planner-828611_1280.jpg" alt="parallel-unsplash" /></p>
 <p>Note: This section will focus on running Boozang from command line.  For readers not familiar with CLI and Docker this might be a little technical, even though most of the commands should be working doing a direct copy.</p>
 <h3 id="test-urls-and-authorization">Test URLs and authorization</h3>
 <p>Even though tests can easily be run using the web browser, there will be a need to trigger these tests without manual interaction. The most common scenario is to run a set of tests when code is pushed into GitHub or other versioning systems, normally through a Continous Integration (CI) server integration. There are also other applications: one might want to trigger tests via a server cronjob, or trigger it directly via a build job or Ansible command. The basis of all this is to be able to trigger a test from command line. </p>
@@ -672,8 +690,7 @@ Accept:&quot;json&quot;
 <p>anywhere. </p>
 <p><strong>Additional CLI options</strong></p>
 <p>To find current supported command-line options, see Github readme: <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a></p>
-<h3 id="parallel-test-execution-and-test-scheduling">Parallel test execution and test scheduling</h3>
-<p><img src="images/parallel-unsplash.jpg" alt="parallel-unsplash" /></p>
+<h3 id="parallel-test-execution">Parallel test execution</h3>
 <p>Installing the Docker container makes it dead simple to create your own test excution scripts. Here are a few examples </p>
 <p><strong>Running from cronjob</strong></p>
 <p>It's easy to setup a cronjob that runs a Boozang test at a scheduled time. Simply type</p>
@@ -690,6 +707,36 @@ Accept:&quot;json&quot;
 <p>In this example, you can follow the progress of the tests in <code>test1.log</code> and <code>test2.log</code> respecively, and the report will be found in html format in <code>test1.html</code> and <code>test2.html</code>, and in JSON format in <code>test1.json</code> and <code>test2.json</code>.</p>
 <p><strong>More examples</strong></p>
 <p>You can find these examples and more at  <a href="https://github.com/ljunggren/bz-utils">https://github.com/ljunggren/bz-utils</a></p>
+<h3 id="test-scheduling">Test Scheduling</h3>
+<p>You can also use Boozang's built-in scheduler. It works very much like a <code>cronjob</code>, except that the timing parameters are added to the url after the &quot;/run&quot; part of the URL, like</p>
+<p><code>nohup docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file=test1 "[tokenized-test-url-1]/run?every=10"&gt; test1.log &amp;</code></p>
+<p>This command will keep the test running in the browser inside the Docker container, and run the test every 10 minutes.</p>
+<p>Boozang offers a flexible way to schedule tasks:</p>
+<p><strong>In=</strong> <em>[min]</em></p>
+<p>Such as: ... / run? in = 10
+This means that the test is executed immediately, and tested again 10 minutes after completion</p>
+<p><strong>Every=</strong> <em>[min]</em></p>
+<p>Such as: .. / run? every = 10
+This means that the test is executed immediately, and the execution is executed 10 minutes after the first test starts.</p>
+<p><strong>At=</strong> <em>[min]</em></p>
+<p>Such as: ... / run? at = 15, 45
+This means that the test is not executed immediately, and the test task is executed at a specified time (15, 45). According to this example, if the current time is 15:52, the first execution time is: 16:15, and the next time is: 16:45</p>
+<p><strong>At=</strong> <em>[time]</em></p>
+<p>Such as: .../run?at=13:30, 20:00
+This means that the test is not executed immediately, and it is executed at a specified time. According to this example, if the current time is 15:52, the first execution is performed. The time is: 20:30. Then the second execution time is 13:30 tomorrow.</p>
+<p><strong>On=</strong> <em>[day]</em> <strong>&amp;at=</strong> <em>[min/time]</em></p>
+<p>Such as: .. / run? on = mon &amp; at = 13: 30
+This means that the test is not executed immediately, according to the specified date and time. According to this example, the test time is 13:30 next Monday. Note: &quot;on&quot; must be used together with &quot;at&quot;. For &quot;on&quot; you can use the following values:
+Monday or mon or 0 (for Monday)
+Tuesday or tue or 1 (for Tuesday)
+Wednesday or wed or 2 (for Wednesday)
+Thusday or thu or 3 (for Thursday)
+Friday or fri or 4 (for Friday)
+Saturday or sat or 5 (for Saturday)
+Sunday or sun or 6 (for Sunday)
+workday (for Monday to Friday)
+also supports multiple, such as: on=wed, fri, or on=workday, Sat</p>
+<p>&quot;now&quot;: Refers to the test immediately. For example, the user needs to use on, but wants to perform the test task immediately, such as: .../run?at=13:50&amp;on=work&amp;now</p>
 <h3 id="a-note-on-open-source">A note on Open Source</h3>
 <p>In order to build a strong ecosystem around Boozang we have decided to keep all client-side code Open Source and allow our customers to customize it as they wish. The reason for this is two-fold: </p>
 <ol>

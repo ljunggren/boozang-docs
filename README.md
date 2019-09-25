@@ -2,7 +2,20 @@
 
 ![](images/side-by-side.png)
 
+This is the official documentation for the Boozang test automation tool. It can be read as a book or used as a reference. Use the left navigation bar to navigate to the topic of interest. This documentatation is available in English and Chinese.   
+
+There are also a number of other resources to learn about Boozang
+
+- Video page: https://boozang.com/videos/
+- Free Udemy course: https://www.udemy.com/course/advanced-test-automation-using-boozang/
+- In-tool help: Activated by clicking the Question mark in the toolbar
+- Our blog: https://boozang.com/blog/
+
+For any suggestions / improvements send us an email at: support@boozang.com
+
 ## Overview
+
+![max-ostrozhinskiy-18wn7B2y-SU-unsplash](images/max-ostrozhinskiy-18wn7B2y-SU-unsplash.jpg)
 
 ### Why use Boozang?
 
@@ -69,6 +82,8 @@ Since March 2019, Boozang also fully supports Shadow DOM / Web Components.
 Boozang does not support any testing of native IOS and Android application, or any desktop-based applications. 
 
 ## Getting started
+
+![danielle-macinnes-IuLgi9PWETU-unsplash](images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg)
 
 ### Signing  up / Logging in
 
@@ -146,6 +161,9 @@ For this reason, to be able to deliver new features fast without forcing the end
 In the help text, you will find an explanation of the function you selected. You will also find any related videos to that function, if available. When clicking a video link, a separate video window will appear and you will be able to follow along with the tool if needed. 
 
 ## The tool
+
+![philip-swinburn-vS7LVkPyXJU-unsplash](images/philip-swinburn-vS7LVkPyXJU-unsplash.jpg)
+
 ### The sidebar
 
 ![example image](images/sidebar.png "Sidebar")
@@ -380,6 +398,9 @@ A disabled action is skipped when a test is run. Useful to debug tests.
 
 ### Action details
 ## Elements
+
+![darts-2966934_1280](images/darts-2966934_1280.jpg)
+
 ### Selecting the element
 
 Boozang uses custom element selectors based on what a user will see rather than classes, ids or other attributes. This means that to use class or id, this usually needs to be explicitly defined. By avoiding using classes and ids as primary identifiers, Boozang tests become very stable to code changes and can automate applications with dynamic ids and classes freely.
@@ -526,6 +547,8 @@ When a test is run and an action element cannot be found the AI test repair scre
 
 ## Actions
 
+![glenn-carstens-peters-RLw-UC03Gwc-unsplash](images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg)
+
 ### Events
 
 **Mouse event**
@@ -650,10 +673,12 @@ For each click it´s normal to call a test case. Use **Goto Test Case** to selec
 
 ## Using data
 
-![data](images/data.png)
-
+![files-1614223_1280](/Users/matsljunggren/Workspace/boozang-docs/images/files-1614223_1280.jpg)
 
 ### Introduction to data types
+
+![data](images/data.png)
+
 Boozang supports several different data types: Property, Object, Array, CSV, File, Request data and JS (Javascript function). 
 
 **Properties**
@@ -756,7 +781,7 @@ When enabling data bind and clicking autofill form, Boozang will look in the cur
 
 **Console window**
 
-![console](/Users/matsljunggren/Workspace/boozang-docs/images/console.png)
+![console](images/console.png)
 
 When running a test it is sometimes desirable to inspect the data that is being run. In many cases, upstream test cases are sending data as parameters, and it gets even more tricky when data is being loaded from external data sources or Javascript functions. In order to inspect the data that is being used, you can use the console window. This window is located in the hamburger menu and allows users to spy on data.
 
@@ -782,6 +807,8 @@ To re-run the action with the data that you see in the "Tmp data" window, simply
 *Tip: Hit keep and Save to save the action data in data-base to trouble-shoot with other team members.*
 
 ## Settings
+
+![rima-kruciene-gpKe3hmIawg-unsplash](/Users/matsljunggren/Workspace/boozang-docs/images/rima-kruciene-gpKe3hmIawg-unsplash.jpg)
 
 ### Environment
 
@@ -899,6 +926,8 @@ This still exits.
 
 ## Other tool views
 
+
+
 ### Reports
 
 ![report](images/report.png)
@@ -973,9 +1002,9 @@ This powerful wild-card batch operation is used to search both for project, modu
 
 ## Advanced testing methods
 
-### Loops
-
 ![rollercoaster-801833_1280](images/rollercoaster-801833_1280.jpg)
+
+### Loops
 
 Loops are supported over CSV data, Arrays, Matrix data, and External data (if data is in CSV or Matrix format) .
 
@@ -991,6 +1020,8 @@ In data-driven testing we support keywords "bz-skip" and "bz-stop" to be able to
 
 
 ### API testing
+
+![clint-patterson-exfrR9KkzlE-unsplash](images/clint-patterson-exfrR9KkzlE-unsplash.jpg)
 
 ### Validate API call
 
@@ -1063,6 +1094,8 @@ A key in this procedure is to have login credentials for the different roles tha
 Launch the authorization wizard by simply click **Enable AI authorization** when setting up the environment. 
 
 ## Integrations and test scheduling
+
+![parallel-unsplash](images/day-planner-828611_1280.jpg)
 
 Note: This section will focus on running Boozang from command line.  For readers not familiar with CLI and Docker this might be a little technical, even though most of the commands should be working doing a direct copy.
 
@@ -1240,9 +1273,7 @@ anywhere.
 
 To find current supported command-line options, see Github readme: https://github.com/ljunggren/bz-puppeteer
 
-### Parallel test execution and test scheduling
-
-![parallel-unsplash](images/parallel-unsplash.jpg)
+### Parallel test execution
 
 Installing the Docker container makes it dead simple to create your own test excution scripts. Here are a few examples 
 
@@ -1275,6 +1306,52 @@ In this example, you can follow the progress of the tests in `test1.log` and `te
 **More examples**
 
 You can find these examples and more at  https://github.com/ljunggren/bz-utils
+
+### Test Scheduling
+
+You can also use Boozang's built-in scheduler. It works very much like a `cronjob`, except that the timing parameters are added to the url after the "/run" part of the URL, like
+
+`nohup docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file=test1 "[tokenized-test-url-1]/run?every=10"> test1.log &`
+
+This command will keep the test running in the browser inside the Docker container, and run the test every 10 minutes.
+
+Boozang offers a flexible way to schedule tasks:
+
+**In=** *[min]*
+
+Such as: ... / run? in = 10
+This means that the test is executed immediately, and tested again 10 minutes after completion
+
+**Every=** *[min]*
+
+Such as: .. / run? every = 10
+This means that the test is executed immediately, and the execution is executed 10 minutes after the first test starts.
+
+**At=** *[min]*
+
+Such as: ... / run? at = 15, 45
+This means that the test is not executed immediately, and the test task is executed at a specified time (15, 45). According to this example, if the current time is 15:52, the first execution time is: 16:15, and the next time is: 16:45
+
+**At=** *[time]*
+
+Such as: .../run?at=13:30, 20:00
+This means that the test is not executed immediately, and it is executed at a specified time. According to this example, if the current time is 15:52, the first execution is performed. The time is: 20:30. Then the second execution time is 13:30 tomorrow.
+
+**On=** *[day]* **&at=** *[min/time]*
+
+Such as: .. / run? on = mon & at = 13: 30
+This means that the test is not executed immediately, according to the specified date and time. According to this example, the test time is 13:30 next Monday. Note: "on" must be used together with "at". For "on" you can use the following values:
+Monday or mon or 0 (for Monday)
+Tuesday or tue or 1 (for Tuesday)
+Wednesday or wed or 2 (for Wednesday)
+Thusday or thu or 3 (for Thursday)
+Friday or fri or 4 (for Friday)
+Saturday or sat or 5 (for Saturday)
+Sunday or sun or 6 (for Sunday)
+workday (for Monday to Friday)
+also supports multiple, such as: on=wed, fri, or on=workday, Sat
+
+"now": Refers to the test immediately. For example, the user needs to use on, but wants to perform the test task immediately, such as: .../run?at=13:50&on=work&now
 
 ### A note on Open Source
 
