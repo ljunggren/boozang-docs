@@ -545,7 +545,7 @@
 <p>This powerful wild-card batch operation is used to search both for project, modules, tests and data. Useful for large projects to locate lost data and for doing quick project cleanups. </p>
 <h2 id="advanced-testing-methods">Advanced testing methods</h2>
 <h3 id="loops">Loops</h3>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/rollercoaster-801833_1280.jpg" alt="rollercoaster-801833_1280" /></p>
+<p><img src="images/rollercoaster-801833_1280.jpg" alt="rollercoaster-801833_1280" /></p>
 <p>Loops are supported over CSV data, Arrays, Matrix data, and External data (if data is in CSV or Matrix format) .</p>
 <p><strong>Setting up a simple data loop</strong></p>
 <h3 id="matrix-testing">Matrix testing</h3>
@@ -605,7 +605,7 @@ Accept:&quot;json&quot;
 <p><strong>Running from command-line</strong></p>
 <p>There are many ways to run Boozang tests from the command line but here are the recommended options: Installing the test runner using the <strong>Docker Xvfb container</strong> or <strong>Boozang npm package</strong>. </p>
 <h3 id="docker-xvfb-container">Docker Xvfb container</h3>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/docker-logo.png" alt="docker-logo" /></p>
+<p><img src="images/docker-logo.png" alt="docker-logo" /></p>
 <p>The test runner is Open Source and the Docker container can be found here: <a href="https://hub.docker.com/r/styrman/boozang-runner/">https://hub.docker.com/r/styrman/boozang-runner/</a> and corresponding source code here: <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a></p>
 <p><strong>Installing Docker CE</strong> </p>
 <p>Docker is widely supported but does require some amount of disk space. In order to find installation intructions for your operation system, follow the guide here: <a href="https://docs.docker.com/install/">https://docs.docker.com/install/</a> (make sure to select your operating system in the left menu navigation) .</p>
@@ -631,7 +631,7 @@ Accept:&quot;json&quot;
 <p><strong>Additional CLI options</strong></p>
 <p>To find current supported command-line options, see Docker Github readme: <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a> and command-line runner README: <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a>.</p>
 <h3 id="npm-package">NPM Package</h3>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/nodejs-logo.jpg" alt="nodejs-logo" /></p>
+<p><img src="images/nodejs-logo.jpg" alt="nodejs-logo" /></p>
 <p>The NPM package is Open source and the source code can be found here: <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a></p>
 <p><strong>Installing NodeJS</strong></p>
 <p>NodeJS is widely supported. We recommend that you run Node v8.9.0+ (we rely on async/await so NodeJS 6.x is not supported). To install NodeJS we recommend using a package manager (<a href="https://nodejs.org/en/download/package-manager/">https://nodejs.org/en/download/package-manager/</a>) but you can also install it from source (<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>). </p>
@@ -673,7 +673,7 @@ Accept:&quot;json&quot;
 <p><strong>Additional CLI options</strong></p>
 <p>To find current supported command-line options, see Github readme: <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a></p>
 <h3 id="parallel-test-execution-and-test-scheduling">Parallel test execution and test scheduling</h3>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/parallel-unsplash.jpg" alt="parallel-unsplash" /></p>
+<p><img src="images/parallel-unsplash.jpg" alt="parallel-unsplash" /></p>
 <p>Installing the Docker container makes it dead simple to create your own test excution scripts. Here are a few examples </p>
 <p><strong>Running from cronjob</strong></p>
 <p>It's easy to setup a cronjob that runs a Boozang test at a scheduled time. Simply type</p>
@@ -699,7 +699,7 @@ Accept:&quot;json&quot;
 <p>We therefore encourage our users to keep there custom code open source, and share it openly. We also encourage you to let us know at <em>opensource@boozang.com</em> so we can link to it. </p>
 <h2 id="references">References</h2>
 <h3 id="security">Security</h3>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/hacker-1944688_1280.jpg" alt="hacker-1944688_1280" /></p>
+<p><img src="images/hacker-1944688_1280.jpg" alt="hacker-1944688_1280" /></p>
 <p><strong>Fragment security</strong></p>
 <p>When installing the bz-fragment we get the security of the web browser without the limitation of being bound to Chrome extension policy. This limits cross-browser execution, but allows running Boozang without the need of any Extension. </p>
 <p>Note: This requires access to the application directory to install an HTML fragment. </p>
@@ -708,7 +708,7 @@ Accept:&quot;json&quot;
 <p><strong>Hosting</strong></p>
 <p>In our Cloud, we simply host the data you enter into our system and the tests, including our proprietary element selectors. To get an understanding of the kind of data we store, you can look at the Source tab on any test. Our servers are located in Canada. </p>
 <h3 id="trade-offs">Trade-offs</h3>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/justice-423446_1280.jpg" alt="justice-423446_1280" /></p>
+<p><img src="images/justice-423446_1280.jpg" alt="justice-423446_1280" /></p>
 <p>There are several limitations to the Boozang technology, some that are a limiting factor of the technology and security of the browser context, and others that are conscious product decisions. Here is an attempt to address some of them head-on.</p>
 <p><strong>Only web</strong></p>
 <p>Boozang support only testing web and hybrid applications. There are plenty of good tools to test native and desktop applications in the market, and we will be happy to recommend some. When doing testing across web and native/desktop, we recommend driving the tests on the web over Boozang, while driving the other tests over another tool. Boozang has excellent support to read data from external sources and is designed to be able to have a source of truth outside the tool. </p>

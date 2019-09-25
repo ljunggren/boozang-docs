@@ -975,7 +975,7 @@ This powerful wild-card batch operation is used to search both for project, modu
 
 ### Loops
 
-![rollercoaster-801833_1280](/Users/matsljunggren/Workspace/boozang-docs/images/rollercoaster-801833_1280.jpg)
+![rollercoaster-801833_1280](images/rollercoaster-801833_1280.jpg)
 
 Loops are supported over CSV data, Arrays, Matrix data, and External data (if data is in CSV or Matrix format) .
 
@@ -1098,7 +1098,7 @@ There are many ways to run Boozang tests from the command line but here are the 
 
 ### Docker Xvfb container 
 
-![docker-logo](/Users/matsljunggren/Workspace/boozang-docs/images/docker-logo.png)
+![docker-logo](images/docker-logo.png)
 
 The test runner is Open Source and the Docker container can be found here: https://hub.docker.com/r/styrman/boozang-runner/ and corresponding source code here: https://github.com/ljunggren/bz-docker-xvfb
 
@@ -1150,7 +1150,7 @@ To find current supported command-line options, see Docker Github readme: https:
 
 ### NPM Package
 
-![nodejs-logo](/Users/matsljunggren/Workspace/boozang-docs/images/nodejs-logo.jpg)
+![nodejs-logo](images/nodejs-logo.jpg)
 
 The NPM package is Open source and the source code can be found here: https://github.com/ljunggren/bz-puppeteer
 
@@ -1242,7 +1242,7 @@ To find current supported command-line options, see Github readme: https://githu
 
 ### Parallel test execution and test scheduling
 
-![parallel-unsplash](/Users/matsljunggren/Workspace/boozang-docs/images/parallel-unsplash.jpg)
+![parallel-unsplash](images/parallel-unsplash.jpg)
 
 Installing the Docker container makes it dead simple to create your own test excution scripts. Here are a few examples 
 
@@ -1289,7 +1289,7 @@ We therefore encourage our users to keep there custom code open source, and shar
 
 ### Security
 
-![hacker-1944688_1280](/Users/matsljunggren/Workspace/boozang-docs/images/hacker-1944688_1280.jpg)
+![hacker-1944688_1280](images/hacker-1944688_1280.jpg)
 
 **Fragment security**
 
@@ -1307,7 +1307,7 @@ In our Cloud, we simply host the data you enter into our system and the tests, i
 
 ### Trade-offs
 
-![justice-423446_1280](/Users/matsljunggren/Workspace/boozang-docs/images/justice-423446_1280.jpg)
+![justice-423446_1280](images/justice-423446_1280.jpg)
 
 There are several limitations to the Boozang technology, some that are a limiting factor of the technology and security of the browser context, and others that are conscious product decisions. Here is an attempt to address some of them head-on.
 
