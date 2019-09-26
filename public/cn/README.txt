@@ -1,30 +1,45 @@
-# Boozang
+# Boozang Documentation
 
 ![](images/side-by-side.png)
 
-[Live Example](https://moqmar.github.io/shell-setup/)
+This is the official documentation for the Boozang test automation tool. It can be read as a book or used as a reference. Use the left navigation bar to navigate to the topic of interest. This documentatation is available in English and Chinese.   
 
+There are also a number of other resources to learn about Boozang
 
-## Why use Boozang?
-### At the core
+- Video page: https://boozang.com/videos/
+- Free Udemy course: https://www.udemy.com/course/advanced-test-automation-using-boozang/
+- In-tool help: Activated by clicking the Question mark in the toolbar
+- Our blog: https://boozang.com/blog/
+
+For any suggestions / improvements send us an email at: support@boozang.com
+
+## Overview
+
+![max-ostrozhinskiy-18wn7B2y-SU-unsplash](images/max-ostrozhinskiy-18wn7B2y-SU-unsplash.jpg)
+
+In this section we give a brief overview of the Boozang features and when it's a good idea to use the Boozang tool. 
+
+### Introducing Boozang
+
+**At the core**
 
 Boozang is a code-less front end testing tool built for the modern web using only Javascript. It allows developers and Quality Assurance engineers to develop front-end tests quickly without the need for programming. 
 
-Boozang is not based on Selenium, and does not have the limitations of Selenium and Selenium web driver. Boozang uses it´s own selection language based on natural-language, allowing for native support of TDD / BDD (test/behavior driven developement) and allows for tests to be automatically generated from models. 
+Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium web driver. Boozang uses it's own selection language based on natural-language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models. 
 
-### About the Technology
+**About the Technology**
 
-The Boozang test technology is divided into two parts. The proprietary part of the tool which allows you to author tests record fast and the Open Source test runner which is built on Google Puppeteer, which allows you to run tests from command-line and integrate Boozang into your CI flow or otther tools. 
+Boozang test technology is divided into two parts. The proprietary part of the tool which allows you to author tests record fast and the Open Source test runner which is built on Google Puppeteer, which allows you to run tests from command-line and integrate Boozang into your CI flow or other tools. 
 
 * **Boozang tool**: Sign up at https://boozang.com for free and paid license offerings.
 
-* **Boozang test-runner:** For the Boozang Puppeteer open source test runner see https://github.com/ljunggren/bz-puppeteer and the Docker container https://github.com/degardinn/docker-boozang
+* **Boozang test-runner:** For the Boozang Puppeteer open-source test runner see https://github.com/ljunggren/bz-puppeteer and the Docker container https://github.com/ljunggren/bz-docker-xvfb
 
 ### Features
 
 **Stable to code changes**
 
-Boozang is fundamentally different from other test tools. Boozang uses natural language to identify browser elements, instead of the DOM elements, making tests incredibly stable to changes of the underlying implementation. Actually, it´s possible to completely change the underlying technology without affecting the tests. You can go from a Java legacy application to Angular and the tests remain the same, as long as the business requirements do. 
+Boozang is fundamentally different from other test tools. Boozang uses natural language to identify browser elements, instead of the DOM elements, making tests incredibly stable to changes of the underlying implementation. It's possible to completely change the underlying technology without affecting the tests. You can go from a Java legacy application to Angular and the tests remain the same, as long as the business requirements do. 
 
 **Automated documentation**
 
@@ -40,7 +55,7 @@ Boozang is built for Test-driven and Behavior-driven development minus the progr
 
 **Linkability**
 
-Boozang is completely built in Javascript and being CLoud-based there is no need for any client-side installation. Simply add an HTML-fragment to your site to activate it for testing.
+Boozang is completely built-in Javascript and being Cloud-based there is no need for any client-side installation. Simply add an HTML-fragment to your site to activate it for testing.
 
 **Cross-browser support**
 
@@ -54,15 +69,15 @@ Supports Web Components / Shadow DOM testing and socket-based testing.
 
 **Good fit vs bad fit**
 
-Boozang is great when testing anything that runs in the web browser. This includes any modern SaaS application, no matter how complex. It´s great when you need to test automate testing for deterministic usage flows, basically conditions that can be determined by a machine. 
+Boozang is great when testing anything that runs in the web browser. This includes any modern SaaS application, no matter how complex. It’s great when you need to test automate testing for deterministic usage flows, basically conditions that can be determined by a machine. 
 
-A rule of thumb is that the more you feel the need to run regression testing, the more value you will find in a Boozang implementation. This means, if you release business critical software often, you will find great value in Boozang. If you release rarely and bugs doen´t have a significant impact, maybe not so much. 
+A rule of thumb is that the more you feel the need to run regression testing, the more value you will find in a Boozang implementation. This means, if you release business-critical software often, you will find great value in Boozang. If you release rarely and bugs don't have a significant impact, maybe not so much. 
 
-A less than ideal fit is also SaaS applications that do a lot of very graphical stuff that needs a human to make a judgement call. Thiese flows can never be fully automated and the value of automation can be limited. 
+A less than ideal fit is also SaaS applications that do a lot of very graphical stuff that needs a human to make a judgment call. These flows can never be fully automated and the value of automation can be limited. 
 
 **A note on supported technology**
 
-Boozang supports any application that runs in the web browser. Boozang also supports hybrid approaches, such as Cordova, Ionic and Xamarin.
+Boozang supports any application that runs in the web browser. Boozang also supports hybrid approaches, such as Cordova, Ionic, and Xamarin.
 
 Since March 2019, Boozang also fully supports Shadow DOM / Web Components. 
 
@@ -70,9 +85,13 @@ Boozang does not support any testing of native IOS and Android application, or a
 
 ## Getting started
 
+![danielle-macinnes-IuLgi9PWETU-unsplash](images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg)
+
+In this section we cover the onboarding process of the Boozang tool, and some important concepts that might be puzzling (such as Modules). After this section you should have a some ideas of the Boozang concepts and how to record a test. 
+
 ### Signing  up / Logging in
 
-You can sign-up for Boozang from the Boozang homepage at Https://boozang.com. The sign-up link will take you to https://ai.boozang.com. This is the Boozang application server and this is responsible for communicating with the any instances of the Boozang tool, which is actually running locally on the client side. 
+You can sign-up for Boozang from the Boozang homepage at Https://boozang.com. The sign-up link will take you to https://ai.boozang.com. This is the Boozang application server and this is responsible for communicating with any instances of the Boozang tool, which is running locally on the client-side. 
 
 This is also where an administrator can maintain different teams and different projects, without having to launch anything client-side. 
 
@@ -87,11 +106,11 @@ Boozang is completely hosted in the Cloud and supports running from client-side 
 
 **Installing the Chrome extension** 
 
-For users without access to the application web root, or for users who want to do cross-domain testing, we  provide a Chrome extension. The Chrome extension can be downloaded from the Chrome web store here: https://chrome.google.com/webstore/detail/boozang/feijjbehfljebjillfefcehfmlolcomf. To launch the Boozang tool using the Chrome extension, simply click "Launch" in the Cloud manegement interface, and you will be prompted to install the Chrome extension. 
+For users without access to the application webroot, or for users who want to do cross-domain testing, we provide a Chrome extension. The Chrome extension can be downloaded from the Chrome web store [here](https://chrome.google.com/webstore/detail/boozang-ai/bnaebcjlolajbgllgjlmlfobobdemmki). To launch the Boozang tool using the Chrome extension, simply click "Launch" in the Cloud management interface, and you will be prompted to install the Chrome extension. 
 
 **Installing the bz fragment**
 
-Simply create a project at http://ai.boozang.com and download the HTML snippet. The snippet is copied to the web root (where your index.html or similar would be located). In order to launch the Boozang tool, simply access the snippet in any browser, such as http://myapplication.com/bz.html or http://localhost:8080/bz.html. 
+Simply create a project at http://ai.boozang.com and download the HTML snippet. The snippet is copied to the webroot (where your index.html or similar would be located). To launch the Boozang tool, simply access the snippet in any browser, such as http://myapplication.com/bz.html or http://localhost:8080/bz.html. 
 
 Tip: Using the bz fragment allows for running tests in headless browser mode. This allows for simple CI integration using the Boozang test runner.
 
@@ -99,7 +118,7 @@ Tip: Using the bz fragment allows for running tests in headless browser mode. Th
 
 ![example image](images/environment.png "An exemplary image")
 
-Boozang supports many appliaction interfaces (mgmt, traffic, store) across many different environments (test, qa, staging, production). The purpose of this is to be able to allow a single test to be re-used across different environments without any risk of having to edit the test. If tests are duplicated and individually customized to run on an environment, over time maintaining these tests gets very expensive, so it´s better to set this up properly from the get-go. 
+Boozang supports many application interfaces (mgmt, traffic, store) across many different environments (test, QA, staging, production). The purpose of this is to be able to allow a single test to be re-used across different environments without any risk of having to edit the test. If tests are duplicated and individually customized to run on an environment, over time maintaining these tests gets very expensive, so it´s better to set this up properly from the get-go. 
 
 ### Modules and Tests
 
@@ -117,19 +136,19 @@ The modules are used to divide your tests into functional areas of your applicat
 
 **Sub-modules**
 
-For very complex application it can sometimes be useful to introduce sub-modules. This is particularly useful when you clearly have sub-modules on the application side. For most SaaS applications, such as CMS (content-management system) or ERP (Enterprise resource planning), the application is organized in two levels, making the project-module-test hierarchy sufficient. 
+For very complex application it can sometimes be useful to introduce sub-modules. This is particularly useful when you have sub-modules on the application side. For most SaaS applications, such as CMS (content management system) or ERP (Enterprise resource planning), the application is organized in two levels, making the project-module-test hierarchy sufficient. 
 
 ### Recording your first test
 
-Boozang works within the browser which allows for a very stable recording function. Simply click on the record button in the tool. As you perfrom actions on your web page actions will be recorded. To remove an un-wanted action that was recorded simply press the trashbin next to the action in the main tool view. 
+Boozang works within the browser which allows for a very stable recording function. Simply click on the record button in the tool. As you perform actions on your web page actions will be recorded. To remove an un-wanted action that was recorded simply press the trashbin next to the action in the main tool view. 
 
-As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports 3 different playback modes: Normal, demo and debug mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlight the error and allows you to correct it on the fly. When you have corrected the error simple press the play button again and the test will continue it´s execution. This is very useful when updating a test after a big code change. 
+As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports four different playback modes: **Normal**, **demo**, **debug** and **automation** mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlights the error and allows you to correct it on the fly. When you have corrected the error simple press the play button again and the test will continue its execution. This is very useful when updating a test after a big code change. 
 
-A test is automatically saved in the local storage of the browser. As soon as you update a test, the test will be checked out by you, and it will appear as locked for your team-mates, which prevents them from making changes. As soon as you click save the test will be saved on the Boozang server, and the lock will be automatically removed, allowing other team-members to make changes. 
+A test is automatically saved in the local storage of the browser. As soon as you update a test, the test will be checked out by you, and it will appear as locked for your team-mates, which prevents them from making changes. As soon as you click save the test will be saved on the Boozang server, and the lock will be automatically removed, allowing other team members to make changes. 
 
-**A note on Window aligment**
+**A note on Window alignment**
 
-In order to use Boozang well, we recommend aligning the Boozang tool and your application next to each other side by side in the following way
+To use Boozang well, we recommend aligning the Boozang tool and your application next to each other side by side in the following way
 
 ![](images/side-by-side.png)
 
@@ -137,15 +156,20 @@ This allows you to get a good overview of the recorded actions, and an easy way 
 
 ### In-tool help
 
-As Boozang is completely hosted in the Cloud it´s easy to do changes and add useful features quickly. This has a huge upside as we are able to deploy features that customer asks for to all our customers at the same time, to the benefit of all. This also means that new things can appear in the user interface without warning, and in some cases, that the documentation might not be up-to-date all the time. 
+As Boozang is completely hosted in the Cloud it's easy to do changes and add useful features quickly. This has a huge upside as we can deploy features that customer asks for to all our customers at the same time, to the benefit of all. This also means that new things can appear in the user interface without warning, and in some cases, the documentation might not be up-to-date all the time. 
 
-For this reason, to be able to deliver new features fast without forcing the end user to re-learn, we added an online help function inside the tool. Simply click the question mark in the user interface, and click the functionality and an explanation will appear. 
+For this reason, to be able to deliver new features fast without forcing the end-user to re-learn, we added an online help function inside the tool. Simply click the question mark in the user interface, and click the functionality and an explanation will appear. 
 
 ![example image](images/help-annotations.png "An exemplary image")
 
 In the help text, you will find an explanation of the function you selected. You will also find any related videos to that function, if available. When clicking a video link, a separate video window will appear and you will be able to follow along with the tool if needed. 
 
 ## The tool
+
+![philip-swinburn-vS7LVkPyXJU-unsplash](images/philip-swinburn-vS7LVkPyXJU-unsplash.jpg)
+
+In this section we explain all the toolbars and controls, basically what does what. You can skip this section and use as a reference when you get stuck or have some questions. 
+
 ### The sidebar
 
 ![example image](images/sidebar.png "Sidebar")
@@ -162,19 +186,19 @@ This is the main view to create test cases and organize them in the project tree
 
 Bug authoring view. Use this section to record bugs, which are most often visual discrepancies of your application highlighted by the comment function.
 
-In this view you have access to all authoring tools, with the difference that bugs can be assigned to other members in your team.
+In this view, you have access to all authoring tools, with the difference that bugs can be assigned to other members in your team.
 
 **Settings**
 
-The project settings allows the user to set: Environment, Content Policy, Notifications, and Preferences.
+The project settings allow the user to set: Environment, Content Policy, Notifications, and Preferences.
 
 **Reports**
 
-The report view contains the report of the latest test run. When running a test, the user can also switch to the report view to see the report being generated as the test runs. 
+The report view contains the report of the latest test run. When running a test, the user can also switch to the report view to see the report is generated as the test runs. 
 
 **Tools**
 
-In tools you will find import and export tools for the project. This allows an admin user to backup proejcts and also to import projects from other users. There is also a powerful free text search that can search both modules and test and data, and perform replacement as well. 
+In tools, you will find import and export tools for the project. This allows an admin user to backup projects and also to import projects from other users. There is also a powerful free-text search that can search both modules and test and data, and perform replacement as well. 
 
 ### The hamburger menu
 
@@ -198,19 +222,19 @@ Opens a popup chat with the team. Here you can monitor project activity and chat
 
 **Dock mode**
 
-The dock mdoe allows the user to switch between undocked (two separate application windows), dock to left (Boozang IDE is to the left) and dock to right (Boozang is on the right). In some cases the applications under test doesn´t support docked mode, so use this option to Undock. 
+The docked mode allows the user to switch between undocked (two separate application windows), dock to left (Boozang IDE is to the left) and dock to right (Boozang is on the right). In some cases the applications under test don´t support docked mode, so use this option to Undock. 
 
 **Video Tutorials**
 
-This is a link to the Video tutorials on the homepage. 
+This is a link to the video tutorials on the homepage. 
 
 **Functional Overview**
 
-THis is a link to the latest version of this document. 
+This is a link to the latest version of this document. 
 
 **Video Helper**
 
-This opens a small helper that gives you topic based video help based on certain topics. 
+This opens a small helper that gives you topic-based video help based on certain topics. 
 
 Note: Some of this video material may have been recorded on top of previous versions of Boozang. 
 
@@ -224,7 +248,7 @@ Log out the user.
 
 **Project Name**
 
-The first entry in the top bar will be the project name. Clicking on the project name will take you to the root of the project tree. Use a desciptive name for your project that refrects the product under test, or for companies having a single product, the company name. 
+The first entry in the top bar will be the project name. Clicking on the project name will take you to the root of the project tree. Use a descriptive name for your project that reflects the product under test, or for companies having a single product, the company name. 
 
 **Module name / View name**
 
@@ -232,15 +256,15 @@ Clicking on the module name in test authoring view will take you to the module l
 
 **Test Name**
 
-The third level of the navigation is only displayed in the test authoring view when a test is selected. In the case of sub-modules, there can also be a number of intermediate levels. 
+The third level of the navigation is only displayed in the test authoring view when a test is selected. In the case of sub-modules, there can also be several intermediate levels. 
 
 **Quick Navigation**
 
-Use the Caret down icon to qucikly switch between modules and tests. You can also create new mdoules, new test suites and new tests from here. 
+Use the Caret down icon to quickly switch between modules and tests. You can also create new modules, new test suites and new tests from here. 
 
 **Search**
 
-To do free text search on any module or test simply hit the Search icon. As you type, the matching search results will display.  
+To do a free text search on any module or test simply hit the Search icon. As you type, the matching search results will display.  
 
 **Hamburger**
 
@@ -254,19 +278,19 @@ Click the hamburger icon to open the hamburger menu.
 
 **Reload URL**
 
-Reloads the test url in the application browser window. Use this to make sure the correct URL is loaded in the application window, for instance when recording a new test. 
+Reloads the test URL in the application browser window. Use this to make sure the correct URL is loaded in the application window, for instance when recording a new test. 
 
-*Tip: Double-clicking the test row also performs this action
+Tip: Double-clicking the test row also performs this action
 
 **Action icon**
 
 An icon that indicates the action type. The different action types are **Validate Result**, **Mouse Event**, **Keyboard Event**, **Extract data**, **Javascript**, **Comment**, **Refresh Window**, **Plug Test**, and **Visit Links**.  
 
-Tip: Clicking the action icon toggles breakpoints. Test execution is temporaily stopped at breakpoints, allowing for troubelshooting of tests. To resume playing the test, simply click the play button.
+*Tip: Clicking the action icon toggles breakpoints. Test execution is temporarily stopped at breakpoints, allowing for troubleshooting of tests. To resume playing the test, simply click the play button.*
 
 **Action description**
 
-This is the human-readable description of the action, and defaults to the actual action code. If needed, this can be changed in the action details page.
+This is the human-readable description of the action and defaults to the actual action code. If needed, this can be changed in the auction details page.
 
 **Data Indicator**
 
@@ -280,15 +304,15 @@ Inserts an action in the action list. It´s also possible to initiate a recordin
 
 Executes a single action. 
 
-*Tip: Double-clicking the action row also runs action.* 
+*Tip: Double-clicking the action row also runs the action.* 
 
 **Custom timeouts**
 
-Indicates that the timeouts for that particular action has been customized. This can be done by editing timeouts in action details. In the case of slow response times during recording, this will also be added  automatically to ensure test stability. 
+Indicates that the timeouts for that particular action have been customized. This can be done by editing timeouts in action details. In the case of slow response times during recording, this will also be added automatically to ensure test stability. 
 
 **Custom exit conditions**
 
-Indicates that exit conditions for the action has been customized. Exit conditions signifies what action is taken on a certain action outcome. Action outcomes are Success, Fail and Error. Success means action was executed successfully, Fail means that it executed falsely, such as validation fail, and Error means element not found. 
+Indicates that exit conditions for the action have been customized. Exit conditions signify what action is taken on a certain action outcome. Action outcomes are Success, Fail, and Error. Success means the action was executed successfully, Fail means that it executed falsely, such as validation fail, and Error means element not found. 
 
 **Action details**
 
@@ -298,11 +322,11 @@ Opens the action details panel. The action details can be pinned to stay open, o
 
 **Recording**
 
-In order to record a test, simply click on the record button. Boozang will now catch any action being made in the application window. To stop recording, simply click stop. In the case where the application window is closed, the record will open the application window at the current URL. Use the Reload URL button to make sure that the URL is set correctly before recording.
+To record a test, simply click on the record button. Boozang will now catch any action being made in the application window. To stop recording, simply click stop. In the case where the application window is closed, the record will open the application window at the current URL. Use the Reload URL button to make sure that the URL is set correctly before recording.
 
 **Playing a test**
 
-In order to play a test, simply click the Play button. To play the test from the start; make sure that the first row (gray) row of the action list has been selected as this signifies the actual test. You can also play a test from a specific action. Simply select the action you want to play from and clikc the Play button. You can choose to watch all the actions play and see the result in real-time, or switch to the report view to see the report being generated. 
+To play a test, simply click the Play button. To play the test from the start; make sure that the first row (gray) row of the action list has been selected as this signifies the actual test. You can also play a test from a specific action. Simply select the action you want to play from and click the Play button. You can choose to watch all the actions play and see the result in real-time, or switch to the report view to see the report being generated. 
 
 There are several play modes available
 
@@ -336,7 +360,7 @@ Running in automation mode never activates AI repair.
 
 The switch view button toggles between table and diagram view.
 
-The views are equivalent in functionality, but the diagram view better illustrate the flow between tests, while the table view displays the actions in a more linear fashion.
+The views are equivalent in functionality, but the diagram views better illustrate the flow between tests, while the table view displays the actions more linearly.
 
 Tip: Use table mode for test authoring, and experiment with diagram view when executing tests. 
 
@@ -344,25 +368,25 @@ Tip: Use table mode for test authoring, and experiment with diagram view when ex
 
 Use this to set dynamic data used by the test, to improve test re-usability. You can set this data when running the test, and override if when calling the test from an upstream test case (using plug test-case). When doing form fills, you can also bind the form data directly into the parameter.
 
-Tip: Think of this as parameters/arguments to a function in conventional programming. This greatly promotes test re-use and good test automation practice.  
+*Tip: Think of this as parameters/arguments to a function in conventional programming. This greatly promotes test re-use and good test automation practice.*  
 
 **Group**
 
 The group function groups actions together. This allows you do keep your test in order, and to skip a set of actions using the exit condition Exit Group. By using Else-group, this can be used to implement simple conditional functionality (compare: if / else)
 
-Tip: Use Ctrl/CMD functions to multi-select actions.
+*Tip: Use Ctrl/CMD functions to multi-select actions.*
 
-**Make test case**
+**Generate test case**
 
-Breaks up a group of actions into a separate test and replaces the group with a reference to that test (Plug-test case). Allows you to quickly re-factor your tests to remove duplicate action sequences.
+Breaks up a group of actions into a separate test and replaces the group with a reference to that test (Plug-test case). Allows you to quickly refactor your tests to remove duplicate action sequences.
 
-Use Ctrl/CMD functions to multi-select.
+*Tip: Use Ctrl/CMD functions to multi-select.*
 
 **Cut / Copy /Paste**
 
 Standard Cut functionality. Use Cut and Paste to move actions between tests, tests between modules, or data between tests and modules.
 
-Use Ctrl/CMD functions to multi-select.
+*Tip: Use Ctrl/CMD functions to multi-select.*
 
 **Undo / Redo**
 
@@ -372,17 +396,22 @@ Undo /Redo last un-saved action. In Boozang, you cannot undo saved changes as th
 
 Deletes one or several actions. 
 
-Tip: Use Ctrl/CMD functions to multi-select.
+*Tip: Use Ctrl/CMD functions to multi-select.*
 
 **Disable**
 
 A disabled action is skipped when a test is run. Useful to debug tests. 
 
 ### Action details
-## Element selection
+## Elements
+
+![darts-2966934_1280](images/darts-2966934_1280.jpg)
+
+Being able to identify html elements in your application is central to test automation. Boozang has a unique approach to this, so it's worth spending some time learning about it. Normally, the record function takes care of capturing elements very well, but the unique Boozang selection policy enables us to do very powerful data-driven development, where dynamical data can be used as selectors.  
+
 ### Selecting the element
 
-Boozang uses custom element selectors based on what a user will see rather than classes, ids or other attributes. This means that in order to use class or id, this usually needs to be explicitly defined. By avoiding using classes and ids as primary identifiers, Boozang tests become very stable to code changes, and can automate applications with dynamic ids and classes freely.
+Boozang uses custom element selectors based on what a user will see rather than classes, ids or other attributes. This means that to use class or id, this usually needs to be explicitly defined. By avoiding using classes and ids as primary identifiers, Boozang tests become very stable to code changes and can automate applications with dynamic ids and classes freely.
 
 **The element bar**
 
@@ -390,22 +419,22 @@ For most actions, the user can select an element (Validations, Events, Javascrip
 
 **Re-picking an element**
 
-First step if an action isn´t working as expected is simply to re-pick the element in the application window. To make sure, double-click the action and confirm that the action is working. 
+The first step if an action isn´t working as expected is simply to re-pick the element in the application window. To make sure, double-click the action and confirm that the action is working. 
 
-Tip: Click in the element dialog and see if the correct element is highlighted in the application window. 
+*Tip: Click on the element dialog and see if the correct element is highlighted in the application window.* 
 
 **Edit element with DOM picker**
 
 If this is still not sufficient, you can try to edit the element. If the current element is not found in the application window, the user will be asked to pick the element. If found, the DOM picker window will be launched which allows the user to fine-tune the element path
 
 ### Understanding the DOM picker
-The DOM picker allows the user to precisely specify the element selector. During recording, Boozang will under normal circumstances be able to guess the best unique element path. In some cases,  it´s desirable to override the pre-determined element path.  
+The DOM picker allows the user to precisely specify the element selector. During recording, Boozang will under normal circumstances be able to guess the best unique element path. In some cases,  it´s desirable to override the predetermined element path.  
 
-Common cases when element path needs to be changed
+Common cases when the element path needs to be changed
 
 **Wrong element picked**
 
-When clicking on the element, if the wrong element is highlighted, this means the path isn´t good. Try re-picking the element. If the problem is still there, edit the element path using the DOM picker. 
+When clicking on the element, if the wrong element is highlighted, this means the path isn´t good. Try picking the element once more using the "Select element path" button. If the problem is still there, edit the element path by clicking "Edit element path" button. This will open the DOM picker and allow you to adjust the policy for how the element is selected.
 
 **Element index > 0**
 
@@ -413,16 +442,16 @@ If the element index > 0 it means that the element isn´t uniquely identified. T
 
 **Extract data**
 
-Whe extracting data, the data itself should not be used as an element selector.  Use the DOM picker to key of id or class, or other attributes.
+When extracting data, the data itself should not be used as an element selector.  Use the DOM picker to the key of id or class, or other attributes.
 
 ![example image](images/dom-picker.png "An exemplary image")
 
 **Element path operation**
 
-The element path has the following operations. Boozang uses an expanded version of the jQuery selction standard to create a more human-readable code to identify elements. The basic pattern is that the lowercase jQuery standard operations, while uppercase operations are case-insensitive. All recordings will generate Uppercase operations by default. The operations that will be recorded for a test-case is marked by an asterix (*) 
+The element path has the following operations. Boozang uses an expanded version of the jQuery selection standard to create a more human-readable code to identify elements. The basic pattern is that the lowercase jQuery standard operations, while uppercase operations are case-insensitive. All recordings will generate Uppercase operations by default. The operations that will be recorded for a test-case is marked by an asterisk (*) 
 
-* `contains (*)`:  Is true if the selected element (case-insensitive) have the exact string alongside other strings
-  
+`endContains (*)`:  Is true if the selected element (case-insensitive) have the exact string alongside other strings
+
   ```
   Ex:div:endContains(lws)
   Yes:<div>lws ok</div>
@@ -430,106 +459,121 @@ The element path has the following operations. Boozang uses an expanded version 
   Yes:<div>lws <span>ok</span></div>
   No: <div><span>lws</span></div>
   ```
-```
-  
-* `equals (*)`: Is true if the selected element (case-insensitive) have the exact string
-  
-```
+
+`endEquals (*)`: Is true if the selected element (case-insensitive) have the exact string
+
+  ```
   Ex:div:endEquals(lws)
   Yes:<div>lws</div>
   No: <div>lws ok</div>
   No: <div>lwsok</div>
   No: <div><span>lws</span></div>
   ```
-* `Contains`: Is true if the selected element or any of it's children (case-sensitive) have the exact string alongside other strings
-  
+
+`equals`: Is true if the selected element or any of it's children (case-sensitive) have the exact string alongside other strings
+
   ```
   Ex:div:equals(lws)
   Yes:<div><span>lws</span></div>
   No: <div>lws ok</div>
+
   ```
-* `Equals (*)`: Is true if the selected element or any it's children (case-insensitive) have the exact string
-  
+
+`Contains (*)`: Is true if the selected element or any it's children (case-insensitive) have the exact string
+
   ```
   Ex: div:Contains(lws)
   Yes:<div><span>LWs ok</span></div>
   No: <div>lwsok</div>
   ```
 
-* `contains`: Is true if the selected element and all it's children (case-insensitive) matches
-  
+`contains`: Is true if the selected element and all it's children (case-sensitive) matches
+
   ```
-  Ex: div:Contains(lws)
+  Ex: div:contains(lws)
   Yes:<div><span>lws ok</span></div>
   Yes:<div>lwsok</div>
   No: <div>lwok</div>
-```
-  
-* `RowCol (*)`: Used to identify table cell (case-sensitive).
-  
-```
-  Ex: TD:RowCol([value|name])
-  Yes:<tr><td></td><td>name</td></tr>
-      <tr><td>value</td><td>1234</td></tr>
-      
-  No: <tr><td></td><td>name</td></tr>
-      <tr><td>VALUE</td><td>1234</td></tr>
   ```
-* `rowcol`: Used to identify table cell (case-insensitive).
-  
+
+`RowCol (*)`: Used to identify table cell (case-insensitive).
+
   ```
-  Ex: TD:rowcol([value|name])
+  Ex: td:RowCol([value|name])
   Yes:<tr><td></td><td>NAME</td></tr>
       <tr><td>VALUE</td><td>1234</td></tr>
       
   No: <tr><td></td><td>name</td></tr>
       <tr><td>value1</td><td>1234</td></tr>
   ```
-* `near (*): Used to identify form input box based on label selection (case-insesitive). 
-  
+
+`rowcol`: Used to identify a table cell (case-sensitive).
+
+  ```
+  Ex: td:rowcol([value|name])
+    Yes:<tr><td></td><td>name</td></tr>
+      <tr><td>value</td><td>1234</td></tr>
+      
+  No: <tr><td></td><td>name</td></tr>
+      <tr><td>VALUE</td><td>1234</td></tr>
+
+  ```
+
+`near (*)`: Used to identify form input box based on labels (case-insensitive). The rule to match the first element before that share a common parent element.
+
   ```
   Ex: input:near(name)
   Yes:<div><label>name: <input/></label></div>
   Yes:<div><label>name: </label><input/></div>
   Yes:<tr><td>Name</td><td><input/></td></tr>
   No: <div>name</div><div><label>value</label><input/></div>
+  No: <div><div>name</div><div>value</div><input/></div>
+
   ```
+
 ### Element policy
 
-Under the kebab menu you can also access the element policy. 
+Under the kebab menu, you can also access the element policy. 
 
 ![example image](images/element-policy.png "An exemplary image")
 
 **Treat hidden elements as not found**
 
-Normally, hidden elements can still be clicked in a programic fashion. Check this box to trigger Error ()"element not found") when element is hidden. 
+Normally, hidden elements can still be clicked programmatically. Check this box to trigger Error ()"element not found") when an element is hidden. 
 
 **Element re-try policy**
 
-Default behavior is to **Re-try on element missing**. Customize this to **Never re-try** or **Re-try on content mismatch** (re-tries when element is found but content is wrong).
+The default behavior is to **Re-try on element missing**. Customize this to **Never re-try** or **Re-try on content mismatch** (re-tries when an element is found but the content is wrong).
 
 ### Repairing an action
 
 ![example image](images/ai-repair.png "An exemplary image")
 
-When a test is run and an action element cannot be found the AI test rapair screen will be launched. This will allow the user to simply re-pick the element from the application window. If a matching element is found, Boozang will suggest the element for the user. This allows the user to repair tests ultra-fast even when there have been significant code changes.
+When a test is run and an action element cannot be found the AI test repair screen will be launched. This will allow the user to simply re-pick the element from the application window. If a matching element is found, Boozang will suggest the element for the user. This allows the user to repair tests ultra-fast even when there have been significant code changes.
 
-Tip: In normal playmode the user is asked if the test should be repaired. In Repair mode the AI repair is always launched, and in Automation mode AI repair is never launched. 
+*Tip: In normal play mode, the user is asked if the test should be repaired. In Repair mode, the AI repair is always launched, and in Automation, mode AI repair is never launched.* 
 
-## Action types
-### Mouse event
+## Actions
 
-This event corresponds to a mouse action, meaning a click or a movement of the mouse. By default, Boozang captures on clicks in the recording (otherwise the recording becomes very noisy catching too many events). The exception to this is when holding the mouse button down, to emulate drag and drop. In this case Boozang registers a particular drag-and-drop event.  You can add mouse events manually to emulate mouse-over event and to create specific mouse conditions. 
+![glenn-carstens-peters-RLw-UC03Gwc-unsplash](images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg)
+
+Actions are the steps that comprises a test case. This could be a mouse or keyword event, simulating a user action, or a validation (assertion) or even Javascript. There are also AI actions supportedm which are more elaborate actionsm such as "Visit Links" or "Form Fill".
+
+### Events
+
+**Mouse event**
+
+This event corresponds to a mouse action, meaning a click or a movement of the mouse. By default, Boozang captures on clicks in the recording (otherwise the recording becomes very noisy catching too many events). The exception to this is when holding the mouse button down, to emulate drag and drop. In this case, Boozang registers a particular drag-and-drop event.  You can add mouse events manually to emulate mouse-over event and to create specific mouse conditions. 
 
 Tip: In the case of for instance form fills it can be useful to try both using key-presses and mouseclicks to see what works best. 
 
-### Keyboard event
+**Keyboard event**
 
 This event corresponds to a keypress. This is captured in the recording for every time a key is pressed. 
 
-Tip: In the case of for instance form fills it can be useful to try both using key-presses and mouseclicks to see what works best. 
+*Tip: In the case of for instance form fills it can be useful to try both using key-presses and mouseclicks to see what works best.* 
 
-### Validation
+### Validations
 
 **Creating a simple validation**
 
@@ -545,11 +589,11 @@ If you want to validate the content of an element, change the Content format dro
 
 **Data**
 
-The data format is very powerful, and looks for a set of data inside the selected area. Usually it´s combined using data variables.
+The data format is very powerful and looks for a set of data inside the selected area. Usually, it´s combined using data variables.
 
 **Screenshot**
 
-You can also choose to take a picture of the element and compare that to the image of an element of future runs. This is useful when doing exact pixel by pixel comparisons, but should be used with caution as changing image dimensioning can make this assetion fail. 
+You can also choose to take a picture of the element and compare that to the image of an element of future runs. This is useful when doing exact pixel by pixel comparisons, but should be used with caution as changing image dimensioning can make this assertion fail. 
 
 Tip: It can be useful when needing to create assertions on indicators or switches, that only changes visually and code stays the same. 
 
@@ -559,13 +603,13 @@ Sometimes the element you selected in the page isn't the one you intended. In th
 
 **Javascript validations**
 
-The default validation is the HTML validation. By changing method to "Script", you can directly do validations using Javascript. The Javascript function is written in the standard Boozang format
+The default validation is HTML validation. By changing method to "Script", you can directly do validations using Javascript. The Javascript function is written in the standard Boozang format
 
   ```
 (function(){
     //return true/false;
     })()
-```
+  ```
 and must return true or false. If an element has been picked with the DOM picker this will be available using the handle `$element`. Standard data handles, such as `$project`, `$module`, and `$test` will also be available, as well as the test window handles `$TW`. For more information about data see <a href="/doc/data.html">data</a> section. 
 
 ### Extract data
@@ -573,11 +617,11 @@ and must return true or false. If an element has been picked with the DOM picker
 Note: For API versions of these actions check the API section. 
 
 
-![example image](../images/action-extract.png "An exemplary image")
+![example image](images/action-extract.png "An exemplary image")
 
 **Similarities with Validation**
 
-With Boozang it´s possible to extract data from the application window. This is very similar to the Validation action, with the difference that the element extracted is copied into a data variable. Make sure to familiarize yourself with the Validation action before reading this section. 
+With Boozang it's possible to extract data from the application window. This is very similar to the Validation action, with the difference that the element extracted is copied into a data variable. Make sure to familiarize yourself with the Validation action before reading this section. 
 
 **Introducing data**
 
@@ -589,7 +633,7 @@ To add an extract data action, simply click on the Plus icon and select Extract 
 
 ### Javascript
 
-![example image](/images/action-javascript.png "An exemplary image")
+![example image](images/action-javascript.png "An exemplary image")
 
 **The Javascript action**
 
@@ -597,17 +641,17 @@ Boozang also allows you to execute Javascript directly in the application. This 
 
 **The handles**
 
-When writing Javascript there are some particularities in Boozang that needs to be respected. In order to access the application window, you will have to use the handle $TW (test window). This means to be able to manipulate the application window document tree (DOM) the user needs to use $TW.document. When referencing the only document it references the Boozang tool window, not the application window.
+When writing Javascript there are some particularities in Boozang that needs to be respected. To access the application window, you will have to use the handle `$TW (test window)`. This means to be able to manipulate the application window document tree (DOM) the user needs to use `$TW.document`. When referencing the only document it references the Boozang tool window, not the application window.
 
 **Using data (variables)**
 
-In Boozang you can reference data directly in Javascript. To access data, use the handles $project, $module, or $test, depending on what level the data was added. For instance, to reference a username that was added on the module level, use $module.username. 
+In Boozang you can reference data directly in Javascript. To access data, use the handles `$project`, `$module`, or `$test`, depending on what level the data was added. For instance, to reference a username that was added on the module level, use `$module.username`. 
 
 **Trouble-shooting**
 
-In order to troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module level data "username" use "console.log($module.username)" to write it to the tool window and $TW.console.log($module.username) to write it to the application window. You can use the Chrome developer tools to easily verify this.
+To troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module-level data "username" use `console.log($module.username)` to write it to the tool window and `$TW.console.log($module.username)` to write it to the application window. You can use the Chrome developer tools to easily verify this.
 
-Note: Avoid using $TW.alert() as Boozang interprets this as application popup windows and intercepts them. 
+*Tip: Avoid using `$TW.alert()` as Boozang interprets this as application popup windows and intercepts them.* 
 
 ### Comment
 
@@ -615,30 +659,45 @@ Note: Avoid using $TW.alert() as Boozang interprets this as application popup wi
 
 **Why comment?**
 
-In a lot of cases, there are errors that can only be spotted by a human, such as look & feel bugs or poor choice of language. In this case, it´s very useful to be able to point this out and have a simple way for a team member on the receiving side being able to correct this. For these cases, we use the Comment action. 
+In a lot of cases, some errors can only be spotted by a human, such as a look & feel bugs or poor choice of language. In this case, it´s very useful to be able to point this out and have a simple way for a team member on the receiving side being able to correct this. For these cases, we use the Comment action. 
 
 **The Comment action**
 
-The comment actions add a comment, or annotation, to the application. In order to add a Comment, simply click on the Plus icon and select Add Comment, and select the element in the application page to Comment. You can write directly into the Comment dialog on the application.
+The comment actions add a comment, or annotation, to the application. To add a comment, simply click on the Plus icon and select Add Comment, and select the element in the application page to Comment. You can write directly into the Comment dialog on the application.
 
 **Running a test with comments**
 
-When running a test with comments, the test will execute and stop at the first comment. In order to go to the next comment, simply press play again and the test will continue executing until it finishes or hits the next comment. This is very useful when fixing look & feel issues, as several issues can be recorded in the same test case. 
+When running a test with comments, the test will execute and stop at the first comment. To go to the next comment, simply press play again and the test will continue executing until it finishes or hits the next comment. This is very useful when fixing look & feel issues, as several issues can be recorded in the same test case. 
 
-### Refresh
-## Data types
+### Refresh window/Load page
 
-![example image](../images/test-data.png "An exemplary image")
+The refresh window/load page action is used to force a reload of th browser window. This can also be used to force loading a new page (meaning going to a new page without having to navigate to it). There is also an option to **Clear Cookies** and **Clear Localstorage**.
 
+**Note**: There are security limitations for what a browser allows being deleted. For instance, the browser does not allow session cookies to be deleted, so this cannot be triggered from the Boozang tool.
+
+### Visit Links
+
+The visit links action is used to automatically crawl a set of pages based on a navigation bar. In order to crawl a full navigation panel, such as a side navigation or hamburger menu, select this in the **Panel** option. **Target element** defaults to "A" tags, but can be changed using the DOM picker in case the navigation contains a different element than regular links. It's possible to execute a script before each click, but this can normally be left blank.
+
+For each click it´s normal to call a test case. Use **Goto Test Case** to select a downstream test case. This test case will be called for each link in the selected navigation panel.
+
+## Using data
+
+![files-1614223_1280](images/files-1614223_1280.jpg)
+
+Data is used to be able to create data-driven tests. This means that a test that takes data as input (for instance "Login" or "Create Project") can be re-used for different data sets. Data handling is at the core of Boozang, and a large variety of data types are supported. 
 
 ### Introduction to data types
-Boozang supports a number of different data types: Property, Object, Array, CSV, File, Request data and JS (Javascript function). 
+
+![data](images/data.png)
+
+Boozang supports several different data types: Property, Object, Array, CSV, File, Request data and JS (Javascript function). 
 
 **Properties**
 
 The property is a simple name-value pair and can be referenced directly. For instance, a property username = boozang added on test-level, can be referenced `{{$test.username}} (=boozang)`. 
 
-Pro-tip: You can verify this in execution by printing it to your application console window by creating the following Javascript action `$TW.console.log($test.username)´`.
+*Tip: You can verify this in execution by printing it to your application console window by creating the following Javascript action `$TW.console.log($test.username)´`.*
 
 **Objects**
 
@@ -652,9 +711,9 @@ Tip: Arrays can be used to drive data loops
 
 **CSV data**
 
-CSV data allows you to handle a large collection of Objects and copy data from software such as Excel. Simply create a name for the collection, such as inventoryItems. Start by adding the field names as headings separated by tab-spaces. When you are done defining the data hit Enter and fill out the values tab separated. Pro-tip: You can copy a whole table from Excel simply by using copy-paste. 
+CSV data allows you to handle a large collection of Objects and copy data from software such as Excel. Simply create a name for the collection, such as inventory items. Start by adding the field names as headings separated by tab-spaces. When you are done defining the data hit Enter and fill out the values tab-separated. Pro-tip: You can copy a whole table from Excel simply by using copy-paste. 
 
-Tips: CSV data can be used to drive data loops. 
+*Tip: CSV data can be used to drive data loops.* 
 
 **File data**
 
@@ -666,51 +725,332 @@ It is also possible to fetch data from an external source. Simply type in a URL 
 
 **JS (Javascript functions)**
 
-It is also possible to specify Javascript functions directly. The functions can be in two forms: Date.now() or fining the data hit Enter and fill out the values tab separated. 
+It is also possible to specify Javascript functions directly. The functions can be in two forms: Date.now() or fining the data hit Enter and fill out the values tab-separated. 
 
-Tip: You can copy a whole table from Excel simply by using copy-paste. 
+*Tip: You can copy a whole table from Excel simply by using copy-paste.* 
 
 **File data**
 
-File data is used to test file upload and similar user interactions. Try and use small sample files as large files tends to weight down on the test client, consuming memory or slowing down performance. It is also recommeded to fecth files from an external source (see Request Data). 
+File data is used to test file upload and similar user interactions. Try and use small sample files as large files tends to weight down on the test client, consuming memory or slowing down performance. It is also recommended to fetch files from an external source (see Request Data). 
 
-## Advanced action types
-### Visit links
-## Data binding
-### Binding from forms to variables
-### Binding from variables to forms
-## Advanced data functionality
-### Boozang regular expression engine
-### Setting up regular expressions
-### Using auto-fill functionality
-### Binding auto-fill with data bind
+### Data binding
+
+**A note on form fills and data**
+
+When recording a test, any data entered into a form will be recorded as well. Usually this will happen when pressing enter, tab key or simply when using the mouse to click the next field or submitting the form. Sometimes it's sufficient to record a test with a certain hard-coded set of data. More often, it´s desirable to capture data into variables so that the test can be re-used for several different sets of data. Boozang makes this very easy to do.  
+
+![databind](images/databind.png)
+
+**Binding from forms to data**
+
+One way of capturing data into variables, is to start on the application side. When entering data into the form, simply click the "Bind data" checkbox in the toolbar and select the data scope you would like to capture the data. While typing, you can see that you are promted to save the data in a variable. When you fully typed out the field, simply click the desired field name and you the data will be saved at the appropriate data scope that you selected.
+
+![databind-into](images/databind-into.png)
+
+**Binding from data to forms**
+
+There is also a different way to fill the data. Start by entering the data (normally as a JSON object) and after this click the "Bind data" checkboxa and select the data scope where you entered the data. When starting typing you can see that the data in the data scope is suggested to you. Simply click on the suggested data, and it will be automatically typed into the form for you, and bound into the event action.
+
+**Auto-filling forms from data**
+
+As you can see, any data key names that correspond (matches case-insensitive / white-space insensitive) to the form labels will be suggested when binding data to forms. If you have organized your data well and made sure all data keys matches the form labels, you can simply click the Autofill-link and all the form events will be generated automatically.
+
+*Tip: This can greatly speed up test creation of form fill tests, so try and learn this naming convention.*  
+
+### Advanced data functionality
+
+![regexp](images/regexp.png)
+
+**Boozang regular expression engine**
+
+Boozang also supports a regular expression engine that can generate random data that complies to a certain regular expression. This can be useful when generating random test data, but also when creating tests to make sure certain field constraints are being enforced. 
+
+**Setting up regular expressions**
+
+To set up a new regular expression, click Settings -> Content Policy and scroll down to the regular expressions. Here you can find a number of pre-defined regexps and associated lables. First make sure the type of regular expression isn´t in the list. As a phone number or zipcode will vary from country to country, it´s natural that these are modifed to match your specific project. 
+
+Also make sure that all possible labels are matching the indicated regular expressions. This way, auto-fill functionality and future AI functions will be able to better idendify different fields and make "better guesses".  
+
+**Setting up a new regular expression**
+
+To setup a new regular expression, simply click new and add in the necessary fields. The Field mapping will determine which form labels to look for when trying to match data. Use the OR sign ("|") to separate several fields. 
+
+![autofill](images/autofill.png)
+
+**Using auto-fill functionality**
+
+When using the auto-fill functionality in the toolbar the Boozang tool without choosing to data-bind, Boozang will use the regexp engine to generate data into the form. When recording this can be used to quickly create test cases with temp data. 
+
+**Binding auto-fill with data-bind**
+
+When enabling data bind and clicking autofill form, Boozang will look in the current data scope for matching data. If that isn´t found, Boozang will use the regexp engine to generate the data in the current scope, and automatically bind the data scope to the form. This is a great way to quicky create a data-driven test case.
+
+*Tip: Using autofill with data bind on `$parameter` scope is a quick way to create a very versatile  data-driven test case.* 
+
+### Troubleshooting data
+
+**Console window**
+
+![console](images/console.png)
+
+When running a test it is sometimes desirable to inspect the data that is being run. In many cases, upstream test cases are sending data as parameters, and it gets even more tricky when data is being loaded from external data sources or Javascript functions. In order to inspect the data that is being used, you can use the console window. This window is located in the hamburger menu and allows users to spy on data.
+
+The console can be used to check the following data:
+
+- Assigned data: `$parameter`, `$test`, `$module`, and `$project`
+- Loop data: `$loop`
+- Regexp data generators: `/[a-z]{3,10}@bzmail[.]com/` (email),  `/[A-Z][0-9][A-Z] [0-9][A-Z][0-9]/` (Canadian zipcode)
+- Complex data generators: `/{today|YYYY-MM-DD}/`, `/{tomorrow|MM/DD hh:ss}/`
+
+
+
+**Tmp data**
+
+![tmpdata](images/tmpdata.png)
+
+There is also another way to inspect data and do more advanced trouble-shooting. For each action, in the action details menu you can find a link called "Tmp data". This data is updated every time a test is run and will show the data that was used when the action was run. This also allows you to keep the last input data that was used, and replay the action with this data.
+
+To inpect data during a run, simply add a breakpoint to the test or pause the test case during a run. Click on the action that uses the data, and click "Tmp data" in action details. 
+
+To re-run the action with the data that you see in the "Tmp data" window, simply check the checkbox "As initial data for playing the action". In order to keep this data (not override the data in the next run) hit the "keep" button, and the data will be saved in the keep tab. 
+
+*Tip: Hit keep and Save to save the action data in data-base to trouble-shoot with other team members.*
+
 ## Settings
 
+![rima-kruciene-gpKe3hmIawg-unsplash](images/rima-kruciene-gpKe3hmIawg-unsplash.jpg)
+
+Settings allow you to customize Boozang to work with your application. It also allows you to set your personal user preferences. "Content-Policy" and "Element Defintions" are somewhat complex, but can be potentially very helpful for more comples testing scenarios. 
+
 ### Environment
+
+![environment](images/environment.png)
+
+In the Environment tab you can find a number of useful functionality. You can manage environments and different application interfaces, configure settings on an application interface level and also setup AI login / logout for diffrent roles / users.
+
+**Enviroment and application interfaces**
+
+There has been some confusion around environment and application interfaces, so it's important to make sure you get this right as it will save you potential work in the future. Environments signifies an environment, such as *development*, *staging*, *QA* or *production*. By specifying different entry URLs for these environments test become completely re-usable. This means there is no need to maintain different tests or projects across different enviroments. Simply change the environment setting and re-run the same test.
+
+The application interface setting handles when there are different applications within the same environment. For instance, in the E-commerce case, there might be a *storefront* and a *mgmt* interface. When creating a test, simply pick the interface that the test is for. If this changes during the course of the project, it simply has to be changed in one place, not across several tests.
+
+**Advanced / Configure**
+
+This setting allows you to configure certain things on an Environment / App interface level. These settings will typically be things that could vary across environments, such as delays and other performance related settings. 
+
+**AI login / logout (Authorization Setting)**
+
+This allows the user to define a number of user roles, and automatically generate login and logout scenarios for these roles. The user roles can be set as pre-requisites for tests, automatically switching between users. For more information, read more under the **Model-based testing** chapter. 
+
 ### Content-policy
+
+![content-policy](images/content-policy.png)
+
+
+
+Content policy contains a number of advanced features. Nevertheless, spending some time here to fine-tune the project can increase the stability of tests and also speed-up test creation significantly.
+
+**Ignore validation on pop window**
+
+When checked, any pop windows (alerts, prompts, confirm pop up dialogs) will not be verified by Boozang. When un-checked, Boozang will add assertion during recording based on pop windows that appeared. On playing back the tests, Boozang will make sure that the same pop windows appears as during the recording, and fail the test otherwise. 
+
+**Ignore Classes**
+
+Normally when clicking or asserting an element, classes are ignored. There is also an explicit setting for you to highlight your dynamic classes to make sure it´s ignored. 
+
+**Text Attribute**
+
+**Clickable Elements**
+
+A lit of elements that are clickable in your application. Add elements here to be able to easily capture clicks on these elements during recording. 
+
+**Attribute Content for Autofill**
+
+Use this to set regular expressions to be used for content generation. 
+
+### Element Definitions
+
+![element-definitions](images/element-definitions.png)
+
+Element definitions contains the classification of all elements in the customer applications. This is mostly used for for the model-based test generation. See chapter on model-based test geenration in a later chapter. 
+
+**Customize Input Component**
+
+Use this to record customized input components. This will allow you to capture customized drop-down and special controls, such as date-pickers.
+
+*Tip: After setting up a date-pickers,t his can be recorded as a single action, and data can be used in the format you specify (for instance: YYYY-MM-DD).*
+
+
+
+### Aliases
+
+![alias](images/alias.png)
+
+Aliases are used to define shortcuts to certain test suites. This is most often used to be able to easily control which tests are being run, without having to update any upstream services, such as CI servers or similar. 
+
+Image the scenario where you have a CI server that runs smoke-tests, regression tests, and full product tests. Now it's simple to simply define the aliases "smoke", "regression", and "full" and simply point these aliases to the tests in question. If you want to try to temporarily swith any of these aliases to runa  different test suite this can be done without updatin anything on the CI server.
+
+
+
 ### Preferences
+
+![preferences](images/preferences.png)
+
+This controls individual user preferences. These setting will only apply to your user and not to the project as a whole. 
+
+**Accept to be monitored**
+
+Functionality to allow for other user to see all work done by the user to be monitored by other team member. 
+
+*Tip: This can be used to display the CI server runs on a dashboard*
+
+**Disable alerts for load file errors**
+
+Do not show any popup warnings for external files that cannot be loaded.
+
+**Disable alers for AI repair (on test execution error)**
+
+Don't show AI repair dialog when element not found.
+
+*Note: This will never be shown when running in automation mode.*
+
+**Disable alerts for un-saved data**
+
+Never show save test case dialog when leaving a test with un-saved data.
+
+**Auto data-bind**
+
+When enabled, data bind will be enabled by default. 
+
+**Auto insert data validation**
+
+This still exits. 
+
+
+
 ### Notifications
-## Reports
-### The report view
-## Team
-### Adding team members
-### Access policy
-### The CI user
-## Synchronize
-## Tools
-### Import
-### Export
-### Search
-## Loops, matrix testing and bz-skip keywords
-### Setting up a simple data loop
+
+
+
+![notifications](images/notifications.png)
+
+This view allows a user to setup email notifications for a report. It means that everytime a test is run from the command line any users that has subscribed to notifications will recieve the report in his/her mailbox. To test out the notifications from the tool, make sure to run the test in Automation play mode. This will trigger the notifications.
+
+*Tip: A user can only setup his/her won email notifications. This allows team collaborators to simply opt-in and opt-out from report emails, and prevents un-wanted spamming.*
+
+## Other tool views
+
+
+
+### Reports
+
+![report](images/report.png)
+
+**The report view**
+
+The main report view contains the report from the test that was run in the browser last. The report view reflects only local runs of the test, and is not in any way a consolidated view of reports (this consolidation can be done in a data warehouse or CI server). 
+
+**The view link**
+
+In order to find tests quickly, simply click the View link to go to the test. This is especially helpful when the testing report has been sent via email. 
+
+**The diff link**
+
+If an assertion fails that has content, such as Validate -> innerText, you can use the diff link to see the difference in content between the reference and resulted response. For dynamic data, simply hover over the name to see the values that were used. 
+
+**Performance warnings**
+
+In order to highlight slow actions or tests, this can be done under Environment -> Advanced -> Performance Reminder. Here you can adjust settings than can trigger slow tests to trigger warnings or even fail tests. 
+
+### Team
+
+![team](images/team.png)
+
+**Adding team members**
+
+It's quite straightforward to add team member to the project. Any team mebers email you add will recieve an email notification to join the project.
+
+**Access policy**
+
+Not all users are created the same. To learn about the details of the access policy check out the management interface at https://ai.boozang.com and check the project details. Here you can get a breakdown of the detailed access policy and also customize a role.
+
+**The CI user**
+
+Sometimes it's useful to create a CI user with only execute privileges. This way, anyone with access to the CI server will be limited to only run tests, not edit tests or invite other team member.
+
+Tip: It's highly recommended to create a CI user with limited privelegies and use the CI user token to run tests from any CI server. This will minimize any potential security problems or web socket conflicts. 
+
+**Chat**
+
+There is also project collaboration built-in. Use this to communicate to team members and see test updates as they happen in the project.
+
+*Tip: This will also be used to link to Slack updates (Roadmap).* 
+
+### Synchronize
+
+![synchronize](images/synchronize.png)
+
+Use this function to see all local updates (the difference between your local storage and what is saved on the Cloud storage). This allows you to save all changes in bulk, or revert or local changes.
+
+### Tools
+
+Tools contain function to import and export a project and to do bulk operations. 
+
+![import](images/import.png)
+
+**Import**
+
+This is used to import a project file that has been generated using the Boozang export function. This is useful when restoring a backup, or replicating a project.
+
+Note: Before running the import it's best to toally clear the exisiting project, meaning delete all modules. 
+
+**Export**
+
+Use this function to export the whole Boozang project to a data file. This project export file can be saved on disk or in a secure location and restored using the import function. This can be used to backup a project, create a project duplicate, or share a project with Boozang support.
+
+**Batch**
+
+This powerful wild-card batch operation is used to search both for project, modules, tests and data. Useful for large projects to locate lost data and for doing quick project cleanups. 
+
+
+
+## Advanced testing methods
+
+![rollercoaster-801833_1280](images/rollercoaster-801833_1280.jpg)
+
+### Data Loops
+
+A loop means to repeat execution until a certain condition is fulfilled. In Boozang, a data loop is like a for-condition running over a data set, meaning the test gets executed once for each data entry. 
+
+![loop](images/loop.png)
+
+In order to set a test to loop over a set of data (to repeat it's execution for each data entry) click on the first line of the test (denoting the test settings) and click the Kebab icon -> Advanced. In "Loop data" select the data you want to loop over. The test will be run once for each data entry, and the currrent data entry will be available in the `$loop`handle. 
+
+The following data formats are supported to drive loops
+
+- CSV: The assigned `$loop`item will be of `Object` format (JSON) 
+- Arrays:  The assigned `$loop`item will be of `Property` format (String) 
+- Request data: This is supported if the fetched data is `CSV`or `Array`.
+
 ### Matrix testing
-### Keywords: bz-skip and bz-stop
-## API testing
+
+**Keywords: bz-skip and bz-stop**
+
+In data-driven testing we support keywords "bz-skip" and "bz-stop" to be able to trigger conditional functionality based on data. As soon as "bz-skip" occurs the test will skip without generating a failure. If "bz-stop" occurs the all upstream tests will stop without generating an error.  
+
+
+
+### API testing
+
+![clint-patterson-exfrR9KkzlE-unsplash](images/clint-patterson-exfrR9KkzlE-unsplash.jpg)
+
+Even though Boozang is mainly a UI testing tool, it also supports full API testing (compare Postman). This can be especially useful when creating mixed API and UI tests, doing extra validation, or pre-testing features that hasn't been fully built.  
+
 ### Validate API call
 
 **Useful resources**
 
-In order to simply mockup a REST server, we strongly recommend https://github.com/typicode/json-server that allows you to create a fake REST API from a JSON file in less than 30 seconds. 
+To simply mockup a REST server, we strongly recommend https://github.com/typicode/json-server that allows you to create a fake REST API from a JSON file in less than 30 seconds. 
 
 **Introduction to API validations**
 
@@ -722,11 +1062,11 @@ Use the HTTP method GET to validate a response from a REST API. Simply select HT
 
 **Doing an HTTP GET without validation**
 
-In order to trigger the HTTP GET without validating the result simply use a comparison operator to "regexp" and set the expectation field to ".*". 
+To trigger the HTTP GET without validating the result simply use a comparison operator to "regexp" and set the expectation field to ".*". 
 
 **Adding custom headers**
 
-When doing API calls it's very common that you need to add custom HTTP request headers. In order to do this click HTTP header and add header data. This needs to be in data format, i.e.
+When doing API calls, commonly, you need to add custom HTTP request headers. To do this click HTTP header and add header data. This needs to be in data format, i.e.
 
 {
   Accept:"json"
@@ -738,7 +1078,7 @@ You can post data to an API end-point using HTTP method POST. When doing this ma
 
 **Data**
 
-In all these fields you can also bind data. As an example, in order to set headers as data this can be done as an object, for instance, "jsonheader","Accept","json". In order to reference it on the actions-details use {{$test.jsonheader}} in the header field. 
+In all these fields you can also bind data. As an example, to set headers as data this can be done as an object, for instance, "jsonheader", "Accept", "json". In order to reference it on the actions-details use {{$test.jsonheader}} in the header field. 
 
 ### Extract data API call
 
@@ -764,11 +1104,334 @@ $test.dummy = $result
 
 To add an extract data action, simply click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. 
 
-## AI build login / logout case
+## AI authorization
+
+![registration-3938434_1280](images/registration-3938434_1280.jpg)In applications testing there will be a need to establish pre-conditions. In most SaaS applications this is simply a matter of determining who is logged in. Instead of relying on trying to mimic users by spoofing cookies or other tricks, it can be done by recording the login and logout sequence of users, and being able to automatically shift between users.
+
+A key in this procedure is to have login credentials for the different roles that has access to the application, and record a single login / logout sequence for that user and find and identifier for who is logged in.
+
+**The wizard**
+
+Launch the authorization wizard by simply click **Enable AI authorization** when setting up the environment. 
+
+## Model-based testing
+
+## Integrations and test scheduling
+
+![parallel-unsplash](images/day-planner-828611_1280.jpg)
+
+Note: This section will focus on running Boozang from command line.  For readers not familiar with CLI and Docker this might be a little technical, even though most of the commands should be working doing a direct copy.
+
+### Test URLs and authorization
+
+Even though tests can easily be run using the web browser, there will be a need to trigger these tests without manual interaction. The most common scenario is to run a set of tests when code is pushed into GitHub or other versioning systems, normally through a Continous Integration (CI) server integration. There are also other applications: one might want to trigger tests via a server cronjob, or trigger it directly via a build job or Ansible command. The basis of all this is to be able to trigger a test from command line. 
+
+**Test Stability**
+
+All tests in Boozang are dependant on the web browser. As no special APIs such as Selenium Webdriver is being used, tests in Boozang operate exactly the same way when playing in the web browser and when playing back from command line. This means tests that are stable upon authoring, should run stable when run from CI server too.
+
+**Test URLs**
+
+The first thing to recognize when running from command-line (CLI) is that all tests in Boozang are unique URLs. This means they can be shared, linked and referenced freely from ticketing systems, reports and emails. 
+
+**Authorization token**
+
+When running a test from command line it's important that the user running has the right access rights. This is done by specifying an access token. The access token logs in the user with limited access rights, so the user can read the test and execute it, but all write and admin permissions are revoked. This is for security purposes as the token is long-lived. 
+
+**Getting the Access token**
+
+An access token can retrived in the Boozang Management UI by clicking the Account -> Get Token and entering your password. Keep this token secret and safe. 
+
+**Generating a tokenized test URL**
+
+![share-test-tokenized](/Users/matsljunggren/Workspace/boozang-docs/images/share-test-tokenized.png)
+
+It can also be retrived from the IDE interface when sharing a single test. The user will again be prompted for a password to get a tokenized test URL, which can be run from command-line.  
+
+**Running from command-line**
+
+There are many ways to run Boozang tests from the command line but here are the recommended options: Installing the test runner using the **Docker Xvfb container** or **Boozang npm package**. 
+
+### Docker Xvfb container 
+
+![docker-logo](images/docker-logo.png)
+
+The test runner is Open Source and the Docker container can be found here: https://hub.docker.com/r/styrman/boozang-runner/ and corresponding source code here: https://github.com/ljunggren/bz-docker-xvfb
+
+**Installing Docker CE** 
+
+Docker is widely supported but does require some amount of disk space. In order to find installation intructions for your operation system, follow the guide here: https://docs.docker.com/install/ (make sure to select your operating system in the left menu navigation) .
+
+Make sure docker is running by typing
+
+`docker`
+
+and make sure the following output is generated
+
+`Usage:	docker [OPTIONS] COMMAND`
+
+**Running a test**
+
+In order to run a test, simply type
+
+`docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner "[tokenized-test-url]"`
+
+**Getting the latest image**
+
+The boozang-runner image will be cached so to make sure you are running the latest Docker image, simply type
+
+`docker pull styrman/boozang-runner:latest`
+
+**Modifying the Boozang docker image**
+
+In order to modify the Docker image, re-treive it using the following command
+
+ `docker pull styrman/boozang-runner:latest`
+
+As you will not be able to update the official Boozang Docker image, make sure to tag it with your own user-name
+
+`docker tag boozang-runner your-docker-user/boozang-runner`
+
+do the modifications, build the container
+
+`docker build -t your-docker-user/boozang-runner`
+
+and when you are happy with it, finally push it to the Cloud
+
+`docker push your-docker-user/boozang-runner:latest`
+
+**Additional CLI options**
+
+To find current supported command-line options, see Docker Github readme: https://github.com/ljunggren/bz-docker-xvfb and command-line runner README: https://github.com/ljunggren/bz-puppeteer.
+
+### NPM Package
+
+![nodejs-logo](images/nodejs-logo.jpg)
+
+The NPM package is Open source and the source code can be found here: https://github.com/ljunggren/bz-puppeteer
+
+**Installing NodeJS**
+
+NodeJS is widely supported. We recommend that you run Node v8.9.0+ (we rely on async/await so NodeJS 6.x is not supported). To install NodeJS we recommend using a package manager (https://nodejs.org/en/download/package-manager/) but you can also install it from source (https://nodejs.org/en/download/). 
+
+After installation, verify that node and npm versions the following way
+
+`npm --version`
+
+`5.5.1`
+
+`node --version`
+
+`v8.9.0`
+
+**Installing the Boozang package**
+
+To install the Boozang test runner, simply type
+
+`npm install -g boozang`
+
+The Boozang package will be installedm alongside with a Chrome browser compatible with Puppeteer. Make sure the Boozang package has been installed by typing
+
+`boozang`
+
+`USAGE: boozang [--token] [--headfull] [--verbose] [--screenshot] [--file=report] [--device=default] [url]`
+
+**Running a test**
+
+In order to run a test, simply type
+
+`boozang "[tokenized-test-url]"`
+
+The test should start executing in headless or headfull mode and return a report in the prompt. 
+
+**Modifying the NPM package**
+
+To modify the Boozang test runner and do custom development work, simply clone the code locally
+
+`git clone https://github.com/ljunggren/bz-puppeteer`
+
+In order to install any dependencies, run
+
+`npm install`
+
+This will automatically download and install a Chrome browser compatible with Puppeteer. 
+
+In order to test run you package, simply run
+
+`node index  "[tokenized-test-url]"`
+
+Update the package by modifying `index.js`and commit your changes to your versioning system. 
+
+When you want to publish the package to `npm`, update `package.json`to reflect your package name (don't use `"boozang"`) 
+
+`"name": "your-npm-name",
+  "version": "3.1.7",
+  "description": "An Simple Driver for Chrome Headless basded on Puppeteer",
+  "dependencies": {
+    "node-options": "latest",
+    "puppeteer": "latest"
+  }`
+
+and 
+
+`"bin": {
+    "your-npm-name": "index.js"
+  }`
+
+and publish it to npm using
+
+`npm publish`
+
+Your package should now be available for installation anywhere running
+
+`npm install -g your-npm-name`
+
+and you can test run it by typing
+
+`your-npm-name`
+
+anywhere. 
+
+**Additional CLI options**
+
+To find current supported command-line options, see Github readme: https://github.com/ljunggren/bz-puppeteer
+
+### Parallel test execution
+
+Installing the Docker container makes it dead simple to create your own test excution scripts. Here are a few examples 
+
+**Running from cronjob**
+
+It's easy to setup a cronjob that runs a Boozang test at a scheduled time. Simply type
+
+`crontab -e`
+
+to edit crontab settings create a custiom script that runs your test. See blow example from Centos
+
+`cd`
+
+`mkdir scripts`
+
+`vi scripts/run_boozang_tests`
+
+and add the tests needed (either using npm package or Docker container).
+
+**Running tests in parallel**
+
+In order to run tests in parallel, we simply utilize `nohup`and the `&`operator.
+
+`nohup docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file=test1 "[tokenized-test-url-1]"> test1.log &`
+
+`nohup docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file=test2 "[tokenized-test-url-2]"> test2.log &`
+
+In this example, you can follow the progress of the tests in `test1.log` and `test2.log` respecively, and the report will be found in html format in `test1.html` and `test2.html`, and in JSON format in `test1.json` and `test2.json`.
+
+**More examples**
+
+You can find these examples and more at  https://github.com/ljunggren/bz-utils
+
+### Test Scheduling
+
+You can also use Boozang's built-in scheduler. It works very much like a `cronjob`, except that the timing parameters are added to the url after the "/run" part of the URL, like
+
+`nohup docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file=test1 "[tokenized-test-url-1]/run?every=10"> test1.log &`
+
+This command will keep the test running in the browser inside the Docker container, and run the test every 10 minutes.
+
+Boozang offers a flexible way to schedule tasks:
+
+**In=** *[min]*
+
+Such as: ... / run? in = 10
+This means that the test is executed immediately, and tested again 10 minutes after completion
+
+**Every=** *[min]*
+
+Such as: .. / run? every = 10
+This means that the test is executed immediately, and the execution is executed 10 minutes after the first test starts.
+
+**At=** *[min]*
+
+Such as: ... / run? at = 15, 45
+This means that the test is not executed immediately, and the test task is executed at a specified time (15, 45). According to this example, if the current time is 15:52, the first execution time is: 16:15, and the next time is: 16:45
+
+**At=** *[time]*
+
+Such as: .../run?at=13:30, 20:00
+This means that the test is not executed immediately, and it is executed at a specified time. According to this example, if the current time is 15:52, the first execution is performed. The time is: 20:30. Then the second execution time is 13:30 tomorrow.
+
+**On=** *[day]* **&at=** *[min/time]*
+
+Such as: .. / run? on = mon & at = 13: 30
+This means that the test is not executed immediately, according to the specified date and time. According to this example, the test time is 13:30 next Monday. Note: "on" must be used together with "at". For "on" you can use the following values:
+Monday or mon or 0 (for Monday)
+Tuesday or tue or 1 (for Tuesday)
+Wednesday or wed or 2 (for Wednesday)
+Thusday or thu or 3 (for Thursday)
+Friday or fri or 4 (for Friday)
+Saturday or sat or 5 (for Saturday)
+Sunday or sun or 6 (for Sunday)
+workday (for Monday to Friday)
+also supports multiple, such as: on=wed, fri, or on=workday, Sat
+
+"now": Refers to the test immediately. For example, the user needs to use on, but wants to perform the test task immediately, such as: .../run?at=13:50&on=work&now
+
+### A note on Open Source
+
+In order to build a strong ecosystem around Boozang we have decided to keep all client-side code Open Source and allow our customers to customize it as they wish. The reason for this is two-fold: 
+
+1. All customer systems are slightly different, and even if we can cover most scenarios we cannot cover all. 
+2. As our customer base grows, custom code made by one customer can directly be re-used by another customer, creating benefit that scale with our customer base. 
+
+We therefore encourage our users to keep there custom code open source, and share it openly. We also encourage you to let us know at *opensource@boozang.com* so we can link to it. 
+
+## Security
+
+![hacker-1944688_1280](images/hacker-1944688_1280.jpg)
+
+**Fragment security**
+
+When installing the bz-fragment we get the security of the web browser without the limitation of being bound to Chrome extension policy. This limits cross-browser execution, but allows running Boozang without the need of any Extension. 
+
+Note: This requires access to the application directory to install an HTML fragment. 
+
+**GDPR**
+
+As we are running locally in your web browser it´s been easier to be GDPR compliant than for regular Cloud-testing services. We recommend that you'll host sensitive test data in CSV files hosted on your servers. That way, the data will never be loaded into our Cloud, and simply be present in the browser local storage on the test computers.
+
+**Hosting**
+
+In our Cloud, we simply host the data you enter into our system and the tests, including our proprietary element selectors. To get an understanding of the kind of data we store, you can look at the Source tab on any test. Our servers are located in Canada. 
+
+## Trade-offs
+
+![justice-423446_1280](images/justice-423446_1280.jpg)
+
+There are several limitations to the Boozang technology, some that are a limiting factor of the technology and security of the browser context, and others that are conscious product decisions. Here is an attempt to address some of them head-on.
+
+**Only web**
+
+Boozang support only testing web and hybrid applications. There are plenty of good tools to test native and desktop applications in the market, and we will be happy to recommend some. When doing testing across web and native/desktop, we recommend driving the tests on the web over Boozang, while driving the other tests over another tool. Boozang has excellent support to read data from external sources and is designed to be able to have a source of truth outside the tool. 
+
+**No tests are driven from the Cloud**
+
+Boozang doesn´t currently drive your tests from the Cloud. The Boozang technology allows us to host your tests and allow you to drive them locally from your browser. This has the benefits that we can operate behind your company firewall without any problem. It also means that you can host the test data locally, and serve it up to your local web browser. 
+
+As our test runner is open source and can be used and modified freely, we welcome companies and Cloud testing providers to do so, and we welcome serious partnership proposals. 
+
+**Limited BI** 
+
+Long-term we will expand our reporting capability and business intelligence functions. As we expose our reports in both JSON and HTML, and fully support integration over REST or via our test-runner (DIY), we are welcoming you to integrate into your Business Intelligence system of choice, and for you to see Boozang as one source of insights among many.
+
+**Frequent Maintenance Releases**
+
+We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this time-slot works for both European and American customers, and amounts to maximum 30 seconds of service down-time). This means that we generally can provide less than one-week turn-around on bugs reported by our customers.
 
 ```
 
 Copyright (c) 2019 Boozang Technologies Inc.
+
+```
 
 ```
 
