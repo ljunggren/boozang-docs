@@ -69,7 +69,7 @@ Supports Web Components / Shadow DOM testing and socket-based testing.
 
 **Good fit vs bad fit**
 
-Boozang is great when testing anything that runs in the web browser. This includes any modern SaaS application, no matter how complex. It’s great when you need to test automate testing for deterministic usage flows, basically conditions that can be determined by a machine. 
+Boozang is great when testing anything that runs in the web browser. This includes any modern SaaS application, no matter how complex. It’s great when you need to automate testing for deterministic usage flows, basically conditions that can be determined by a machine. 
 
 A rule of thumb is that the more you feel the need to run regression testing, the more value you will find in a Boozang implementation. This means, if you release business-critical software often, you will find great value in Boozang. If you release rarely and bugs don't have a significant impact, maybe not so much. 
 
@@ -102,15 +102,15 @@ As soon as you have signed up you can go ahead and create your first project in 
 ![](images/create-project.png)
 
 ### Installation Options
-Boozang is completely hosted in the Cloud and supports running from client-side without a client-side installation For users who do not have access to the application root we also provide a Chrome browser extension. 
+Boozang is completely hosted in the Cloud and supports running from client-side without a client-side installation. For users who do not have access to the application root we also provide a Chrome browser extension. 
 
 **Installing the Chrome extension** 
 
-For users without access to the application webroot, or for users who want to do cross-domain testing, we provide a Chrome extension. The Chrome extension can be downloaded from the Chrome web store [here](https://chrome.google.com/webstore/detail/boozang-ai/bnaebcjlolajbgllgjlmlfobobdemmki). To launch the Boozang tool using the Chrome extension, simply click "Launch" in the Cloud management interface, and you will be prompted to install the Chrome extension. 
+For users without access to the application webroot, or for users who want to do cross-domain testing, we provide a Chrome extension. The Chrome extension can be downloaded from the Chrome web store [here](https://chrome.google.com/webstore/detail/boozang-ai/bnaebcjlolajbgllgjlmlfobobdemmki). To launch the Boozang tool using the Chrome extension, click "Launch" in the Cloud management interface, and you will be prompted to install the Chrome extension. 
 
 **Installing the bz fragment**
 
-Simply create a project at http://ai.boozang.com and download the HTML snippet. The snippet is copied to the webroot (where your index.html or similar would be located). To launch the Boozang tool, simply access the snippet in any browser, such as http://myapplication.com/bz.html or http://localhost:8080/bz.html. 
+Create a project at http://ai.boozang.com and download the HTML snippet. The snippet is copied to the webroot (where your index.html or similar would be located). To launch the Boozang tool, access the snippet in any browser, such as http://myapplication.com/bz.html or http://localhost:8080/bz.html. 
 
 Tip: Using the bz fragment allows for running tests in headless browser mode. This allows for simple CI integration using the Boozang test runner.
 
@@ -140,9 +140,9 @@ For very complex applications it can sometimes be useful to introduce sub-module
 
 ### Recording your first test
 
-Boozang works within the browser which allows for a very stable recording function. Simply click on the record button in the tool. As you perform actions on your web page actions will be recorded. To remove an un-wanted action that was recorded simply press the trashbin next to the action in the main tool view. 
+Boozang works within the browser which allows for a very stable recording function. Simply click on the record button in the tool. As you perform actions on your web page actions will be recorded. To remove an un-wanted action that was recorded press the trashbin next to the action in the main tool view. 
 
-As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports four different playback modes: **Normal**, **demo**, **debug** and **automation** mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlights the error and allows you to correct it on the fly. When you have corrected the error simple press the play button again and the test will continue its execution. This is very useful when updating a test after a big code change. 
+As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports four different playback modes: **Normal**, **demo**, **debug** and **automation** mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Debug mode is a very powerful functionality that plays the test, but when encountering an error it highlights the error and allows you to correct it on the fly. When you have corrected the error, simply press the play button again and the test will continue its execution. This is very useful when updating a test after a big code change. 
 
 A test is automatically saved in the local storage of the browser. As soon as you update a test, the test will be checked out by you, and it will appear as locked for your team-mates, which prevents them from making changes. As soon as you click save the test will be saved on the Boozang server, and the lock will be automatically removed, allowing other team members to make changes. 
 
@@ -158,7 +158,7 @@ This allows you to get a good overview of the recorded actions, and an easy way 
 
 As Boozang is completely hosted in the Cloud it's easy to do changes and add useful features quickly. This has a huge upside as we can deploy features that customer asks for to all our customers at the same time, to the benefit of all. This also means that new things can appear in the user interface without warning, and in some cases, the documentation might not be up-to-date all the time. 
 
-For this reason, to be able to deliver new features fast without forcing the end-user to re-learn, we added an online help function inside the tool. Simply click the question mark in the user interface, and click the functionality and an explanation will appear. 
+For this reason, to be able to deliver new features fast without forcing the end-user to re-learn, we added an online help function inside the tool. To activate help, click the question mark in the user interface, and click the functionality and an explanation will appear. 
 
 ![example image](images/help-annotations.png "An exemplary image")
 
@@ -264,7 +264,7 @@ Use the Caret down icon to quickly switch between modules and tests. You can als
 
 **Search**
 
-To do a free text search on any module or test simply hit the Search icon. As you type, the matching search results will display.  
+To do a free text search on any module or test, hit the Search icon. As you type, the matching search results will display.  
 
 **Hamburger**
 
@@ -286,7 +286,7 @@ Tip: Double-clicking the test row also performs this action
 
 An icon that indicates the action type. The different action types are **Validate Result**, **Mouse Event**, **Keyboard Event**, **Extract data**, **Javascript**, **Comment**, **Refresh Window**, **Plug Test**, and **Visit Links**.  
 
-*Tip: Clicking the action icon toggles breakpoints. Test execution is temporarily stopped at breakpoints, allowing for troubleshooting of tests. To resume playing the test, simply click the play button.*
+*Tip: Clicking the action icon toggles breakpoints. Test execution is temporarily stopped at breakpoints, allowing for troubleshooting of tests. To resume playing the test, click the play button.*
 
 **Action description**
 
@@ -316,17 +316,17 @@ Indicate that exit conditions for the action have been customized. Exit conditio
 
 **Action details**
 
-Opens the action details panel. The action details can be pinned to stay open, or always be seen at the top or base of the action list. When pinned, action details simply shows the main controls. 
+Opens the action details panel. The action details can be pinned to stay open, or always be seen at the top or base of the action list. When pinned, action details only shows the main controls. 
 
 ### Record / Play
 
 **Recording**
 
-To record a test, simply click on the record button. Boozang will now catch any action being made in the application window. To stop recording, simply click stop. In the case where the application window is closed, the record will open the application window at the current URL. Use the Reload URL button to make sure that the URL is set correctly before recording.
+To record a test, click on the record button. Boozang will now catch any action being made in the application window. To stop recording, click stop. In the case where the application window is closed, the record will open the application window at the current URL. Use the Reload URL button to make sure that the URL is set correctly before recording.
 
 **Playing a test**
 
-To play a test, simply click the Play button. To play the test from the start; make sure that the first row (gray) row of the action list has been selected as this signifies the actual test. You can also play a test from a specific action. Simply select the action you want to play from and click the Play button. You can choose to watch all the actions play and see the result in real-time, or switch to the report view to see the report being generated. 
+To play a test, click the Play button. To play the test from the start; make sure that the first row (gray) row of the action list has been selected as this signifies the actual test. You can also play a test from a specific action. Simply select the action you want to play from and click the Play button. You can choose to watch all the actions play and see the result in real-time, or switch to the report view to see the report being generated. 
 
 There are several play modes available
 
@@ -419,7 +419,7 @@ For most actions, the user can select an element (Validations, Events, Javascrip
 
 **Re-picking an element**
 
-The first step if an action isn´t working as expected is simply to re-pick the element in the application window. To make sure, double-click the action and confirm that the action is working. 
+The first step if an action isn´t working as expected is to re-pick the element in the application window. To make sure, double-click the action and confirm that the action is working. 
 
 *Tip: Click on the element dialog and see if the correct element is highlighted in the application window.* 
 
@@ -549,7 +549,7 @@ The default behavior is to **Re-try on element missing**. Customize this to **Ne
 
 ![example image](images/ai-repair.png "An exemplary image")
 
-When a test is run and an action element cannot be found the AI test repair screen will be launched. This will allow the user to simply re-pick the element from the application window. If a matching element is found, Boozang will suggest the element for the user. This allows the user to repair tests ultra-fast even when there have been significant code changes.
+When a test is run and an action element cannot be found the AI test repair screen will be launched. This will allow the user to re-pick the element from the application window. If a matching element is found, Boozang will suggest the element for the user. This allows the user to repair tests ultra-fast even when there have been significant code changes.
 
 *Tip: In normal play mode, the user is asked if the test should be repaired. In Repair mode, the AI repair is always launched, and in Automation, mode AI repair is never launched.* 
 
@@ -577,11 +577,11 @@ This event corresponds to a keypress. This is captured in the recording for ever
 
 **Creating a simple validation**
 
-In a test, it´s common to make sure that a certain outcome is achieved. In Boozang we do this using validation, also known as assertions. To create a validation, simply click on the validation icon and select the element to validate it in the application window. The default validation content format: "validate exists" will be created. If you want to change the validation content format to "innerText", "data", or "screenshot" you can do this in the tool window. 
+In a test, it´s common to make sure that a certain outcome is achieved. In Boozang we do this using validation, also known as assertions. To create a validation, click on the validation icon and select the element to validate it in the application window. The default validation content format: "validate exists" will be created. If you want to change the validation content format to "innerText", "data", or "screenshot" you can do this in the tool window. 
 
 **Validate Exists**
 
-The default validation is "Validate Exists", that will simply verify that the element exists. To edit the validation content format simply change it from the action detail page. The expectation value will be automatically updated. 
+The default validation is "Validate Exists", that will verify that the element exists. To edit the validation content format change it from the action detail page. The expectation value will be automatically updated. 
 
 **Inner Text**
 
@@ -599,7 +599,7 @@ Tip: It can be useful when needing to create assertions on indicators or switche
 
 **The DOM picker**
 
-Sometimes the element you selected on the page isn't the one you intended. In this case, simply click the DOM picker and re-select the element. The DOM picker dialog will popup where you can select exactly what to validate in the DOM tree. Use the checkboxes to select which elements to include in the matching. Make sure that the checkbox has a green highlight, which means the element is uniquely matched (not indexed).
+Sometimes the element you selected on the page isn't the one you intended. In this case, click the DOM picker and re-select the element. The DOM picker dialog will popup where you can select exactly what to validate in the DOM tree. Use the checkboxes to select which elements to include in the matching. Make sure that the checkbox has a green highlight, which means the element is uniquely matched (not indexed).
 
 **Javascript validations**
 
@@ -628,7 +628,7 @@ Start by defining a data variable in the data tab. For extraction, you typically
 
 **Extracting data action**
 
-To add an extract data action, simply click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. 
+To add an extract data action, click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. 
 
 ### Javascript
 
@@ -662,11 +662,11 @@ In a lot of cases, some errors can only be spotted by a human, such as a look & 
 
 **The Comment action**
 
-The comment actions add a comment, or annotation, to the application. To add a comment, simply click on the Plus icon and select Add Comment, and select the element in the application page to Comment. You can write directly into the Comment dialog on the application.
+The comment actions add a comment, or annotation, to the application. To add a comment, click on the Plus icon and select Add Comment, and select the element in the application page to Comment. You can write directly into the Comment dialog on the application.
 
 **Running a test with comments**
 
-When running a test with comments, the test will execute and stop at the first comment. To go to the next comment, simply press play again and the test will continue executing until it finishes or hits the next comment. This is very useful when fixing look & feel issues, as several issues can be recorded in the same test case. 
+When running a test with comments, the test will execute and stop at the first comment. To go to the next comment, press play again and the test will continue executing until it finishes or hits the next comment. This is very useful when fixing look & feel issues, as several issues can be recorded in the same test case. 
 
 ### Refresh window/Load page
 
@@ -710,7 +710,7 @@ Tip: Arrays can be used to drive data loops
 
 **CSV data**
 
-CSV data allows you to handle a large collection of Objects and copy data from software such as Excel. Simply create a name for the collection, such as inventory items. Start by adding the field names as headings separated by tab-spaces. When you are done defining the data hit Enter and fill out the values tab-separated. Pro-tip: You can copy a whole table from Excel simply by using copy-paste. 
+CSV data allows you to handle a large collection of Objects and copy data from software such as Excel. Create a name for the collection, such as inventory items. Start by adding the field names as headings separated by tab-spaces. When you are done defining the data hit Enter and fill out the values tab-separated. Pro-tip: You can copy a whole table from Excel by using copy-paste. 
 
 *Tip: CSV data can be used to drive data loops.* 
 
@@ -726,7 +726,7 @@ It is also possible to fetch data from an external source. Simply type in a URL 
 
 It is also possible to specify Javascript functions directly. The functions can be in two forms: Date.now() or fining the data hit Enter and fill out the values tab-separated. 
 
-*Tip: You can copy a whole table from Excel simply by using copy-paste.* 
+*Tip: You can copy a whole table from Excel by using copy-paste.* 
 
 **File data**
 
@@ -736,23 +736,23 @@ File data is used to test file upload and similar user interactions. Try and use
 
 **A note on form fills and data**
 
-When recording a test, any data entered into a form will be recorded as well. Usually, this will happen when pressing enter, tab key or simply when using the mouse to click the next field or submitting the form. Sometimes it's sufficient to record a test with a certain hard-coded set of data. More often, it´s desirable to capture data into variables so that the test can be re-used for several different sets of data. Boozang makes this very easy to do.  
+When recording a test, any data entered into a form will be recorded as well. Usually, this will happen when pressing enter, tab key or when using the mouse to click the next field or submitting the form. Sometimes it's sufficient to record a test with a certain hard-coded set of data. More often, it´s desirable to capture data into variables so that the test can be re-used for several different sets of data. Boozang makes this very easy to do.  
 
 ![databind](images/databind.png)
 
 **Binding from forms to data**
 
-One way of capturing data into variables is to start on the application side. When entering data into the form, simply click the "Bind data" checkbox in the toolbar and select the data scope you would like to capture the data. While typing, you can see that you are prompted to save the data in a variable. When you fully typed out the field, simply click the desired field name and you the data will be saved at the appropriate data scope that you selected.
+One way of capturing data into variables is to start on the application side. When entering data into the form, click the "Bind data" checkbox in the toolbar and select the data scope you would like to capture the data. While typing, you can see that you are prompted to save the data in a variable. When you fully typed out the field, click the desired field name and you the data will be saved at the appropriate data scope that you selected.
 
 ![databind-into](images/databind-into.png)
 
 **Binding from data to forms**
 
-There is also a different way to fill the data. Start by entering the data (normally as a JSON object) and after this click the "Bind data" checkbox and select the data scope where you entered the data. When starting typing you can see that the data in the data scope is suggested to you. Simply click on the suggested data, and it will be automatically typed into the form for you, and bound into the event action.
+There is also a different way to fill the data. Start by entering the data (normally as a JSON object) and after this click the "Bind data" checkbox and select the data scope where you entered the data. When starting typing you can see that the data in the data scope is suggested to you. Click on the suggested data, and it will be automatically typed into the form for you, and bound into the event action.
 
 **Auto-filling forms from data**
 
-As you can see, any data key names that correspond (matches case-insensitive / white-space insensitive) to the form labels will be suggested when binding data to forms. If you have organized your data well and made sure all data keys match the form labels, you can simply click the Autofill-link and all the form events will be generated automatically.
+As you can see, any data key names that correspond (matches case-insensitive / white-space insensitive) to the form labels will be suggested when binding data to forms. If you have organized your data well and made sure all data keys match the form labels, you can click the Autofill-link and all the form events will be generated automatically.
 
 *Tip: This can greatly speed up test creation of form fill tests, so try and learn this naming convention.*  
 
@@ -772,7 +772,7 @@ Also, make sure that all possible labels are matching the indicated regular expr
 
 **Setting up a new regular expression**
 
-To set up a new regular expression, simply click new and add in the necessary fields. The Field mapping will determine which form labels to look for when trying to match data. Use the OR sign ("|") to separate several fields. 
+To set up a new regular expression, click new and add in the necessary fields. The Field mapping will determine which form labels to look for when trying to match data. Use the OR sign ("|") to separate several fields. 
 
 ![autofill](images/autofill.png)
 
@@ -809,9 +809,9 @@ The console can be used to check the following data:
 
 There is also another way to inspect data and do more advanced troubleshooting. For each action, in the action details menu, you can find a link called "Tmp data". This data is updated every time a test is run and will show the data that was used when the action was run. This also allows you to keep the last input data that was used, and replay the action with this data.
 
-To inspect data during a run, simply add a breakpoint to the test or pause the test case during a run. Click on the action that uses the data, and click "Tmp data" in action details. 
+To inspect data during a run, add a breakpoint to the test or pause the test case during a run. Click on the action that uses the data, and click "Tmp data" in action details. 
 
-To re-run the action with the data that you see in the "Tmp data" window, simply check the checkbox "As initial data for playing the action". To keep this data (not override the data in the next run) hit the "keep" button, and the data will be saved in the keep tab. 
+To re-run the action with the data that you see in the "Tmp data" window,  check the checkbox "As initial data for playing the action". To keep this data (not override the data in the next run) hit the "keep" button, and the data will be saved in the keep tab. 
 
 *Tip: Hit keep and Save to save the action data in the database to troubleshoot with other team members.*
 
@@ -831,7 +831,7 @@ In the Environment tab, you can find several useful functionalities. You can man
 
 There has been some confusion around environment and application interfaces, so it's important to make sure you get this right as it will save you potential work in the future. Environments signify an environment, such as *development*, *staging*, *QA* or *production*. By specifying different entry URLs for these environments test become completely re-usable. This means there is no need to maintain different tests or projects across different environments. Simply change the environment setting and re-run the same test.
 
-The application interface setting handles when there are different applications within the same environment. For instance, in the E-commerce case, there might be a *storefront* and a *mgmt* interface. When creating a test, simply pick the interface that the test is for. If this changes during the project, it simply has to be changed in one place, not across several tests.
+The application interface setting handles when there are different applications within the same environment. For instance, in the E-commerce case, there might be a *storefront* and a *mgmt* interface. When creating a test, pick the interface that the test is for. If this changes during the project, it has to be changed in one place, not across several tests.
 
 **Advanced / Configure**
 
@@ -887,7 +887,7 @@ Use this to record customized input components. This will allow you to capture c
 
 Aliases are used to define shortcuts to certain test suites. This is most often used to be able to easily control which tests are being run, without having to update any upstream services, such as CI servers or similar. 
 
-Image the scenario where you have a CI server that runs smoke-tests, regression tests, and full product tests. Now it's simple to simply define the aliases "smoke", "regression", and "full" and simply point these aliases to the tests in question. If you want to try to temporarily switch any of these aliases to run a  different test suite this can be done without updating anything on the CI server.
+Image the scenario where you have a CI server that runs smoke-tests, regression tests, and full product tests. Now it's simple to define the aliases "smoke", "regression", and "full" and point these aliases to the tests in question. If you want to try to temporarily switch any of these aliases to run a  different test suite this can be done without updating anything on the CI server.
 
 
 
@@ -931,7 +931,7 @@ This still exists.
 
 This view allows a user to set up email notifications for a report. It means that every time a test is run from the command line any users that have subscribed to notifications will receive the report in his/her mailbox. To test out the notifications from the tool, make sure to run the test in Automation play mode. This will trigger the notifications.
 
-*Tip: A user can only set up his/her won email notifications. This allows team collaborators to simply opt-in and opt-out from report emails, and prevents un-wanted spamming.*
+*Tip: A user can only set up his/her won email notifications. This allows team collaborators to opt-in and opt-out from report emails, and prevents un-wanted spamming.*
 
 ## Other tool views
 
@@ -945,11 +945,11 @@ The main report view contains the report from the test that was run in the brows
 
 **The view link**
 
-To find tests quickly, simply click the View link to go to the test. This is especially helpful when the testing report has been sent via email. 
+To find tests quickly, click the View link to go to the test. This is especially helpful when the testing report has been sent via email. 
 
 **The diff link**
 
-If an assertion fails that have content, such as Validate -> innerText, you can use the diff link to see the difference in content between the reference and resulted response. For dynamic data, simply hover over the name to see the values that were used. 
+If an assertion fails that have content, such as Validate -> innerText, you can use the diff link to see the difference in content between the reference and resulted response. For dynamic data, hover over the name to see the values that were used. 
 
 **Performance warnings**
 
@@ -1043,19 +1043,19 @@ Even though Boozang is mainly a UI testing tool, it also supports full API testi
 
 **Useful resources**
 
-To simply mockup a REST server, we strongly recommend https://github.com/typicode/json-server that allows you to create a fake REST API from a JSON file in less than 30 seconds. 
+To mockup a REST server, we strongly recommend https://github.com/typicode/json-server that allows you to create a fake REST API from a JSON file in less than 30 seconds. 
 
 **Introduction to API validations**
 
-The API validation is very similar to an HTML validation except that the validation is done towards an API end-point. Simply click on the Plus-sign and choose "Validation", and select Request/Response (API). In action details, you can now input the API end-point URL and HTTP method (GET, POST, DELETE, etc.).
+The API validation is very similar to an HTML validation except that the validation is done towards an API end-point. Click on the Plus-sign and choose "Validation", and select Request/Response (API). In action details, you can now input the API end-point URL and HTTP method (GET, POST, DELETE, etc.).
 
 **Doing HTTP GET validation**
 
-Use the HTTP method GET to validate a response from a REST API. Simply select the HTTP method GET and enter the end-point URL. Click Play on the action to automatically populate the expectation value. 
+Use the HTTP method GET to validate a response from a REST API. Select the HTTP method GET and enter the end-point URL. Click Play on the action to automatically populate the expectation value. 
 
 **Doing an HTTP GET without validation**
 
-To trigger the HTTP GET without validating the result simply use a comparison operator to "regexp" and set the expectation field to `.*`. 
+To trigger the HTTP GET without validating the result use a comparison operator to "regexp" and set the expectation field to `.*`. 
 
 **Adding custom headers**
 
@@ -1094,17 +1094,17 @@ $test.dummy = $result
 
 **Extracting data action**
 
-To add an extract data action, simply click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. 
+To add an extract data action, click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. 
 
 ## AI authorization
 
-![registration-3938434_1280](images/registration-3938434_1280.jpg)In application testing there will be a need to establish pre-conditions. In most SaaS applications this is simply a matter of determining who is logged in. Instead of relying on trying to mimic users by spoofing cookies or other tricks, it can be done by recording the login and logout sequence of users and being able to automatically shift between users.
+![registration-3938434_1280](images/registration-3938434_1280.jpg)In application testing there will be a need to establish pre-conditions. In most SaaS applications this is a matter of determining who is logged in. Instead of relying on trying to mimic users by spoofing cookies or other tricks, it can be done by recording the login and logout sequence of users and being able to automatically shift between users.
 
 A key in this procedure is to have login credentials for the different roles that have access to the application, and record a single login/logout sequence for that user and find an identifier for who is logged in.
 
 **The wizard**
 
-Launch the authorization wizard by simply click **Enable AI authorization** when setting up the environment. 
+Launch the authorization wizard by clicking **Enable AI authorization** when setting up the environment. 
 
 ## Model-based testing
 
@@ -1164,13 +1164,13 @@ and make sure the following output is generated
 
 **Running a test**
 
-To run a test, simply type
+To run a test, type
 
 `docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner "[tokenized-test-url]"`
 
 **Getting the latest image**
 
-The boozang-runner image will be cached so to make sure you are running the latest Docker image, simply type
+The boozang-runner image will be cached so to make sure you are running the latest Docker image, type
 
 `docker pull styrman/boozang-runner:latest`
 
@@ -1218,7 +1218,7 @@ After installation, verify that node and npm versions the following way
 
 **Installing the Boozang package**
 
-To install the Boozang test runner, simply type
+To install the Boozang test runner, type
 
 `npm install -g boozang`
 
@@ -1230,7 +1230,7 @@ The Boozang package will be installed alongside with a Chrome browser compatible
 
 **Running a test**
 
-To run a test, simply type
+To run a test, type
 
 `boozang "[tokenized-test-url]"`
 
@@ -1238,7 +1238,7 @@ The test should start executing in headless or headful mode and return a report 
 
 **Modifying the NPM package**
 
-To modify the Boozang test runner and do custom development work, simply clone the code locally
+To modify the Boozang test runner and do custom development work, clone the code locally
 
 `git clone https://github.com/ljunggren/bz-puppeteer`
 
@@ -1248,7 +1248,7 @@ To install any dependencies, run
 
 This will automatically download and install a Chrome browser compatible with Puppeteer. 
 
-To test run you package, simply run
+To test run you package, run
 
 `node index  "[tokenized-test-url]"`
 
@@ -1294,7 +1294,7 @@ Installing the Docker container makes it dead simple to create your test executi
 
 **Running from cronjob**
 
-It's easy to set up a cronjob that runs a Boozang test at a scheduled time. Simply type
+It's easy to set up a cronjob that runs a Boozang test at a scheduled time. Type
 
 `crontab -e`
 
@@ -1310,7 +1310,7 @@ and add the tests needed (either using npm package or Docker container).
 
 **Running tests in parallel**
 
-To run tests in parallel, we simply utilize `nohup` and the `&`operator.
+To run tests in parallel, we utilize `nohup` and the `&`operator.
 
 `nohup docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file=test1 "[tokenized-test-url-1]"> test1.log &`
 
@@ -1389,11 +1389,11 @@ Note: This requires access to the application directory to install an HTML fragm
 
 **GDPR**
 
-As we are running locally in your web browser it´s been easier to be GDPR compliant than for regular Cloud-testing services. We recommend that you'll host sensitive test data in CSV files hosted on your servers. That way, the data will never be loaded into our Cloud, and simply be present in the browser local storage on the test computers.
+As we are running locally in your web browser it´s been easier to be GDPR compliant than for regular Cloud-testing services. We recommend that you'll host sensitive test data in CSV files hosted on your servers. That way, the data will never be loaded into our Cloud, and be present in the browser local storage on the test computers.
 
 **Hosting**
 
-In our Cloud, we simply host the data you enter into our system and the tests, including our proprietary element selectors. To get an understanding of the kind of data we store, you can look at the Source tab on any test. Our servers are located in Canada. 
+In our Cloud, we host the data you enter into our system and the tests, including our proprietary element selectors. To get an understanding of the kind of data we store, you can look at the Source tab on any test. Our servers are located in Canada. 
 
 ## Trade-offs
 
