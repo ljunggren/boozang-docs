@@ -614,10 +614,79 @@ Accept:&quot;json&quot;
 <p>To add an extract data action, click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. </p>
 <h2 id="ai-authorization">AI authorization</h2>
 <p><img src="images/registration-3938434_1280.jpg" alt="registration-3938434_1280" />In application testing there will be a need to establish pre-conditions. In most SaaS applications this is a matter of determining who is logged in. Instead of relying on trying to mimic users by spoofing cookies or other tricks, it can be done by recording the login and logout sequence of users and being able to automatically shift between users.</p>
+<h3 id="setting-up">Setting up</h3>
 <p>A key in this procedure is to have login credentials for the different roles that have access to the application, and record a single login/logout sequence for that user and find an identifier for who is logged in.</p>
-<p><strong>The wizard</strong></p>
+<p><strong>Enabling AI authorization</strong></p>
+<p><img src="images/enable-ai.png" alt="enable-ai" /></p>
 <p>Launch the authorization wizard by clicking <strong>Enable AI authorization</strong> when setting up the environment. </p>
+<h3 id="authorization-settings">Authorization settings</h3>
+<p><img src="images/auth-setting.png" alt="auth-setting" /></p>
+<p>This will open another scren that allows you do enter credentials</p>
+<p><strong>Mapping module</strong></p>
+<p>The name of the project module where the auto-generated login and logout cases will be stored.</p>
+<p><strong>sign in(test-case)</strong></p>
+<p>The name of the sign in test case</p>
+<p><strong>sign out(test-case)</strong></p>
+<p>The name of the sign out test case</p>
+<p><strong>Mapping data</strong></p>
+<p>The name for the data to map login credentials</p>
+<p><strong>Role table (Unique key)</strong></p>
+<p>Set a unique key for the user</p>
+<p><strong>Username</strong></p>
+<p>The username that is used in the login procedure</p>
+<p><strong>Password</strong></p>
+<p>The password that is used in the login procedure</p>
+<p><strong>User identifier</strong></p>
+<p>This field is used to uniquely identify the user. This can be an identifier visible right after login, such as the first namem a user id, or email address of the user. This is used to determine which user is logged in, and drives logic for switching between users/roles. </p>
+<h3 id="the-authorization-wizard">The authorization wizard</h3>
+<p><img src="images/wizard-2.png" alt="wizard-2" /></p>
+<p>As soon as you click the button &quot;Save &amp; generate test-cases&quot; the test-case generation wizard is launched. The normal procedure is to start by generating &quot;sign-in&quot; but you can also start with generating &quot;sign-out&quot;. </p>
+<p><strong>Generating: Sign in</strong></p>
+<p><img src="images/generate.png" alt="generate" /></p>
+<ol>
+<li>Make sure to be logged out and navigated to the login page. Click Confirm. </li>
+<li>Click the record button and record the login procedure. Make sure to utilize the data set in the Authorization settings screen - otherwise, the data will be hard-coded.</li>
+<li>Click the selector button to find an element that uniquely identifies the user. </li>
+<li>Click &quot;optimize the test case&quot;.</li>
+<li>The sign-in test case has now been generated for all users in the list. </li>
+</ol>
+<p><strong>Generating: Sign out</strong></p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/sign-out.png" alt="sign-out" /></p>
+<ol>
+<li>Confirm that the user is logged in. Click confirm.</li>
+<li>Pick an element that will only show when logged in. Note: This should not be a user-specific element but should show for all users. </li>
+<li>Record the sign-out procedure.</li>
+<li>Click &quot;Optimize the test case&quot;</li>
+<li>The sign-out test case has now been generated.</li>
+</ol>
+<p><strong>Check all accounts</strong></p>
+<p><img src="images/check-all-accounts.png" alt="check-all-accounts" /></p>
+<ol>
+<li>Click &quot;Check all accounts&quot;</li>
+<li>A test case that runs sign-in for each user has now been generated in the authorization module. This is useful to see how you can call Sign-in and Sign-out respectively.</li>
+</ol>
+<h3 id="using-authorization-tests">Using authorization tests</h3>
+<p><strong>Set test pre-conditions</strong></p>
+<p><img src="images/test-preconditions.png" alt="test-preconditions" /></p>
+<p>One way of using the authorization tests is to set test-preconditions on tests. If checking a user as a pre-conditions this means as soon as this test is run, Boozang will check if that user is logged in using the unique identifier. If not, Boozang will automatically run the &quot;sign-out&quot; test case and run &quot;sign-in&quot; for the first user in the list. </p>
+<p><strong>Calling authorization tests manually</strong></p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/auth-param.png" alt="auth-param" /></p>
+<p>You can also call the authorization tests manually. This can be done by simply calling the &quot;sign-in&quot; test case directly. </p>
+<p><code>$parameter = unique key</code></p>
+<p>This will trigger a check on which user is logged in, and if it´s different than specified, it will automatically trigger a logout and logout with the specified user.</p>
 <h2 id="model-based-testing">Model-based testing</h2>
+<p>This section will focus on automated test creation driven from models. A model is simply a classification of different components and elements in your application, that allows the boozang engine to automatically generate function tests and simple workflows, that gives a great starting point for your application testing.</p>
+<h3 id="advantages-of-model-based-testing">Advantages of model-based testing</h3>
+<p><strong>Auto-generated re-usable test steps</strong></p>
+<p>As the application model is created, the Boozang engine will create a series of auto-generated tests that can be used to build upstream tests. </p>
+<p><strong>Auto-generated workflows</strong></p>
+<p>As the application model is created, the Boozang engine will create simple workflow tests for common test scenarios. These will act as a blueprint to create all higher order tests. </p>
+<p><strong>Test Stability</strong></p>
+<p>Model-based testing is completely different from recording scenarios, as tests are automatically updated as the model changes. This means if an aspect of the application changes, only that part of the model needs to be updated, and all tests will automatically be updated. </p>
+<p><strong>Graphical overview</strong></p>
+<p>By creating a model of your application, a full graphical representation of the application is created. This gives everyone in the application team a complete picture of all application logic, and ...</p>
+<p><strong>Non-requirement driven tests</strong></p>
+<p>By modeling the application, the boozang engine can auto-generate tests that do not originate from business requirements but are still important. This gives you a baseline of tests to work as a health-check for the application functionality. </p>
 <h2 id="integrations-and-test-scheduling">Integrations and test scheduling</h2>
 <p><img src="images/day-planner-828611_1280.jpg" alt="parallel-unsplash" /></p>
 <p>Note: This section will focus on running Boozang from the command line.  For readers not familiar with CLI and Docker this might be a little technical, even though most of the commands should be working doing a direct copy.</p>
