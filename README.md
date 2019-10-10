@@ -1168,7 +1168,7 @@ As soon as you click the button "Save & generate test-cases" the test-case gener
 
 **Generating: Sign out**
 
-![sign-out](/Users/matsljunggren/Workspace/boozang-docs/images/sign-out.png)
+![sign-out](images/sign-out.png)
 
 1. Confirm that the user is logged in. Click confirm.
 2. Pick an element that will only show when logged in. Note: This should not be a user-specific element but should show for all users. 
@@ -1193,7 +1193,7 @@ One way of using the authorization tests is to set test-preconditions on tests. 
 
 **Calling authorization tests manually**
 
-![auth-param](/Users/matsljunggren/Workspace/boozang-docs/images/auth-param.png)
+![auth-param](images/auth-param.png)
 
 You can also call the authorization tests manually. This can be done by simply calling the "sign-in" test case directly. 
 

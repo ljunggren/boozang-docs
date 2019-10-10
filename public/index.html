@@ -651,7 +651,7 @@ Accept:&quot;json&quot;
 <li>The sign-in test case has now been generated for all users in the list. </li>
 </ol>
 <p><strong>Generating: Sign out</strong></p>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/sign-out.png" alt="sign-out" /></p>
+<p><img src="images/sign-out.png" alt="sign-out" /></p>
 <ol>
 <li>Confirm that the user is logged in. Click confirm.</li>
 <li>Pick an element that will only show when logged in. Note: This should not be a user-specific element but should show for all users. </li>
@@ -670,7 +670,7 @@ Accept:&quot;json&quot;
 <p><img src="images/test-preconditions.png" alt="test-preconditions" /></p>
 <p>One way of using the authorization tests is to set test-preconditions on tests. If checking a user as a pre-conditions this means as soon as this test is run, Boozang will check if that user is logged in using the unique identifier. If not, Boozang will automatically run the &quot;sign-out&quot; test case and run &quot;sign-in&quot; for the first user in the list. </p>
 <p><strong>Calling authorization tests manually</strong></p>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/auth-param.png" alt="auth-param" /></p>
+<p><img src="images/auth-param.png" alt="auth-param" /></p>
 <p>You can also call the authorization tests manually. This can be done by simply calling the &quot;sign-in&quot; test case directly. </p>
 <p><code>$parameter = unique key</code></p>
 <p>This will trigger a check on which user is logged in, and if it´s different than specified, it will automatically trigger a logout and logout with the specified user.</p>
