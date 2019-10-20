@@ -23,6 +23,8 @@ In this section we give a brief overview of the Boozang features and when it's a
 
 **At the core**
 
+Why? Boozang was created....
+
 Boozang is a code-less front end testing tool built for the modern web using only Javascript. It allows developers and Quality Assurance engineers to develop front-end tests quickly without the need for programming. 
 
 Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium web driver. Boozang uses it's own selection language based on natural-language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models. 
@@ -1149,6 +1151,8 @@ The password that is used in the login procedure
 This field is used to uniquely identify the user. This can be an identifier visible right after login, such as the first namem a user id, or email address of the user. This is used to determine which user is logged in, and drives logic for switching between users/roles. 
 
 ### The authorization wizard
+
+
 
 ![wizard-2](images/wizard-2.png)
 
