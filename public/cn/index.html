@@ -48,7 +48,7 @@
 
 <!-- CONTENT START -->
 <p>＃Boozang文档</p>
-<p>！[]（images / side-by-side.png）</p>
+<p><img src="images/side-by-side.png" alt="" /></p>
 <p>这是Boozang测试自动化工具的官方文档。它可以作为一本书阅读或用作参考。使用左侧的导航栏导航到感兴趣的主题。本文档提供英语和中文版本。</p>
 <p>还有其他一些资源可以了解Boozang</p>
 <p>-视频页面：https：//boozang.com/videos/
@@ -57,7 +57,7 @@
 -我们的博客：https：//boozang.com/blog/</p>
 <p>如有任何建议/改进，请发送电子邮件至support@boozang.com</p>
 <h2 id="">概述</h2>
-<p>！[max-ostrozhinskiy-18wn7B2y-SU-unsplash]（图片/max-ostrozhinskiy-18wn7B2y-SU-unsplash.jpg）</p>
+<p><img src="images/max-ostrozhinskiy-18wn7B2y-SU-unsplash.jpg" alt="" /></p>
 <p>在本节中，我们将简要概述Boozang功能以及何时使用Boozang工具是一个好主意。</p>
 <h3 id="boozang">介绍Boozang</h3>
 <p><strong>核心</strong></p>
@@ -97,14 +97,14 @@
 <p>自2019年3月起，Boozang还完全支持Shadow DOM / Web组件。</p>
 <p>Boozang不支持任何对本机IOS和Android应用程序或任何基于桌面的应用程序的测试。</p>
 <p>＃＃ 入门</p>
-<p>！[danielle-macinnes-IuLgi9PWETU-unsplash]（图片/danielle-macinnes-IuLgi9PWETU-unsplash.jpg）</p>
+<p><img src="images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg" alt="danielle-macinnes-IuLgi9PWETU-unsplash" /></p>
 <p>在本节中，我们介绍了Boozang工具的入门过程以及一些令人费解的重要概念（例如Modules）。在本节之后，您应该对Boozang概念以及如何记录测试有一些想法。</p>
 <h3 id="-1">注册/登录</h3>
 <p>您可以在Boozang主页上的Https://boozang.com上注册Boozang。注册链接会将您带到https://ai.boozang.com。这是Boozang应用程序服务器，它负责与在客户端本地运行的Boozang工具的任何实例进行通信。</p>
 <p>在这里管理员也可以维护不同的团队和不同的项目，而无需启动任何客户端。</p>
 <h3 id="-2">创建和启动项目</h3>
 <p>注册后，您可以单击“创建项目”按钮，继续在Cloud仪表板中创建第一个项目。这里有很多选项，但是唯一需要的是项目名称。</p>
-<p>！[]（images / create-project.png）</p>
+<p>！[]（images/create-project.png）</p>
 <h3 id="-3">安装选项</h3>
 <p>Boozang完全托管在云中，并支持从客户端运行而无需客户端安装。对于无权访问应用程序根目录的用户，我们还提供了Chrome浏览器扩展程序。</p>
 <p><strong>安装Chrome扩展程序</strong></p>
@@ -113,14 +113,14 @@
 <p>在http://ai.boozang.com上创建一个项目，然后下载HTML代码段。该代码段将复制到webroot（您的index.html或类似文件所在的位置）。要启动Boozang工具，请在任何浏览器（例如http://myapplication.com/bz.html或http：// localhost：8080 / bz.html）中访问该代码段。</p>
 <p>提示：使用bz片段可以在无头浏览器模式下运行测试。这样就可以使用Boozang测试运行程序进行简单的CI集成。</p>
 <p><strong>设置环境</strong></p>
-<p>！[示例图片]（images / environment.png“示例图片”）</p>
+<p><img src="images/environment.png"示例图片"" alt="示例图片" /></p>
 <p>Boozang在许多不同的环境（测试，QA，分段，生产）中支持许多应用程序接口（mgmt，流量，存储）。这样做的目的是使单个测试可以在不同的环境中重复使用，而无需编辑测试。如果重复测试并单独定制以在环境中运行，随着时间的推移，维护这些测试将变得非常昂贵，因此最好从一开始就正确进行设置。</p>
 <h3 id="-4">模块和测试</h3>
 <p><strong>面向对象的测试</strong></p>
 <p>Boozang采用面向对象的方法进行测试。就像您的应用程序可以分为模块和子模块一样，测试也可以。进行完美的测试分解需要一些经验，并且每个应用程序都有所不同。通常，最好尝试在Boozang工具中镜像应用程序的组件或模块。下图给出了一个例子</p>
-<p>！[范例图片]（images / ootesting.png“范例图片”）</p>
+<p><img src="images/ootesting.png"范例图片"" alt="范例图片" /></p>
 <p><strong>模块</strong></p>
-<p>！[示例图片]（images / project-modules.png“示例图片”）</p>
+<p><img src="images/project-modules.png"示例图片"" alt="示例图片" /></p>
 <p>这些模块用于将测试划分为应用程序的功能区域。其他工具通常具有测试和测试套件，或者测试套件只是Boozang中的另一个测试（使用Plug测试用例）。模块用于组织测试以匹配应用程序的功能模块。它们用作组织测试的文件夹，但也允许在模块级别添加数据。例如，在示例中的库存模块中，库存的测试数据通常应另存为模块数据。</p>
 <p><strong>子模块</strong></p>
 <p>对于非常复杂的应用程序，有时引入子模块可能会很有用。当您在应用程序端具有子模块时，这特别有用。对于大多数SaaS应用程序，例如CMS（内容管理系统）或ERP（企业资源计划），该应用程序分为两个级别进行组织，从而使项目模块测试层次结构足够。</p>
@@ -130,18 +130,18 @@
 <p>测试会自动保存在浏览器的本地存储中。更新测试后，测试将由您签出，并且对您的队友显示为已锁定，从而阻止他们进行更改。单击保存后，测试将立即保存在Boozang服务器上，并且锁将自动删除，从而允许其他团队成员进行更改。</p>
 <p><strong>关于窗口对齐的注释</strong></p>
 <p>为了更好地使用Boozang，我们建议采用以下方式并排对齐Boozang工具和您的应用程序</p>
-<p>！[]（images / side-by-side.png）</p>
+<p><img src="images/side-by-side.png" alt="" /></p>
 <p>这使您可以很好地了解已记录的操作，并且可以轻松地修改或删除已记录的操作。</p>
 <h3 id="-6">工具内帮助</h3>
 <p>由于Boozang完全托管在云中，因此可以轻松进行更改并快速添加有用的功能。这具有巨大的优势，因为我们可以同时部署客户要求所有客户的功能，从而造福所有人。这也意味着新事物可以在没有警告的情况下出现在用户界面中，并且在某些情况下，文档可能并非一直都是最新的。</p>
 <p>因此，为了能够在不强迫最终用户重新学习的情况下快速提供新功能，我们在工具内部添加了联机帮助功能。要激活帮助，请单击用户界面中的问号，然后单击功能，然后将出现说明。</p>
-<p>！[示例图片]（images / help-annotations.png“示例图片”）</p>
+<p><img src="images/help-annotations.png"示例图片"" alt="示例图片" /></p>
 <p>在帮助文本中，您将找到所选功能的说明。您还将找到与该功能相关的任何视频（如果有）。单击视频链接时，将出现一个单独的视频窗口，您将可以根据需要使用该工具。</p>
 <p>＃＃ 工具</p>
-<p>！[philip-swinburn-vS7LVkPyXJU-unsplash]（图片/philip-swinburn-vS7LVkPyXJU-unsplash.jpg）</p>
+<p><img src="图片/philip-swinburn-vS7LVkPyXJU-unsplash.jpg" alt="philip-swinburn-vS7LVkPyXJU-unsplash" /></p>
 <p>在本节中，我们将解释所有工具栏和控件，基本上是做什么的。当您遇到困难或有任何疑问时，可以跳过本节并用作参考。</p>
 <h3 id="-7">侧边栏</h3>
-<p>！[示例图片]（images / sidebar.png“侧边栏”）</p>
+<p><img src="images/sidebar.png"侧边栏"" alt="示例图片" /></p>
 <p><strong> Boozang图标</strong></p>
 <p>单击“ Boozang”图标是将用户重新带到项目根目录的快捷方式。</p>
 <p><strong>测试创作视图</strong></p>
@@ -156,7 +156,7 @@
 <p><strong>工具</strong></p>
 <p>在工具中，您将找到该项目的导入和导出工具。这允许管理员用户备份项目，也可以从其他用户导入项目。还有一个强大的自由文本搜索功能，可以搜索模块，测试和数据，也可以执行替换操作。</p>
 <h3 id="-8">汉堡菜单</h3>
-<p>！[示例图片]（images / hamburger.png“工具栏”）</p>
+<p><img src="images/hamburger.png"工具栏"" alt="示例图片" /></p>
 <p><strong>管理</strong></p>
 <p>将用户带到Boozang Cloud Management界面。这允许用户在项目之间切换。</p>
 <p><strong>帐户</strong></p>
@@ -177,7 +177,7 @@
 <p><strong>登出</strong></p>
 <p>注销用户。</p>
 <h3 id="-9">顶部栏</h3>
-<p>！[示例图片]（images / topbar.png“顶部栏”）</p>
+<p>！[示例图片]（images/topbar.png“顶部栏”）</p>
 <p><strong>项目名</strong></p>
 <p>顶部栏中的第一个条目将是项目名称。单击项目名称将带您到项目树的根。请为您的项目使用描述性名称，以反映被测产品；对于具有单个产品的公司，请使用公司名称。</p>
 <p><strong>模块名称/视图名称</strong></p>
@@ -191,7 +191,7 @@
 <p><strong>汉堡包</strong></p>
 <p>单击汉堡包图标以打开汉堡包菜单。</p>
 <h3 id="-10">操作列表</h3>
-<p>！[示例图片]（images / action-list.png“工具栏”）</p>
+<p><img src="images/action-list.png"工具栏"" alt="示例图片" /></p>
 <p><strong>重新载入网址</strong></p>
 <p>在应用程序浏览器窗口中重新加载测试URL。使用它来确保在应用程序窗口中加载了正确的URL，例如在记录新测试时。</p>
 <p>提示：双击测试行也会执行此操作</p>
@@ -231,7 +231,7 @@
 <p>使用Boozang测试运行器从命令行模拟运行测试。运行测试后，将显示一个对话框，允许用户选择退出浏览器。以这种模式运行将通知所有报告订阅者，因此这是测试电子邮件通知的好方法。</p>
 <p>以自动化模式运行永远不会激活AI修复。</p>
 <h3 id="-12">工具栏</h3>
-<p>！[示例图片]（images / toolbar.png“工具栏”）</p>
+<p><img src="images/toolbar.png"工具栏"" alt="示例图片" /></p>
 <p><strong>切换视图：列表/ GUI </strong></p>
 <p>切换视图按钮可在表视图和图视图之间切换。</p>
 <p>这些视图在功能上是等效的，但是图表视图可以更好地说明测试之间的流程，而表格视图则可以更线性地显示操作。</p>
@@ -257,7 +257,7 @@
 <p>运行测试时，将跳过禁用的操作。对调试测试很有用。</p>
 <h3 id="-13">动作详情</h3>
 <h2 id="-14">元素</h2>
-<p>！[darts-2966934_1280]（图片/飞镖2966934_1280.jpg）</p>
+<p><img src="images/2966934_1280.jpg" alt="darts-2966934_1280" /></p>
 <p>能够识别应用程序中的HTML元素对于测试自动化至关重要。博桑对此有独特的方法，因此值得花一些时间来学习它。通常，记录功能可以很好地捕获元素，但是独特的Boozang选择策略使我们能够进行非常强大的数据驱动开发，其中动态数据可以用作选择器。</p>
 <h3 id="-15">选择元素</h3>
 <p>Boozang根据用户看到的内容而不是类，id或其他属性使用自定义元素选择器。这意味着要使用类或id，通常需要对其进行明确定义。通过避免使用类和ID作为主要标识符，Boozang测试对于代码更改变得非常稳定，并且可以自由地自动使用动态ID和类来自动化应用程序。</p>
@@ -277,7 +277,7 @@
 <p>如果元素索引&gt; 0，则表示该元素不是唯一标识的。这将通过警告指示。使用DOM选择器确保复选框图标变为绿色（表示元素索引== 0）。</p>
 <p><strong>提取数据</strong></p>
 <p>提取数据时，数据本身不应用作元素选择器。使用DOM选择器输入ID或类或其他属性的键。</p>
-<p>！[示例图片]（images / dom-picker.png“示例图片”）</p>
+<p><img src="images/dom-picker.png“示例图片”" alt="示例图片" /></p>
 <p><strong>元素路径操作</strong></p>
 <p>元素路径具有以下操作。Boozang使用jQuery选择标准的扩展版本来创建更易于理解的代码来标识元素。基本模式是小写jQuery标准操作，而大写操作不区分大小写。默认情况下，所有记录都会生成大写操作。将为一个测试用例记录的操作以星号（*）标记。</p>
 <p><code>endContains（*）</code>：如果所选元素（不区分大小写）具有与其他字符串完全相同的字符串，则为true</p>
@@ -331,17 +331,17 @@
 </code></pre>
 <h3 id="-16">元素政策</h3>
 <p>在烤肉串菜单下，您还可以访问元素策略。</p>
-<p>！[示例图片]（images / element-policy.png“示例图片”）</p>
+<p><img src="images/element-policy.png"示例图片"" alt="示例图片" /></p>
 <p><strong>处理未找到的隐藏元素</strong></p>
 <p>通常，仍可以通过编程方式单击隐藏的元素。选中此框可在隐藏元素时触发错误（）“找不到元素”）。</p>
 <p><strong>元素重试政策</strong></p>
 <p>默认行为是“重试缺少元素”。将其自定义为“永远不要重试”或“内容不匹配时重试”（当找到元素但内容错误时重试）。</p>
 <h3 id="-17">修复动作</h3>
-<p>！[示例图片]（images / ai-repair.png“示例图片”）</p>
+<p>！[示例图片]（images/ai-repair.png“示例图片”）</p>
 <p>当运行测试并且找不到操作元素时，将启动AI测试修复屏幕。这将允许用户从应用程序窗口中重新选择元素。如果找到匹配的元素，Boozang将为用户建议该元素。即使有重大的代码更改，这也使用户能够超快地修复测试。</p>
 <p><em>提示：在正常播放模式下，询问用户是否应该修复测试。在“修复”模式下，始终启动AI修复，而在“自动化”模式下，永远不会启动AI修复。</em></p>
 <h2 id="-18">动作</h2>
-<p>！[glenn-carstens-peters-RLw-UC03Gwc-unsplash]（图片/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg）</p>
+<p><img src="iamges/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg" alt="glenn-carstens-peters-RLw-UC03Gwc-unsplash" /></p>
 <p>操作是组成测试用例的步骤。这可能是鼠标或关键字事件，模拟用户操作，验证（断言）甚至Javascript。还支持AI动作，例如“访问链接”或“表单填充”等更复杂的动作。</p>
 <h3 id="-19">活动</h3>
 <p><strong>鼠标事件</strong></p>
@@ -370,7 +370,7 @@
 <p>并且必须返回true或false。如果使用DOM选择器选择了元素，则可以使用句柄$ element来使用它。标准数据句柄，如$ project，$ module和$ test以及测试窗口句柄$ TW也将可用。有关数据的更多信息，请参见<a href="/doc/data.html">数据</a>部分。</p>
 <h3 id="-21">提取数据</h3>
 <p>注意：对于这些操作的API版本，请检查“ API”部分。</p>
-<p>！[示例图片]（images / action-extract.png“示例图片”）</p>
+<p><img src="images/action-extract.png" alt="示例图片" /></p>
 <p><strong>与验证相似</strong></p>
 <p>使用Boozang，可以从应用程序窗口中提取数据。这与“验证”操作非常相似，不同之处在于，将提取的元素复制到数据变量中。阅读本节之前，请确保熟悉“验证”操作。</p>
 <p><strong>介绍数据</strong></p>
@@ -378,7 +378,7 @@
 <p><strong>提取数据操作</strong></p>
 <p>要添加提取数据操作，请单击加号图标并选择提取数据，然后在要提取的应用程序窗口中单击一个元素。</p>
 <h3 id="javascript">Javascript</h3>
-<p>！[示例图片]（images / action-javascript.png“示例图片”）</p>
+<p><img src="images/action-javascript.png"示例图片"" alt="示例图片" /></p>
 <p><strong> JavaScript动作</strong></p>
 <p>Boozang还允许您直接在应用程序中执行Javascript。当尝试执行Boozang开箱即用的操作集未涵盖的更高级的操作时，这可能非常有用。</p>
 <p><strong>手柄</strong></p>
@@ -389,7 +389,7 @@
 <p>要对应用程序进行故障排除，有时添加调试代码很有用。例如，要写入模块级数据“用户名”的内容，请使用“ console.log（$ module.username）”将其写入工具窗口，并使用“ $ TW.console.log（$ module.username）”。将其写入应用程序窗口。您可以使用Chrome开发者工具轻松地对此进行验证。</p>
 <p><em>提示：避免使用<code>$ TW.alert（）</code>，因为Boozang将此解释为应用程序弹出窗口并拦截它们。</em></p>
 <h3 id="-22">评论</h3>
-<p>！[示例图片]（../ images / action-comment.png“示例图片”）</p>
+<p><img src="images/action-comment.png“示例图片”" alt="示例图片" /></p>
 <p><strong>为什么发表评论？</strong></p>
 <p>在很多情况下，某些错误只能由人发现，例如外观错误或语言选择不正确。在这种情况下，指出这一点并为接收方的团队成员提供一种更正此错误的简单方法非常有用。对于这些情况，我们使用Comment操作。</p>
 <p><strong>评论动作</strong></p>
@@ -403,10 +403,10 @@
 <p>访问链接操作用于基于导航栏自动爬网一组页面。要抓取完整的导航面板（例如侧面导航或汉堡菜单），请在“面板”选项中选择此选项。<strong>目标元素</strong>默认为“ A”标签，但如果导航包含的元素不同于常规链接，则可以使用DOM选择器进行更改。可以在每次单击之前执行脚本，但是通常可以将其留空。</p>
 <p>对于每次点击，调用一个测试用例是正常的。使用<strong>转到测试用例</strong>选择下游测试用例。将为所选导航面板中的每个链接调用此测试用例。</p>
 <h2 id="-25">使用数据</h2>
-<p>！[files-1614223_1280]（图片/文件1614223_1280.jpg）</p>
+<p><img src="IMAGES/71614223_1280.jpg" alt="files-1614223_1280" /></p>
 <p>数据用于创建数据驱动的测试。这意味着可以将以数据为输入的测试（例如“登录”或“创建项目”）重新用于不同的数据集。数据处理是Boozang的核心，并且支持多种数据类型。</p>
 <h3 id="-26">数据类型简介</h3>
-<p>！[数据]（images / data.png）</p>
+<p><img src="images/data.png" alt="数据" /></p>
 <p>Boozang支持几种不同的数据类型：属性，对象，数组，CSV，文件，请求数据和JS（JavaScript函数）。</p>
 <p><strong>属性</strong></p>
 <p>该属性是一个简单的名称/值对，可以直接引用。例如，在测试级别添加的属性username = boozang可以称为`{{$ test.username}}（= boozang）。</p>
@@ -431,17 +431,17 @@
 <h3 id="-27">数据绑定</h3>
 <p><strong>关于表格填写和数据的说明</strong></p>
 <p>记录测试时，也会记录输入表格的任何数据。通常，这会在按Enter，Tab键或使用鼠标单击下一个字段或提交表单时发生。有时，用一组特定的硬编码数据记录测试就足够了。更常见的是，希望将数据捕获到变量中，以便可以将测试重新用于几组不同的数据集。布藏使此操作非常容易。</p>
-<p>！[databind]（images / databind.png）</p>
+<p>！[databind]（images/databind.png）</p>
 <p><strong>从表格到数据的绑定</strong></p>
 <p>将数据捕获到变量中的一种方法是在应用程序端开始。在表单中输入数据时，单击工具栏中的“绑定数据”复选框，然后选择要捕获数据的数据范围。在键入时，您会看到提示您将数据保存在变量中。完全键入该字段后，单击所需的字段名称，数据将保存在所选的适当数据范围内。</p>
-<p>！[databind-into]（images / databind-into.png）</p>
+<p><img src="images/databind-into.png" alt="databind-into" /></p>
 <p><strong>从数据到表格的绑定</strong></p>
 <p>还有另一种填充数据的方式。首先输入数据（通常作为JSON对象），然后单击“绑定数据”复选框，然后选择输入数据的数据范围。开始键入时，您会看到建议您使用数据范围中的数据。单击建议的数据，它将自动为您键入表单，并绑定到事件操作中。</p>
 <p><strong>根据数据自动填写表格</strong></p>
 <p>如您所见，将数据绑定到表单时，将建议与表单标签对应（匹配大小写不敏感/空格不敏感）的任何数据键名称。如果您已经很好地组织了数据并确保所有数据键都与表单标签匹配，则可以单击“自动填充”链接，所有表单事件将自动生成。</p>
 <p><em>提示：这可以大大加快表单填充测试的测试创建速度，因此请尝试学习此命名约定。</em></p>
 <h3 id="-28">高级数据功能</h3>
-<p>！[regexp]（images / regexp.png）</p>
+<p><img src="images/regexp.png" alt="regexp" /></p>
 <p><strong>藏语正则表达式引擎</strong></p>
 <p>Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则表达式的随机数据。这在生成随机测试数据时非常有用，而且在创建测试以确保强制执行某些字段约束时也很有用。</p>
 <p><strong>设置正则表达式</strong></p>
@@ -449,7 +449,7 @@
 <p>另外，请确保所有可能的标签都与指定的正则表达式匹配。这样，自动填充功能和将来的AI功能将能够更好地识别不同的字段并做出“更好的猜测”。</p>
 <p><strong>设置新的正则表达式</strong></p>
 <p>要设置新的正则表达式，请单击“新建”并添加必要的字段。字段映射将确定尝试匹配数据时要查找的表单标签。使用或号（“ |”）分隔多个字段。</p>
-<p>！[自动填充]（images / autofill.png）</p>
+<p><img src="images/autofill.png" alt="自动填充" /></p>
 <p><strong>使用自动填充功能</strong></p>
 <p>当在工具栏中使用Boozang工具的自动填充功能而不选择数据绑定时，Boozang将使用正则表达式引擎将数据生成到表单中。记录时，可用于使用临时数据快速创建测试用例。</p>
 <p><strong>使用数据绑定绑定自动填充</strong></p>
@@ -457,7 +457,7 @@
 <p><em>提示：在$ parameter范围内对数据绑定使用自动填充是创建非常通用的数据驱动测试用例的快速方法。</em></p>
 <h3 id="-29">故障排除数据</h3>
 <p><strong>控制台窗口</strong></p>
-<p>！[安慰]（images / console.png）</p>
+<p><img src="images/console.png" alt="安慰" /></p>
 <p>运行测试时，有时需要检查正在运行的数据。在许多情况下，上游测试用例将数据作为参数发送，当从外部数据源或Javascript函数加载数据时，它变得更加棘手。要检查正在使用的数据，可以使用控制台窗口。该窗口位于汉堡菜单中，允许用户监视数据。</p>
 <p>该控制台可用于检查以下数据：</p>
 <p>-分配的数据：<code>$ parameter</code>，<code>$ test</code>，<code>$ module</code>和<code>$ project</code>
@@ -465,16 +465,16 @@
 -Regexp数据生成器：<code>/ [az] {3,10} @bzmail [。] com /</code>（电子邮件），<code>/ [AZ] [0-9] [AZ] [0-9] [AZ] [0 -9] /</code>（加拿大邮政编码）
 -复杂的数据生成器：<code>/ {today | YYYY-MM-DD} /</code>，<code>/ {明天| MM / DD hh：ss} /</code></p>
 <p><strong> Tmp数据</strong></p>
-<p>！[tmpdata]（images / tmpdata.png）</p>
+<p><img src="images/tmpdata.png" alt="tmpdata" /></p>
 <p>还有另一种检查数据并进行更高级的故障排除的方法。对于每个操作，在操作详细信息菜单中，可以找到一个名为“ Tmp数据”的链接。每次运行测试时，此数据都会更新，并且将显示运行操作时使用的数据。这还允许您保留最后使用的输入数据，并使用此数据重播操作。</p>
 <p>要在运行期间检查数据，请在测试中添加断点或在运行期间暂停测试用例。单击使用数据的操作，然后在操作详细信息中单击“ Tmp数据”。</p>
 <p>要使用在“ Tmp数据”窗口中看到的数据重新运行动作，请选中“作为播放动作的初始数据”复选框。要保留此数据（在下次运行时不覆盖数据），请单击“保留”按钮，数据将保存在“保留”选项卡中。</p>
 <p><em>提示：点击“保存并保存”以将动作数据保存在数据库中，以便与其他团队成员进行故障排除。</em></p>
 <h2 id="-30">设置</h2>
-<p>！[rima-kruciene-gpKe3hmIawg-unsplash]（图片/rima-kruciene-gpKe3hmIawg-unsplash.jpg）</p>
+<p><img src="images/rima-kruciene-gpKe3hmIawg-unsplash.jpg" alt="rima-kruciene-gpKe3hmIawg-unsplash" /></p>
 <p>设置允许您自定义Boozang以与您的应用程序一起使用。它还允许您设置个人用户首选项。 “内容策略”和“元素定义”有些复杂，但对于更复杂的测试方案可能很有帮助。</p>
 <p>＃＃＃ 环境</p>
-<p>！[环境]（images / environment.png）</p>
+<p><img src="images/environment.png" alt="环境" /></p>
 <p>在“环境”选项卡中，您可以找到一些有用的功能。您可以管理环境和不同的应用程序界面，在应用程序界面级别配置设置，还可以为不同的角色/用户设置AI登录/注销。</p>
 <p><strong>环境和应用程序界面</strong></p>
 <p>在环境和应用程序界面上一直存在一些混乱，因此确保正确使用此点很重要，因为这将节省将来的潜在工作。环境表示环境，例如<em>开发</em>，<em>暂存</em>，<em> QA </em>或<em>生产</em>。通过为这些环境指定不同的条目URL，测试可以完全重用。这意味着无需在不同环境中维护不同的测试或项目。只需更改环境设置，然后重新运行相同的测试。</p>
@@ -484,7 +484,7 @@
 <p><strong> AI登录/注销（授权设置）</strong></p>
 <p>这使用户可以定义多个用户角色，并自动生成这些角色的登录和注销方案。可以将用户角色设置为测试的先决条件，并自动在用户之间切换。有关更多信息，请阅读“基于模型的测试”一章中的更多信息。</p>
 <h3 id="-31">内容政策</h3>
-<p>！[content-policy]（images / content-policy.png）</p>
+<p><img src="images/content-policy.png" alt="content-policy" /></p>
 <p>内容策略包含一些高级功能。尽管如此，在这里花费一些时间来微调项目可以提高测试的稳定性，并显着加快测试的创建速度。</p>
 <p><strong>忽略弹出窗口上的验证</strong></p>
 <p>选中后，Boozang将不会验证任何弹出窗口（警告，提示，确认弹出对话框）。如果未选中，Boozang会在录制期间根据出现的弹出窗口添加一个断言。回放测试时，Boozang将确保出现与录制过程中相同的弹出窗口，否则将使测试失败。</p>
@@ -496,17 +496,17 @@
 <p><strong>自动填充的属性内容</strong></p>
 <p>使用它来设置用于内容生成的正则表达式。</p>
 <h3 id="-32">元素定义</h3>
-<p>！[element-definitions]（images / element-definitions.png）</p>
+<p><img src="images/element-definitions.png" alt="element-definitions" /></p>
 <p>元素定义包含客户应用程序中所有元素的分类。这主要用于基于模型的测试生成。请参阅下一章中有关基于模型的测试生成的章节。</p>
 <p><strong>自定义输入组件</strong></p>
 <p>使用它来记录定制的输入组件。这将允许您捕获自定义的下拉菜单和特殊控件，例如日期选择器。</p>
 <p><em>提示：设置日期选择器后，可以将其记录为一个动作，并且可以以您指定的格式使用数据（例如：YYYY-MM-DD）。</em></p>
 <h3 id="-33">别名</h3>
-<p>！[alias]（images / alias.png）</p>
+<p><img src="images/alias.png" alt="alias" /></p>
 <p>别名用于定义某些测试套件的快捷方式。这通常用于轻松控制正在运行的测试，而不必更新任何上游服务，例如CI服务器或类似服务器。</p>
 <p>对具有运行冒烟测试，回归测试和完整产品测试的CI服务器的场景进行映像。现在，很容易定义别名“烟”，“回归”和“满”，并将这些别名指向所涉及的测试。如果要尝试临时切换这些别名中的任何一个以运行其他测试套件，则可以在不更新CI服务器上任何内容的情况下完成此操作。</p>
 <p>＃＃＃ 首选项</p>
-<p>！[首选项]（images / preferences.png）</p>
+<p><img src="images/preferences.png" alt="首选项" /></p>
 <p>这控制了各个用户的偏好。这些设置仅适用于您的用户，不适用于整个项目。</p>
 <p><strong>接受监控</strong></p>
 <p>允许其他用户查看该用户完成的所有工作以由另一团队成员监视的功能。</p>
@@ -523,12 +523,12 @@
 <p><strong>自动插入数据验证</strong></p>
 <p>这仍然存在。</p>
 <h3 id="-34">通知</h3>
-<p>！[通知]（images / notifications.png）</p>
+<p><img src="images/notifications.png" alt="通知" /></p>
 <p>该视图允许用户设置报告的电子邮件通知。这意味着每次从命令行运行测试时，任何已订阅通知的用户都将在其邮箱中接收该报告。要测试来自该工具的通知，请确保在自动化播放模式下运行测试。这将触发通知。</p>
 <p><em>提示：用户只能设置他/她赢得的电子邮件通知。这使团队合作者可以选择加入和退出报告电子邮件，并防止垃圾邮件的出现。</em></p>
 <h2 id="-35">其他工具视图</h2>
 <h3 id="-36">报告</h3>
-<p>！[报告]（images / report.png）</p>
+<p><img src="images/report.png" alt="报告" /></p>
 <p><strong>报告视图</strong></p>
 <p>主报告视图包含最后一次在浏览器中运行的测试报告。报告视图仅反映测试的本地运行情况，而不能以任何方式合并报告视图（可以在数据仓库或CI服务器中完成此合并）。</p>
 <p><strong>查看链接</strong></p>
@@ -538,7 +538,7 @@
 <p><strong>性能警告</strong></p>
 <p>要突出显示缓慢的操作或测试，可以在环境-&gt;高级-&gt;性能提醒下进行。在这里，您可以调整设置，以触发缓慢的测试来触发警告甚至失败测试。</p>
 <h3 id="-37">团队</h3>
-<p>！[球队]（images / team.png）</p>
+<p><img src="images/team.png" alt="球队" /></p>
 <p><strong>添加团队成员</strong></p>
 <p>将团队成员添加到项目中非常简单。您添加的任何团队成员电子邮件都将收到一封电子邮件通知，以加入该项目。</p>
 <p><strong>访问政策</strong></p>
@@ -550,11 +550,11 @@
 <p>还内置了项目协作。使用它与团队成员进行交流，并查看项目中发生的测试更新。</p>
 <p><em>提示：这还将用于链接到Slack更新（路线图）。</em></p>
 <h3 id="-38">同步</h3>
-<p>！[同步]（images / synchronize.png）</p>
+<p><img src="images/synchronize.png" alt="同步" /></p>
 <p>使用此功能可以查看所有本地更新（本地存储与云存储中保存的内容之间的差异）。这使您可以批量保存所有更改，或还原或本地更改。</p>
 <h3 id="-39">工具</h3>
 <p>工具包含导入和导出项目以及执行批量操作的功能。</p>
-<p>！[进口]（images / import.png）</p>
+<p><img src="images/import.png" alt="进口" /></p>
 <p><strong>进口</strong></p>
 <p>这用于导入使用Boozang导出功能生成的项目文件。在还原备份或复制项目时，此功能很有用。</p>
 <p>注意：在运行导入之前，最好清除现有项目，这意味着删除所有模块。</p>
@@ -563,10 +563,10 @@
 <p><strong>批量</strong></p>
 <p>这种强大的通配符批处理操作可用于搜索项目，模块，测试和数据。对于大型项目查找丢失的数据以及快速进行项目清理很有用。</p>
 <h2 id="-40">先进的测试方法</h2>
-<p>！[rollercoaster-801833_1280]（图片/rollercoaster-801833_1280.jpg）</p>
+<p><img src="images/rollercoaster-801833_1280.jpg" alt="rollercoaster-801833_1280" /></p>
 <h3 id="-41">数据循环</h3>
 <p>循环意味着重复执行直到满足特定条件。在Boozang中，数据循环就像在数据集上运行的for-condition一样，这意味着对于每个数据条目执行一次测试。</p>
-<p>！[环]（images / loop.png）</p>
+<p><img src="images/loop.png" alt="" /></p>
 <p>要将测试设置为遍历一组数据（对每个数据条目重复执行），请单击测试的第一行（表示测试设置），然后单击Kebab图标-&gt;高级。在“循环数据”中，选择要循环的数据。该测试将为每个数据条目运行一次，并且当前数据条目将在$ loop句柄中可用。</p>
 <p>支持以下数据格式来驱动循环</p>
 <p>-CSV：分配的<code>$ loop</code>项目将为<code>Object</code>格式（JSON）
@@ -576,7 +576,7 @@
 <p><strong>关键字：bz-skip和bz-stop </strong></p>
 <p>在数据驱动的测试中，我们支持关键字“ bz-skip”和“ bz-stop”，以便能够基于数据触发条件功能。一旦发生“ bz-skip”，测试将跳过而不会产生故障。如果发生“ bz-stop”，则所有上游测试将停止而不产生错误。</p>
 <h3 id="api">API测试</h3>
-<p>！[clint-patterson-exfrR9KkzlE-unsplash]（图片/clint-patterson-exfrR9KkzlE-unsplash.jpg）</p>
+<p><img src="images/clint-patterson-exfrR9KkzlE-unsplash.jpg" alt="clint-patterson-exfrR9KkzlE-unsplash" /></p>
 <p>即使Boozang主要是UI测试工具，它也支持完整的API测试（比较Postman）。在创建混合的API和UI测试，进行额外的验证或对尚未完全构建的功能进行预测试时，这尤其有用。</p>
 <h3 id="api-1">验证API调用</h3>
 <p><strong>有用的资源</strong></p>
@@ -608,14 +608,15 @@
 <p><strong>提取数据操作</strong></p>
 <p>要添加提取数据操作，请单击加号图标并选择提取数据，然后在要提取的应用程序窗口中单击一个元素。</p>
 <h2 id="ai">AI授权</h2>
-<p>！[registration-3938434_1280]（images / registration-3938434_1280.jpg）在应用程序测试中，需要建立前提条件。在大多数SaaS应用程序中，这是确定谁登录的问题。通过记录用户的登录和注销顺序并能够在用户之间自动切换，可以不必通过欺骗cookie或其他技巧来模仿用户。</p>
+<p><img src="images/registration-3938434_1280.jpg" alt="registration-3938434_1280" /></p>
+<p>在应用程序测试中，需要建立前提条件。在大多数SaaS应用程序中，这是确定谁登录的问题。通过记录用户的登录和注销顺序并能够在用户之间自动切换，可以不必通过欺骗cookie或其他技巧来模仿用户。</p>
 <p>＃＃＃ 配置</p>
 <p>此过程的关键是拥有有权访问该应用程序的不同角色的登录凭据，并为该用户记录单个登录/注销顺序，并找到谁登录的标识符。</p>
 <p><strong>启用AI授权</strong></p>
-<p>！[enable-ai]（images / enable-ai.png）</p>
+<p><img src="images/enable-ai.png" alt="enable-ai" /></p>
 <p>在设置环境时，通过单击“启用AI授权”来启动授权向导。</p>
 <h3 id="-43">授权设置</h3>
-<p>！[auth-setting]（images / auth-setting.png）</p>
+<p><img src="images/auth-setting.png" alt="auth-setting" /></p>
 <p>这将打开另一个屏幕，允许您输入凭据</p>
 <p><strong>映射模块</strong></p>
 <p>将存储自动生成的登录和注销案例的项目模块的名称。</p>
@@ -634,32 +635,32 @@
 <p><strong>用户标识符</strong></p>
 <p>该字段用于唯一标识用户。这可以是在登录后立即可见的标识符，例如用户名的名字或用户的电子邮件地址。这用于确定哪个用户已登录，并驱动用于在用户/角色之间切换的逻辑。</p>
 <h3 id="-44">授权向导</h3>
-<p>！[wizard-2]（images / wizard-2.png）</p>
+<p><img src="images/wizard-2.png" alt="wizard-2" /></p>
 <p>单击“保存并生成测试用例”按钮后，将启动测试用例生成向导。正常过程是从生成“登录”开始，但是您也可以从生成“注销”开始。</p>
 <p><strong>正在生成：登录</strong></p>
-<p>！[生成]（images / generate.png）</p>
+<p><img src="images/generate.png" alt="生成" /></p>
 <p>1。确保注销并导航到登录页面。单击确认。
 2。单击记录按钮，并记录登录过程。确保使用在“授权设置”屏幕中设置的数据-否则，数据将被硬编码。
 3。单击选择器按钮以查找唯一标识用户的元素。
 4。单击“优化测试用例”。
 5，现在已经为列表中的所有用户生成了登录测试用例。</p>
 <p><strong>正在产生：登出</strong></p>
-<p>！[登出]（images / sign-out.png）</p>
+<p><img src="images/sign-out.png" alt="登出" /></p>
 <p>1。确认用户已登录。单击确认。
 2。选择一个仅在登录时显示的元素。注意：这不应是特定于用户的元素，而应显示给所有用户。
 3。记录注销过程。
 4。单击“优化测试用例”
 5，签出测试用例现已生成。</p>
 <p><strong>检查所有帐户</strong></p>
-<p>！[检查所有帐户]（images / check-all-accounts.png）</p>
+<p><img src="images/check-all-accounts.png" alt="检查所有帐户" /></p>
 <p>1。点击“检查所有帐户”
 2。现在已经在授权模块中生成了一个为每个用户运行登录的测试用例。这对于查看如何分别调用登录和注销很有用。</p>
 <h3 id="-45">使用授权测试</h3>
 <p><strong>设置测试前提条件</strong></p>
-<p>！[test-preconditions]（images / test-preconditions.png）</p>
+<p><img src="images/test-preconditions.png" alt="test-preconditions" /></p>
 <p>使用授权测试的一种方法是在测试上设置测试先决条件。如果将用户作为前提条件进行检查，则意味着一旦运行此测试，Boozang就会检查该用户是否使用唯一标识符登录。如果没有，Boozang将自动运行“注销”测试用例，并为列表中的第一个用户运行“登录”。</p>
 <p><strong>手动调用授权测试</strong></p>
-<p>！[auth-param]（images / auth-param.png）</p>
+<p><img src="images/auth-param.png" alt="auth-param" /></p>
 <p>您也可以手动调用授权测试。这可以通过直接调用“登录”测试用例来完成。</p>
 <p>$ parameter =唯一键</p>
 <p>这将触发检查哪个用户已登录，如果与指定的用户不同，它将自动触发注销并以指定的用户注销。</p>
@@ -677,7 +678,7 @@
 <p><strong>非需求驱动测试</strong></p>
 <p>通过对应用程序建模，boozang引擎可以自动生成并非源自业务需求但仍然很重要的测试。这为您提供了测试基准，可以作为对应用程序功能的运行状况检查。</p>
 <h2 id="-48">集成和测试计划</h2>
-<p>！[parallel-unsplash]（图片/day-planner-828611_1280.jpg）</p>
+<p><img src="images/day-planner-828611_1280.jpg" alt="parallel-unsplash" /></p>
 <p>注意：本节将重点介绍如何从命令行运行Boozang。对于不熟悉CLI和Docker的读者来说，这可能有点技术性，即使大多数命令都应该可以直接复制。</p>
 <h3 id="url">测试URL和授权</h3>
 <p>即使可以使用Web浏览器轻松运行测试，也需要在没有手动交互的情况下触发这些测试。最常见的情况是在将代码推送到GitHub或其他版本控制系统中时通常通过连续集成（CI）服务器集成来运行一组测试。还有其他应用程序：人们可能想通过服务器cronjob触发测试，或者直接通过构建作业或Ansible命令触发测试。所有这些的基础是能够从命令行触发测试。</p>
@@ -695,7 +696,7 @@
 <p><strong>从命令行运行</strong></p>
 <p>有多种方法可以从命令行运行Boozang测试，但建议使用以下选项：使用<strong> Docker Xvfb容器</strong>或<strong> Boozang npm软件包</strong>安装测试运行程序。</p>
 <h3 id="docker-xvfb">Docker Xvfb容器</h3>
-<p>！[docker-logo]（images / docker-logo.png）</p>
+<p><img src="images/docker-logo.png" alt="docker-logo" /></p>
 <p>测试运行程序是开源的，可以在以下位置找到Docker容器：https：//hub.docker.com/r/styrman/boozang-runner/，以及相应的源代码在这里：https：//github.com/ljunggren/bz -docker-xvfb</p>
 <p><strong>安装Docker CE </strong></p>
 <p>Docker得到了广泛支持，但确实需要一定数量的磁盘空间。要查找适用于您操作系统的安装说明，请遵循以下指南：https：//docs.docker.com/install/（确保在左侧菜单导航中选择您的操作系统）。</p>
@@ -721,7 +722,7 @@
 <p><strong>其他CLI选项</strong></p>
 <p>要查找当前受支持的命令行选项，请参阅Docker Github自述文件：<a href="https://github.com/ljunggren/bz-docker-xvfb和命令行运行程序README：https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-docker-xvfb和命令行运行程序README：https://github.com/ljunggren/bz-puppeteer</a>。</p>
 <h3 id="npm">NPM软件包</h3>
-<p>！[nodejs-logo]（图片/nodejs-logo.jpg）</p>
+<p><img src="images/nodejs-logo.jpg" alt="nodejs-logo" /></p>
 <p>NPM软件包是开源的，可以在以下位置找到源代码：<a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a></p>
 <p><strong>安装NodeJS </strong></p>
 <p>NodeJS得到广泛支持。我们建议您运行Node v8.9.0 +（我们依赖async / await，因此不支持NodeJS 6.x）。要安装NodeJS，我们建议使用程序包管理器（<a href="https://nodejs.org/en/download/package-manager/），但是您也可以从源代码安装它（https://nodejs.org/en/download/">https://nodejs.org/en/download/package-manager/），但是您也可以从源代码安装它（https://nodejs.org/en/download/</a>）。</p>
@@ -824,7 +825,7 @@
 <p><strong>托管</strong></p>
 <p>在我们的云中，我们托管您输入到系统和测试中的数据，包括我们专有的元素选择器。要了解我们存储的数据类型，可以查看任何测试的“源”选项卡。我们的服务器位于加拿大。</p>
 <p>权衡取舍</p>
-<p>！[justice-423446_1280]（图片/justice-423446_1280.jpg）</p>
+<p><img src="images/justice-423446_1280.jpg" alt="justice-423446_1280" /></p>
 <p>Boozang技术存在一些局限性，其中一些是技术和浏览器上下文安全性的限制因素，而另一些则是有意识的产品决策。这是尝试直接解决其中一些问题的尝试。</p>
 <p><strong>仅网络</strong></p>
 <p>Boozang仅支持测试Web和混合应用程序。市场上有很多好的工具可以测试本机和桌面应用程序，我们很乐意推荐一些工具。跨Web和本机/桌面进行测试时，建议通过Boozang在Web上进行测试，而在其他工具上进行其他测试。博桑拥有从外部来源读取数据的出色支持，并且被设计为能够在工具之外获得真实来源。</p>

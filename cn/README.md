@@ -1,6 +1,6 @@
 ＃Boozang文档
 
-！[]（images / side-by-side.png）
+![](images/side-by-side.png)
 
 这是Boozang测试自动化工具的官方文档。它可以作为一本书阅读或用作参考。使用左侧的导航栏导航到感兴趣的主题。本文档提供英语和中文版本。
 
@@ -15,7 +15,7 @@
 
 ##概述
 
-！[max-ostrozhinskiy-18wn7B2y-SU-unsplash]（图片/max-ostrozhinskiy-18wn7B2y-SU-unsplash.jpg）
+![](images/max-ostrozhinskiy-18wn7B2y-SU-unsplash.jpg)
 
 在本节中，我们将简要概述Boozang功能以及何时使用Boozang工具是一个好主意。
 
@@ -87,7 +87,7 @@ Boozang不支持任何对本机IOS和Android应用程序或任何基于桌面的
 
 ＃＃ 入门
 
-！[danielle-macinnes-IuLgi9PWETU-unsplash]（图片/danielle-macinnes-IuLgi9PWETU-unsplash.jpg）
+![danielle-macinnes-IuLgi9PWETU-unsplash](images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg)
 
 在本节中，我们介绍了Boozang工具的入门过程以及一些令人费解的重要概念（例如Modules）。在本节之后，您应该对Boozang概念以及如何记录测试有一些想法。
 
@@ -101,7 +101,7 @@ Boozang不支持任何对本机IOS和Android应用程序或任何基于桌面的
 
 注册后，您可以单击“创建项目”按钮，继续在Cloud仪表板中创建第一个项目。这里有很多选项，但是唯一需要的是项目名称。
 
-！[]（images / create-project.png）
+！[]（images/create-project.png）
 
 ###安装选项
 Boozang完全托管在云中，并支持从客户端运行而无需客户端安装。对于无权访问应用程序根目录的用户，我们还提供了Chrome浏览器扩展程序。
@@ -118,7 +118,7 @@ Boozang完全托管在云中，并支持从客户端运行而无需客户端安�
 
 **设置环境**
 
-！[示例图片]（images / environment.png“示例图片”）
+![示例图片](images/environment.png"示例图片")
 
 Boozang在许多不同的环境（测试，QA，分段，生产）中支持许多应用程序接口（mgmt，流量，存储）。这样做的目的是使单个测试可以在不同的环境中重复使用，而无需编辑测试。如果重复测试并单独定制以在环境中运行，随着时间的推移，维护这些测试将变得非常昂贵，因此最好从一开始就正确进行设置。
 
@@ -128,11 +128,11 @@ Boozang在许多不同的环境（测试，QA，分段，生产）中支持许�
 
 Boozang采用面向对象的方法进行测试。就像您的应用程序可以分为模块和子模块一样，测试也可以。进行完美的测试分解需要一些经验，并且每个应用程序都有所不同。通常，最好尝试在Boozang工具中镜像应用程序的组件或模块。下图给出了一个例子
 
-！[范例图片]（images / ootesting.png“范例图片”）
+![范例图片](images/ootesting.png"范例图片")
 
 **模块**
 
-！[示例图片]（images / project-modules.png“示例图片”）
+![示例图片](images/project-modules.png"示例图片")
 
 这些模块用于将测试划分为应用程序的功能区域。其他工具通常具有测试和测试套件，或者测试套件只是Boozang中的另一个测试（使用Plug测试用例）。模块用于组织测试以匹配应用程序的功能模块。它们用作组织测试的文件夹，但也允许在模块级别添加数据。例如，在示例中的库存模块中，库存的测试数据通常应另存为模块数据。
 
@@ -152,7 +152,7 @@ Boozang在浏览器中工作，它提供了非常稳定的记录功能。只需�
 
 为了更好地使用Boozang，我们建议采用以下方式并排对齐Boozang工具和您的应用程序
 
-！[]（images / side-by-side.png）
+![](images/side-by-side.png)
 
 这使您可以很好地了解已记录的操作，并且可以轻松地修改或删除已记录的操作。
 
@@ -162,19 +162,19 @@ Boozang在浏览器中工作，它提供了非常稳定的记录功能。只需�
 
 因此，为了能够在不强迫最终用户重新学习的情况下快速提供新功能，我们在工具内部添加了联机帮助功能。要激活帮助，请单击用户界面中的问号，然后单击功能，然后将出现说明。
 
-！[示例图片]（images / help-annotations.png“示例图片”）
+![示例图片](images/help-annotations.png"示例图片")
 
 在帮助文本中，您将找到所选功能的说明。您还将找到与该功能相关的任何视频（如果有）。单击视频链接时，将出现一个单独的视频窗口，您将可以根据需要使用该工具。
 
 ＃＃ 工具
 
-！[philip-swinburn-vS7LVkPyXJU-unsplash]（图片/philip-swinburn-vS7LVkPyXJU-unsplash.jpg）
+![philip-swinburn-vS7LVkPyXJU-unsplash](图片/philip-swinburn-vS7LVkPyXJU-unsplash.jpg)
 
 在本节中，我们将解释所有工具栏和控件，基本上是做什么的。当您遇到困难或有任何疑问时，可以跳过本节并用作参考。
 
 ###侧边栏
 
-！[示例图片]（images / sidebar.png“侧边栏”）
+![示例图片](images/sidebar.png"侧边栏")
 
 ** Boozang图标**
 
@@ -204,7 +204,7 @@ Boozang在浏览器中工作，它提供了非常稳定的记录功能。只需�
 
 ###汉堡菜单
 
-！[示例图片]（images / hamburger.png“工具栏”）
+![示例图片](images/hamburger.png"工具栏")
 
 **管理**
 
@@ -246,7 +246,7 @@ Boozang在浏览器中工作，它提供了非常稳定的记录功能。只需�
 
 ###顶部栏
 
-！[示例图片]（images / topbar.png“顶部栏”）
+！[示例图片]（images/topbar.png“顶部栏”）
 
 **项目名**
 
@@ -276,7 +276,7 @@ Boozang在浏览器中工作，它提供了非常稳定的记录功能。只需�
 
 ###操作列表
 
-！[示例图片]（images / action-list.png“工具栏”）
+![示例图片](images/action-list.png"工具栏")
 
 **重新载入网址**
 
@@ -356,7 +356,7 @@ Boozang在浏览器中工作，它提供了非常稳定的记录功能。只需�
 
 ###工具栏
 
-！[示例图片]（images / toolbar.png“工具栏”）
+![示例图片](images/toolbar.png"工具栏")
 
 **切换视图：列表/ GUI **
 
@@ -407,7 +407,7 @@ Boozang在浏览器中工作，它提供了非常稳定的记录功能。只需�
 ###动作详情
 ##元素
 
-！[darts-2966934_1280]（图片/飞镖2966934_1280.jpg）
+![darts-2966934_1280](images/2966934_1280.jpg)
 
 能够识别应用程序中的HTML元素对于测试自动化至关重要。博桑对此有独特的方法，因此值得花一些时间来学习它。通常，记录功能可以很好地捕获元素，但是独特的Boozang选择策略使我们能够进行非常强大的数据驱动开发，其中动态数据可以用作选择器。
 
@@ -446,7 +446,7 @@ DOM选择器允许用户精确地指定元素选择器。在录制期间，Booza
 
 提取数据时，数据本身不应用作元素选择器。使用DOM选择器输入ID或类或其他属性的键。
 
-！[示例图片]（images / dom-picker.png“示例图片”）
+![示例图片](images/dom-picker.png“示例图片”)
 
 **元素路径操作**
 
@@ -537,7 +537,7 @@ rowcol：用于标识表格单元（区分大小写）。
 
 在烤肉串菜单下，您还可以访问元素策略。
 
-！[示例图片]（images / element-policy.png“示例图片”）
+![示例图片](images/element-policy.png"示例图片")
 
 **处理未找到的隐藏元素**
 
@@ -549,7 +549,7 @@ rowcol：用于标识表格单元（区分大小写）。
 
 ###修复动作
 
-！[示例图片]（images / ai-repair.png“示例图片”）
+！[示例图片]（images/ai-repair.png“示例图片”）
 
 当运行测试并且找不到操作元素时，将启动AI测试修复屏幕。这将允许用户从应用程序窗口中重新选择元素。如果找到匹配的元素，Boozang将为用户建议该元素。即使有重大的代码更改，这也使用户能够超快地修复测试。
 
@@ -557,7 +557,7 @@ rowcol：用于标识表格单元（区分大小写）。
 
 ##动作
 
-！[glenn-carstens-peters-RLw-UC03Gwc-unsplash]（图片/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg）
+![glenn-carstens-peters-RLw-UC03Gwc-unsplash](iamges/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg)
 
 操作是组成测试用例的步骤。这可能是鼠标或关键字事件，模拟用户操作，验证（断言）甚至Javascript。还支持AI动作，例如“访问链接”或“表单填充”等更复杂的动作。
 
@@ -618,7 +618,7 @@ rowcol：用于标识表格单元（区分大小写）。
 注意：对于这些操作的API版本，请检查“ API”部分。
 
 
-！[示例图片]（images / action-extract.png“示例图片”）
+![示例图片](images/action-extract.png)
 
 **与验证相似**
 
@@ -634,7 +634,7 @@ rowcol：用于标识表格单元（区分大小写）。
 
 ### Javascript
 
-！[示例图片]（images / action-javascript.png“示例图片”）
+![示例图片](images/action-javascript.png"示例图片")
 
 ** JavaScript动作**
 
@@ -656,7 +656,7 @@ Boozang还允许您直接在应用程序中执行Javascript。当尝试执行Boo
 
 ###评论
 
-！[示例图片]（../ images / action-comment.png“示例图片”）
+![示例图片](images/action-comment.png“示例图片”)
 
 **为什么发表评论？**
 
@@ -684,13 +684,13 @@ Boozang还允许您直接在应用程序中执行Javascript。当尝试执行Boo
 
 ##使用数据
 
-！[files-1614223_1280]（图片/文件1614223_1280.jpg）
+![files-1614223_1280](IMAGES/71614223_1280.jpg)
 
 数据用于创建数据驱动的测试。这意味着可以将以数据为输入的测试（例如“登录”或“创建项目”）重新用于不同的数据集。数据处理是Boozang的核心，并且支持多种数据类型。
 
 ###数据类型简介
 
-！[数据]（images / data.png）
+![数据](images/data.png)
 
 Boozang支持几种不同的数据类型：属性，对象，数组，CSV，文件，请求数据和JS（JavaScript函数）。
 
@@ -740,13 +740,13 @@ CSV数据使您可以处理大量对象，并从Excel等软件复制数据。为
 
 记录测试时，也会记录输入表格的任何数据。通常，这会在按Enter，Tab键或使用鼠标单击下一个字段或提交表单时发生。有时，用一组特定的硬编码数据记录测试就足够了。更常见的是，希望将数据捕获到变量中，以便可以将测试重新用于几组不同的数据集。布藏使此操作非常容易。
 
-！[databind]（images / databind.png）
+！[databind]（images/databind.png）
 
 **从表格到数据的绑定**
 
 将数据捕获到变量中的一种方法是在应用程序端开始。在表单中输入数据时，单击工具栏中的“绑定数据”复选框，然后选择要捕获数据的数据范围。在键入时，您会看到提示您将数据保存在变量中。完全键入该字段后，单击所需的字段名称，数据将保存在所选的适当数据范围内。
 
-！[databind-into]（images / databind-into.png）
+![databind-into](images/databind-into.png)
 
 **从数据到表格的绑定**
 
@@ -760,7 +760,7 @@ CSV数据使您可以处理大量对象，并从Excel等软件复制数据。为
 
 ###高级数据功能
 
-！[regexp]（images / regexp.png）
+![regexp](images/regexp.png)
 
 **藏语正则表达式引擎**
 
@@ -776,7 +776,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 要设置新的正则表达式，请单击“新建”并添加必要的字段。字段映射将确定尝试匹配数据时要查找的表单标签。使用或号（“ |”）分隔多个字段。
 
-！[自动填充]（images / autofill.png）
+![自动填充](images/autofill.png)
 
 **使用自动填充功能**
 
@@ -792,7 +792,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 **控制台窗口**
 
-！[安慰]（images / console.png）
+![安慰](images/console.png)
 
 运行测试时，有时需要检查正在运行的数据。在许多情况下，上游测试用例将数据作为参数发送，当从外部数据源或Javascript函数加载数据时，它变得更加棘手。要检查正在使用的数据，可以使用控制台窗口。该窗口位于汉堡菜单中，允许用户监视数据。
 
@@ -807,7 +807,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ** Tmp数据**
 
-！[tmpdata]（images / tmpdata.png）
+![tmpdata](images/tmpdata.png)
 
 还有另一种检查数据并进行更高级的故障排除的方法。对于每个操作，在操作详细信息菜单中，可以找到一个名为“ Tmp数据”的链接。每次运行测试时，此数据都会更新，并且将显示运行操作时使用的数据。这还允许您保留最后使用的输入数据，并使用此数据重播操作。
 
@@ -819,13 +819,13 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ##设置
 
-！[rima-kruciene-gpKe3hmIawg-unsplash]（图片/rima-kruciene-gpKe3hmIawg-unsplash.jpg）
+![rima-kruciene-gpKe3hmIawg-unsplash](images/rima-kruciene-gpKe3hmIawg-unsplash.jpg)
 
 设置允许您自定义Boozang以与您的应用程序一起使用。它还允许您设置个人用户首选项。 “内容策略”和“元素定义”有些复杂，但对于更复杂的测试方案可能很有帮助。
 
 ＃＃＃ 环境
 
-！[环境]（images / environment.png）
+![环境](images/environment.png)
 
 在“环境”选项卡中，您可以找到一些有用的功能。您可以管理环境和不同的应用程序界面，在应用程序界面级别配置设置，还可以为不同的角色/用户设置AI登录/注销。
 
@@ -845,7 +845,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ###内容政策
 
-！[content-policy]（images / content-policy.png）
+![content-policy](images/content-policy.png)
 
 
 
@@ -871,7 +871,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ###元素定义
 
-！[element-definitions]（images / element-definitions.png）
+![element-definitions](images/element-definitions.png)
 
 元素定义包含客户应用程序中所有元素的分类。这主要用于基于模型的测试生成。请参阅下一章中有关基于模型的测试生成的章节。
 
@@ -885,7 +885,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ###别名
 
-！[alias]（images / alias.png）
+![alias](images/alias.png)
 
 别名用于定义某些测试套件的快捷方式。这通常用于轻松控制正在运行的测试，而不必更新任何上游服务，例如CI服务器或类似服务器。
 
@@ -895,7 +895,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ＃＃＃ 首选项
 
-！[首选项]（images / preferences.png）
+![首选项](images/preferences.png)
 
 这控制了各个用户的偏好。这些设置仅适用于您的用户，不适用于整个项目。
 
@@ -929,7 +929,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ###通知
 
-！[通知]（images / notifications.png）
+![通知](images/notifications.png)
 
 该视图允许用户设置报告的电子邮件通知。这意味着每次从命令行运行测试时，任何已订阅通知的用户都将在其邮箱中接收该报告。要测试来自该工具的通知，请确保在自动化播放模式下运行测试。这将触发通知。
 
@@ -939,7 +939,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ###报告
 
-！[报告]（images / report.png）
+![报告](images/report.png)
 
 **报告视图**
 
@@ -959,7 +959,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ###团队
 
-！[球队]（images / team.png）
+![球队](images/team.png)
 
 **添加团队成员**
 
@@ -983,7 +983,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ###同步
 
-！[同步]（images / synchronize.png）
+![同步](images/synchronize.png)
 
 使用此功能可以查看所有本地更新（本地存储与云存储中保存的内容之间的差异）。这使您可以批量保存所有更改，或还原或本地更改。
 
@@ -991,7 +991,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 工具包含导入和导出项目以及执行批量操作的功能。
 
-！[进口]（images / import.png）
+![进口](images/import.png)
 
 **进口**
 
@@ -1011,13 +1011,13 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ##先进的测试方法
 
-！[rollercoaster-801833_1280]（图片/rollercoaster-801833_1280.jpg）
+![rollercoaster-801833_1280](images/rollercoaster-801833_1280.jpg)
 
 ###数据循环
 
 循环意味着重复执行直到满足特定条件。在Boozang中，数据循环就像在数据集上运行的for-condition一样，这意味着对于每个数据条目执行一次测试。
 
-！[环]（images / loop.png）
+![](images/loop.png)
 
 要将测试设置为遍历一组数据（对每个数据条目重复执行），请单击测试的第一行（表示测试设置），然后单击Kebab图标->高级。在“循环数据”中，选择要循环的数据。该测试将为每个数据条目运行一次，并且当前数据条目将在$ loop句柄中可用。
 
@@ -1037,7 +1037,7 @@ Boozang还支持正则表达式引擎，该引擎可以生成符合某些正则�
 
 ### API测试
 
-！[clint-patterson-exfrR9KkzlE-unsplash]（图片/clint-patterson-exfrR9KkzlE-unsplash.jpg）
+![clint-patterson-exfrR9KkzlE-unsplash](images/clint-patterson-exfrR9KkzlE-unsplash.jpg)
 
 即使Boozang主要是UI测试工具，它也支持完整的API测试（比较Postman）。在创建混合的API和UI测试，进行额外的验证或对尚未完全构建的功能进行预测试时，这尤其有用。
 
@@ -1100,7 +1100,9 @@ $ test.dummy = $结果
 
 ## AI授权
 
-！[registration-3938434_1280]（images / registration-3938434_1280.jpg）在应用程序测试中，需要建立前提条件。在大多数SaaS应用程序中，这是确定谁登录的问题。通过记录用户的登录和注销顺序并能够在用户之间自动切换，可以不必通过欺骗cookie或其他技巧来模仿用户。
+![registration-3938434_1280](images/registration-3938434_1280.jpg)
+
+在应用程序测试中，需要建立前提条件。在大多数SaaS应用程序中，这是确定谁登录的问题。通过记录用户的登录和注销顺序并能够在用户之间自动切换，可以不必通过欺骗cookie或其他技巧来模仿用户。
 
 ＃＃＃ 配置
 
@@ -1108,13 +1110,13 @@ $ test.dummy = $结果
 
 **启用AI授权**
 
-！[enable-ai]（images / enable-ai.png）
+![enable-ai](images/enable-ai.png)
 
 在设置环境时，通过单击“启用AI授权”来启动授权向导。
 
 ###授权设置
 
-！[auth-setting]（images / auth-setting.png）
+![auth-setting](images/auth-setting.png)
 
 这将打开另一个屏幕，允许您输入凭据
 
@@ -1154,7 +1156,7 @@ $ test.dummy = $结果
 
 
 
-！[wizard-2]（images / wizard-2.png）
+![wizard-2](images/wizard-2.png)
 
 单击“保存并生成测试用例”按钮后，将启动测试用例生成向导。正常过程是从生成“登录”开始，但是您也可以从生成“注销”开始。
 
@@ -1162,7 +1164,7 @@ $ test.dummy = $结果
 
 **正在生成：登录**
 
-！[生成]（images / generate.png）
+![生成](images/generate.png)
 
 1。确保注销并导航到登录页面。单击确认。
 2。单击记录按钮，并记录登录过程。确保使用在“授权设置”屏幕中设置的数据-否则，数据将被硬编码。
@@ -1172,7 +1174,7 @@ $ test.dummy = $结果
 
 **正在产生：登出**
 
-！[登出]（images / sign-out.png）
+![登出](images/sign-out.png)
 
 1。确认用户已登录。单击确认。
 2。选择一个仅在登录时显示的元素。注意：这不应是特定于用户的元素，而应显示给所有用户。
@@ -1182,7 +1184,7 @@ $ test.dummy = $结果
 
 **检查所有帐户**
 
-！[检查所有帐户]（images / check-all-accounts.png）
+![检查所有帐户](images/check-all-accounts.png)
 
 1。点击“检查所有帐户”
 2。现在已经在授权模块中生成了一个为每个用户运行登录的测试用例。这对于查看如何分别调用登录和注销很有用。
@@ -1191,13 +1193,13 @@ $ test.dummy = $结果
 
 **设置测试前提条件**
 
-！[test-preconditions]（images / test-preconditions.png）
+![test-preconditions](images/test-preconditions.png)
 
 使用授权测试的一种方法是在测试上设置测试先决条件。如果将用户作为前提条件进行检查，则意味着一旦运行此测试，Boozang就会检查该用户是否使用唯一标识符登录。如果没有，Boozang将自动运行“注销”测试用例，并为列表中的第一个用户运行“登录”。
 
 **手动调用授权测试**
 
-！[auth-param]（images / auth-param.png）
+![auth-param](images/auth-param.png)
 
 您也可以手动调用授权测试。这可以通过直接调用“登录”测试用例来完成。
 
@@ -1233,7 +1235,7 @@ $ parameter =唯一键
 
 ##集成和测试计划
 
-！[parallel-unsplash]（图片/day-planner-828611_1280.jpg）
+![parallel-unsplash](images/day-planner-828611_1280.jpg)
 
 注意：本节将重点介绍如何从命令行运行Boozang。对于不熟悉CLI和Docker的读者来说，这可能有点技术性，即使大多数命令都应该可以直接复制。
 
@@ -1269,7 +1271,7 @@ Boozang中的所有测试均取决于Web浏览器。由于没有使用诸如Sele
 
 ### Docker Xvfb容器
 
-！[docker-logo]（images / docker-logo.png）
+![docker-logo](images/docker-logo.png)
 
 测试运行程序是开源的，可以在以下位置找到Docker容器：https：//hub.docker.com/r/styrman/boozang-runner/，以及相应的源代码在这里：https：//github.com/ljunggren/bz -docker-xvfb
 
@@ -1321,7 +1323,7 @@ docker pull styrman / boozang-runner：latest`
 
 ### NPM软件包
 
-！[nodejs-logo]（图片/nodejs-logo.jpg）
+![nodejs-logo](images/nodejs-logo.jpg)
 
 NPM软件包是开源的，可以在以下位置找到源代码：https://github.com/ljunggren/bz-puppeteer
 
@@ -1520,7 +1522,7 @@ Boozang提供了一种灵活的计划任务的方式：
 
 权衡取舍
 
-！[justice-423446_1280]（图片/justice-423446_1280.jpg）
+![justice-423446_1280](images/justice-423446_1280.jpg)
 
 Boozang技术存在一些局限性，其中一些是技术和浏览器上下文安全性的限制因素，而另一些则是有意识的产品决策。这是尝试直接解决其中一些问题的尝试。
 
