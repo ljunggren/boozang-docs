@@ -758,7 +758,7 @@ As you can see, any data key names that correspond (matches case-insensitive / w
 
 *Tip: This can greatly speed up test creation of form fill tests, so try and learn this naming convention.*  
 
-### Advanced data functionality
+### Defining regular expressions
 
 ![regexp](images/regexp.png)
 
@@ -787,6 +787,29 @@ When using the auto-fill functionality in the toolbar the Boozang tool without c
 When enabling data-bind and clicking autofill form, Boozang will look in the current data scope for matching data. If that isn´t found, Boozang will use the regexp engine to generate the data in the current scope, and automatically bind the data scope to the form. This is a great way to quickly create a data-driven test case.
 
 *Tip: Using autofill with data-bind on `$parameter` scope is a quick way to create a very versatile  data-driven test case.* 
+
+### Pre-defined regular expressions
+
+There are also pre-programmed regular expressions in Boozang that can be used. Here is a list of teh current ones.
+
+**Data formatters for date and time**
+
+For data and time date, the default data format is `YYYY-MM-DD`, meaning that for 26th of November 2019, `/{today}/`will output `2019-10-26`. You can also input a data formatter separated by a pipe `|`character. Here are some examples,
+
+- No formatter: `/{today}/`outputs `2019-10-26`.
+- With minutes and seconds dot-colon-notation: `/{today|YYYY.MM.DD:mm.ss}/` will output `2019.10.26:30.29`
+- Only month and day:  `/{tomorrow|MM-DD}/`outputs `10-27`
+
+**Date and time**
+
+The following pre-defined expressions are available. All examples are based on today being Saturday October 26th 2019. 
+
+-   `/{today}/`outputs `2019-10-26`
+- `/{yesterday}/` and  `/{tomorrow}/`and outputs `2019-10-25` and `2019-10-27`
+- `/{today-7}/`outputs `2019-10-19`(last week)
+- `/{last-mon}/` and `/{last-tue}/` outputs `2019-10-14` and `2019-10-15`
+- `/{last-month}/` outputs `2019-09-26`(this date previous month)
+- `/{last-year}/` outputs `2018-10-26`(this date previous year)
 
 ### Troubleshooting data
 

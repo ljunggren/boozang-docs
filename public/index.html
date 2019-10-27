@@ -442,7 +442,7 @@
 <p><strong>Auto-filling forms from data</strong></p>
 <p>As you can see, any data key names that correspond (matches case-insensitive / white-space insensitive) to the form labels will be suggested when binding data to forms. If you have organized your data well and made sure all data keys match the form labels, you can click the Autofill-link and all the form events will be generated automatically.</p>
 <p><em>Tip: This can greatly speed up test creation of form fill tests, so try and learn this naming convention.</em>  </p>
-<h3 id="advanced-data-functionality">Advanced data functionality</h3>
+<h3 id="defining-regular-expressions">Defining regular expressions</h3>
 <p><img src="images/regexp.png" alt="regexp" /></p>
 <p><strong>Boozang regular expression engine</strong></p>
 <p>Boozang also supports a regular expression engine that can generate random data that complies with a certain regular expression. This can be useful when generating random test data, but also when creating tests to make sure certain field constraints are being enforced. </p>
@@ -457,6 +457,25 @@
 <p><strong>Binding auto-fill with data-bind</strong></p>
 <p>When enabling data-bind and clicking autofill form, Boozang will look in the current data scope for matching data. If that isn´t found, Boozang will use the regexp engine to generate the data in the current scope, and automatically bind the data scope to the form. This is a great way to quickly create a data-driven test case.</p>
 <p><em>Tip: Using autofill with data-bind on <code>$parameter</code> scope is a quick way to create a very versatile  data-driven test case.</em> </p>
+<h3 id="pre-defined-regular-expressions">Pre-defined regular expressions</h3>
+<p>There are also pre-programmed regular expressions in Boozang that can be used. Here is a list of teh current ones.</p>
+<p><strong>Data formatters for date and time</strong></p>
+<p>For data and time date, the default data format is <code>YYYY-MM-DD</code>, meaning that for 26th of November 2019, <code>/{today}/</code>will output <code>2019-10-26</code>. You can also input a data formatter separated by a pipe <code>|</code>character. Here are some examples,</p>
+<ul>
+<li>No formatter: <code>/{today}/</code>outputs <code>2019-10-26</code>.</li>
+<li>With minutes and seconds dot-colon-notation: <code>/{today|YYYY.MM.DD:mm.ss}/</code> will output <code>2019.10.26:30.29</code></li>
+<li>Only month and day:  <code>/{tomorrow|MM-DD}/</code>outputs <code>10-27</code></li>
+</ul>
+<p><strong>Date and time</strong></p>
+<p>The following pre-defined expressions are available. All examples are based on today being Saturday October 26th 2019. </p>
+<ul>
+<li><code>/{today}/</code>outputs <code>2019-10-26</code></li>
+<li><code>/{yesterday}/</code> and  <code>/{tomorrow}/</code>and outputs <code>2019-10-25</code> and <code>2019-10-27</code></li>
+<li><code>/{today-7}/</code>outputs <code>2019-10-19</code>(last week)</li>
+<li><code>/{last-mon}/</code> and <code>/{last-tue}/</code> outputs <code>2019-10-14</code> and <code>2019-10-15</code></li>
+<li><code>/{last-month}/</code> outputs <code>2019-09-26</code>(this date previous month)</li>
+<li><code>/{last-year}/</code> outputs <code>2018-10-26</code>(this date previous year)</li>
+</ul>
 <h3 id="troubleshooting-data">Troubleshooting data</h3>
 <p><strong>Console window</strong></p>
 <p><img src="images/console.png" alt="console" /></p>
