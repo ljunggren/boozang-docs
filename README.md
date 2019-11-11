@@ -23,8 +23,6 @@ In this section we give a brief overview of the Boozang features and when it's a
 
 **At the core**
 
-Why? Boozang was created....
-
 Boozang is a code-less front end testing tool built for the modern web using only Javascript. It allows developers and Quality Assurance engineers to develop front-end tests quickly without the need for programming. 
 
 Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium web driver. Boozang uses it's own selection language based on natural-language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models. 
@@ -410,6 +408,64 @@ A disabled action is skipped when a test is run. Useful to debug tests.
 ![darts-2966934_1280](images/darts-2966934_1280.jpg)
 
 Being able to identify HTML elements in your application is central to test automation. Boozang has a unique approach to this, so it's worth spending some time learning about it. Normally, the record function takes care of capturing elements very well, but the unique Boozang selection policy enables us to do very powerful data-driven development, where dynamical data can be used as selectors.  
+
+### A note on element selection policy
+
+Our element selector policy is based on natural language. This means Boozang primarily uses what an end user sees, rather than hidden element attributes, such as `class` or `id`.  
+
+This has the following benefits: 
+
+- Great support for applications with dynamic classes and ids 
+- Automated form fills 
+- Intelligent test repairs 
+- Closer alignment to requirements
+- Auto-generation of tests through machine learning
+
+**Great support for dynamic classes and ids**
+
+By not relying on attributes like `class`or `id` by default, recorded tests are not broken when these are changed in the application. This makes Boozang well-suited for testing on top of applications with dynamic attributes. For special cases where you need to dependend on `id` or `class` (such as extracting data), the user can opt-in for using these attributes.
+
+ **Automated form fills**
+
+It's also great to handle data. The following form example illustrates this
+
+`<form>
+ First name<br>
+ <input type="text" class="forminput"><br>
+ Last name<br>
+ <input type="text" class="forminput">
+</form>`
+
+In Boozang, the element locator would be based on Strings `first_name` and `last_name`. This will allow us to automatically match the following `JSON`data
+
+```json
+{
+  "first_name": "John",
+  "last_name": "Doe"
+}
+```
+
+This might seem like a small win, but this can make a huge different when testing data intense applications, and when making form fills based on spreadsheet data. 
+
+**Intelligent test repairs**
+
+By basing the element locators on what the user sees, means tests are sensitive to updates to the element verbatim, rather than other invisible attributes. This means tests often fail explicitly for changes in the UI, which allows the user to re-select the element from the tools. For instance, when a button text changes from "Create" to "Add", the next time it cannot find the label "Create", it will scan the UI for "Add" and suggest the update. 
+
+**Closer alignment to requirements**
+
+As the selectors are based on what the user sees, the test code will read much like a requirement. This means that tests in Boozang are closer aligned with the business domain, making it easier to create a "living document" of the code. This makes it easier to keep requirements up to date, and to have a single source of truth.
+
+**Auto-generation of tests**
+
+With the introduction of requirements into Boozang (for instance, with the introduction of Gherkin tests), we can apply machine learning to suggest test code based on the Gherkin syntax. As the Boozang test automation language is a type of natural language, we can apply simple NLP machine learning to suggest test code without the need for test authoring. 
+
+*A note on other machine learning tools*
+
+ Using machine-learning on the element selectors, meaning capturing 
+
+```weigh1 * .someclass + weight2 * #someid + weight3 * “Some text”```
+
+ can give short term benefits in terms of stability, but can introduce noise and false positives. At Boozang we believe that what has been written in a requirement (what is seen in a UI) is the truth, not what a developer decided to put in a class or id attribute. We therefore believe in a stricter element policy. By doing this, it enables us to apply machine learning on the next abstraction level, where the return will be much greater.   
 
 ### Selecting the element
 
@@ -1228,6 +1284,144 @@ You can also call the authorization tests manually. This can be done by simply c
 
 This will trigger a check on which user is logged in, and if it´s different than specified, it will automatically trigger a logout and logout with the specified user.
 
+## Gherkin/Cucumber support
+
+To support Business-driven development, we have built-in Gherkin support in Boozang. The idea is that a business analyst or product owner write the acceptance criteria for a feature using Gherkin syntax (Given, When, Then). For each feature, the might be several scenarios that describe the acceptance criteria of the scenario. For an exhaustive description of the Cucumber / Gherkin language see https://cucumber.io/
+
+### A note on the data model
+
+In Boozang, we separate the business domain and technical domain. In the technical domain, there are modules and tests, while in the business domain there are features and scenarios. That means that the Boozang data model works really well to handle this hierarchy. To tie the business domain to the technical domain, we use so-called Link tests, that maps the Gherkin syntax to a test and handles the parameter transfer.
+
+### Example test
+
+Throughout this example, we will use the following example test to illustrate the functionality.
+
+`Feature: Google Searching`
+
+As a web surfer, I want to search Google, so I can learn new things
+
+Scenario: Simple Google searches
+
+​    Given a web browser is on the Google page
+​    When the search phrase "<phrase>" is entered
+​    Then results for "<phrase>" are shown
+​    And the related results include "<related>"    
+
+    Examples: Animals
+      | phrase   | related       |
+      | panda    | Panda Express |
+      | elephant | Elephant Man  | 
+### Features
+
+![feature-tab](/Users/matsljunggren/Workspace/boozang-docs/images/feature-tab.png)
+
+Just as modules act as containers for tests, features works as containers for scenarios. Features can either be created directly in Boozang, or imported from a feature file.
+
+### Importing feature files
+
+To import features simply click "Import Feature". Bozang supports two types of imports
+
+- Import from test
+- Import from file
+
+**Import from text**
+
+![import-test](/Users/matsljunggren/Workspace/boozang-docs/images/import-test.png)
+
+To import from text, simply paste the Gherkin feature text into the window. The feature will be automatically created in the features tab with the name specified in the `Feature:` section (in our case `Google Search`).
+
+Boozang will now parse the Feature information and build all the scenarios inside the feature. In addition, any example data will be added to the scenarios as CSV data, and the parameter mapping will be generated automatically. 
+
+**Import from file**
+
+Simply click import from file, and browse to the `.feature`file you want to import. 
+
+### Building your first scenarios
+
+**Unmatched scenarios**
+
+As soon as you have imported a feature, all feature scenarios will be generated automatically. As you can see from the example below, the `Given`, `When`and `Then`are generated as Groups in Boozang, with a number of `Plug test-case` conditions. As you can see, the unmatched conditions are marked red.   
+
+![unmatched-scenario](/Users/matsljunggren/Workspace/boozang-docs/images/unmatched-scenario.png)
+
+**Matching scenarios**
+
+To match a scenario, simply click on "New Link-Test" in the Goto Test Case section. This will create a new link test that matches the text "When the search phrase ? is entered" and automatically populate the necessary data. 
+
+![unmatched](/Users/matsljunggren/Workspace/boozang-docs/images/unmatched.png)
+
+This will automatically create a "Link Test" that translates the Gherkin syntax to executable code. 
+
+![changing-a-mapping](/Users/matsljunggren/Workspace/boozang-docs/images/changing-a-mapping.png)
+
+**Link tests and re-use**
+
+One might wonder why to introduce link tests in the first place? Why not simply have a single mapping of Gherkin syntax that maps to a test. The answer is re-use. Imagine we have the following test: `LoginHandler` that takes `role` as a parameter. If in Gherkin's we have the following statements
+
+`Given I am logged in as an Admin`
+
+`Given I am logged in as a User`
+
+we would typically have to have two different functional tests. This would create unnecessary code duplication and bloat. With the introduction of Link test, we can now map this case with two different link tests, without having to create two functional tests
+
+`I am logged in as a ?` pointing to `LoginHandler`
+
+`I am logged in as an ?` pointing to `LoginHandler`
+
+As link tests support parameter data, we can also further create tests aliases using link-tests
+
+`LogMeInAsAdmin`points to `LoginHandler`sending `Admin`as parameter. 
+
+`LogMeInAsUser`points to `LoginHandler`sending `User`as parameter. 
+
+It also has a second benefit. As the Gherkin syntax of features is`I am Logged in as a` to the more appropriate `I am logged in as`,  you simply have to update a single link test, and all scenarios using that phrasing will be updated automatically. 
+
+**The magic wand**
+
+As you keep adding features you will undoubtedly have created many Link-tests to tie the business domain (natural language with examples) to the technical domain (tests with data). In some cases, you might have completed the mapping for a single feature, but still have many features to complete. To not do the same work twice, you can apply existing mapping to a feature by hitting the "match icon" (the magic wand). This will automatically apply any existing mappings, greatly speeding up the mapping job. 
+
+![mapping](/Users/matsljunggren/Workspace/boozang-docs/images/mapping.png)
+
+
+
+### Running tests
+
+**Running a scenario**
+
+To run a scenario, simply use the "Play" button in the scenario list or in the scenario detail view.
+
+![running-a-test](/Users/matsljunggren/Desktop/running-a-test.png)   
+
+A report will be generated from the scenario.
+
+**Running an unfinished scenario**
+
+In the case of running a scenario that has some "unlinked" test steps, the error message "Not Implemented" will be show in the report for these test steps. 
+
+**Running all scenarios of a feature**
+
+To run all the scenarios of a feature, simply run the test suite generated that has the Feature name. 
+
+**A note on performance**
+
+The feature test suite allows you to order what order scenarios should be run. This might seem unnecessary at first, as scenarios should be able to run independently of pre-conditions. Scenario run order might have a big impact on execution time. One good example is for scenarios that have pre-conditions that line up. For instance, imagine the following sequence of scenarios
+
+Sequence 1:
+
+1. Given I am logged in as Admin, When I do A, Then I should have B
+2. Given I am logged in as User, When I do A, Then I should have B
+3. Given I am logged in as Admin, When I do C, Then I should have D
+4. Given I am logged in as User, When I do C, Then I should have D
+
+Sequence 2:
+
+1. Given I am logged in as Admin, When I do A, Then I should have B
+2. Given I am logged in as Admin, When I do C, Then I should have D
+3. Given I am logged in as User, When I do A, Then I should have B
+4. Given I am logged in as User, When I do C, Then I should have D
+
+If implemented correctly, both of these sequences should be able to execute successfully, as there should be no dependency on the initial state. On the other hand, Sequence 1 requires four (4) Login/Logout sequences while Sequence 2 only requires two (2). Taking into account the order the scenarios are run can greatly speed up testing, and also remove a lot of testing complexity and brittleness. Another telling example is scenarios `Add`, `Edit`, and `Delete`.
+
 ## Model-based testing
 
 This section will focus on automated test creation driven from models. A model is simply a classification of different components and elements in your application, that allows the boozang engine to automatically generate function tests and simple workflows, that gives a great starting point for your application testing.
@@ -1454,7 +1648,7 @@ to edit crontab settings create a custom script that runs your test. See below e
 
 and add the tests needed (either using npm package or Docker container).
 
-**Running tests in parallel**
+**Running tests in parallel from scratch**
 
 To run tests in parallel, we utilize `nohup` and the `&`operator.
 
@@ -1463,6 +1657,26 @@ To run tests in parallel, we utilize `nohup` and the `&`operator.
 `nohup docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file=test2 "[tokenized-test-url-2]"> test2.log &`
 
 In this example, you can follow the progress of the tests in `test1.log` and `test2.log` respectively, and the report will be found in HTML format in `test1.html` and `test2.html`, and in JSON format in `test1.json` and `test2.json`.
+
+**Running tests in parallel using GNU parallel**
+
+You can also create an automated test runners that uses a given number of worker processes to run tests. In this example we use the great GNU parallel (https://www.gnu.org/software/parallel/). This allows us to simply dispatch tests to a number of worker processes.
+
+- Install GNU parallel. CentOS instructions can be found here: https://medium.com/@gchandra/simple-tutorial-to-install-use-gnu-parallel-79251120d618
+- Download file `parallel_runs.sh`from `https://github.com/boozang/bz-utils/scripts`  
+- Add test URLs (tokenized) to a file `testlist.txt`
+-  Modify `parallel_runs.sh` to set the appropriate workers
+- Set the script to executable `chmod +x paralell_runs.sh`
+- Run the script `./paralell_runs.sh`
+- This will spawn off a Docker container for each worker specified
+
+**Building your own test dispatcher**
+
+We encourage you to build your own test dispatcher. Take a look at `./parallel_runs.sh`to get inspiration. It's only one line of code!
+
+` parallel -a testlist.txt -j5 'nohup sudo docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file={#} {} > /home/centos/scripts/docker/test/w{%}_t{#}.log'`
+
+In this example, tests written in `testlist.txt`are processed by `parallel`by 5 workers (specifed by the `-j`flag). The test logs are available in the `wX_tY.log`files, where `X`is the worker index, and `Y`is the test index. Result logs will be available in the file named as the test index `Y`.      
 
 **More examples**
 
