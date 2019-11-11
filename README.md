@@ -411,7 +411,7 @@ Being able to identify HTML elements in your application is central to test auto
 
 ### A note on element selection policy
 
-Our element selector policy is based on natural language. This means Boozang primarily uses what an end user sees, rather than hidden element attributes, such as `class` or `id`.  
+Our element selector policy is based on natural language. This means Boozang primarily uses what an end-user sees, rather than hidden element attributes, such as `class` or `id`.  
 
 This has the following benefits: 
 
@@ -423,7 +423,7 @@ This has the following benefits:
 
 **Great support for dynamic classes and ids**
 
-By not relying on attributes like `class`or `id` by default, recorded tests are not broken when these are changed in the application. This makes Boozang well-suited for testing on top of applications with dynamic attributes. For special cases where you need to dependend on `id` or `class` (such as extracting data), the user can opt-in for using these attributes.
+By not relying on attributes like `class` or `id` by default, recorded tests are not broken when these are changed in the application. This makes Boozang well-suited for testing on top of applications with dynamic attributes. For special cases where you need to depend on `id` or `class` (such as extracting data), the user can opt-in to use these attributes.
 
  **Automated form fills**
 
@@ -436,7 +436,7 @@ It's also great to handle data. The following form example illustrates this
  <input type="text" class="forminput">
 </form>
 
-In Boozang, the element locator would be based on Strings `first_name` and `last_name`. This will allow us to automatically match the following `JSON`data
+In Boozang, the element locator would be based on the strings `first_name` and `last_name`. This will allow us to automatically match the following `JSON` data
 
 ```json
 {
@@ -445,15 +445,15 @@ In Boozang, the element locator would be based on Strings `first_name` and `last
 }
 ```
 
-This might seem like a small win, but this can make a huge different when testing data intense applications, and when making form fills based on spreadsheet data. 
+This might seem like a small win, but this can make a huge difference when testing data-intense applications, and when making form fills based on spreadsheet data. 
 
 **Intelligent test repairs**
 
-By basing the element locators on what the user sees, means tests are sensitive to updates to the element verbatim, rather than other invisible attributes. This means tests often fail explicitly for changes in the UI, which allows the user to re-select the element from the tools. For instance, when a button text changes from "Create" to "Add", the next time it cannot find the label "Create", it will scan the UI for "Add" and suggest the update. 
+By basing the element locators on what the user sees, tests are sensitive to updates to the element verbatim rather than other invisible attributes. This means tests often fail explicitly for changes in the UI, which allows the user to re-select the element from the tools. For instance, when a button text changes from "Create" to "Add", the next time it cannot find the label "Create", it will scan the UI for "Add" and suggest the update. 
 
 **Closer alignment to requirements**
 
-As the selectors are based on what the user sees, the test code will read much like a requirement. This means that tests in Boozang are closer aligned with the business domain, making it easier to create a "living document" of the code. This makes it easier to keep requirements up to date, and to have a single source of truth.
+As the selectors are based on what the user sees, the test code will read much like a requirement. This means that tests in Boozang are closely aligned with the business domain, making it easier to create a "living document" of the code. This makes it easier to keep requirements up to date and to have a single source of truth.
 
 **Auto-generation of tests**
 
@@ -461,11 +461,11 @@ With the introduction of requirements into Boozang (for instance, with the intro
 
 *A note on other machine learning tools*
 
- Using machine-learning on the element selectors, meaning capturing 
+It's also possible to use machine-learning on the element selectors, like
 
 ```weigh1 * .someclass + weight2 * #someid + weight3 * “Some text”```
 
- can give short term benefits in terms of stability, but can introduce noise and false positives. At Boozang we believe that what has been written in a requirement (what is seen in a UI) is the truth, not what a developer decided to put in a class or id attribute. We therefore believe in a stricter element policy. By doing this, it enables us to apply machine learning on the next abstraction level, where the return will be much greater.   
+This can give short term benefits in terms of stability, but can also introduce noise and false positives. At Boozang we believe that what has been written in a requirement (and what is seen in a UI) is the truth, not what a developer decided to put in a class or id attribute. This is why we apply a stricter element policy and action representation. By doing this, we can apply machine learning at the test / requirement level instead, resulting in higher impact on productivity and better test coverage. 
 
 ### Selecting the element
 
