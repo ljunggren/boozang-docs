@@ -747,7 +747,7 @@ Accept:&quot;json&quot;
   | panda    | Panda Express |
   | elephant | Elephant Man  | </code></pre>
 <h3 id="features-1">Features</h3>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/feature-tab.png" alt="feature-tab" /></p>
+<p><img src="images/feature-tab.png" alt="feature-tab" /></p>
 <p>Just as modules act as containers for tests, features works as containers for scenarios. Features can either be created directly in Boozang, or imported from a feature file.</p>
 <h3 id="importing-feature-files">Importing feature files</h3>
 <p>To import features simply click &quot;Import Feature&quot;. Bozang supports two types of imports</p>
@@ -756,7 +756,7 @@ Accept:&quot;json&quot;
 <li>Import from file</li>
 </ul>
 <p><strong>Import from text</strong></p>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/import-test.png" alt="import-test" /></p>
+<p><img src="images/import-test.png" alt="import-test" /></p>
 <p>To import from text, simply paste the Gherkin feature text into the window. The feature will be automatically created in the features tab with the name specified in the <code>Feature:</code> section (in our case <code>Google Search</code>).</p>
 <p>Boozang will now parse the Feature information and build all the scenarios inside the feature. In addition, any example data will be added to the scenarios as CSV data, and the parameter mapping will be generated automatically. </p>
 <p><strong>Import from file</strong></p>
@@ -764,12 +764,12 @@ Accept:&quot;json&quot;
 <h3 id="building-your-first-scenarios">Building your first scenarios</h3>
 <p><strong>Unmatched scenarios</strong></p>
 <p>As soon as you have imported a feature, all feature scenarios will be generated automatically. As you can see from the example below, the <code>Given</code>, <code>When</code>and <code>Then</code>are generated as Groups in Boozang, with a number of <code>Plug test-case</code> conditions. As you can see, the unmatched conditions are marked red.   </p>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/unmatched-scenario.png" alt="unmatched-scenario" /></p>
+<p><img src="images/unmatched-scenario.png" alt="unmatched-scenario" /></p>
 <p><strong>Matching scenarios</strong></p>
 <p>To match a scenario, simply click on &quot;New Link-Test&quot; in the Goto Test Case section. This will create a new link test that matches the text &quot;When the search phrase ? is entered&quot; and automatically populate the necessary data. </p>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/unmatched.png" alt="unmatched" /></p>
+<p><img src="images/unmatched.png" alt="unmatched" /></p>
 <p>This will automatically create a &quot;Link Test&quot; that translates the Gherkin syntax to executable code. </p>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/changing-a-mapping.png" alt="changing-a-mapping" /></p>
+<p><img src="images/changing-a-mapping.png" alt="changing-a-mapping" /></p>
 <p><strong>Link tests and re-use</strong></p>
 <p>One might wonder why to introduce link tests in the first place? Why not simply have a single mapping of Gherkin syntax that maps to a test. The answer is re-use. Imagine we have the following test: <code>LoginHandler</code> that takes <code>role</code> as a parameter. If in Gherkin's we have the following statements</p>
 <p><code>Given I am logged in as an Admin</code></p>
@@ -783,11 +783,11 @@ Accept:&quot;json&quot;
 <p>It also has a second benefit. As the Gherkin syntax of features is<code>I am Logged in as a</code> to the more appropriate <code>I am logged in as</code>,  you simply have to update a single link test, and all scenarios using that phrasing will be updated automatically. </p>
 <p><strong>The magic wand</strong></p>
 <p>As you keep adding features you will undoubtedly have created many Link-tests to tie the business domain (natural language with examples) to the technical domain (tests with data). In some cases, you might have completed the mapping for a single feature, but still have many features to complete. To not do the same work twice, you can apply existing mapping to a feature by hitting the &quot;match icon&quot; (the magic wand). This will automatically apply any existing mappings, greatly speeding up the mapping job. </p>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/mapping.png" alt="mapping" /></p>
+<p><img src="images/mapping.png" alt="mapping" /></p>
 <h3 id="running-tests">Running tests</h3>
 <p><strong>Running a scenario</strong></p>
 <p>To run a scenario, simply use the &quot;Play&quot; button in the scenario list or in the scenario detail view.</p>
-<p><img src="/Users/matsljunggren/Desktop/running-a-test.png" alt="running-a-test" />   </p>
+<p><img src="images/running-a-test.png" alt="running-a-test" />   </p>
 <p>A report will be generated from the scenario.</p>
 <p><strong>Running an unfinished scenario</strong></p>
 <p>In the case of running a scenario that has some &quot;unlinked&quot; test steps, the error message &quot;Not Implemented&quot; will be show in the report for these test steps. </p>

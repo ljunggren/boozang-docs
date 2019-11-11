@@ -1313,7 +1313,7 @@ Scenario: Simple Google searches
       | elephant | Elephant Man  | 
 ### Features
 
-![feature-tab](/Users/matsljunggren/Workspace/boozang-docs/images/feature-tab.png)
+![feature-tab](images/feature-tab.png)
 
 Just as modules act as containers for tests, features works as containers for scenarios. Features can either be created directly in Boozang, or imported from a feature file.
 
@@ -1326,7 +1326,7 @@ To import features simply click "Import Feature". Bozang supports two types of i
 
 **Import from text**
 
-![import-test](/Users/matsljunggren/Workspace/boozang-docs/images/import-test.png)
+![import-test](images/import-test.png)
 
 To import from text, simply paste the Gherkin feature text into the window. The feature will be automatically created in the features tab with the name specified in the `Feature:` section (in our case `Google Search`).
 
@@ -1342,17 +1342,17 @@ Simply click import from file, and browse to the `.feature`file you want to impo
 
 As soon as you have imported a feature, all feature scenarios will be generated automatically. As you can see from the example below, the `Given`, `When`and `Then`are generated as Groups in Boozang, with a number of `Plug test-case` conditions. As you can see, the unmatched conditions are marked red.   
 
-![unmatched-scenario](/Users/matsljunggren/Workspace/boozang-docs/images/unmatched-scenario.png)
+![unmatched-scenario](images/unmatched-scenario.png)
 
 **Matching scenarios**
 
 To match a scenario, simply click on "New Link-Test" in the Goto Test Case section. This will create a new link test that matches the text "When the search phrase ? is entered" and automatically populate the necessary data. 
 
-![unmatched](/Users/matsljunggren/Workspace/boozang-docs/images/unmatched.png)
+![unmatched](images/unmatched.png)
 
 This will automatically create a "Link Test" that translates the Gherkin syntax to executable code. 
 
-![changing-a-mapping](/Users/matsljunggren/Workspace/boozang-docs/images/changing-a-mapping.png)
+![changing-a-mapping](images/changing-a-mapping.png)
 
 **Link tests and re-use**
 
@@ -1380,7 +1380,7 @@ It also has a second benefit. As the Gherkin syntax of features is`I am Logged i
 
 As you keep adding features you will undoubtedly have created many Link-tests to tie the business domain (natural language with examples) to the technical domain (tests with data). In some cases, you might have completed the mapping for a single feature, but still have many features to complete. To not do the same work twice, you can apply existing mapping to a feature by hitting the "match icon" (the magic wand). This will automatically apply any existing mappings, greatly speeding up the mapping job. 
 
-![mapping](/Users/matsljunggren/Workspace/boozang-docs/images/mapping.png)
+![mapping](images/mapping.png)
 
 
 
@@ -1390,7 +1390,7 @@ As you keep adding features you will undoubtedly have created many Link-tests to
 
 To run a scenario, simply use the "Play" button in the scenario list or in the scenario detail view.
 
-![running-a-test](/Users/matsljunggren/Desktop/running-a-test.png)   
+![running-a-test](images/running-a-test.png)   
 
 A report will be generated from the scenario.
 
