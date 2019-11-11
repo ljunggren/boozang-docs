@@ -429,12 +429,12 @@ By not relying on attributes like `class`or `id` by default, recorded tests are 
 
 It's also great to handle data. The following form example illustrates this
 
-`<form>
+<form>
  First name<br>
  <input type="text" class="forminput"><br>
  Last name<br>
  <input type="text" class="forminput">
-</form>`
+</form>
 
 In Boozang, the element locator would be based on Strings `first_name` and `last_name`. This will allow us to automatically match the following `JSON`data
 

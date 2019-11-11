@@ -274,12 +274,12 @@
 <p>By not relying on attributes like <code>class</code>or <code>id</code> by default, recorded tests are not broken when these are changed in the application. This makes Boozang well-suited for testing on top of applications with dynamic attributes. For special cases where you need to dependend on <code>id</code> or <code>class</code> (such as extracting data), the user can opt-in for using these attributes.</p>
 <p><strong>Automated form fills</strong></p>
 <p>It's also great to handle data. The following form example illustrates this</p>
-<p>`<form>
-First name<br>
-<input type="text" class="forminput"><br>
-Last name<br></p>
-<input type="text" class="forminput">
-<p></form>`</p>
+<form>
+ First name<br>
+ <input type="text" class="forminput"><br>
+ Last name<br>
+ <input type="text" class="forminput">
+</form>
 <p>In Boozang, the element locator would be based on Strings <code>first_name</code> and <code>last_name</code>. This will allow us to automatically match the following <code>JSON</code>data</p>
 <pre><code class="language-json">{
   "first_name": "John",
