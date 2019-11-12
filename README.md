@@ -741,7 +741,7 @@ Note: For API versions of these actions check the API section.
 This is used to extract data from the application window and put in a data vairable. 
 
 
-![extract-data](/Users/matsljunggren/Workspace/boozang-docs/images/extract-data.png)
+![extract-data](images/extract-data.png)
 
 **Default behavior**
 
@@ -761,13 +761,13 @@ $project.myHappyData=$element.innerText.trim()
 
 When selecting some data in a page that is dynamic, such as a database id or project name, it's important to pay special attention to the element. By defaultm Boozang natural language selectors will try and identify the element by the actual text, which would be changing, generating an element not found error. 
 
-Here it is needed to click on "Edit element" icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, `tiger` is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute `class` which should be equal to `string1` (denoted with Javascript shorthand below as `.string1`). ![extract-data-dom](/Users/matsljunggren/Workspace/boozang-docs/images/extract-data-dom.png)t
+Here it is needed to click on "Edit element" icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, `tiger` is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute `class` which should be equal to `string1` (denoted with Javascript shorthand below as `.string1`). ![extract-data-dom](images/extract-data-dom.png)t
 
  
 
 ### Javascript
 
-![javascript](/Users/matsljunggren/Workspace/boozang-docs/images/javascript.png)
+![javascript](images/javascript.png)
 
 **The Javascript action**
 
@@ -798,13 +798,15 @@ To troubleshoot the application it´s sometimes useful to add debugging code. Fo
 
 ### Comment
 
-**![comment](/Users/matsljunggren/Workspace/boozang-docs/images/comment.png)Why comment?**
+![comment](images/comment.png)
 
-In a lot of cases, some errors can only be spotted by a human, such as a look & feel bugs or poor choice of language. In this case, it´s very useful to be able to point this out and have a simple way for a team member on the receiving side being able to correct this. For these cases, we use the Comment action. 
+**Why use comment?**
+
+In a lot of cases, some errors can only be spotted by a human, such as a look & feel bugs or poor choice of language. In this case, it's very useful to be able to point this out and have a simple way for a team member on the receiving side being able to correct this. For these cases, we use the Comment action. 
 
 **The Comment action**
 
-![annotation](/Users/matsljunggren/Workspace/boozang-docs/images/annotation.png)
+![annotation](images/annotation.png)
 
 The comment actions add a comment, or annotation, to the application. To add a comment, click on the Plus icon and select Add Comment, and select the element in the application page to Comment. You can write directly into the Comment dialog on the application.
 
@@ -818,7 +820,7 @@ Sometimes it's nice to create a checklist for a manual tester to be guided throu
 
 ### Refresh window/Load page
 
-![refresh](/Users/matsljunggren/Workspace/boozang-docs/images/refresh.png)
+![refresh](images/refresh.png)
 
 The refresh window/load page action is used to force a reload of the browser window. This can also be used to force loading a new page (meaning going to a new page without having to navigate to it). There is also an option to **Clear Cookies** and **Clear Localstorage**.
 
@@ -826,7 +828,7 @@ The refresh window/load page action is used to force a reload of the browser win
 
 ### Visit Links
 
-![visit-links](/Users/matsljunggren/Workspace/boozang-docs/images/visit-links.png)
+![visit-links](images/visit-links.png)
 
 The visit links action is used to automatically crawl a set of pages based on a navigation bar. To crawl a full navigation panel, such as side navigation or hamburger menu, select this in the **Panel** option. **Target element** defaults to "A" tags but can be changed using the DOM picker in case the navigation contains a different element than regular links. It's possible to execute a script before each click, but this can normally be left blank.
 

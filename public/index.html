@@ -456,7 +456,7 @@
 <h3 id="extract-data">Extract data</h3>
 <p>Note: For API versions of these actions check the API section. </p>
 <p>This is used to extract data from the application window and put in a data vairable. </p>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/extract-data.png" alt="extract-data" /></p>
+<p><img src="images/extract-data.png" alt="extract-data" /></p>
 <p><strong>Default behavior</strong></p>
 <p>When you add an extract data actionm you'll be prompted to select something from the application window. As you can see from the example, data is extracted the following way</p>
 <pre><code class="language-javascript">$test.tmpValue=$element.innerText.trim()</code></pre>
@@ -464,9 +464,9 @@
 <pre><code class="language-javascript">$project.myHappyData=$element.innerText.trim()</code></pre>
 <p><strong>Dynamic data and element selector</strong></p>
 <p>When selecting some data in a page that is dynamic, such as a database id or project name, it's important to pay special attention to the element. By defaultm Boozang natural language selectors will try and identify the element by the actual text, which would be changing, generating an element not found error. </p>
-<p>Here it is needed to click on &quot;Edit element&quot; icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, <code>tiger</code> is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute <code>class</code> which should be equal to <code>string1</code> (denoted with Javascript shorthand below as <code>.string1</code>). <img src="/Users/matsljunggren/Workspace/boozang-docs/images/extract-data-dom.png" alt="extract-data-dom" />t</p>
+<p>Here it is needed to click on &quot;Edit element&quot; icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, <code>tiger</code> is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute <code>class</code> which should be equal to <code>string1</code> (denoted with Javascript shorthand below as <code>.string1</code>). <img src="images/extract-data-dom.png" alt="extract-data-dom" />t</p>
 <h3 id="javascript">Javascript</h3>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/javascript.png" alt="javascript" /></p>
+<p><img src="images/javascript.png" alt="javascript" /></p>
 <p><strong>The Javascript action</strong></p>
 <p>Boozang also allows you to execute Javascript directly in the application. This can be very useful when trying to do more advanced things that aren't covered by the set of actions Boozang has out-of-the-box. </p>
 <p><strong>Reference Data</strong></p>
@@ -485,21 +485,22 @@
 <p>To troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module-level data &quot;username&quot; use <code>console.log($module.username)</code> to write it to the tool window and <code>$TW.console.log($module.username)</code> to write it to the application window. You can use the Chrome developer tools to easily verify this.</p>
 <p><em>Tip: Avoid using <code>$TW.alert()</code> as Boozang interprets this as application popup windows and intercepts them.</em> </p>
 <h3 id="comment">Comment</h3>
-<p><strong><img src="/Users/matsljunggren/Workspace/boozang-docs/images/comment.png" alt="comment" />Why comment?</strong></p>
-<p>In a lot of cases, some errors can only be spotted by a human, such as a look &amp; feel bugs or poor choice of language. In this case, it´s very useful to be able to point this out and have a simple way for a team member on the receiving side being able to correct this. For these cases, we use the Comment action. </p>
+<p><img src="images/comment.png" alt="comment" /></p>
+<p><strong>Why use comment?</strong></p>
+<p>In a lot of cases, some errors can only be spotted by a human, such as a look &amp; feel bugs or poor choice of language. In this case, it's very useful to be able to point this out and have a simple way for a team member on the receiving side being able to correct this. For these cases, we use the Comment action. </p>
 <p><strong>The Comment action</strong></p>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/annotation.png" alt="annotation" /></p>
+<p><img src="images/annotation.png" alt="annotation" /></p>
 <p>The comment actions add a comment, or annotation, to the application. To add a comment, click on the Plus icon and select Add Comment, and select the element in the application page to Comment. You can write directly into the Comment dialog on the application.</p>
 <p><strong>Running a test with comments</strong></p>
 <p>When running a test with comments, the test will execute and stop at the first comment. To go to the next comment, press play again and the test will continue executing until it finishes or hits the next comment. This is very useful when fixing look &amp; feel issues, as several issues can be recorded in the same test case. </p>
 <p><strong>Show selection for Pass/Fail</strong></p>
 <p>Sometimes it's nice to create a checklist for a manual tester to be guided through the application. You can use the Comment action to ask auestions to the user, and generate success or failure code based on user inputs. Simple click the &quot;Show selection for Pass/Fail&quot; to generate this kind of interactive comment. </p>
 <h3 id="refresh-windowload-page">Refresh window/Load page</h3>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/refresh.png" alt="refresh" /></p>
+<p><img src="images/refresh.png" alt="refresh" /></p>
 <p>The refresh window/load page action is used to force a reload of the browser window. This can also be used to force loading a new page (meaning going to a new page without having to navigate to it). There is also an option to <strong>Clear Cookies</strong> and <strong>Clear Localstorage</strong>.</p>
 <p><strong>Note</strong>: There are security limitations for what a browser allows being deleted. For instance, the browser does not allow session cookies to be deleted, so this cannot be triggered by the Boozang tool.</p>
 <h3 id="visit-links">Visit Links</h3>
-<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/visit-links.png" alt="visit-links" /></p>
+<p><img src="images/visit-links.png" alt="visit-links" /></p>
 <p>The visit links action is used to automatically crawl a set of pages based on a navigation bar. To crawl a full navigation panel, such as side navigation or hamburger menu, select this in the <strong>Panel</strong> option. <strong>Target element</strong> defaults to &quot;A&quot; tags but can be changed using the DOM picker in case the navigation contains a different element than regular links. It's possible to execute a script before each click, but this can normally be left blank.</p>
 <p>For each click, it´s normal to call a test case. Use <strong>Goto Test Case</strong> to select a downstream test case. This test case will be called for each link in the selected navigation panel.</p>
 <h2 id="using-data">Using data</h2>
