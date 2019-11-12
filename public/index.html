@@ -381,13 +381,13 @@
 <p><img src="images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg" alt="glenn-carstens-peters-RLw-UC03Gwc-unsplash" /></p>
 <p>Actions are the steps that comprise a test case. This could be a mouse or keyword event, simulating a user action, or a validation (assertion) or even Javascript. There are also AI actions supported which are more elaborate actions such as &quot;Visit Links&quot; or &quot;Form Fill&quot;.</p>
 <h3 id="events">Events</h3>
-<p>There are three types of event supported in Boozang: Click, Keypress and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See below list of actions and what event will be generated.  </p>
+<p>There are three types of events supported in Boozang: Click, Keypress, and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See below list of events that will be generated for different recording scenarios.  </p>
 <ul>
 <li>Click events: Generated when clicking buttons or page elements. Not generated when clicking inside a form or on a checkbox. </li>
 <li>Change events: Generated when filling inputs in forms and clicking mouse, tab, or enter</li>
-<li>Key events: Generated when pressing keyboard when selecting input.  </li>
+<li>Key events: Generated when pressing keys in special circumstances. </li>
 </ul>
-<p>This might seem contra-intuitive, but guarantees that form fills are recorded as stable as possible. Usually, regardless of users habits (using mouse or tab key) forms should be recorded the same way. </p>
+<p>This might seem contra-intuitive, but guarantees that form fills are recorded as stable as possible. Usually, regardless of user habits (using mouse or tab key), forms should be recorded the same way. </p>
 <p><strong>Mouse click events</strong></p>
 <p><img src="images/event-click.png" alt="event-click" /></p>
 <p>This event corresponds to a mouse action, meaning a click or a movement of the mouse. By default, Boozang captures on clicks in the recording (otherwise the recording becomes very noisy catching too many events). The exception to this is when holding the mouse button down, to emulate drag and drop. In this case, Boozang registers a particular drag-and-drop event.  You can add mouse events manually to emulate mouse-over events and to create specific mouse conditions. </p>
@@ -400,7 +400,7 @@
 <p>If a checkbox is clicked, the <code>Value</code> will be set to </p>
 <p><strong>Key events</strong></p>
 <p><img src="images/event-key.png" alt="event-key" /></p>
-<p>This event corresponds to a keypress. This is captured in the recording for every time a key is pressed. The default recorded keypress is <code>Group</code> which will generate the following Javascript events: <code>keydown</code>, <code>keypress</code> and <code>keyup</code>m in that order. You can change the drop-down to generate a specific event only. </p>
+<p>This event corresponds to a keypress. This is captured in the recording for every time a key is pressed. The default recorded keypress is <code>Group</code> which will generate the following Javascript events: <code>keydown</code>, <code>keypress</code> and <code>keyup</code>, in that order. You can change the drop-down to generate a specific event only. </p>
 <p>You can also generate a special key or char code by clicking the field and clicking the keyboard button. </p>
 <h3 id="validations">Validations</h3>
 <p><img src="images/validations.png" alt="validations" /></p>
@@ -409,17 +409,17 @@
 <p><strong>Content formats</strong></p>
 <p>The following content formats are supported</p>
 <ul>
-<li>Exists (default): Validates if an element exists. Generates a success condition if the element in the path exist, and a fail condition if it doesn't exist. </li>
-<li>Not exists: Opposite to Exists. Generates a fail condition if the element in the path exist, and a success condition if it doesn't exist. </li>
+<li>Exists (default): Validates if an element exists. It generates a success condition if the element in the path exists, and a fail condition if it doesn't exist. </li>
+<li>Not exists: Opposite to Exists. It generates a fail condition if the element in the path exist, and a success condition if it doesn't exist. </li>
 <li>Dynamic Exist: ????</li>
-<li>innerText: Used to do String comparisons of the innerText content of the element. Generates a success condition if match, a fail condition on mis-match and an error condition if element don't exist. </li>
-<li>Input value: Used to do String comparisons of an input box. Generates a success condition if match, a fail condition on mis-match and an error condition if element don't exist. </li>
-<li>Is Enabled: Check if an element is enabled. Generates a success condition if element is enabled,  a fail condition if element is disabled, and error if element don't exist. </li>
-<li>Is Disabled: Opposite of Is Enabled. Generates a fail condition if element is enabled,  a success condition if element is disabled, and error if element don't exist. </li>
-<li>Is Checked: Checks if a checkbox is checked. Generates success if element is checked, fail if element is unchecked, and error if element doesn't exist. </li>
-<li>Screenshot: Does a pixel-by-pixel comparison of an image. After an element has been selected, a checksum is generated of the image content. This action will generate success if an identical image is found at the element location and fail otherwise. Error will be generated if element doesn´t exist. </li>
-<li>Data: Check an element if it contains a set of data. The data expectation can contain several data entries. Generates success if all data is found in any order, fail if any data is missingm and error if element doesn't exist. Powerful to check if a table or list have a certain data entry. </li>
-<li>Script: Write custom validation using Javascript. Generates success if true is returned and fail is false is returned.</li>
+<li>innerText: Used to do String comparisons of the innerText content of the element. It generates a success condition if match, a fail condition on mis-match and an error condition if element doesn't exist. </li>
+<li>Input value: Used to do String comparisons of an input box. It generates a success condition if match, a fail condition on mismatch and an error condition if element doesn't exist. </li>
+<li>Is Enabled: Check if an element is enabled. It generates a success condition if the element is enabled,  a fail condition if the element is disabled, and error if the element doesn't exist. </li>
+<li>Is Disabled: Opposite of Is Enabled. It generates a fail condition if the element is enabled,  a success condition if the element is disabled, and error if the element doesn't exist. </li>
+<li>Is Checked: Checks if a checkbox is checked. It generates success if the element is checked, fail if the element is unchecked, and error if the element doesn't exist. </li>
+<li>Screenshot: Does a pixel-by-pixel comparison of an image. After an element has been selected, a checksum is generated of the image content. This action will generate success if an identical image is found at the element location and fail otherwise. An error will be generated if the element doesn´t exist. </li>
+<li>Data: Check an element if it contains a set of data. The data expectation can contain several data entries. It generates success if all data is found in any order, fail if any data is missingm and error if element doesn't exist. Powerful to check if a table or list have a certain data entry. </li>
+<li>Script: Write custom validation using Javascript. Generates success if true is returned and fail if false is returned.</li>
 <li>Request/Reponse (API): Does a validation on an API end-point. See section for API testing. </li>
 </ul>
 <p>As you can see, a lot of these commands have three expected results: Success, Fail, and Error. Note how Exists and Not Exists should only be able to return Success or Fail.</p>
@@ -433,19 +433,19 @@
 <p>and these are a bit more complex</p>
 <ul>
 <li>regex: Allows you to put a regular expression in the Expectation field</li>
-<li>Include: Checks for any occurences of a String. Generates success if it founds it.  </li>
-<li>Exclude: Opposite of Include. Checks for any occurences of a String, and generates fail if it founds it.  </li>
+<li>Include: Checks for any occurrences of a String. It generates success if it finds a match, fail otherwise. If the element doesn't exist, it generates an error.   </li>
+<li>Exclude: Opposite of Include. It generates fail if it finds a match, success otherwise. If the element doesn't exist, it generates an error.   </li>
 </ul>
 <p><strong>Expectation</strong></p>
 <p>This is the comparison value to use. This could be a string or regular expression (in the case of the regex operator). </p>
 <p><em>Advanced (accessible from kebab menu)</em></p>
 <p><img src="images/match.png" alt="match" /></p>
-<p>This is used to pre-process a validation this is useful when filtering out dynamic data. </p>
+<p>This is used to pre-process a validation and is useful when filtering out dynamic data. </p>
 <p>Imagine the following example: </p>
 <pre><code class="language-html">&lt;div&gt;
   The date is 2019-09-12 and I'm feeling good.
 &lt;/div&gt;</code></pre>
-<p>In this case, it would be desirable to validate the message itself and that any date is shown. By setting <code>Match</code>to <code>^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\\d\\d(?:,)$</code> and <code>Replacement String</code> to <code>YYYY-MM-DD</code>, the resulting validation can be done using equalsm like</p>
+<p>In this case, it would be desirable to validate the message itself and that any date is shown. By setting <code>Match</code> to <code>^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\\d\\d(?:,)$</code> and <code>Replacement String</code> to <code>YYYY-MM-DD</code>, the resulting validation can be done using equals, like</p>
 <pre><code class="language-html">&lt;div&gt;
   The date is YYYY-MM-DD and I'm feeling good.
 &lt;/div&gt; </code></pre>
@@ -480,9 +480,9 @@
 <li>Scroll to Top, Scroll to Bottom, Scroll one page down and right, Scoll one page up and left</li>
 <li>Retrieve URL</li>
 </ul>
-<p>Use these as-ism or as starting points for you own custom Javascript commands. </p>
+<p>Use these as-is or as starting points for you own custom Javascript commands. </p>
 <p><strong>Trouble-shooting</strong></p>
-<p>To troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module-level data &quot;username&quot; use <code>console.log($module.username)</code> to write it to the tool window and <code>$TW.console.log($module.username)</code> to write it to the application window. You can use the Chrome developer tools to easily verify this.</p>
+<p>To troubleshoot the application it's sometimes useful to add debugging code. For instance, to write the contents of the module-level data &quot;username&quot; use <code>console.log($module.username)</code> to write it to the tool window and <code>$TW.console.log($module.username)</code> to write it to the application window. You can use the Chrome developer tools to easily verify this.</p>
 <p><em>Tip: Avoid using <code>$TW.alert()</code> as Boozang interprets this as application popup windows and intercepts them.</em> </p>
 <h3 id="comment">Comment</h3>
 <p><img src="images/comment.png" alt="comment" /></p>
@@ -494,7 +494,7 @@
 <p><strong>Running a test with comments</strong></p>
 <p>When running a test with comments, the test will execute and stop at the first comment. To go to the next comment, press play again and the test will continue executing until it finishes or hits the next comment. This is very useful when fixing look &amp; feel issues, as several issues can be recorded in the same test case. </p>
 <p><strong>Show selection for Pass/Fail</strong></p>
-<p>Sometimes it's nice to create a checklist for a manual tester to be guided through the application. You can use the Comment action to ask auestions to the user, and generate success or failure code based on user inputs. Simple click the &quot;Show selection for Pass/Fail&quot; to generate this kind of interactive comment. </p>
+<p>Sometimes it's nice to create a checklist for a manual tester to be guided through the application. You can use the Comment action to ask questions to the user and generate success or failure code based on user inputs. Simple click the &quot;Show selection for Pass/Fail&quot; to generate this kind of interactive comment. </p>
 <h3 id="refresh-windowload-page">Refresh window/Load page</h3>
 <p><img src="images/refresh.png" alt="refresh" /></p>
 <p>The refresh window/load page action is used to force a reload of the browser window. This can also be used to force loading a new page (meaning going to a new page without having to navigate to it). There is also an option to <strong>Clear Cookies</strong> and <strong>Clear Localstorage</strong>.</p>

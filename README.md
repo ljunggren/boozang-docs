@@ -619,13 +619,13 @@ Actions are the steps that comprise a test case. This could be a mouse or keywor
 
 ### Events
 
-There are three types of event supported in Boozang: Click, Keypress and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See below list of actions and what event will be generated.  
+There are three types of events supported in Boozang: Click, Keypress, and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See below list of events that will be generated for different recording scenarios.  
 
 - Click events: Generated when clicking buttons or page elements. Not generated when clicking inside a form or on a checkbox. 
 - Change events: Generated when filling inputs in forms and clicking mouse, tab, or enter
-- Key events: Generated when pressing keyboard when selecting input.  
+- Key events: Generated when pressing keys in special circumstances. 
 
-This might seem contra-intuitive, but guarantees that form fills are recorded as stable as possible. Usually, regardless of users habits (using mouse or tab key) forms should be recorded the same way. 
+This might seem contra-intuitive, but guarantees that form fills are recorded as stable as possible. Usually, regardless of user habits (using mouse or tab key), forms should be recorded the same way. 
 
 **Mouse click events**
 
@@ -653,7 +653,7 @@ If a checkbox is clicked, the `Value` will be set to
 
 ![event-key](images/event-key.png)
 
-This event corresponds to a keypress. This is captured in the recording for every time a key is pressed. The default recorded keypress is `Group` which will generate the following Javascript events: `keydown`, `keypress` and `keyup`m in that order. You can change the drop-down to generate a specific event only. 
+This event corresponds to a keypress. This is captured in the recording for every time a key is pressed. The default recorded keypress is `Group` which will generate the following Javascript events: `keydown`, `keypress` and `keyup`, in that order. You can change the drop-down to generate a specific event only. 
 
 You can also generate a special key or char code by clicking the field and clicking the keyboard button. 
 
@@ -669,17 +669,17 @@ In a test, it´s common to make sure that a certain outcome is achieved. In Booz
 
 The following content formats are supported
 
-- Exists (default): Validates if an element exists. Generates a success condition if the element in the path exist, and a fail condition if it doesn't exist. 
-- Not exists: Opposite to Exists. Generates a fail condition if the element in the path exist, and a success condition if it doesn't exist. 
+- Exists (default): Validates if an element exists. It generates a success condition if the element in the path exists, and a fail condition if it doesn't exist. 
+- Not exists: Opposite to Exists. It generates a fail condition if the element in the path exist, and a success condition if it doesn't exist. 
 - Dynamic Exist: ????
-- innerText: Used to do String comparisons of the innerText content of the element. Generates a success condition if match, a fail condition on mis-match and an error condition if element don't exist. 
-- Input value: Used to do String comparisons of an input box. Generates a success condition if match, a fail condition on mis-match and an error condition if element don't exist. 
-- Is Enabled: Check if an element is enabled. Generates a success condition if element is enabled,  a fail condition if element is disabled, and error if element don't exist. 
-- Is Disabled: Opposite of Is Enabled. Generates a fail condition if element is enabled,  a success condition if element is disabled, and error if element don't exist. 
-- Is Checked: Checks if a checkbox is checked. Generates success if element is checked, fail if element is unchecked, and error if element doesn't exist. 
-- Screenshot: Does a pixel-by-pixel comparison of an image. After an element has been selected, a checksum is generated of the image content. This action will generate success if an identical image is found at the element location and fail otherwise. Error will be generated if element doesn´t exist. 
-- Data: Check an element if it contains a set of data. The data expectation can contain several data entries. Generates success if all data is found in any order, fail if any data is missingm and error if element doesn't exist. Powerful to check if a table or list have a certain data entry. 
-- Script: Write custom validation using Javascript. Generates success if true is returned and fail is false is returned.
+- innerText: Used to do String comparisons of the innerText content of the element. It generates a success condition if match, a fail condition on mis-match and an error condition if element doesn't exist. 
+- Input value: Used to do String comparisons of an input box. It generates a success condition if match, a fail condition on mismatch and an error condition if element doesn't exist. 
+- Is Enabled: Check if an element is enabled. It generates a success condition if the element is enabled,  a fail condition if the element is disabled, and error if the element doesn't exist. 
+- Is Disabled: Opposite of Is Enabled. It generates a fail condition if the element is enabled,  a success condition if the element is disabled, and error if the element doesn't exist. 
+- Is Checked: Checks if a checkbox is checked. It generates success if the element is checked, fail if the element is unchecked, and error if the element doesn't exist. 
+- Screenshot: Does a pixel-by-pixel comparison of an image. After an element has been selected, a checksum is generated of the image content. This action will generate success if an identical image is found at the element location and fail otherwise. An error will be generated if the element doesn´t exist. 
+- Data: Check an element if it contains a set of data. The data expectation can contain several data entries. It generates success if all data is found in any order, fail if any data is missingm and error if element doesn't exist. Powerful to check if a table or list have a certain data entry. 
+- Script: Write custom validation using Javascript. Generates success if true is returned and fail if false is returned.
 - Request/Reponse (API): Does a validation on an API end-point. See section for API testing. 
 
 As you can see, a lot of these commands have three expected results: Success, Fail, and Error. Note how Exists and Not Exists should only be able to return Success or Fail.
@@ -695,8 +695,8 @@ This is the comparison operator. The following operators are self-explanatory
 and these are a bit more complex
 
 - regex: Allows you to put a regular expression in the Expectation field
-- Include: Checks for any occurences of a String. Generates success if it founds it.  
-- Exclude: Opposite of Include. Checks for any occurences of a String, and generates fail if it founds it.  
+- Include: Checks for any occurrences of a String. It generates success if it finds a match, fail otherwise. If the element doesn't exist, it generates an error.   
+- Exclude: Opposite of Include. It generates fail if it finds a match, success otherwise. If the element doesn't exist, it generates an error.   
 
 **Expectation**
 
@@ -706,7 +706,7 @@ This is the comparison value to use. This could be a string or regular expressio
 
 ![match](images/match.png)
 
-This is used to pre-process a validation this is useful when filtering out dynamic data. 
+This is used to pre-process a validation and is useful when filtering out dynamic data. 
 
 Imagine the following example: 
 
@@ -716,7 +716,7 @@ Imagine the following example:
 </div>
 ```
 
-In this case, it would be desirable to validate the message itself and that any date is shown. By setting `Match`to `^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\\d\\d(?:,)$` and `Replacement String` to `YYYY-MM-DD`, the resulting validation can be done using equalsm like
+In this case, it would be desirable to validate the message itself and that any date is shown. By setting `Match` to `^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\\d\\d(?:,)$` and `Replacement String` to `YYYY-MM-DD`, the resulting validation can be done using equals, like
 
 ```html
 <div>
@@ -788,11 +788,11 @@ Boozang also supplies pre-made code snippets for the following common scenarios.
 - Scroll to Top, Scroll to Bottom, Scroll one page down and right, Scoll one page up and left
 - Retrieve URL
 
-Use these as-ism or as starting points for you own custom Javascript commands. 
+Use these as-is or as starting points for you own custom Javascript commands. 
 
 **Trouble-shooting**
 
-To troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module-level data "username" use `console.log($module.username)` to write it to the tool window and `$TW.console.log($module.username)` to write it to the application window. You can use the Chrome developer tools to easily verify this.
+To troubleshoot the application it's sometimes useful to add debugging code. For instance, to write the contents of the module-level data "username" use `console.log($module.username)` to write it to the tool window and `$TW.console.log($module.username)` to write it to the application window. You can use the Chrome developer tools to easily verify this.
 
 *Tip: Avoid using `$TW.alert()` as Boozang interprets this as application popup windows and intercepts them.* 
 
@@ -816,7 +816,7 @@ When running a test with comments, the test will execute and stop at the first c
 
 **Show selection for Pass/Fail**
 
-Sometimes it's nice to create a checklist for a manual tester to be guided through the application. You can use the Comment action to ask auestions to the user, and generate success or failure code based on user inputs. Simple click the "Show selection for Pass/Fail" to generate this kind of interactive comment. 
+Sometimes it's nice to create a checklist for a manual tester to be guided through the application. You can use the Comment action to ask questions to the user and generate success or failure code based on user inputs. Simple click the "Show selection for Pass/Fail" to generate this kind of interactive comment. 
 
 ### Refresh window/Load page
 
