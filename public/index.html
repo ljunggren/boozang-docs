@@ -381,62 +381,125 @@
 <p><img src="images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg" alt="glenn-carstens-peters-RLw-UC03Gwc-unsplash" /></p>
 <p>Actions are the steps that comprise a test case. This could be a mouse or keyword event, simulating a user action, or a validation (assertion) or even Javascript. There are also AI actions supported which are more elaborate actions such as &quot;Visit Links&quot; or &quot;Form Fill&quot;.</p>
 <h3 id="events">Events</h3>
-<p><strong>Mouse event</strong></p>
+<p>There are three types of event supported in Boozang: Click, Keypress and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See below list of actions and what event will be generated.  </p>
+<ul>
+<li>Click events: Generated when clicking buttons or page elements. Not generated when clicking inside a form or on a checkbox. </li>
+<li>Change events: Generated when filling inputs in forms and clicking mouse, tab, or enter</li>
+<li>Key events: Generated when pressing keyboard when selecting input.  </li>
+</ul>
+<p>This might seem contra-intuitive, but guarantees that form fills are recorded as stable as possible. Usually, regardless of users habits (using mouse or tab key) forms should be recorded the same way. </p>
+<p><strong>Mouse click events</strong></p>
+<p><img src="images/event-click.png" alt="event-click" /></p>
 <p>This event corresponds to a mouse action, meaning a click or a movement of the mouse. By default, Boozang captures on clicks in the recording (otherwise the recording becomes very noisy catching too many events). The exception to this is when holding the mouse button down, to emulate drag and drop. In this case, Boozang registers a particular drag-and-drop event.  You can add mouse events manually to emulate mouse-over events and to create specific mouse conditions. </p>
-<p>Tip: In the case of for instance form fills it can be useful to try both using key-presses and mouseclicks to see what works best. </p>
-<p><strong>Keyboard event</strong></p>
-<p>This event corresponds to a keypress. This is captured in the recording for every time a key is pressed. </p>
-<p><em>Tip: In the case of for instance form fills it can be useful to try both using key-presses and mouseclicks to see what works best.</em> </p>
+<p><em>Advanced</em></p>
+<p>Here you can add additional validations as a post-condition for an action. </p>
+<p><strong>Change events</strong></p>
+<p><img src="images/event-change.png" alt="event-change" /></p>
+<p>The change event is used to record state change in forms and checkboxes. When filling a form field, the data will be shown in brackets, like</p>
+<p><code>(John Doe)</code> or <code>($parameter.name)</code> or <code>($test.name)</code></p>
+<p>If a checkbox is clicked, the <code>Value</code> will be set to </p>
+<p><strong>Key events</strong></p>
+<p><img src="images/event-key.png" alt="event-key" /></p>
+<p>This event corresponds to a keypress. This is captured in the recording for every time a key is pressed. The default recorded keypress is <code>Group</code> which will generate the following Javascript events: <code>keydown</code>, <code>keypress</code> and <code>keyup</code>m in that order. You can change the drop-down to generate a specific event only. </p>
+<p>You can also generate a special key or char code by clicking the field and clicking the keyboard button. </p>
 <h3 id="validations">Validations</h3>
+<p><img src="images/validations.png" alt="validations" /></p>
 <p><strong>Creating a simple validation</strong></p>
-<p>In a test, it´s common to make sure that a certain outcome is achieved. In Boozang we do this using validation, also known as assertions. To create a validation, click on the validation icon and select the element to validate it in the application window. The default validation content format: &quot;validate exists&quot; will be created. If you want to change the validation content format to &quot;innerText&quot;, &quot;data&quot;, or &quot;screenshot&quot; you can do this in the tool window. </p>
-<p><strong>Validate Exists</strong></p>
-<p>The default validation is &quot;Validate Exists&quot;, that will verify that the element exists. To edit the validation content format change it from the action detail page. The expectation value will be automatically updated. </p>
-<p><strong>Inner Text</strong></p>
-<p>If you want to validate the content of an element, change the Content format dropdown to innerText. This way the text content of an element is compared. When changing this, the result box will be populated with the content from your application but can be changed manually. This is very useful for string comparisons. One advantage of using Inner Text is that upon validation failure, the report will contain the difference between expected and real results. </p>
-<p><strong>Data</strong></p>
-<p>The data format is very powerful and looks for a set of data inside the selected area. Usually, it´s combined using data variables.</p>
-<p><strong>Screenshot</strong></p>
-<p>You can also choose to take a picture of the element and compare that to the image of an element of future runs. This is useful when doing exact pixel by pixel comparisons, but should be used with caution as changing image dimensioning can make this assertion fail. </p>
-<p>Tip: It can be useful when needing to create assertions on indicators or switches, that only change visually and code stays the same. </p>
-<p><strong>The DOM picker</strong></p>
-<p>Sometimes the element you selected on the page isn't the one you intended. In this case, click the DOM picker and re-select the element. The DOM picker dialog will popup where you can select exactly what to validate in the DOM tree. Use the checkboxes to select which elements to include in the matching. Make sure that the checkbox has a green highlight, which means the element is uniquely matched (not indexed).</p>
+<p>In a test, it´s common to make sure that a certain outcome is achieved. In Boozang we do this using validation, also known as assertions. To create a validation, click on the validation icon and select the element to validate it in the application window. The default validation content format: &quot;validate exists&quot; will be created. If you want to change the validation content format you can do this using the dropdown in the tool window. </p>
+<p><strong>Content formats</strong></p>
+<p>The following content formats are supported</p>
+<ul>
+<li>Exists (default): Validates if an element exists. Generates a success condition if the element in the path exist, and a fail condition if it doesn't exist. </li>
+<li>Not exists: Opposite to Exists. Generates a fail condition if the element in the path exist, and a success condition if it doesn't exist. </li>
+<li>Dynamic Exist: ????</li>
+<li>innerText: Used to do String comparisons of the innerText content of the element. Generates a success condition if match, a fail condition on mis-match and an error condition if element don't exist. </li>
+<li>Input value: Used to do String comparisons of an input box. Generates a success condition if match, a fail condition on mis-match and an error condition if element don't exist. </li>
+<li>Is Enabled: Check if an element is enabled. Generates a success condition if element is enabled,  a fail condition if element is disabled, and error if element don't exist. </li>
+<li>Is Disabled: Opposite of Is Enabled. Generates a fail condition if element is enabled,  a success condition if element is disabled, and error if element don't exist. </li>
+<li>Is Checked: Checks if a checkbox is checked. Generates success if element is checked, fail if element is unchecked, and error if element doesn't exist. </li>
+<li>Screenshot: Does a pixel-by-pixel comparison of an image. After an element has been selected, a checksum is generated of the image content. This action will generate success if an identical image is found at the element location and fail otherwise. Error will be generated if element doesn´t exist. </li>
+<li>Data: Check an element if it contains a set of data. The data expectation can contain several data entries. Generates success if all data is found in any order, fail if any data is missingm and error if element doesn't exist. Powerful to check if a table or list have a certain data entry. </li>
+<li>Script: Write custom validation using Javascript. Generates success if true is returned and fail is false is returned.</li>
+<li>Request/Reponse (API): Does a validation on an API end-point. See section for API testing. </li>
+</ul>
+<p>As you can see, a lot of these commands have three expected results: Success, Fail, and Error. Note how Exists and Not Exists should only be able to return Success or Fail.</p>
+<p><strong>Compare</strong></p>
+<p>This is the comparison operator. The following operators are self-explanatory</p>
+<ul>
+<li>Equals (==) and Not Equals (!=).</li>
+<li>Greater-than (<code>&gt;</code>), Greater-than-or-equals <code>&gt;=</code>).</li>
+<li>Lesser-than (<code>&lt;</code>), Lesser-than-or-equals (<code>&lt;=</code>).</li>
+</ul>
+<p>and these are a bit more complex</p>
+<ul>
+<li>regex: Allows you to put a regular expression in the Expectation field</li>
+<li>Include: Checks for any occurences of a String. Generates success if it founds it.  </li>
+<li>Exclude: Opposite of Include. Checks for any occurences of a String, and generates fail if it founds it.  </li>
+</ul>
+<p><strong>Expectation</strong></p>
+<p>This is the comparison value to use. This could be a string or regular expression (in the case of the regex operator). </p>
+<p><em>Advanced (accessible from kebab menu)</em></p>
+<p><img src="images/match.png" alt="match" /></p>
+<p>This is used to pre-process a validation this is useful when filtering out dynamic data. </p>
+<p>Imagine the following example: </p>
+<pre><code class="language-html">&lt;div&gt;
+  The date is 2019-09-12 and I'm feeling good.
+&lt;/div&gt;</code></pre>
+<p>In this case, it would be desirable to validate the message itself and that any date is shown. By setting <code>Match</code>to <code>^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\\d\\d(?:,)$</code> and <code>Replacement String</code> to <code>YYYY-MM-DD</code>, the resulting validation can be done using equalsm like</p>
+<pre><code class="language-html">&lt;div&gt;
+  The date is YYYY-MM-DD and I'm feeling good.
+&lt;/div&gt; </code></pre>
 <p><strong>Javascript validations</strong></p>
 <p>The default validation is HTML validation. By changing the method to &quot;Script&quot;, you can directly do validations using Javascript. The Javascript function is written in the standard Boozang format</p>
 <p><code>(function(){ //return true/false; })()</code></p>
 <p>and must return true or false. If an element has been picked with the DOM picker this will be available using the handle <code>$element</code>. Standard data handles, such as <code>$project</code>, <code>$module</code>, and <code>$test</code> will also be available, as well as the test window handles <code>$TW</code>. For more information about data see <a href="/doc/data.html">data</a> section. </p>
 <h3 id="extract-data">Extract data</h3>
 <p>Note: For API versions of these actions check the API section. </p>
-<p><img src="images/action-extract.png" alt="example image" title="An exemplary image" /></p>
-<p><strong>Similarities with Validation</strong></p>
-<p>With Boozang it's possible to extract data from the application window. This is very similar to the Validation action, with the difference that the element extracted is copied into a data variable. Make sure to familiarize yourself with the Validation action before reading this section. </p>
-<p><strong>Introducing data</strong></p>
-<p>Start by defining a data variable in the data tab. For extraction, you typically want to use a property. The property can be defined on the project, module, and test level. Add it to the test level if the data will only be used in the test case. Add it on module level if the data will be used across different tests in the module, but not on different modules. Add it on the project level if it will be used globally. </p>
-<p><strong>Extracting data action</strong></p>
-<p>To add an extract data action, click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. </p>
+<p>This is used to extract data from the application window and put in a data vairable. </p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/extract-data.png" alt="extract-data" /></p>
+<p><strong>Default behavior</strong></p>
+<p>When you add an extract data actionm you'll be prompted to select something from the application window. As you can see from the example, data is extracted the following way</p>
+<pre><code class="language-javascript">$test.tmpValue=$element.innerText.trim()</code></pre>
+<p>This is just an example to help you along. If you have your own data variable, for instance <code>$project.myHappyData</code> you can simply replace the code in the <code>Extract Data</code> field.</p>
+<pre><code class="language-javascript">$project.myHappyData=$element.innerText.trim()</code></pre>
+<p><strong>Dynamic data and element selector</strong></p>
+<p>When selecting some data in a page that is dynamic, such as a database id or project name, it's important to pay special attention to the element. By defaultm Boozang natural language selectors will try and identify the element by the actual text, which would be changing, generating an element not found error. </p>
+<p>Here it is needed to click on &quot;Edit element&quot; icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, <code>tiger</code> is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute <code>class</code> which should be equal to <code>string1</code> (denoted with Javascript shorthand below as <code>.string1</code>). <img src="/Users/matsljunggren/Workspace/boozang-docs/images/extract-data-dom.png" alt="extract-data-dom" />t</p>
 <h3 id="javascript">Javascript</h3>
-<p><img src="images/action-javascript.png" alt="example image" title="An exemplary image" /></p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/javascript.png" alt="javascript" /></p>
 <p><strong>The Javascript action</strong></p>
 <p>Boozang also allows you to execute Javascript directly in the application. This can be very useful when trying to do more advanced things that aren't covered by the set of actions Boozang has out-of-the-box. </p>
-<p><strong>The handles</strong></p>
+<p><strong>Reference Data</strong></p>
 <p>When writing Javascript there are some particularities in Boozang that need to be respected. To access the application window, you will have to use the handle <code>$TW (test window)</code>. This means to be able to manipulate the application window document tree (DOM) the user needs to use <code>$TW.document</code>. When referencing the only document it references the Boozang tool window, not the application window.</p>
-<p><strong>Using data (variables)</strong></p>
 <p>In Boozang you can reference data directly in Javascript. To access data, use the handles <code>$project</code>, <code>$module</code>, or <code>$test</code>, depending on what level the data was added. For instance, to reference a username that was added on the module level, use <code>$module.username</code>. </p>
+<p><strong>Function</strong></p>
+<p>Boozang also supplies pre-made code snippets for the following common scenarios. </p>
+<ul>
+<li>Load page</li>
+<li>Browser back, Browser forward</li>
+<li>Scroll to Top, Scroll to Bottom, Scroll one page down and right, Scoll one page up and left</li>
+<li>Retrieve URL</li>
+</ul>
+<p>Use these as-ism or as starting points for you own custom Javascript commands. </p>
 <p><strong>Trouble-shooting</strong></p>
 <p>To troubleshoot the application it´s sometimes useful to add debugging code. For instance, to write the contents of the module-level data &quot;username&quot; use <code>console.log($module.username)</code> to write it to the tool window and <code>$TW.console.log($module.username)</code> to write it to the application window. You can use the Chrome developer tools to easily verify this.</p>
 <p><em>Tip: Avoid using <code>$TW.alert()</code> as Boozang interprets this as application popup windows and intercepts them.</em> </p>
 <h3 id="comment">Comment</h3>
-<p><img src="../images/action-comment.png" alt="example image" title="An exemplary image" /></p>
-<p><strong>Why comment?</strong></p>
+<p><strong><img src="/Users/matsljunggren/Workspace/boozang-docs/images/comment.png" alt="comment" />Why comment?</strong></p>
 <p>In a lot of cases, some errors can only be spotted by a human, such as a look &amp; feel bugs or poor choice of language. In this case, it´s very useful to be able to point this out and have a simple way for a team member on the receiving side being able to correct this. For these cases, we use the Comment action. </p>
 <p><strong>The Comment action</strong></p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/annotation.png" alt="annotation" /></p>
 <p>The comment actions add a comment, or annotation, to the application. To add a comment, click on the Plus icon and select Add Comment, and select the element in the application page to Comment. You can write directly into the Comment dialog on the application.</p>
 <p><strong>Running a test with comments</strong></p>
 <p>When running a test with comments, the test will execute and stop at the first comment. To go to the next comment, press play again and the test will continue executing until it finishes or hits the next comment. This is very useful when fixing look &amp; feel issues, as several issues can be recorded in the same test case. </p>
+<p><strong>Show selection for Pass/Fail</strong></p>
+<p>Sometimes it's nice to create a checklist for a manual tester to be guided through the application. You can use the Comment action to ask auestions to the user, and generate success or failure code based on user inputs. Simple click the &quot;Show selection for Pass/Fail&quot; to generate this kind of interactive comment. </p>
 <h3 id="refresh-windowload-page">Refresh window/Load page</h3>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/refresh.png" alt="refresh" /></p>
 <p>The refresh window/load page action is used to force a reload of the browser window. This can also be used to force loading a new page (meaning going to a new page without having to navigate to it). There is also an option to <strong>Clear Cookies</strong> and <strong>Clear Localstorage</strong>.</p>
 <p><strong>Note</strong>: There are security limitations for what a browser allows being deleted. For instance, the browser does not allow session cookies to be deleted, so this cannot be triggered by the Boozang tool.</p>
 <h3 id="visit-links">Visit Links</h3>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/visit-links.png" alt="visit-links" /></p>
 <p>The visit links action is used to automatically crawl a set of pages based on a navigation bar. To crawl a full navigation panel, such as side navigation or hamburger menu, select this in the <strong>Panel</strong> option. <strong>Target element</strong> defaults to &quot;A&quot; tags but can be changed using the DOM picker in case the navigation contains a different element than regular links. It's possible to execute a script before each click, but this can normally be left blank.</p>
 <p>For each click, it´s normal to call a test case. Use <strong>Goto Test Case</strong> to select a downstream test case. This test case will be called for each link in the selected navigation panel.</p>
 <h2 id="using-data">Using data</h2>
