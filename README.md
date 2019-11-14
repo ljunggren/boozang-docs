@@ -617,11 +617,17 @@ When a test is run and an action element cannot be found the AI test repair scre
 
 Actions are the steps that comprise a test case. This could be a mouse or keyword event, simulating a user action, or a validation (assertion) or even Javascript. There are also AI actions supported which are more elaborate actions such as "Visit Links" or "Form Fill".
 
+### Overview
+
+The following simple e
+
+
+
 ### Events
 
 There are three types of events supported in Boozang: Click, Keypress, and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See below list of events that will be generated for different recording scenarios.  
 
-- Click events: Generated when clicking buttons or page elements. Not generated when clicking inside a form or on a checkbox. 
+- Click events: Generated when clicking buttons or page elements. Not generated when clicking inside a form input, drop-down or on a checkbox. 
 - Change events: Generated when filling inputs in forms and clicking mouse, tab, or enter
 - Key events: Generated when pressing keys in special circumstances. 
 
@@ -645,9 +651,13 @@ The change event is used to record state change in forms and checkboxes. When fi
 
 `(John Doe)` or `($parameter.name)` or `($test.name)`
 
-If a checkbox is clicked, the `Value` will be set to 
+If a checkbox is clicked, the `value` attribue will be shown in the brackets. In the below example
 
+```html
+<input type="checkbox" name="vehicle2" value="Car"> 
+```
 
+the action will show `(car)` when being checked and blank string when being unchecked.
 
 **Key events**
 
@@ -671,7 +681,7 @@ The following content formats are supported
 
 - Exists (default): Validates if an element exists. It generates a success condition if the element in the path exists, and a fail condition if it doesn't exist. 
 - Not exists: Opposite to Exists. It generates a fail condition if the element in the path exist, and a success condition if it doesn't exist. 
-- Dynamic Exist: ????
+- Dynamic Exist: Uses the value of the expectation to determine what it runs. If expectation evaluates to `true`  Exists will execute, if `false`, Not Exists will execute. 
 - innerText: Used to do String comparisons of the innerText content of the element. It generates a success condition if match, a fail condition on mis-match and an error condition if element doesn't exist. 
 - Input value: Used to do String comparisons of an input box. It generates a success condition if match, a fail condition on mismatch and an error condition if element doesn't exist. 
 - Is Enabled: Check if an element is enabled. It generates a success condition if the element is enabled,  a fail condition if the element is disabled, and error if the element doesn't exist. 
@@ -716,13 +726,22 @@ Imagine the following example:
 </div>
 ```
 
-In this case, it would be desirable to validate the message itself and that any date is shown. By setting `Match` to `^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\\d\\d(?:,)$` and `Replacement String` to `YYYY-MM-DD`, the resulting validation can be done using equals, like
+In this case, it would be desirable to validate the message itself and that any date is shown, but not a specific date. By setting `Match` and `Replacement String` like
+
+```
+Match: ([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+Replacement string: YYYY-MM-DD
+```
+
+The expectation value for `Validation Equals`becomes
 
 ```html
 <div>
   The date is YYYY-MM-DD and I'm feeling good.
 </div> 
 ```
+
+This can also be used to make sure sensitive information doesn't end up in any reports or on the Cloud server.
 
 **Javascript validations**
 
@@ -761,9 +780,7 @@ $project.myHappyData=$element.innerText.trim()
 
 When selecting some data in a page that is dynamic, such as a database id or project name, it's important to pay special attention to the element. By defaultm Boozang natural language selectors will try and identify the element by the actual text, which would be changing, generating an element not found error. 
 
-Here it is needed to click on "Edit element" icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, `tiger` is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute `class` which should be equal to `string1` (denoted with Javascript shorthand below as `.string1`). ![extract-data-dom](images/extract-data-dom.png)t
-
- 
+Here it is needed to click on "Edit element" icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, `tiger` is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute `class` which should be equal to `string1` (denoted with Javascript shorthand below as `.string1`). ![extract-data-dom](images/extract-data-dom.png).
 
 ### Javascript
 

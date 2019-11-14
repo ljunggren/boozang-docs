@@ -380,10 +380,12 @@
 <h2 id="actions">Actions</h2>
 <p><img src="images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg" alt="glenn-carstens-peters-RLw-UC03Gwc-unsplash" /></p>
 <p>Actions are the steps that comprise a test case. This could be a mouse or keyword event, simulating a user action, or a validation (assertion) or even Javascript. There are also AI actions supported which are more elaborate actions such as &quot;Visit Links&quot; or &quot;Form Fill&quot;.</p>
+<h3 id="overview-1">Overview</h3>
+<p>The following simple e</p>
 <h3 id="events">Events</h3>
 <p>There are three types of events supported in Boozang: Click, Keypress, and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See below list of events that will be generated for different recording scenarios.  </p>
 <ul>
-<li>Click events: Generated when clicking buttons or page elements. Not generated when clicking inside a form or on a checkbox. </li>
+<li>Click events: Generated when clicking buttons or page elements. Not generated when clicking inside a form input, drop-down or on a checkbox. </li>
 <li>Change events: Generated when filling inputs in forms and clicking mouse, tab, or enter</li>
 <li>Key events: Generated when pressing keys in special circumstances. </li>
 </ul>
@@ -397,7 +399,9 @@
 <p><img src="images/event-change.png" alt="event-change" /></p>
 <p>The change event is used to record state change in forms and checkboxes. When filling a form field, the data will be shown in brackets, like</p>
 <p><code>(John Doe)</code> or <code>($parameter.name)</code> or <code>($test.name)</code></p>
-<p>If a checkbox is clicked, the <code>Value</code> will be set to </p>
+<p>If a checkbox is clicked, the <code>value</code> attribue will be shown in the brackets. In the below example</p>
+<pre><code class="language-html">&lt;input type="checkbox" name="vehicle2" value="Car"&gt; </code></pre>
+<p>the action will show <code>(car)</code> when being checked and blank string when being unchecked.</p>
 <p><strong>Key events</strong></p>
 <p><img src="images/event-key.png" alt="event-key" /></p>
 <p>This event corresponds to a keypress. This is captured in the recording for every time a key is pressed. The default recorded keypress is <code>Group</code> which will generate the following Javascript events: <code>keydown</code>, <code>keypress</code> and <code>keyup</code>, in that order. You can change the drop-down to generate a specific event only. </p>
@@ -411,7 +415,7 @@
 <ul>
 <li>Exists (default): Validates if an element exists. It generates a success condition if the element in the path exists, and a fail condition if it doesn't exist. </li>
 <li>Not exists: Opposite to Exists. It generates a fail condition if the element in the path exist, and a success condition if it doesn't exist. </li>
-<li>Dynamic Exist: ????</li>
+<li>Dynamic Exist: Uses the value of the expectation to determine what it runs. If expectation evaluates to <code>true</code>  Exists will execute, if <code>false</code>, Not Exists will execute. </li>
 <li>innerText: Used to do String comparisons of the innerText content of the element. It generates a success condition if match, a fail condition on mis-match and an error condition if element doesn't exist. </li>
 <li>Input value: Used to do String comparisons of an input box. It generates a success condition if match, a fail condition on mismatch and an error condition if element doesn't exist. </li>
 <li>Is Enabled: Check if an element is enabled. It generates a success condition if the element is enabled,  a fail condition if the element is disabled, and error if the element doesn't exist. </li>
@@ -445,10 +449,14 @@
 <pre><code class="language-html">&lt;div&gt;
   The date is 2019-09-12 and I'm feeling good.
 &lt;/div&gt;</code></pre>
-<p>In this case, it would be desirable to validate the message itself and that any date is shown. By setting <code>Match</code> to <code>^(0?[1-9]|[12][0-9]|3[01])[- /.](0?[1-9]|1[012])[- /.](19|20)\\d\\d(?:,)$</code> and <code>Replacement String</code> to <code>YYYY-MM-DD</code>, the resulting validation can be done using equals, like</p>
+<p>In this case, it would be desirable to validate the message itself and that any date is shown, but not a specific date. By setting <code>Match</code> and <code>Replacement String</code> like</p>
+<pre><code>Match: ([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+Replacement string: YYYY-MM-DD</code></pre>
+<p>The expectation value for <code>Validation Equals</code>becomes</p>
 <pre><code class="language-html">&lt;div&gt;
   The date is YYYY-MM-DD and I'm feeling good.
 &lt;/div&gt; </code></pre>
+<p>This can also be used to make sure sensitive information doesn't end up in any reports or on the Cloud server.</p>
 <p><strong>Javascript validations</strong></p>
 <p>The default validation is HTML validation. By changing the method to &quot;Script&quot;, you can directly do validations using Javascript. The Javascript function is written in the standard Boozang format</p>
 <p><code>(function(){ //return true/false; })()</code></p>
@@ -464,7 +472,7 @@
 <pre><code class="language-javascript">$project.myHappyData=$element.innerText.trim()</code></pre>
 <p><strong>Dynamic data and element selector</strong></p>
 <p>When selecting some data in a page that is dynamic, such as a database id or project name, it's important to pay special attention to the element. By defaultm Boozang natural language selectors will try and identify the element by the actual text, which would be changing, generating an element not found error. </p>
-<p>Here it is needed to click on &quot;Edit element&quot; icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, <code>tiger</code> is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute <code>class</code> which should be equal to <code>string1</code> (denoted with Javascript shorthand below as <code>.string1</code>). <img src="images/extract-data-dom.png" alt="extract-data-dom" />t</p>
+<p>Here it is needed to click on &quot;Edit element&quot; icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, <code>tiger</code> is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute <code>class</code> which should be equal to <code>string1</code> (denoted with Javascript shorthand below as <code>.string1</code>). <img src="images/extract-data-dom.png" alt="extract-data-dom" />.</p>
 <h3 id="javascript">Javascript</h3>
 <p><img src="images/javascript.png" alt="javascript" /></p>
 <p><strong>The Javascript action</strong></p>
