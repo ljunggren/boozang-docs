@@ -2111,7 +2111,7 @@ Filter
 
 As the first Sprint concludes the QA team is curious to see how much of the requirements are actually fulfilled. They start mapping out their tests. In Boozang it's quite straightforward. They notice that they can do the following mapping
 
-```Boozang link tests
+```Boozang
 a user visits the store -> Load front page
 a <product-name> is clicked on -> View Item
 the price should be <product_price> -> Validate Price
@@ -2164,7 +2164,7 @@ Then the cart should be empty
 
 They add the test `Check if cart empty` and do the following mapping
 
-```Boozang link tests
+```Boozang
 a user adds <product_name> to the cart -> Add Item to Cart
 the cart should contain <product_name> -> Check cart for product
 a user clears the cart -> Clear Cart
@@ -2192,7 +2192,7 @@ Checkout
 
 As the QA team has been less stressed, they complete the tests `isOnPaymentPage` and creates the aggregate test `Add product and checkout`  that aggregates previous tests created. The can now create the mappings
 
-```
+```Boozang
 a user is at the checkout page -> Add product and checkout
 the next step should be payment -> isOnPaymentPage
 ```
@@ -2226,7 +2226,7 @@ Payment
 
 The QA team can now complete all the feature tests. They create the following aggregate test `Add product, checkout and pay` and `Validate order completed` and do the following mapping
 
-```Boozang link tests
+```Boozang
 a user is at the payment page -> Add product, checkout and pay
 a user fills in his valid <credit_card> details -> Pay using credit card
 they should be able to complete the order -> Validate order completed

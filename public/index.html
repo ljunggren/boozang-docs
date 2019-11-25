@@ -1205,25 +1205,16 @@ Filter
     Unselect all filters()</code></pre>
 <p><strong>QA team</strong></p>
 <p>As the first Sprint concludes the QA team is curious to see how much of the requirements are actually fulfilled. They start mapping out their tests. In Boozang it's quite straightforward. They notice that they can do the following mapping</p>
-<p>```Boozang link tests
-a user visits the store -&gt; Load front page
-a <product-name> is clicked on -&gt; View Item
-the price should be <product_price> -&gt; Validate Price</p>
-<pre><code>
-They also notice that they are close to completing the first scenario, so they go ahead and record the a simple test that validates that the product details page is shown. They now have the full scenario for View Item running.
-
-**The project state **
-
-The project readiness can be seen in the Boozang report. 
-
-### Second sprint
-
-**Development team**
-
-Project is still on track and the development team have completed the second sprint. They have delivered according to plan the Search and Shopping Cart functionality. They have implemented the following tests
-
-```Boozang
-Cart
+<pre><code class="language-Boozang">a user visits the store -&gt; Load front page
+a &lt;product-name&gt; is clicked on -&gt; View Item
+the price should be &lt;product_price&gt; -&gt; Validate Price</code></pre>
+<p>They also notice that they are close to completing the first scenario, so they go ahead and record the a simple test that validates that the product details page is shown. They now have the full scenario for View Item running.</p>
+<p><strong>The project state </strong></p>
+<p>The project readiness can be seen in the Boozang report. </p>
+<h3 id="second-sprint">Second sprint</h3>
+<p><strong>Development team</strong></p>
+<p>Project is still on track and the development team have completed the second sprint. They have delivered according to plan the Search and Shopping Cart functionality. They have implemented the following tests</p>
+<pre><code class="language-Boozang">Cart
   Clear cart()
     Go to checkout()
     Validate price in Cart ({"price":"dummyPrice"})
@@ -1242,30 +1233,21 @@ Then the cart should contain &lt;product_name&gt;</code></pre>
 When a user clears the cart
 Then the cart should be empty</code></pre>
 <p>They add the test <code>Check if cart empty</code> and do the following mapping</p>
-<p>```Boozang link tests
-a user adds <product_name> to the cart -&gt; Add Item to Cart
-the cart should contain <product_name> -&gt; Check cart for product
+<pre><code class="language-Boozang">a user adds &lt;product_name&gt; to the cart -&gt; Add Item to Cart
+the cart should contain &lt;product_name&gt; -&gt; Check cart for product
 a user clears the cart -&gt; Clear Cart
-the cart should be empty -&gt; Check if cart empty</p>
-<pre><code>
-**The project state **
-
-The project readiness can be seen from the Boozang report. 
-
-...
-
-### Third Sprint
-
-**Development team**
-
-In the third Sprint the devlopment team is off-track due to critical bugs in a different project. They only manages to implement the Checkout portion. They complete the following tests
-
-```Boozang
-Checkout
+the cart should be empty -&gt; Check if cart empty</code></pre>
+<p><strong>The project state </strong></p>
+<p>The project readiness can be seen from the Boozang report. </p>
+<p>...</p>
+<h3 id="third-sprint">Third Sprint</h3>
+<p><strong>Development team</strong></p>
+<p>In the third Sprint the devlopment team is off-track due to critical bugs in a different project. They only manages to implement the Checkout portion. They complete the following tests</p>
+<pre><code class="language-Boozang">Checkout
     Fill user details</code></pre>
 <p><strong>QA team</strong></p>
 <p>As the QA team has been less stressed, they complete the tests <code>isOnPaymentPage</code> and creates the aggregate test <code>Add product and checkout</code>  that aggregates previous tests created. The can now create the mappings</p>
-<pre><code>a user is at the checkout page -&gt; Add product and checkout
+<pre><code class="language-Boozang">a user is at the checkout page -&gt; Add product and checkout
 the next step should be payment -&gt; isOnPaymentPage</code></pre>
 <p>They can now complete the following scenario.</p>
 <p>Checkout: Filling user details</p>
@@ -1281,17 +1263,12 @@ Then the next step should be payment</code></pre>
     - Pay using credit card({"card": "dummyCard"})</code></pre>
 <p><strong>QA team</strong></p>
 <p>The QA team can now complete all the feature tests. They create the following aggregate test <code>Add product, checkout and pay</code> and <code>Validate order completed</code> and do the following mapping</p>
-<p>```Boozang link tests
-a user is at the payment page -&gt; Add product, checkout and pay
-a user fills in his valid <credit_card> details -&gt; Pay using credit card
-they should be able to complete the order -&gt; Validate order completed</p>
-<pre><code>
-They now have the last scenario completed 
-
-Payment: Paying for the goods
-
-```gherkin
-Given a user is at the payment page
+<pre><code class="language-Boozang">a user is at the payment page -&gt; Add product, checkout and pay
+a user fills in his valid &lt;credit_card&gt; details -&gt; Pay using credit card
+they should be able to complete the order -&gt; Validate order completed</code></pre>
+<p>They now have the last scenario completed </p>
+<p>Payment: Paying for the goods</p>
+<pre><code class="language-gherkin">Given a user is at the payment page
 When a user fills in his valid &lt;credit_card&gt; details
 Then they should be able to complete the order</code></pre>
 <p><strong>Project status</strong></p>
