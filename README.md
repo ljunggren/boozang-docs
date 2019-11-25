@@ -2117,6 +2117,8 @@ a <product-name> is clicked on -> View Item
 the price should be <product_price> -> Validate Price
 ```
 
+
+
 They also notice that they are close to completing the first scenario, so they go ahead and record the a simple test that validates that the product details page is shown. They now have the full scenario for View Item running.
 
 **The project state **
