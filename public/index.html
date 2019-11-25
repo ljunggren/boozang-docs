@@ -1071,6 +1071,287 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
 <p>Long-term we will expand our reporting capability and business intelligence functions. As we expose our reports in both JSON and HTML, and fully support integration over REST or via our test-runner (DIY), we are welcoming you to integrate into your Business Intelligence system of choice, and for you to see Boozang as one source of insights among many.</p>
 <p><strong>Frequent Maintenance Releases</strong></p>
 <p>We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this time-slot works for both European and American customers, and amounts to a maximum of 30 seconds of service down-time). This means that we generally can provide less than a one-week turnaround on bugs reported by our customers.</p>
+<h1 id="example-an-e-commerce-project">Example: An E-commerce project</h1>
+<h2 id="introduction">Introduction</h2>
+<p>In this example, we will illustrate how to automate a simple E-commerce application using Boozang. We will use Cucumber syntax to define the acceptance tests first, then show how to structure the automated tests in Boozang.</p>
+<p>The shop can be found at: <a href="http://shopnx.boozang.com">http://shopnx.boozang.com</a> </p>
+<h2 id="project-shopnx">Project: ShopNX</h2>
+<p>ShopNX is a clothing shop that sells various clothes. Browsing around in the shop briefly, you can see that it's fairly high-end as prices are not cheap. In the main storefront, there are several filters for brand, price, etc. and there is also a search function. For each clothing article, you can either add it directly to the shopping cart or click into the shopping cart for more details. </p>
+<p>Of course, this site has not been built yet. Imagine that we are just at the beginning of the project, planning out the work in order to build this E-commerce application. </p>
+<h3 id="the-team">The team</h3>
+<p>Our team consist of development resources and quality assurance analysts. There is also a product owner that fills the role of the customer, and tracks the progress of the project. Even thought the team collaborates well, development and quality assurance work is still considered different tasks, because of the different skillsets required. They have used Cucumber in the past, programming automated tests in Selenium. For this project, they have chosen to use Boozang as it allows the quality assurance analysts to contribute to the test automation without adding work-load to the development team. </p>
+<h3 id="requirements">Requirements</h3>
+<p>From the product owner, we have received a set of requirements for a set of features. Our business analysts have then written scenarios in Cucumber/Gherkin syntax. It's just the beginning of the project so nothing has been implemented yet. Still, it's a good idea to finalize the acceptance criteria early on in the true BDD/TDD spirit. This will help our development team to stay focused and avoid any unnecessary work. </p>
+<p>Here is a breakdown of the features</p>
+<ul>
+<li>Storefront: The main view where you shop for clothes</li>
+<li>Filters: The filter functionality where we can filter on different tags</li>
+<li>Search: Allows you to search the inventory</li>
+<li>Cart: Allows users to purchase items</li>
+<li>Checkout: The checkout secured inventory and takes down customer information</li>
+<li>Payment: Processes the payment</li>
+</ul>
+<h3 id="the-project-plan">The project plan</h3>
+<p>The team follows and Agile methodology, but as there is very limited time to complete the project, the timeline is fairly aggressive. See preliminary plan below:</p>
+<ul>
+<li>Sprint 0: Planning</li>
+<li>Sprint 1: Storefront and filters completed</li>
+<li>Sprint 2: Cart and search completed</li>
+<li>Sprint 3: Checkout and payment completed</li>
+</ul>
+<h2 id="gherkin-scenarios">Gherkin Scenarios</h2>
+<p>Here is a list of scenarios that needs to be tested. </p>
+<p><strong>Storefront:  View item</strong></p>
+<pre><code class="language-gherkin">Given a user visit the site
+When a &lt;product-name&gt; is clicked on
+Then then the product details page should be shown
+And the price should be &lt;product_price&gt;</code></pre>
+<p><strong>Storefront: Add to cart</strong></p>
+<pre><code class="language-gherkin">Given a user visits the store
+When a user adds &lt;product_name&gt; to the cart
+Then the cart should contain &lt;product_name&gt;</code></pre>
+<p><strong>Cart: Clear cart</strong></p>
+<pre><code class="language-gherkin">Given a user has an item in the cart
+When a user clears the cart
+Then the cart should be empty</code></pre>
+<p><strong>Checkout: Filling user details</strong></p>
+<pre><code class="language-gherkin">Given a user is at the checkout page
+When a user fills in their details
+Then the next step should be payment</code></pre>
+<p><strong>Payment: Paying for the goods</strong></p>
+<pre><code class="language-gherkin">Given a user is at the payment page
+When a user fills in his valid &lt;credit_card&gt; details
+Then they should be able to complete the order</code></pre>
+<h2 id="importing-features-in-boozang">Importing features in Boozang</h2>
+<p><strong>Why import early?</strong></p>
+<p>Even though no implementation work has been done yet, these scenarios can be imported in Boozang. Actually, it's recommended that these are imported as soon as they have been created. This will allow for the following benefits</p>
+<ul>
+<li>Find possible mistakes in the Gherkin syntax</li>
+<li>Discover missing scenarios early</li>
+<li>Create executable requirement spec for development team</li>
+<li>Align business stakeholders</li>
+<li>Prepare CI integration</li>
+</ul>
+<p><strong>Doing the import</strong></p>
+<p>Below you can find the view in Boozang after the import.</p>
+<p>...</p>
+<p><strong>Running the report</strong></p>
+<p>You can also go ahead and run the features, even if they are not implemented. As you can see, the error message &quot;Not implemented&quot; is shown for each test step. You can even go as far as setting up the test job on your CI server and configure email notifications. This way the whole team will get notified fom the beginning what wok needs to be done, and can track the progress from beginning to end. This is also a way to keep business stakeholders up-to-date, and reduce reporting overhead. </p>
+<p>...</p>
+<h2 id="implementing-the-tests">Implementing the tests</h2>
+<h3 id="creating-the-project-modules">Creating the project modules</h3>
+<p>Before implementation starts, you can go ahead and structure the project into modules. This is an art, not a science, and require a lot of practice to get right. The rule-of-thumb is to follow the modular structure of the code, not the business requirements. The key here is re-use, and as the features are often driven by customer or business stakeholders, these are not always the best people to determine how the tests should be structured. In this particular example, the feature list is pretty well aligned with the implementation details. So for simplicity, I have used the same module structure as feature structure. Note that this is not the common case.</p>
+<p>We have the following modules:</p>
+<ul>
+<li>Storefront: The main view where you shop for clothes</li>
+<li>Filters: The filter functionality where we can filter on different tags</li>
+<li>Search: Allows you to search the inventory</li>
+<li>Cart: Allows users to purchase items</li>
+<li>Checkout: The checkout secured inventory and takes down customer information</li>
+<li>Payment: Processes the payment</li>
+</ul>
+<p>You can see them in Boozang in below picture. </p>
+<p>...</p>
+<h3 id="setting-up-the-data">Setting up the data</h3>
+<p><strong>Project, module and test scope</strong></p>
+<p>Just as you can start creating the modules even before there is no implementation work started, you can also start defining all the data. The key to choose the right scope for the data. Normally, use the <code>$project</code> scope for data that is used by all the modules, <code>$module</code> scope for data used within a module, and <code>$test</code>scope for local data for the test. </p>
+<p><strong>The parameter scope</strong></p>
+<p>The <code>$parameter</code>scope can be used in two ways. Either use it to control all the data running in a test. This makes the tests really flexible, but sometimes a little heavy on the parameter side. This means that there might be a tendency to create large example sets in the Gherkin scenarios, which sometimes isn't desirable. You can also use the parameter scope to control which set of test data should be loaded. This makes the test light on the parameter side, but means you'll need to keep maintaining data sets for modules and tests, which has it's own drawbacks. Below is an illustration of both examples</p>
+<p><strong>Payment: Paying for the goods - parameter light version</strong></p>
+<pre><code class="language-gherkin">Given a user is at the payment page
+When a user fills in his valid &lt;credit_card&gt; details
+Then they should be able to complete the order
+
+Examples:
+|credit_card|
+|VISA       |
+|Mastercard |</code></pre>
+<p><strong>Payment: Paying for the goods - parameter heavy version</strong></p>
+<pre><code class="language-gherkin">Given a user is at the payment page
+When a user selects &lt;credit_card&gt;
+and fills in his &lt;card_number&gt;, &lt;valid_date&gt; and &lt;ccv&gt;
+Then they should be able to complete the order
+
+Examples:
+|credit_card|valid_date|ccv|
+|VISA       |11/21     |991|
+|Mastercard |10/22     |133|</code></pre>
+<p>Normally, both these version are acceptable, and depends how much the data mangement should be done on the Gherkin side. In this example we will use a parameter-light version, which keeps our Gherkin language short and clean, and where example data management is taken care of on the code domain, rather than the business domain. </p>
+<p>Note: One potential benefit of the parameter-light version is when example data is available in CSV files. Instead of replicating this data in the scenarios, these can be loaded dynamically by Boozang in run-time.</p>
+<h3 id="the-data-breakdown">The data breakdown</h3>
+<p>Opting for the parameter-light approach, we are ready to introduce the example data for our ShopNX project. We have decided on the following data</p>
+<p><strong>Project scope</strong>: <code>$project.products</code>[matrix data]</p>
+<p>The <code>products</code> data contains a list of test products that should alays be available in our test system. It contains information, such as the product name, if the product is available, and the price. As we might have a large set of products, we should chose matrix or CSV data. In order to easily retrive the data we have opted for matrix data.</p>
+<p><strong>Module scope: Checkout</strong> <code>$module.validCustomer</code>[json data], <code>$module.invalidCustomer</code>[json data],</p>
+<p>The <code>customer</code> data contains all the data about the customer, such as name and address. We have chosen to use JSON data as we only have a few customer accounts that we run tests on. </p>
+<p><strong>Module scope</strong>: Payment <code>$module.creditCard</code>[matrix data]</p>
+<p>The <code>creditCard</code> data contains all the credit card information, such as card number, valid, and CVV. We have chosen matrix data to be able to easily maintain a large set of test credit cards.</p>
+<p>Below you can see an example of the <code>$project.products</code>data</p>
+<p>...</p>
+<h2 id="implementing-the-tests-1">Implementing the tests</h2>
+<h3 id="checklist">Checklist</h3>
+<p>We have now completed all the work that can be done pre-implementation. If everything has been done right, we have a set of test cases that will run on our CI server, maybe nightly, sending out notifications to the whole team, product owners and business stakeholders, of all the work that remains to be done. As you can imagine, these reports can crowd the mailbox, so it's recommended to use a rule to send them to a special folder. Regardless, with our without email notifications, there is now a single point of truth describing the project readiness. </p>
+<h3 id="first-sprint">First sprint</h3>
+<p><strong>Development team</strong></p>
+<p>The first sprint has been completed and the project is on track. The devlopment team has already developed the Storefront and Filters. As part of the defintion of done, the development team has committed to create unit-tests in Boozang that tests the functionality. The create the following tests ($parameters are in parenthesis and are all JSON objects)</p>
+<pre><code class="language-Boozang">Storefront
+  Load storefront
+    View Item({"itemName": "dummyData"})
+    Validate Price({"itemName": "dummyData", "price": "dummyPrice"})
+    Add Item to Cart({"itemName": "dummyData"})
+Filter
+    FilterByBrand({"brand": "dummyData"})
+    FilterByType({"brand": "dummyData"})
+    Unselect all filters()</code></pre>
+<p><strong>QA team</strong></p>
+<p>As the first Sprint concludes the QA team is curious to see how much of the requirements are actually fulfilled. They start mapping out their tests. In Boozang it's quite straightforward. They notice that they can do the following mapping</p>
+<p>```Boozang link tests
+a user visits the store -&gt; Load front page
+a <product-name> is clicked on -&gt; View Item
+the price should be <product_price> -&gt; Validate Price</p>
+<pre><code>
+They also notice that they are close to completing the first scenario, so they go ahead and record the a simple test that validates that the product details page is shown. They now have the full scenario for View Item running.
+
+**The project state **
+
+The project readiness can be seen in the Boozang report. 
+
+### Second sprint
+
+**Development team**
+
+Project is still on track and the development team have completed the second sprint. They have delivered according to plan the Search and Shopping Cart functionality. They have implemented the following tests
+
+```Boozang
+Cart
+  Clear cart()
+    Go to checkout()
+    Validate price in Cart ({"price":"dummyPrice"})
+    Check cart for product ({"productName":"dummyName"})
+Search
+    Search by product name({"name": "dummyName"})
+    ValidateSearchResult({"name": "dummyName"})</code></pre>
+<p><strong>QA team</strong></p>
+<p>The QA team now sees more scenarios has been unlocked and aims to complete the following scenarios. </p>
+<p>Storefront: Add to cart</p>
+<pre><code class="language-gherkin">Given a user visits the store
+When a user adds &lt;product_name&gt; to the cart
+Then the cart should contain &lt;product_name&gt;</code></pre>
+<p>Cart: Clear cart</p>
+<pre><code class="language-gherkin">Given a user has an item in the cart
+When a user clears the cart
+Then the cart should be empty</code></pre>
+<p>They add the test <code>Check if cart empty</code> and do the following mapping</p>
+<p>```Boozang link tests
+a user adds <product_name> to the cart -&gt; Add Item to Cart
+the cart should contain <product_name> -&gt; Check cart for product
+a user clears the cart -&gt; Clear Cart
+the cart should be empty -&gt; Check if cart empty</p>
+<pre><code>
+**The project state **
+
+The project readiness can be seen from the Boozang report. 
+
+...
+
+### Third Sprint
+
+**Development team**
+
+In the third Sprint the devlopment team is off-track due to critical bugs in a different project. They only manages to implement the Checkout portion. They complete the following tests
+
+```Boozang
+Checkout
+    Fill user details</code></pre>
+<p><strong>QA team</strong></p>
+<p>As the QA team has been less stressed, they complete the tests <code>isOnPaymentPage</code> and creates the aggregate test <code>Add product and checkout</code> that aggregates previous tests created. The can now create the mappings</p>
+<pre><code>a user is at the checkout page -&gt; Add product and checkout
+the next step should be payment -&gt; isOnPaymentPage</code></pre>
+<p>They can now complete the following scenario.</p>
+<p>Checkout: Filling user details</p>
+<pre><code class="language-gherkin">Given a user is at the checkout page
+When a user fills in their details
+Then the next step should be payment</code></pre>
+<p><strong>Report</strong></p>
+<p>The project readiness can be seen in the project report</p>
+<h3 id="fourth-sprint">Fourth Sprint</h3>
+<p><strong>Development team</strong></p>
+<p>In the forth sprint the development team completes the <em>Payment</em> feature as expected. They complete the following tests</p>
+<pre><code class="language-Boozang">Payment
+    - Pay using credit card({"card": "dummyCard"})</code></pre>
+<p><strong>QA team</strong></p>
+<p>The QA team can now complete all the feature tests. They create the folowing aggregate test <code>Add product, checkout and pay</code> and <code>Validate order completed</code> and do the following mapping</p>
+<p>```Boozang link tests
+a user is at the payment page -&gt; Add product, checkout and pay
+a user fills in his valid <credit_card> details -&gt; Pay using credit card
+they should be able to complete the order -&gt; Validate order completed</p>
+<pre><code>
+They now have the last scenario completed 
+
+Payment: Paying for the goods
+
+```gherkin
+Given a user is at the payment page
+When a user fills in his valid &lt;credit_card&gt; details
+Then they should be able to complete the order</code></pre>
+<p><strong>Project status</strong></p>
+<p>The project readiness is reflected in the report. You can now see that all tests have passed and that all the requirements have been satisfied. </p>
+<h3 id="retrospect">Retrospect</h3>
+<p>In the project retrospect, the development team, QA team,  and other project stakeholders all meet and discuss what worked well and what needs to be improved.  </p>
+<h2 id="a-note-on-test-aggregation">A note on test aggregation</h2>
+<p>As you see in our example, the test aggregation was made on test level. It's also perfectly fine to keep the test steps indivifdually in the Gherkin domain. The following test</p>
+<p><strong>Payment: Paying for the goods</strong></p>
+<pre><code class="language-gherkin">Given a user is at the payment page
+When a user fills in his valid &lt;credit_card&gt; details
+Then they should be able to complete the order</code></pre>
+<p>could be re-written in the following way</p>
+<p><strong>Payment: Paying for the goods</strong></p>
+<pre><code class="language-gherkin">Given a user visits the store
+When a user adds &lt;product_name&gt; to the cart
+And a user fills in their details
+And a user fills in his valid &lt;credit_card&gt; details
+Then they should be able to complete the order</code></pre>
+<p>This is perfectly fine and up to each team to decide which way works best. </p>
+<h2 id="a-note-on-multiple-whenthen">A note on multiple When/Then</h2>
+<p>Boozang also supports multiple When/Then conditions. This syntax runs perfectly fine in Boozang</p>
+<p><strong>Payment: Paying for the goods</strong></p>
+<pre><code class="language-gherkin">Given a user visits the store
+When a user adds &lt;product_name&gt; to the cart
+Then the cart should contain &lt;product_name&gt;
+When a user fills in their details 
+And a user fills in his valid &lt;credit_card&gt; details
+Then they should be able to complete the order</code></pre>
+<p>Using multiple When/Then statements is up to each team. An argument for keeping the singular structure (Given, When, Then) is that the Gherkin Scenario should be focused on testing a singular aspect of the system. On the other hand, there are benefits with the other approach. For instance, for systems with long setup times (Given conditions are taking long to execute) total test execution time can be greatly reduced by using multiple When-Then conditions. There will also be less housekeeping as less scenarios needs to be maintained. </p>
+<h2 id="a-note-on-data-states">A note on data states</h2>
+<p>All tests in our example were written with &quot;stateless&quot; Cucumber steps. That means that the outcome of a test step wasn't determined by any hidden data set by a previous step. This was done to simplify the example. Let's look at a slightly different way to write the Gherkin syntax, were we will introduce data states in Boozang. Look at the following scenario</p>
+<p><strong>Order: Email order reciept</strong></p>
+<pre><code class="language-gherkin">Given a &lt;user&gt; visits the store
+When adds &lt;product_name&gt; to the cart
+And fills in their details
+And fills in his valid &lt;credit_card&gt; details
+Then they should be able to complete the order
+and a receipt should be printed with the correct details</code></pre>
+<p>This might seem straightforward at first, but in the last step we have actually introduced an data state dependency between the test steps. The <code>user details</code>being referred to is not maintained as Gherkin example code and must therefore be transmitted between the steps. There are several ways of doing this. The simplest way would be to introduce the project-scope data <code>currenUser</code>that would be used always. The first test step would seed the test, and determine the user data for any following tests. Here is an example how that might look</p>
+<pre><code class="language-Boozang">Initialize test data({"user":"dummyUserName"})
+Validate receipt()</code></pre>
+<p>The initialize test data would have a matrix data structure that takes the username and seeds the data on the project level. This would look as follows</p>
+<pre><code class="language-javascript">$project.currentUser = $test.allUsers[$parameter.user]</code></pre>
+<p>See example in Boozang below:</p>
+<p>...</p>
+<h2 id="conclusion">Conclusion</h2>
+<h3 id="checklist-1">Checklist</h3>
+<p>Here are the different activities that were done for each Sprint</p>
+<ul>
+<li>Sprint 0: Analyze requirements (QA), Write feature scenarios (QA), Create a module structure (devs), Create test data (devs)</li>
+<li>Sprint 1: Implement filters and storefront (devs), Automate testing for filters and storefront (QA)</li>
+<li>Sprint 2: Implement cart and search (devs), Automate testing for cart (QA)</li>
+<li>Sprint 3: Implement checkout (devs), Automate testing for checkout (QA)</li>
+<li>Sprint 4: Implement payment (devs) Automate testing for payment (QA)</li>
+<li>Retrospect: Discuss improvements (Devs, QA, other stakeholders)</li>
+</ul>
+<h3 id="benefits">Benefits</h3>
+<p>Even if this was a somewhat simplified and idealized project outline, it highlights some important benefits with this approach. As you can see, a lot of work can be done by the QA team early on. This avoids the problem where QA efforts needs to be ramped up towards the end of the project. It also avoids mis-alignment where developers deliver what wasn't expected by the business stakeholders.</p>
+<hr />
 <p>Copyright (c) 2019 Boozang Technologies Inc.</p>
 <!-- CONTENT END -->
 
