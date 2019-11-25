@@ -2026,11 +2026,11 @@ You can see them in Boozang in below picture.
 
 **Project, module and test scope**
 
-Just as you can start creating the modules even before there is no implementation work started, you can also start defining all the data. The key to choose the right scope for the data. Normally, use the `$project` scope for data that is used by all the modules, `$module` scope for data used within a module, and `$test`scope for local data for the test. 
+Just as you can start creating the modules even before there is no implementation work started, you can also start defining all the data. The key to choose the right scope for the data. Normally, use the `$project` scope for data that is used by all the modules, `$module` scope for data used within a module, and `$test` scope for local data for the test. 
 
 **The parameter scope**
 
-The `$parameter`scope can be used in two ways. Either use it to control all the data running in a test. This makes the tests really flexible, but sometimes a little heavy on the parameter side. This means that there might be a tendency to create large example sets in the Gherkin scenarios, which sometimes isn't desirable. You can also use the parameter scope to control which set of test data should be loaded. This makes the test light on the parameter side, but means you'll need to keep maintaining data sets for modules and tests, which has it's own drawbacks. Below is an illustration of both examples
+The `$parameter` scope can be used in two ways. Either use it to control all the data running in a test. This makes the tests really flexible, but sometimes a little heavy on the parameter side. This means that there might be a tendency to create large example sets in the Gherkin scenarios, which sometimes isn't desirable. You can also use the parameter scope to control which set of test data should be loaded. This makes the test light on the parameter side, but means you'll need to keep maintaining data sets for modules and tests, which has its own drawbacks. Below is an illustration of both examples
 
 **Payment: Paying for the goods - parameter light version**
 
@@ -2067,19 +2067,19 @@ Note: One potential benefit of the parameter-light version is when example data 
 
 Opting for the parameter-light approach, we are ready to introduce the example data for our ShopNX project. We have decided on the following data
 
-**Project scope**: `$project.products`[matrix data]
+**Project scope**: `$project.products` [matrix data]
 
 The `products` data contains a list of test products that should alays be available in our test system. It contains information, such as the product name, if the product is available, and the price. As we might have a large set of products, we should chose matrix or CSV data. In order to easily retrive the data we have opted for matrix data.
 
-**Module scope: Checkout** `$module.validCustomer`[json data], `$module.invalidCustomer`[json data],
+**Module scope: Checkout** `$module.validCustomer` [json data], `$module.invalidCustomer` [json data],
 
 The `customer` data contains all the data about the customer, such as name and address. We have chosen to use JSON data as we only have a few customer accounts that we run tests on. 
 
-**Module scope**: Payment `$module.creditCard`[matrix data]
+**Module scope**: Payment `$module.creditCard` [matrix data]
 
 The `creditCard` data contains all the credit card information, such as card number, valid, and CVV. We have chosen matrix data to be able to easily maintain a large set of test credit cards.
 
-Below you can see an example of the `$project.products`data
+Below you can see an example of the `$project.products` data
 
 ...
 
@@ -2093,7 +2093,7 @@ We have now completed all the work that can be done pre-implementation. If every
 
 **Development team**
 
-The first sprint has been completed and the project is on track. The devlopment team has already developed the Storefront and Filters. As part of the defintion of done, the development team has committed to create unit-tests in Boozang that tests the functionality. The create the following tests ($parameters are in parenthesis and are all JSON objects)
+The first sprint has been completed and the project is on track. The devlopment team has already developed the Storefront and Filters. As part of the defintion of done, the development team has committed to create unit-tests in Boozang that tests the functionality. The create the following tests (parameters are in parenthesis and are all JSON objects)
 
 ```Boozang
 Storefront
@@ -2188,7 +2188,7 @@ Checkout
 
 **QA team**
 
-As the QA team has been less stressed, they complete the tests `isOnPaymentPage` and creates the aggregate test `Add product and checkout ` that aggregates previous tests created. The can now create the mappings
+As the QA team has been less stressed, they complete the tests `isOnPaymentPage` and creates the aggregate test `Add product and checkout`  that aggregates previous tests created. The can now create the mappings
 
 ```
 a user is at the checkout page -> Add product and checkout
@@ -2222,7 +2222,7 @@ Payment
 
 **QA team**
 
-The QA team can now complete all the feature tests. They create the folowing aggregate test `Add product, checkout and pay` and `Validate order completed` and do the following mapping
+The QA team can now complete all the feature tests. They create the following aggregate test `Add product, checkout and pay` and `Validate order completed` and do the following mapping
 
 ```Boozang link tests
 a user is at the payment page -> Add product, checkout and pay
@@ -2306,7 +2306,7 @@ Then they should be able to complete the order
 and a receipt should be printed with the correct details
 ```
 
-This might seem straightforward at first, but in the last step we have actually introduced an data state dependency between the test steps. The `user details`being referred to is not maintained as Gherkin example code and must therefore be transmitted between the steps. There are several ways of doing this. The simplest way would be to introduce the project-scope data `currenUser`that would be used always. The first test step would seed the test, and determine the user data for any following tests. Here is an example how that might look
+This might seem straightforward at first, but in the last step we have actually introduced an data state dependency between the test steps. The `user details` being referred to is not maintained as Gherkin example code and must therefore be transmitted between the steps. There are several ways of doing this. The simplest way would be to introduce the project-scope data `currenUser` that would be used always. The first test step would seed the test, and determine the user data for any following tests. Here is an example how that might look
 
 ```Boozang
 Initialize test data({"user":"dummyUserName"})
