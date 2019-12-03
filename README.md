@@ -1894,6 +1894,100 @@ We do nightly maintenance releases frequently, sometimes as often as once per we
 
 
 
+# Testing patterns and anti-patterns
+
+## Introduction
+
+In programming we sometimes talk about design patterns. The idea of a design pattern is a recipe to solve a particular problem. Any given problem in programming can have many solution candidates. The design pattern therefore helps guide the user to the simplest and best possible solution to a problem. That's why following design patterns doesn't only show you the way to solve a given problem, it also conveys a best-practice. There are many reason to follow best-practice solutions. Here are a few:
+
+- Following documented processes increase code readability and collaboration in development teams
+- Design pattern solutions are often performant
+- Versatility: Code built with design patterns are usually easier to update when a problem changes
+
+## Testing patterns
+
+We are therefore trying to do the same work for test automation, string a particular automation problem and providing an example template on how to solve it using Boozang. As there are not much literature around this to lean on, this will be a work-in-progress. 
+
+## Conditional Patterns
+
+Conditional patterns deals with decision making.
+
+### If pattern
+
+The if pattern is the standard conditional pattern from programming that involves doing an action if a condition is met. In test automation this involves a validation (or assertion). In Boozang this can be implemented in two ways
+
+- Using a validation exit condition
+- Using a group with an exit group condition
+
+### If-else pattern
+
+The if-else condition is like the if pattern, except that when a condition isn't met, an alternative action is triggered. This is done by using two group: an if group followed by an else group. 
+
+### Switch pattern
+
+The switch pattern evaluates several conditions in a sequence and triggers actions accordingly. This is done in Boozang by a set of groups with validation exit conditions. 
+
+## Repeater patterns
+
+Repeater patterns is used to repeat a certain action. 
+
+### While pattern
+
+The while pattern is used to repeat an action until a condition is fulfilled. The while pattern can be implemented two ways in Boozang
+
+- Plug test case with a repeater set on the plug action level plus a validation on the downstream test case.
+- A self-referring plug test case (a plug test case to the same test) plus a validation test case that exits the loop.
+
+### Loop over array pattern
+
+The loop over array pattern used Boozang built-in loop functionality to loop over an array data set. The `loop` data handle will contain the value of the array entity. For instance, when looping over an array `items="banana, apple, orange` the test will be executed 3 times and the `$loop` will take the values `banana`, `apple` and orange respectively. 
+
+### Loop over CSV pattern
+
+The loop over CSV pattern is used to loop over a more complicated data set. When looping over a CSV, such as 
+
+```CSV
+user	username	password
+Mats	mats	matspassword
+Wensheng	wensheng	wenshengpassword
+```
+
+
+
+the `$loop` data handle will take a value of the JSON object
+
+```json
+$loop = {"user":"Mats",
+        "username": "mats",
+        "password": "matspassword"}
+```
+
+
+
+```json
+$loop = {"user":"Wensheng",
+        "username": "wensheng",
+        "password": "wenshengpassword"}
+```
+
+
+
+
+
+### Do n times pattern
+
+The do n times pattern is a repeater pattern that simply executes an action `n` times. In Boozang this is done by using the plug test case and specifying the number of times the test case should be executed. 
+
+### Re-try n times pattern
+
+This pattern needs to be ...
+
+### Every two pattern
+
+Sometimes there is a need to do a certain action on odd or even iterations only. This can be true when executing ...
+
+
+
 # Example: An E-commerce project
 
 ## Introduction

@@ -1071,8 +1071,58 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
 <p>Long-term we will expand our reporting capability and business intelligence functions. As we expose our reports in both JSON and HTML, and fully support integration over REST or via our test-runner (DIY), we are welcoming you to integrate into your Business Intelligence system of choice, and for you to see Boozang as one source of insights among many.</p>
 <p><strong>Frequent Maintenance Releases</strong></p>
 <p>We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this time-slot works for both European and American customers, and amounts to a maximum of 30 seconds of service down-time). This means that we generally can provide less than a one-week turnaround on bugs reported by our customers.</p>
-<h1 id="example-an-e-commerce-project">Example: An E-commerce project</h1>
+<h1 id="testing-patterns-and-anti-patterns">Testing patterns and anti-patterns</h1>
 <h2 id="introduction">Introduction</h2>
+<p>In programming we sometimes talk about design patterns. The idea of a design pattern is a recipe to solve a particular problem. Any given problem in programming can have many solution candidates. The design pattern therefore helps guide the user to the simplest and best possible solution to a problem. That's why following design patterns doesn't only show you the way to solve a given problem, it also conveys a best-practice. There are many reason to follow best-practice solutions. Here are a few:</p>
+<ul>
+<li>Following documented processes increase code readability and collaboration in development teams</li>
+<li>Design pattern solutions are often performant</li>
+<li>Versatility: Code built with design patterns are usually easier to update when a problem changes</li>
+</ul>
+<h2 id="testing-patterns">Testing patterns</h2>
+<p>We are therefore trying to do the same work for test automation, string a particular automation problem and providing an example template on how to solve it using Boozang. As there are not much literature around this to lean on, this will be a work-in-progress. </p>
+<h2 id="conditional-patterns">Conditional Patterns</h2>
+<p>Conditional patterns deals with decision making.</p>
+<h3 id="if-pattern">If pattern</h3>
+<p>The if pattern is the standard conditional pattern from programming that involves doing an action if a condition is met. In test automation this involves a validation (or assertion). In Boozang this can be implemented in two ways</p>
+<ul>
+<li>Using a validation exit condition</li>
+<li>Using a group with an exit group condition</li>
+</ul>
+<h3 id="if-else-pattern">If-else pattern</h3>
+<p>The if-else condition is like the if pattern, except that when a condition isn't met, an alternative action is triggered. This is done by using two group: an if group followed by an else group. </p>
+<h3 id="switch-pattern">Switch pattern</h3>
+<p>The switch pattern evaluates several conditions in a sequence and triggers actions accordingly. This is done in Boozang by a set of groups with validation exit conditions. </p>
+<h2 id="repeater-patterns">Repeater patterns</h2>
+<p>Repeater patterns is used to repeat a certain action. </p>
+<h3 id="while-pattern">While pattern</h3>
+<p>The while pattern is used to repeat an action until a condition is fulfilled. The while pattern can be implemented two ways in Boozang</p>
+<ul>
+<li>Plug test case with a repeater set on the plug action level plus a validation on the downstream test case.</li>
+<li>A self-referring plug test case (a plug test case to the same test) plus a validation test case that exits the loop.</li>
+</ul>
+<h3 id="loop-over-array-pattern">Loop over array pattern</h3>
+<p>The loop over array pattern used Boozang built-in loop functionality to loop over an array data set. The <code>loop</code> data handle will contain the value of the array entity. For instance, when looping over an array <code>items="banana, apple, orange</code> the test will be executed 3 times and the <code>$loop</code> will take the values <code>banana</code>, <code>apple</code> and orange respectively. </p>
+<h3 id="loop-over-csv-pattern">Loop over CSV pattern</h3>
+<p>The loop over CSV pattern is used to loop over a more complicated data set. When looping over a CSV, such as </p>
+<pre><code class="language-CSV">user    username    password
+Mats    mats    matspassword
+Wensheng    wensheng    wenshengpassword</code></pre>
+<p>the <code>$loop</code> data handle will take a value of the JSON object</p>
+<pre><code class="language-json">$loop = {"user":"Mats",
+        "username": "mats",
+        "password": "matspassword"}</code></pre>
+<pre><code class="language-json">$loop = {"user":"Wensheng",
+        "username": "wensheng",
+        "password": "wenshengpassword"}</code></pre>
+<h3 id="do-n-times-pattern">Do n times pattern</h3>
+<p>The do n times pattern is a repeater pattern that simply executes an action <code>n</code> times. In Boozang this is done by using the plug test case and specifying the number of times the test case should be executed. </p>
+<h3 id="re-try-n-times-pattern">Re-try n times pattern</h3>
+<p>This pattern needs to be ...</p>
+<h3 id="every-two-pattern">Every two pattern</h3>
+<p>Sometimes there is a need to do a certain action on odd or even iterations only. This can be true when executing ...</p>
+<h1 id="example-an-e-commerce-project">Example: An E-commerce project</h1>
+<h2 id="introduction-1">Introduction</h2>
 <p>In this example, we will illustrate how to automate a simple E-commerce application using Boozang. We will use Cucumber syntax to define the acceptance tests first, then show how to structure the automated tests in Boozang.</p>
 <p>The shop can be found at: <a href="http://shopnx.boozang.com">http://shopnx.boozang.com</a> </p>
 <h2 id="project-shopnx">Project: ShopNX</h2>
