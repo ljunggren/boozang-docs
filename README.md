@@ -13,11 +13,31 @@ There are also several other resources to learn about Boozang
 
 For any suggestions/improvements send us an email at support@boozang.com
 
+## Onboarding
+
+Before checking out the official documentation, which can be a lot to take in at first, I recommend checking out the Forum page dedicated to on-boarding. This page will have up-to-date material that will help you get started.
+
+- Onboarding: https://boozang.com/forum/topic/onboarding-docs/
+
 ## Overview
 
 ![max-ostrozhinskiy-18wn7B2y-SU-unsplash](images/max-ostrozhinskiy-18wn7B2y-SU-unsplash.jpg)
 
-In this section we give a brief overview of the Boozang features and when it's a good idea to use the Boozang tool. 
+In this section we give a brief overview of the Boozang features and when it's a good idea to use the Boozang
+
+```
+![Hello World](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAAUCAAAAAAVAxSkAAABrUlEQVQ4y+3TPUvDQBgH8OdDOGa+oUMgk2MpdHIIgpSUiqC0OKirgxYX8QVFRQRpBRF8KShqLbgIYkUEteCgFVuqUEVxEIkvJFhae3m8S2KbSkcFBw9yHP88+eXucgH8kQZ/jSm4VDaIy9RKCpKac9NKgU4uEJNwhHhK3qvPBVO8rxRWmFXPF+NSM1KVMbwriAMwhDgVcrxeMZm85GR0PhvGJAAmyozJsbsxgNEir4iEjIK0SYqGd8sOR3rJAGN2BCEkOxhxMhpd8Mk0CXtZacxi1hr20mI/rzgnxayoidevcGuHXTC/q6QuYSMt1jC+gBIiMg12v2vb5NlklChiWnhmFZpwvxDGzuUzV8kOg+N8UUvNBp64vy9q3UN7gDXhwWLY2nMC3zRDibfsY7wjEkY79CdMZhrxSqqzxf4ZRPXwzWJirMicDa5KwiPeARygHXKNMQHEy3rMopDR20XNZGbJzUtrwDC/KshlLDWyqdmhxZzCsdYmf2fWZPoxCEDyfIvdtNQH0PRkH6Q51g8rFO3Qzxh2LbItcDCOpmuOsV7ntNaERe3v/lP/zO8yn4N+yNPrekmPAAAAAElFTkSuQmCC)
+```
+
+ tool. 
+
+```
+![Hello World](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAAUCAAAAAAVAxSkAAABrUlEQVQ4y+3TPUvDQBgH8OdDOGa+oUMgk2MpdHIIgpSUiqC0OKirgxYX8QVFRQRpBRF8KShqLbgIYkUEteCgFVuqUEVxEIkvJFhae3m8S2KbSkcFBw9yHP88+eXucgH8kQZ/jSm4VDaIy9RKCpKac9NKgU4uEJNwhHhK3qvPBVO8rxRWmFXPF+NSM1KVMbwriAMwhDgVcrxeMZm85GR0PhvGJAAmyozJsbsxgNEir4iEjIK0SYqGd8sOR3rJAGN2BCEkOxhxMhpd8Mk0CXtZacxi1hr20mI/rzgnxayoidevcGuHXTC/q6QuYSMt1jC+gBIiMg12v2vb5NlklChiWnhmFZpwvxDGzuUzV8kOg+N8UUvNBp64vy9q3UN7gDXhwWLY2nMC3zRDibfsY7wjEkY79CdMZhrxSqqzxf4ZRPXwzWJirMicDa5KwiPeARygHXKNMQHEy3rMopDR20XNZGbJzUtrwDC/KshlLDWyqdmhxZzCsdYmf2fWZPoxCEDyfIvdtNQH0PRkH6Q51g8rFO3Qzxh2LbItcDCOpmuOsV7ntNaERe3v/lP/zO8yn4N+yNPrekmPAAAAAElFTkSuQmCC)
+```
+
+```
+![Hello World](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAAUCAAAAAAVAxSkAAABrUlEQVQ4y+3TPUvDQBgH8OdDOGa+oUMgk2MpdHIIgpSUiqC0OKirgxYX8QVFRQRpBRF8KShqLbgIYkUEteCgFVuqUEVxEIkvJFhae3m8S2KbSkcFBw9yHP88+eXucgH8kQZ/jSm4VDaIy9RKCpKac9NKgU4uEJNwhHhK3qvPBVO8rxRWmFXPF+NSM1KVMbwriAMwhDgVcrxeMZm85GR0PhvGJAAmyozJsbsxgNEir4iEjIK0SYqGd8sOR3rJAGN2BCEkOxhxMhpd8Mk0CXtZacxi1hr20mI/rzgnxayoidevcGuHXTC/q6QuYSMt1jC+gBIiMg12v2vb5NlklChiWnhmFZpwvxDGzuUzV8kOg+N8UUvNBp64vy9q3UN7gDXhwWLY2nMC3zRDibfsY7wjEkY79CdMZhrxSqqzxf4ZRPXwzWJirMicDa5KwiPeARygHXKNMQHEy3rMopDR20XNZGbJzUtrwDC/KshlLDWyqdmhxZzCsdYmf2fWZPoxCEDyfIvdtNQH0PRkH6Q51g8rFO3Qzxh2LbItcDCOpmuOsV7ntNaERe3v/lP/zO8yn4N+yNPrekmPAAAAAElFTkSuQmCC)
+```
 
 ### Introducing Boozang
 
@@ -49,9 +69,13 @@ As Boozang is completely based on natural language, all recorded tests are also 
 
 As your code changes, Boozang tests remain stable. If you do change any labels or item identifier, Boozang will automatically suggest how to repair your tests, or if no suggestion is available, allow you to reselect the element on the page. This reduces test maintenance immensely and allows you to repair broken tests on the fly. 
 
-**BDD / TDD**
+**BDD / Cucumber support**
 
-Boozang is built for Test-driven and Behavior-driven development minus the programming effort. Start writing tests directly from requirements. The Boozang AI engine will automatically build tests from your documented test steps. No need to spend the time to maintain a test middleware layer.
+Built-in support for BDD. Write Gherkin tests directly in our interface, our import them from XRay / Jira. This allows you do write test specification before the actual code, and better distribute the team workload during the project lifecycle. 
+
+**Built-in versioning system**
+
+Boozang has built-in versioning, with support for branching and merging. this allows the team to collaborate in teams seamlessly. It also allows the team to align the automation work with the software development process. 
 
 **Linkability**
 
@@ -69,9 +93,9 @@ Supports Web Components / Shadow DOM testing and socket-based testing.
 
 **Good fit vs bad fit**
 
-Boozang is great when testing anything that runs in the web browser. This includes any modern SaaS application, no matter how complex. It’s great when you need to automate testing for deterministic usage flows, basically conditions that can be determined by a machine. 
+Boozang is great when testing anything that runs in the web browser. This includes any modern SaaS application, no matter how complex. It’s great when you need to automate testing for usage flows that can be determined by a machine, that doesn't exhibit random behaviour. 
 
-A rule of thumb is that the more you feel the need to run regression testing, the more value you will find in a Boozang implementation. This means, if you release business-critical software often, you will find great value in Boozang. If you release rarely and bugs don't have a significant impact, maybe not so much. 
+A rule of thumb is that the more you feel the need to run regression testing, the more value you will find in the Boozang implementation. This means, if you release business-critical software often, you will find great value in Boozang. If you release rarely and bugs don't have a significant impact, maybe not so much. 
 
 A less than ideal fit is also SaaS applications that do a lot of very graphical stuff that needs a human to make a judgment call. These flows can never be fully automated and the value of automation can be limited. 
 
@@ -199,6 +223,8 @@ The report view contains the report of the latest test run. When running a test,
 **Tools**
 
 In tools, you will find import and export tools for the project. This allows an admin user to backup projects and also to import projects from other users. There is also a powerful free-text search that can search both modules and test and data, and perform replacement as well. 
+
+Recently the ability to branch the project version, and merge branches was also added. This powerful functionality enables collaboration much like the beloved versioning system Git, and allows you to align the automation process with the software development process. 
 
 ### The hamburger menu
 
@@ -1904,6 +1930,46 @@ In programming we sometimes talk about design patterns. The idea of a design pat
 - Design pattern solutions are often performant
 - Versatility: Code built with design patterns are usually easier to update when a problem changes
 
+## Common anti-patterns
+
+Before we start discussing good testing practices, let's first establish some common practices that we should try to avoid.
+
+### Long tests
+
+A common mistake when using record-and-replay technology is to record an end-to-end test as a single long test. With record and replay functionality this is tempting, but as you scale, the test stack tends to grow very large.  Over time test maintenance becomes a big problem, and as soon as a single part of the application changes it will impact many tests. 
+
+**How to remedy**
+
+Try instead to divide your tests into many small tests, and plug them together using the "plug test-case" action. This will lead to better re-usability and lower test maintenance. 
+
+**Refatoring tips** 
+
+If you have a long test recording of an end-to-end test you can highlight a set of actions and use "Generate test-case and reference". By doing this, the actions are broken out into a new test, instead generating a "plug test-case". This way, the test is broken down into smaller units that can be re-used by other tests. 
+
+### Hard-coded tests
+
+Another common anti-pattern is to hard-code data entries. This is particularly bad when recording tests that contains forms that needs to be filled. 
+
+**How to remedy**
+
+Try to utilize data as much as possible here. From data is best represented by JSON objects, while a single data field can be represented by a property. 
+
+**Refactoring tips** 
+
+If you have a recording where the data has been hard-coded, simply introduce the data, and use Boozang smart data replacement functionality to make the test data-driven. 
+
+### Long delays
+
+When test on top of slow applications it's tempting to add delays to tests. This will usually stabilize the test, but will lead to long execution times. As Boozang has automated re-try functionality, this is very rarely necessary. 
+
+**How to remedy**
+
+Instead of using delays, increase the timeout for the action when needed. An increased timeout will not slow down the test if the application is responsive. Also, if a particular action fails, the Boozang AI repair will suggest to add a time-out so this can very easily be fine-tuned. 
+
+**Refactoring tips**
+
+If you have a test with a lot of delays, keep an eye out for the red timer icon. Where you see the delay, remove it and try increasing the time-out instead. 
+
 ## Testing patterns
 
 We are therefore trying to do the same work for test automation, string a particular automation problem and providing an example template on how to solve it using Boozang. As there are not much literature around this to lean on, this will be a work-in-progress. 
@@ -2079,11 +2145,17 @@ Validate [exist]: "Scramble items" "lion" button
 
 ### Loop over array pattern
 
-The loop over array pattern used Boozang built-in loop functionality to loop over an array data set. The `loop` data handle will contain the value of the array entity. For instance, when looping over an array `items="banana, apple, orange` the test will be executed 3 times and the `$loop` will take the values `banana`, `apple` and orange respectively. 
+**The problem**
+
+In some instances, you want to loop over an entire data set. For instance, in Sorted Lists (http://thelab.boozang.com/sortedList), a user can add a series of todos to a todo list. 
+
+**The pattern**
+
+The loop over array pattern used Boozang built-in loop functionality to loop over an array data set. The `loop` data handle will contain the value of the array entity. For instance, when looping over an array `chores="Walk the dog","Feed the bird","Clean the house"` the test will be executed 3 times and the `$loop` will take the values `"Walk the dog"`, `"Feed the bird"` and `"Clean` respectively. 
 
 
 
-In Boozang this is implemented
+**Implementation details**
 
 ![loop-over-array-pattern](images/loop-over-array-pattern.png)
 
@@ -2100,35 +2172,42 @@ The Boozang code
 
 ### Loop over CSV pattern
 
-The loop over CSV pattern is used to loop over a more complicated data set. When looping over a CSV, such as 
+**The problem**
+
+Sometimes it's useful to be able to loop over more complicated data sets. In Role-based Login (http://thelab.boozang.com/roleBasedLogin) we would like to test the login of a set of users. As a single user has both `role`, `username`, and `password` which makes arrays unsuitable. Instead we can use a comma-separated file to contain this data. 
+
+**The pattern**
+
+The loop over CSV pattern is used to loop over a more complicated data set. When looping over a CSV, such as `$test.loginInfo` below
 
 ```CSV
-user	username	password
-Mats	mats	matspassword
-Wensheng	wensheng	wenshengpassword
+role	username	password
+lion	lion@thelab.com	iamthelion
+zebra	zebra@thelab.com	iamthezebra
+lemur	lemur@thelab.com	iamthelemur
 ```
-
-
 
 the `$loop` data handle will take a value of the JSON object
 
 ```json
-$loop = {"user":"Mats",
-        "username": "mats",
-        "password": "matspassword"}
+$loop = {"role":"lion",
+        "username": "lion@thelab.com",
+        "password": "iamthelion"}
 ```
-
-
 
 ```json
-$loop = {"user":"Wensheng",
-        "username": "wensheng",
-        "password": "wenshengpassword"}
+$loop = {"user":"zebra",
+        "username": "zebra@thelab.com",
+        "password": "iamthezebra"}
 ```
 
+```json
+$loop = {"user":"lemur",
+        "username": "lemur@thelab.com",
+        "password": "iamthelemur"}
+```
 
-
-In Boozang this can be done
+**Implementation details**
 
 ![loop-over-csv-pattern](images/loop-over-csv-pattern.png)
 
@@ -2145,15 +2224,17 @@ The Boozang code
 
 
 
-
-
 ### Do n times pattern
+
+**The problem**
+
+Sometimes it's useful to simply repeat an action or test n times. We illustrate that using Tables (http://thelab.boozang.com/tables). Here we would like to delete a certain number of items. 
+
+**The pattern**
 
 The do n times pattern is a repeater pattern that simply executes an action `n` times. In Boozang this is done by using the plug test case and specifying the number of times the test case should be executed. 
 
-In Boozang this can be im
-
-
+**Implementation details**
 
 ![do-n-times-pattern](images/do-n-times-pattern.png)
 
@@ -2173,6 +2254,14 @@ This pattern needs to be ...
 ### Every two pattern
 
 Sometimes there is a need to do a certain action on odd or even iterations only. This can be true when executing ...
+
+## Stability patterns
+
+### Timeout pattern
+
+### Delay pattern
+
+
 
 
 
@@ -2627,6 +2716,53 @@ Here are the different activities that were done for each Sprint
 Even if this was a somewhat simplified and idealized project outline, it highlights some important benefits with this approach. As you can see, a lot of work can be done by the QA team early on. This avoids the problem where QA efforts needs to be ramped up towards the end of the project. It also avoids mis-alignment where developers deliver what wasn't expected by the business stakeholders.
 
 
+
+# Appendix A
+
+## Useful functions
+
+As Boozang supports the Javascript function data-type, there are a number of function examples that has proven useful in different kinds of projects.
+
+### Business and Currency
+
+```javascript
+// Converts to 22.90 to CAD$22.90 and 22911.99 to CAD$22,911.99
+toCurrency = function(amount){
+  if (amount){
+    const currency = new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(amount);
+    return "CA"+currency;
+    } 
+  else
+    return "";
+}
+```
+
+```javascript
+// Calculates Quebec gst
+gst = function(amount){
+  if (amount){
+    const currency = new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(amount);
+    return "CA"+currency;
+    } 
+  else
+    return "";
+}
+```
+
+```javascript
+// Calculates Quebec qst
+gst = function(quantity,price){
+  var subtotal = $module.subtotal(quantity,price);
+  return (Math.round(subtotal*9.975)/100).toFixed(2);
+}
+```
+
+```javascript
+// Calculates discounted price 
+function(price, percentage){
+  return (parseFloat(price)*(100-percentage)/100 + 0.00000000001).toFixed(2)
+}
+```
 
 
 
