@@ -70,7 +70,9 @@
 <li>
 <p><strong> Boozang工具</strong>：在https://boozang.com上注册可免费获得付费许可。</p>
 </li>
-<li><strong> Boozang测试运行程序：</strong>对于Boozang Puppeteer开源测试运行程序，请参阅https://github.com/ljunggren/bz-puppeteer和Docker容器https://github.com/ljunggren/bz-docker -xvfb</li>
+<li>
+<p><strong> Boozang测试运行程序：</strong>对于Boozang Puppeteer开源测试运行程序，请参阅https://github.com/ljunggren/bz-puppeteer和Docker容器https://github.com/ljunggren/bz-docker -xvfb</p>
+</li>
 </ul>
 <p>＃＃＃ 特征</p>
 <p><strong>稳定的代码更改</strong></p>
@@ -113,14 +115,14 @@
 <p>在http://ai.boozang.com上创建一个项目，然后下载HTML代码段。该代码段将复制到webroot（您的index.html或类似文件所在的位置）。要启动Boozang工具，请在任何浏览器（例如http://myapplication.com/bz.html或http：// localhost：8080 / bz.html）中访问该代码段。</p>
 <p>提示：使用bz片段可以在无头浏览器模式下运行测试。这样就可以使用Boozang测试运行程序进行简单的CI集成。</p>
 <p><strong>设置环境</strong></p>
-<p><img src="images/environment.png"示例图片"" alt="示例图片" /></p>
+<p><img src="images/environment.png&quot;示例图片&quot;" alt="示例图片" /></p>
 <p>Boozang在许多不同的环境（测试，QA，分段，生产）中支持许多应用程序接口（mgmt，流量，存储）。这样做的目的是使单个测试可以在不同的环境中重复使用，而无需编辑测试。如果重复测试并单独定制以在环境中运行，随着时间的推移，维护这些测试将变得非常昂贵，因此最好从一开始就正确进行设置。</p>
 <h3 id="-4">模块和测试</h3>
 <p><strong>面向对象的测试</strong></p>
 <p>Boozang采用面向对象的方法进行测试。就像您的应用程序可以分为模块和子模块一样，测试也可以。进行完美的测试分解需要一些经验，并且每个应用程序都有所不同。通常，最好尝试在Boozang工具中镜像应用程序的组件或模块。下图给出了一个例子</p>
-<p><img src="images/ootesting.png"范例图片"" alt="范例图片" /></p>
+<p><img src="images/ootesting.png&quot;范例图片&quot;" alt="范例图片" /></p>
 <p><strong>模块</strong></p>
-<p><img src="images/project-modules.png"示例图片"" alt="示例图片" /></p>
+<p><img src="images/project-modules.png&quot;示例图片&quot;" alt="示例图片" /></p>
 <p>这些模块用于将测试划分为应用程序的功能区域。其他工具通常具有测试和测试套件，或者测试套件只是Boozang中的另一个测试（使用Plug测试用例）。模块用于组织测试以匹配应用程序的功能模块。它们用作组织测试的文件夹，但也允许在模块级别添加数据。例如，在示例中的库存模块中，库存的测试数据通常应另存为模块数据。</p>
 <p><strong>子模块</strong></p>
 <p>对于非常复杂的应用程序，有时引入子模块可能会很有用。当您在应用程序端具有子模块时，这特别有用。对于大多数SaaS应用程序，例如CMS（内容管理系统）或ERP（企业资源计划），该应用程序分为两个级别进行组织，从而使项目模块测试层次结构足够。</p>
@@ -135,13 +137,13 @@
 <h3 id="-6">工具内帮助</h3>
 <p>由于Boozang完全托管在云中，因此可以轻松进行更改并快速添加有用的功能。这具有巨大的优势，因为我们可以同时部署客户要求所有客户的功能，从而造福所有人。这也意味着新事物可以在没有警告的情况下出现在用户界面中，并且在某些情况下，文档可能并非一直都是最新的。</p>
 <p>因此，为了能够在不强迫最终用户重新学习的情况下快速提供新功能，我们在工具内部添加了联机帮助功能。要激活帮助，请单击用户界面中的问号，然后单击功能，然后将出现说明。</p>
-<p><img src="images/help-annotations.png"示例图片"" alt="示例图片" /></p>
+<p><img src="images/help-annotations.png&quot;示例图片&quot;" alt="示例图片" /></p>
 <p>在帮助文本中，您将找到所选功能的说明。您还将找到与该功能相关的任何视频（如果有）。单击视频链接时，将出现一个单独的视频窗口，您将可以根据需要使用该工具。</p>
 <p>＃＃ 工具</p>
 <p><img src="图片/philip-swinburn-vS7LVkPyXJU-unsplash.jpg" alt="philip-swinburn-vS7LVkPyXJU-unsplash" /></p>
 <p>在本节中，我们将解释所有工具栏和控件，基本上是做什么的。当您遇到困难或有任何疑问时，可以跳过本节并用作参考。</p>
 <h3 id="-7">侧边栏</h3>
-<p><img src="images/sidebar.png"侧边栏"" alt="示例图片" /></p>
+<p><img src="images/sidebar.png&quot;侧边栏&quot;" alt="示例图片" /></p>
 <p><strong> Boozang图标</strong></p>
 <p>单击“ Boozang”图标是将用户重新带到项目根目录的快捷方式。</p>
 <p><strong>测试创作视图</strong></p>
@@ -156,7 +158,7 @@
 <p><strong>工具</strong></p>
 <p>在工具中，您将找到该项目的导入和导出工具。这允许管理员用户备份项目，也可以从其他用户导入项目。还有一个强大的自由文本搜索功能，可以搜索模块，测试和数据，也可以执行替换操作。</p>
 <h3 id="-8">汉堡菜单</h3>
-<p><img src="images/hamburger.png"工具栏"" alt="示例图片" /></p>
+<p><img src="images/hamburger.png&quot;工具栏&quot;" alt="示例图片" /></p>
 <p><strong>管理</strong></p>
 <p>将用户带到Boozang Cloud Management界面。这允许用户在项目之间切换。</p>
 <p><strong>帐户</strong></p>
@@ -191,7 +193,7 @@
 <p><strong>汉堡包</strong></p>
 <p>单击汉堡包图标以打开汉堡包菜单。</p>
 <h3 id="-10">操作列表</h3>
-<p><img src="images/action-list.png"工具栏"" alt="示例图片" /></p>
+<p><img src="images/action-list.png&quot;工具栏&quot;" alt="示例图片" /></p>
 <p><strong>重新载入网址</strong></p>
 <p>在应用程序浏览器窗口中重新加载测试URL。使用它来确保在应用程序窗口中加载了正确的URL，例如在记录新测试时。</p>
 <p>提示：双击测试行也会执行此操作</p>
@@ -231,7 +233,7 @@
 <p>使用Boozang测试运行器从命令行模拟运行测试。运行测试后，将显示一个对话框，允许用户选择退出浏览器。以这种模式运行将通知所有报告订阅者，因此这是测试电子邮件通知的好方法。</p>
 <p>以自动化模式运行永远不会激活AI修复。</p>
 <h3 id="-12">工具栏</h3>
-<p><img src="images/toolbar.png"工具栏"" alt="示例图片" /></p>
+<p><img src="images/toolbar.png&quot;工具栏&quot;" alt="示例图片" /></p>
 <p><strong>切换视图：列表/ GUI </strong></p>
 <p>切换视图按钮可在表视图和图视图之间切换。</p>
 <p>这些视图在功能上是等效的，但是图表视图可以更好地说明测试之间的流程，而表格视图则可以更线性地显示操作。</p>
@@ -331,7 +333,7 @@
 </code></pre>
 <h3 id="-16">元素政策</h3>
 <p>在烤肉串菜单下，您还可以访问元素策略。</p>
-<p><img src="images/element-policy.png"示例图片"" alt="示例图片" /></p>
+<p><img src="images/element-policy.png&quot;示例图片&quot;" alt="示例图片" /></p>
 <p><strong>处理未找到的隐藏元素</strong></p>
 <p>通常，仍可以通过编程方式单击隐藏的元素。选中此框可在隐藏元素时触发错误（）“找不到元素”）。</p>
 <p><strong>元素重试政策</strong></p>
@@ -378,7 +380,7 @@
 <p><strong>提取数据操作</strong></p>
 <p>要添加提取数据操作，请单击加号图标并选择提取数据，然后在要提取的应用程序窗口中单击一个元素。</p>
 <h3 id="javascript">Javascript</h3>
-<p><img src="images/action-javascript.png"示例图片"" alt="示例图片" /></p>
+<p><img src="images/action-javascript.png&quot;示例图片&quot;" alt="示例图片" /></p>
 <p><strong> JavaScript动作</strong></p>
 <p>Boozang还允许您直接在应用程序中执行Javascript。当尝试执行Boozang开箱即用的操作集未涵盖的更高级的操作时，这可能非常有用。</p>
 <p><strong>手柄</strong></p>
