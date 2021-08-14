@@ -144,6 +144,8 @@ Boozang takes an object-oriented approach to testing. Just like your application
 
 The modules are used to divide your tests into functional areas of your application. Where other tools usually have tests and test suites, or test suites are just another test in Boozang (using Plug test-case). Modules are used to organize tests to match the functional modules of the application. They work as folders to organize your tests, but also to allow data to be added on the module level. For instance, in the Inventory module in the example, the Test data for inventory should typically be saved as Module data. 
 
+![example image](images/project-modules-card.png "An exemplary image")
+
 **Sub-modules**
 
 For very complex applications it can sometimes be useful to introduce sub-modules. This is particularly useful when you have sub-modules on the application side. For most SaaS applications, such as CMS (content management system) or ERP (Enterprise resource planning), the application is organized in two levels, making the project-module-test hierarchy sufficient. 
@@ -1581,7 +1583,7 @@ By creating a model of your application, a full graphical representation of the 
 
 By modeling the application, the boozang engine can auto-generate tests that do not originate from business requirements but are still important. This gives you a baseline of tests to work as a health-check for the application functionality. 
 
-## Integrations and test scheduling
+## CI integration and test scheduling
 
 ![parallel-unsplash](images/day-planner-828611_1280.jpg)
 
@@ -1911,6 +1913,10 @@ Long-term we will expand our reporting capability and business intelligence func
 **Frequent Maintenance Releases**
 
 We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this time-slot works for both European and American customers, and amounts to a maximum of 30 seconds of service down-time). This means that we generally can provide less than a one-week turnaround on bugs reported by our customers.
+
+
+
+## Integrations
 
 
 
