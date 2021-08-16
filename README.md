@@ -39,7 +39,7 @@ Boozang test technology is divided into two parts. The proprietary part of the t
 
 * **Boozang tool**: Sign up at https://boozang.com for free and paid license offerings.
 
-* ##### **Boozang test-runner:** For the Boozang Puppeteer open-source test runner see https://github.com/ljunggren/bz-puppeteer and the Docker container https://github.com/ljunggren/bz-docker-xvfb
+* **Boozang test-runner**: For the Boozang Puppeteer open-source test runner see https://github.com/ljunggren/bz-puppeteer and the Docker container https://github.com/ljunggren/bz-docker-xvfb
 
 ### Features
 
