@@ -70,15 +70,13 @@
 <h6 id="at-the-core">At the core</h6>
 <p>Boozang is a code-less front end testing tool built for the modern web using only Javascript. It allows developers and Quality Assurance engineers to develop front-end tests quickly without the need for programming. </p>
 <p>Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium web driver. Boozang uses it's own selection language based on natural-language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models. </p>
-<h6 id="about-the-technology">About the Technology**</h6>
+<h6 id="about-the-technology">About the Technology</h6>
 <p>Boozang test technology is divided into two parts. The proprietary part of the tool which allows you to author tests record fast and the Open Source test runner which is built on Google Puppeteer, which allows you to run tests from command-line and integrate Boozang into your CI flow or other tools. </p>
 <ul>
 <li>
-<p><strong>Boozang tool</strong>: Sign up at <a href="https://boozang.com">https://boozang.com</a> for free and paid license offerings.</p>
+<p>Boozang tool: Sign up at <a href="https://boozang.com">https://boozang.com</a> for free and paid license offerings.</p>
 </li>
-<li>
-<p><strong>Boozang test-runner</strong>: For the Boozang Puppeteer open-source test runner see <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a> and the Docker container <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a></p>
-</li>
+<li>Boozang test-runner: For the Boozang Puppeteer open-source test runner see <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a> and the Docker container <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a></li>
 </ul>
 <h3 id="features">Features</h3>
 <h6 id="stable-to-code-changes">Stable to code changes</h6>
@@ -95,7 +93,7 @@
 <p>Boozang is completely built-in Javascript and being Cloud-based there is no need for any client-side installation. Simply add an HTML-fragment to your site to activate it for testing.</p>
 <h6 id="cross-browser-support">Cross-browser support</h6>
 <p>As Boozang doesn't rely on browser extensions or client-side install, it natively runs in any web browser (Chrome, Firefox, Safari, Opera). </p>
-<p><strong>Web components / Shadow DOM support and socket-based testing</strong></p>
+<h6 id="web-components--shadow-dom-support-and-socket-based-testing">Web components / Shadow DOM support and socket-based testing</h6>
 <p>Supports Web Components / Shadow DOM testing and socket-based testing. </p>
 <h3 id="when-to-use-boozang">When to use Boozang</h3>
 <h6 id="good-fit-vs-bad-fit">Good fit vs bad fit</h6>
@@ -169,7 +167,7 @@
 <p>Recently the ability to branch the project version, and merge branches was also added. This powerful functionality enables collaboration much like the beloved versioning system Git, and allows you to align the automation process with the software development process. </p>
 <h3 id="the-hamburger-menu">The hamburger menu</h3>
 <p><img src="images/hamburger.png" alt="example image" title="Tool bar" /></p>
-<h6 id="management">Management**</h6>
+<h6 id="management">Management</h6>
 <p>Takes the user to the Boozang Cloud Management interface. This allows the user to switch between projects. </p>
 <h6 id="account">Account</h6>
 <p>Access the account page. Here you can see current service usage and your current license tier. </p>
@@ -183,14 +181,14 @@
 <p>This is a link to the video tutorials on the homepage. </p>
 <h6 id="functional-overview">Functional Overview</h6>
 <p>This is a link to the latest version of this document. </p>
-<h6 id="video-helper">Video Helper**</h6>
+<h6 id="video-helper">Video Helper</h6>
 <p>This opens a small helper that gives you topic-based video help based on certain topics. </p>
 <p>Note: Some of this video material may have been recorded on top of previous versions of Boozang. </p>
-<h6 id="sign-out">Sign Out**</h6>
+<h6 id="sign-out">Sign Out</h6>
 <p>Log out the user. </p>
 <h3 id="the-top-bar">The top bar</h3>
 <p><img src="images/topbar.png" alt="example image" title="Top bar" /></p>
-<h6 id="project-name">Project Name**</h6>
+<h6 id="project-name">Project Name</h6>
 <p>The first entry in the top bar will be the project name. Clicking on the project name will take you to the root of the project tree. Use a descriptive name for your project that reflects the product under test, or for companies having a single product, the company name. </p>
 <h6 id="module-name--view-name">Module name / View name</h6>
 <p>Clicking on the module name in the test authoring view will take you to the module level of the tree. When being in a different view than the test authoring view, the View name as given in the side-bar will be displayed, such as Settings or Report.</p>
@@ -221,9 +219,9 @@
 <p><em>Tip: Double-clicking the action row also runs the action.</em> </p>
 <h6 id="custom-timeouts">Custom timeouts</h6>
 <p>Indicate that the timeouts for that particular action have been customized. This can be done by editing timeouts in action details. In the case of slow response times during recording, this will also be added automatically to ensure test stability. </p>
-<p>**Custom exit conditions</p>
+<h6 id="custom-exit-conditions">Custom exit conditions</h6>
 <p>Indicate that exit conditions for the action have been customized. Exit conditions signify what action is taken on a certain action outcome. Action outcomes are Success, Fail, and Error. Success means the action was executed successfully, Fail means that it executed falsely, such as validation fail, and Error means element not found. </p>
-<h6 id="action-details">Action details**</h6>
+<h6 id="action-details">Action details</h6>
 <p>Opens the action details panel. The action details can be pinned to stay open, or always be seen at the top or base of the action list. When pinned, action details only shows the main controls. </p>
 <h3 id="record--play">Record / Play</h3>
 <h6 id="recording">Recording</h6>
@@ -455,7 +453,7 @@
 <li>Include: Checks for any occurrences of a String. It generates success if it finds a match, fail otherwise. If the element doesn't exist, it generates an error.   </li>
 <li>Exclude: Opposite of Include. It generates fail if it finds a match, success otherwise. If the element doesn't exist, it generates an error.   </li>
 </ul>
-<p><strong>Expectation</strong></p>
+<h6 id="expectation">Expectation</h6>
 <p>This is the comparison value to use. This could be a string or regular expression (in the case of the regex operator). </p>
 <p><em>Advanced (accessible from kebab menu)</em></p>
 <p><img src="images/match.png" alt="match" /></p>
@@ -485,7 +483,7 @@ Replacement string: YYYY-MM-DD</code></pre>
 <pre><code class="language-javascript">$test.tmpValue=$element.innerText.trim()</code></pre>
 <p>This is just an example to help you along. If you have your own data variable, for instance <code>$project.myHappyData</code> you can simply replace the code in the <code>Extract Data</code> field.</p>
 <pre><code class="language-javascript">$project.myHappyData=$element.innerText.trim()</code></pre>
-<p><strong>Dynamic data and element selector</strong></p>
+<h6 id="dynamic-data-and-element-selector">Dynamic data and element selector</h6>
 <p>When selecting some data in a page that is dynamic, such as a database id or project name, it's important to pay special attention to the element. By defaultm Boozang natural language selectors will try and identify the element by the actual text, which would be changing, generating an element not found error. </p>
 <p>Here it is needed to click on &quot;Edit element&quot; icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, <code>tiger</code> is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute <code>class</code> which should be equal to <code>string1</code> (denoted with Javascript shorthand below as <code>.string1</code>). <img src="images/extract-data-dom.png" alt="extract-data-dom" />.</p>
 <h3 id="javascript">Javascript</h3>
@@ -631,7 +629,7 @@ Replacement string: YYYY-MM-DD</code></pre>
 <h3 id="content-policy">Content-policy</h3>
 <p><img src="images/content-policy.png" alt="content-policy" /></p>
 <p>The content policy contains several advanced features. Nevertheless, spending some time here to fine-tune the project can increase the stability of tests and also speed-up test creation significantly.</p>
-<h6 id="ignore-validation-on-pop-window">Ignore validation on pop window**</h6>
+<h6 id="ignore-validation-on-pop-window">Ignore validation on pop window</h6>
 <p>When checked, any pop windows (alerts, prompts, confirm pop up dialogs) will not be verified by Boozang. When un-checked, Boozang will add an assertion during recording based on pop windows that appeared. On playing back the tests, Boozang will make sure that the same pop windows appear as during the recording, and fail the test otherwise. </p>
 <h6 id="ignore-classes">Ignore Classes</h6>
 <p>Normally when clicking or asserting an element, classes are ignored. There is also an explicit setting for you to highlight your dynamic classes to make sure it´s ignored. </p>
@@ -653,7 +651,7 @@ Replacement string: YYYY-MM-DD</code></pre>
 <h3 id="preferences">Preferences</h3>
 <p><img src="images/preferences.png" alt="preferences" /></p>
 <p>This controls individual user preferences. These settings will only apply to your user and not to the project as a whole. </p>
-<h6 id="accept-to-be-monitored">Accept to be monitored**</h6>
+<h6 id="accept-to-be-monitored">Accept to be monitored</h6>
 <p>Functionality to allow other users to see all work done by the user to be monitored by another team member. </p>
 <p><em>Tip: This can be used to display the CI server runs on a dashboard</em></p>
 <h6 id="disable-alerts-for-load-file-errors">Disable alerts for load file errors</h6>
@@ -726,7 +724,7 @@ Replacement string: YYYY-MM-DD</code></pre>
 <p><img src="images/clint-patterson-exfrR9KkzlE-unsplash.jpg" alt="clint-patterson-exfrR9KkzlE-unsplash" /></p>
 <p>Even though Boozang is mainly a UI testing tool, it also supports full API testing (compare Postman). This can be especially useful when creating mixed API and UI tests, doing extra validation, or pre-testing features that haven't been fully built.  </p>
 <h3 id="validate-api-call">Validate API call</h3>
-<h6 id="useful-resources">Useful resources**</h6>
+<h6 id="useful-resources">Useful resources</h6>
 <p>To mockup a REST server, we strongly recommend <a href="https://github.com/typicode/json-server">https://github.com/typicode/json-server</a> that allows you to create a fake REST API from a JSON file in less than 30 seconds. </p>
 <h6 id="introduction-to-api-validations">Introduction to API validations</h6>
 <p>The API validation is very similar to an HTML validation except that the validation is done towards an API end-point. Click on the Plus-sign and choose &quot;Validation&quot;, and select Request/Response (API). In action details, you can now input the API end-point URL and HTTP method (GET, POST, DELETE, etc.).</p>
@@ -783,7 +781,7 @@ Accept:&quot;json&quot;
 <h3 id="the-authorization-wizard">The authorization wizard</h3>
 <p><img src="images/wizard-2.png" alt="wizard-2" /></p>
 <p>As soon as you click the button &quot;Save &amp; generate test-cases&quot; the test-case generation wizard is launched. The normal procedure is to start by generating &quot;sign-in&quot; but you can also start with generating &quot;sign-out&quot;. </p>
-<p><strong>Generating: Sign in</strong></p>
+<h6 id="generating-sign-in">Generating: Sign in</h6>
 <p><img src="images/generate.png" alt="generate" /></p>
 <ol>
 <li>Make sure to be logged out and navigated to the login page. Click Confirm. </li>
@@ -811,7 +809,7 @@ Accept:&quot;json&quot;
 <h6 id="set-test-pre-conditions">Set test pre-conditions</h6>
 <p><img src="images/test-preconditions.png" alt="test-preconditions" /></p>
 <p>One way of using the authorization tests is to set test-preconditions on tests. If checking a user as a pre-conditions this means as soon as this test is run, Boozang will check if that user is logged in using the unique identifier. If not, Boozang will automatically run the &quot;sign-out&quot; test case and run &quot;sign-in&quot; for the first user in the list. </p>
-<p><strong>Calling authorization tests manually</strong></p>
+<h6 id="calling-authorization-tests-manually">Calling authorization tests manually</h6>
 <p><img src="images/auth-param.png" alt="auth-param" /></p>
 <p>You can also call the authorization tests manually. This can be done by simply calling the &quot;sign-in&quot; test case directly. </p>
 <p><code>$parameter = unique key</code></p>
@@ -852,12 +850,12 @@ Accept:&quot;json&quot;
 <h6 id="unmatched-scenarios">Unmatched scenarios</h6>
 <p>As soon as you have imported a feature, all feature scenarios will be generated automatically. As you can see from the example below, the <code>Given</code>, <code>When</code>and <code>Then</code>are generated as Groups in Boozang, with a number of <code>Plug test-case</code> conditions. As you can see, the unmatched conditions are marked red.   </p>
 <p><img src="images/unmatched-scenario.png" alt="unmatched-scenario" /></p>
-<h6 id="matching-scenarios">**Matching scenarios</h6>
+<h6 id="matching-scenarios">Matching scenarios</h6>
 <p>To match a scenario, simply click on &quot;New Link-Test&quot; in the Goto Test Case section. This will create a new link test that matches the text &quot;When the search phrase ? is entered&quot; and automatically populate the necessary data. </p>
 <p><img src="images/unmatched.png" alt="unmatched" /></p>
 <p>This will automatically create a &quot;Link Test&quot; that translates the Gherkin syntax to executable code. </p>
 <p><img src="images/changing-a-mapping.png" alt="changing-a-mapping" /></p>
-<p><strong>Link tests and re-use</strong></p>
+<h6 id="link-tests-and-re-use">Link tests and re-use</h6>
 <p>One might wonder why to introduce link tests in the first place? Why not simply have a single mapping of Gherkin syntax that maps to a test. The answer is re-use. Imagine we have the following test: <code>LoginHandler</code> that takes <code>role</code> as a parameter. If in Gherkin's we have the following statements</p>
 <p><code>Given I am logged in as an Admin</code></p>
 <p><code>Given I am logged in as a User</code></p>
@@ -919,14 +917,14 @@ Accept:&quot;json&quot;
 <p>All tests in Boozang are dependant on the web browser. As no special APIs such as Selenium Webdriver is being used, tests in Boozang operate the same way when playing in the web browser and when playing back from the command line. This means tests that are stable upon authoring, should run stable when running from CI server too.</p>
 <h6 id="test-urls">Test URLs</h6>
 <p>The first thing to recognize when running from command-line (CLI) is that all tests in Boozang are unique URLs. This means they can be shared, linked and referenced freely from ticketing systems, reports and emails. </p>
-<h6 id="authorization-token">**Authorization token</h6>
+<h6 id="authorization-token">Authorization token</h6>
 <p>When running a test from the command line it's important that the user running has the right access rights. This is done by specifying an access token. The access token logs in the user with limited access rights, so the user can read the test and execute it, but all write and admin permissions are revoked. This is for security purposes as the token is long-lived. </p>
 <h6 id="getting-the-access-token">Getting the Access token</h6>
 <p>An access token can be retrieved in the Boozang Management UI by clicking the Account -&gt; Get Token and entering your password. Keep this token secret and safe. </p>
 <h6 id="generating-a-tokenized-test-url">Generating a tokenized test URL</h6>
 <p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/share-test-tokenized.png" alt="share-test-tokenized" /></p>
 <p>It can also be retrieved from the IDE interface when sharing a single test. The user will again be prompted for a password to get a tokenized test URL, which can be run from the command-line.  </p>
-<p><strong>Running from command-line</strong></p>
+<h6 id="running-from-command-line">Running from command-line</h6>
 <p>There are many ways to run Boozang tests from the command line but here are the recommended options: Installing the test runner using the <strong>Docker Xvfb container</strong> or <strong>Boozang npm package</strong>. </p>
 <h3 id="docker-xvfb-container">Docker Xvfb container</h3>
 <p><img src="images/docker-logo.png" alt="docker-logo" /></p>
@@ -1130,7 +1128,7 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
 <h2 id="conditional-patterns">Conditional Patterns</h2>
 <p>Conditional patterns deals with decision making.</p>
 <h3 id="if-pattern">If pattern</h3>
-<p><strong>The problem</strong></p>
+<h6 id="the-problem-1">The problem</h6>
 <p>In &quot;Red or yellow&quot; (<a href="http://thelab.boozang.com/yellowOrRed">http://thelab.boozang.com/yellowOrRed</a>) a color can be generated by clicking the button &quot;Generate Color&quot;. We want to make sure that the user hits the red button if &quot;red&quot; is being generated, and does nothing otherwise. </p>
 <h6 id="the-pattern-1">The pattern</h6>
 <p>The if pattern is the standard conditional pattern from programming that involves doing an action if a condition is met. In test automation this involves a validation (or assertion). </p>
@@ -1150,7 +1148,7 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
      fail:break group
    Click "Red or yellow" "Red" button</code></pre>
 <h3 id="if-else-pattern">If-else pattern</h3>
-<h6 id="the-problem-1">The problem</h6>
+<h6 id="the-problem-2">The problem</h6>
 <p>Using the if-pattern in &quot;Red or yellow&quot; (<a href="http://thelab.boozang.com/yellowOrRed">http://thelab.boozang.com/yellowOrRed</a>) only solve the issue for the red button. When yellow is shown, nothing is done, which is far from ideal. Let's make sure that when yellow shows the yellow button is pressed. </p>
 <h6 id="the-pattern-2">The pattern</h6>
 <p>The if-else condition is like the if pattern, except that when a condition isn't met, an alternative action is triggered. </p>
@@ -1166,7 +1164,7 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
  Group: ""
    Click "Red or yellow" "Yellow" button</code></pre>
 <h3 id="switch-pattern">Switch pattern</h3>
-<h6 id="the-problem-2">The problem</h6>
+<h6 id="the-problem-3">The problem</h6>
 <p>In this example we want to do a set of action depending on who is logged in (<a href="http://thelab.boozang.com/randomLogin">http://thelab.boozang.com/randomLogin</a>). When being logged in as &quot;Lemur&quot; a single button should be pressed. When logged in as &quot;Zebra&quot; two button should be pressed and when logged in as &quot;Lion&quot; three buttons should be pressed. You can play around by this by hitting the &quot;Random Login&quot; button. </p>
 <h6 id="the-pattern-3">The pattern</h6>
 <p>The switch pattern evaluates several conditions in a sequence and triggers actions accordingly. </p>
@@ -1199,7 +1197,7 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
 <h2 id="repeater-patterns">Repeater patterns</h2>
 <p>Repeater patterns is used to repeat a certain action. </p>
 <h3 id="while-pattern">While pattern</h3>
-<h6 id="the-problem-3">The problem</h6>
+<h6 id="the-problem-4">The problem</h6>
 <p>In this example (&quot;<a href="http://thelab.boozang.com/scramble">http://thelab.boozang.com/scramble</a>&quot;) a number of things can be changed  </p>
 <p>The while pattern is used to repeat an action until a condition is fulfilled. The while pattern can be implemented two ways in Boozang</p>
 <ul>
@@ -1215,7 +1213,7 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
  Click "Scramble items" "Scramble Content" button
  Call: [m2.t1] Current Test case</code></pre>
 <h3 id="loop-over-array-pattern">Loop over array pattern</h3>
-<h6 id="the-problem-4">The problem</h6>
+<h6 id="the-problem-5">The problem</h6>
 <p>In some instances, you want to loop over an entire data set. For instance, in Sorted Lists (<a href="http://thelab.boozang.com/sortedList">http://thelab.boozang.com/sortedList</a>), a user can add a series of todos to a todo list. </p>
 <h6 id="the-pattern-4">The pattern</h6>
 <p>The loop over array pattern used Boozang built-in loop functionality to loop over an array data set. The <code>loop</code> data handle will contain the value of the array entity. For instance, when looping over an array <code>chores="Walk the dog","Feed the bird","Clean the house"</code> the test will be executed 3 times and the <code>$loop</code> will take the values <code>"Walk the dog"</code>, <code>"Feed the bird"</code> and <code>"Clean</code> respectively. </p>
@@ -1225,7 +1223,7 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
 <pre><code class="language-json"> Set "Sorted list" "Add new Item" input = ({{$loop}})
  Keygroup[ENTER] "Sorted list" "Add new Item" input</code></pre>
 <h3 id="loop-over-csv-pattern">Loop over CSV pattern</h3>
-<h6 id="the-problem-5">The problem</h6>
+<h6 id="the-problem-6">The problem</h6>
 <p>Sometimes it's useful to be able to loop over more complicated data sets. In Role-based Login (<a href="http://thelab.boozang.com/roleBasedLogin">http://thelab.boozang.com/roleBasedLogin</a>) we would like to test the login of a set of users. As a single user has both <code>role</code>, <code>username</code>, and <code>password</code> which makes arrays unsuitable. Instead we can use a comma-separated file to contain this data. </p>
 <h6 id="the-pattern-5">The pattern</h6>
 <p>The loop over CSV pattern is used to loop over a more complicated data set. When looping over a CSV, such as <code>$test.loginInfo</code> below</p>
@@ -1253,7 +1251,7 @@ lemur   lemur@thelab.com    iamthelemur</code></pre>
  Click "Role" "Log in" button
  Click ($loop.role)"@thelab.com" "Log out" button</code></pre>
 <h3 id="do-n-times-pattern">Do n times pattern</h3>
-<h6 id="the-problem-6">The problem</h6>
+<h6 id="the-problem-7">The problem</h6>
 <p>Sometimes it's useful to simply repeat an action or test n times. We illustrate that using Tables (<a href="http://thelab.boozang.com/tables">http://thelab.boozang.com/tables</a>). Here we would like to delete a certain number of items. </p>
 <h6 id="the-pattern-6">The pattern</h6>
 <p>The do n times pattern is a repeater pattern that simply executes an action <code>n</code> times. In Boozang this is done by using the plug test case and specifying the number of times the test case should be executed. </p>
@@ -1407,7 +1405,7 @@ Filter
 a &lt;product-name&gt; is clicked on -&gt; View Item
 the price should be &lt;product_price&gt; -&gt; Validate Price</code></pre>
 <p>They also notice that they are close to completing the first scenario, so they go ahead and record the a simple test that validates that the product details page is shown. They now have the full scenario for View Item running.</p>
-<p><strong>The project state </strong></p>
+<h6 id="the-project-state">The project state</h6>
 <p>The project readiness can be seen in the Boozang report. </p>
 <h3 id="second-sprint">Second sprint</h3>
 <h6 id="development-team-1">Development team</h6>
@@ -1435,7 +1433,7 @@ Then the cart should be empty</code></pre>
 the cart should contain &lt;product_name&gt; -&gt; Check cart for product
 a user clears the cart -&gt; Clear Cart
 the cart should be empty -&gt; Check if cart empty</code></pre>
-<p><strong>The project state </strong></p>
+<h6 id="the-project-state-1">The project state</h6>
 <p>The project readiness can be seen from the Boozang report. </p>
 <p>...</p>
 <h3 id="third-sprint">Third Sprint</h3>
@@ -1499,7 +1497,7 @@ Then they should be able to complete the order</code></pre>
 <p>Using multiple When/Then statements is up to each team. An argument for keeping the singular structure (Given, When, Then) is that the Gherkin Scenario should be focused on testing a singular aspect of the system. On the other hand, there are benefits with the other approach. For instance, for systems with long setup times (Given conditions are taking long to execute) total test execution time can be greatly reduced by using multiple When-Then conditions. There will also be less housekeeping as less scenarios needs to be maintained. </p>
 <h2 id="a-note-on-data-states">A note on data states</h2>
 <p>All tests in our example were written with &quot;stateless&quot; Cucumber steps. That means that the outcome of a test step wasn't determined by any hidden data set by a previous step. This was done to simplify the example. Let's look at a slightly different way to write the Gherkin syntax, were we will introduce data states in Boozang. Look at the following scenario</p>
-<p><strong>Order: Email order reciept</strong></p>
+<h6 id="order-email-order-reciept">Order: Email order reciept</h6>
 <pre><code class="language-gherkin">Given a &lt;user&gt; visits the store
 When adds &lt;product_name&gt; to the cart
 And fills in their details
