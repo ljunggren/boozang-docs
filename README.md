@@ -1,4 +1,4 @@
-# Boozang Documentation
+# Introduction
 
 ![](images/side-by-side.png)
 
@@ -296,13 +296,13 @@ Reloads the test URL in the application browser window. Use this to make sure th
 
 Tip: Double-clicking the test row also performs this action
 
-**Action icon**
+###### Action icon
 
 An icon that indicates the action type. The different action types are **Validate Result**, **Mouse Event**, **Keyboard Event**, **Extract data**, **Javascript**, **Comment**, **Refresh Window**, **Plug Test**, and **Visit Links**.  
 
 *Tip: Clicking the action icon toggles breakpoints. Test execution is temporarily stopped at breakpoints, allowing for troubleshooting of tests. To resume playing the test, click the play button.*
 
-**Action description**
+###### Action description
 
 This is the human-readable description of the action and defaults to the actual action code. If needed, this can be changed on the auction details page.
 
