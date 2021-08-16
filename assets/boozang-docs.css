@@ -1,8 +1,26 @@
 /* 900px body layout */
+
+h1, h2, h3, h4, h5, h6{
+	font-family: jaldi;
+}
+
+/* Headlines */
+h1, h2, h3, h4, h5, h6 { font-family: Jaldi, sans-serif; color: #262626; font-weight: 400; line-height: 1.1; margin: 25px 0 15px; }
+h1 { font-size: 2.0em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.0em; font-weight: 600; }
+
+
+
 * {
 	box-sizing: border-box;
 }
 body {
+	font-size: 18px;
+	color: #444;
 }
 /* Page Header And Navigation */
 body > header {
@@ -124,7 +142,7 @@ article img {
 	}
 article {
 		width: 60%;
-		padding: 6rem 1rem 8rem 1rem;
+		padding: 4rem 1rem 8rem 1rem;
 		margin-left: 25%;
 	}
 }
@@ -132,7 +150,7 @@ aside.toc {
 	font-size: 17px;
 	color: #595959;
 	position: relative;
-	top: 4rem !important;
+	top: 3rem !important;
 	padding: 2rem 1rem 4rem 2rem;
 }
 
@@ -140,6 +158,16 @@ aside.toc {
 	color: #595959;
 	text-decoration: none;
 }
+
+.toc ul li ul a {
+	color: #262626;
+	text-decoration: none;
+}
+.toc ul li ul li ul a {
+	color: #595959;
+	text-decoration: none;
+}
+
 .toc ul a:hover {
 	color: #444;
 	text-decoration: underline;
@@ -147,6 +175,18 @@ aside.toc {
 .toc ul {
 	list-style: none;
 }
+.toc ul li {
+	text-transform: uppercase;
+}
+
+.toc ul li ul li{
+	text-transform: none;
+}
+
+.toc ul li ul li ul li{
+	text-transform: none;
+}
+
 .toc li {
 	position: relative;
 }
@@ -154,7 +194,7 @@ aside.toc {
 	margin-left: -1em;
 }
 .toc li:not(.offset):before {
-	content: "-";
+	/** content: "-"; */
 	position: absolute;
 	left: -0.6em;
 }
@@ -167,11 +207,12 @@ aside.toc {
 		overflow-y: auto;
 		width: 25%;
 		line-height: 20px;
-		padding: 3rem 1rem 4rem 2rem;
+		padding: 2rem 1rem 4rem 2rem;
 	}
 	.toc::-webkit-scrollbar-track {
-		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 		background-color: #f5f5f5;
+		
 	}
 	.toc::-webkit-scrollbar {
 		width: 10px;
@@ -179,8 +220,8 @@ aside.toc {
 	}
 	.toc::-webkit-scrollbar-thumb {
 		border-radius: 10px;
-		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-		background-color: #b3b3b3;
+		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+		background-color: #e6e6e6;
 	}
 	.toc ul:not(.offset) {
 		margin: 7px 0 0;
