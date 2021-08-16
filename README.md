@@ -290,7 +290,7 @@ Click the hamburger icon to open the hamburger menu.
 
 ![example image](images/action-list.png "Tool bar")
 
-**Reload URL**
+###### Reload URL
 
 Reloads the test URL in the application browser window. Use this to make sure the correct URL is loaded in the application window, for instance when recording a new test. 
 
