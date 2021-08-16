@@ -158,6 +158,16 @@ aside.toc {
 	color: #595959;
 	text-decoration: none;
 }
+
+.toc ul li ul a {
+	color: #262626;
+	text-decoration: none;
+}
+.toc ul li ul li ul a {
+	color: #595959;
+	text-decoration: none;
+}
+
 .toc ul a:hover {
 	color: #444;
 	text-decoration: underline;
