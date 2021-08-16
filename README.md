@@ -427,6 +427,8 @@ A disabled action is skipped when a test is run. Useful to debug tests.
 ### Action details
 ## Elements
 
+Check out the latest on our element selection policy in the following blog post: https://boozang.com/element-selectors
+
 ![darts-2966934_1280](images/darts-2966934_1280.jpg)
 
 Being able to identify HTML elements in your application is central to test automation. Boozang has a unique approach to this, so it's worth spending some time learning about it. Normally, the record function takes care of capturing elements very well, but the unique Boozang selection policy enables us to do very powerful data-driven development, where dynamical data can be used as selectors.  
@@ -1251,6 +1253,12 @@ In data-driven testing, we support the keywords "bz-skip" and "bz-stop" to be ab
 
 ### API testing
 
+Check out the the latest blog posts for the latest on Boozang API testing:
+
+https://boozang.com/advanced-api-testing
+
+https://boozang.com/api-testing-with-boozang-and-json-server
+
 ![clint-patterson-exfrR9KkzlE-unsplash](images/clint-patterson-exfrR9KkzlE-unsplash.jpg)
 
 Even though Boozang is mainly a UI testing tool, it also supports full API testing (compare Postman). This can be especially useful when creating mixed API and UI tests, doing extra validation, or pre-testing features that haven't been fully built.  
@@ -1762,6 +1770,12 @@ anywhere.
 To find current supported command-line options, see Github readme: https://github.com/ljunggren/bz-puppeteer
 
 ### Parallel test execution
+
+Check out the blog posts on parallel testing to learn about the latest way to run CI tests on Boozang:
+
+https://boozang.com/distributed-testing-part-1
+
+https://boozang.com/distributed-testing-part-2
 
 Installing the Docker container makes it dead simple to create your test execution scripts. Here are a few examples 
 
