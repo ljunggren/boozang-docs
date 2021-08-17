@@ -155,36 +155,41 @@ aside.toc {
 }
 
 .toc ul a {
-	color: #595959;
+	color: #1b2331;
+	text-transform: uppercase;
 	text-decoration: none;
 }
 
 .toc ul li ul a {
-	color: #262626;
-	text-decoration: none;
+	color: #7a838e;
+	text-transform: none;
 }
 .toc ul li ul li ul a {
-	color: #595959;
-	text-decoration: none;
+
 }
 
 .toc ul a:hover {
-	color: #444;
-	text-decoration: underline;
+	
 }
 .toc ul {
 	list-style: none;
 }
 .toc ul li {
-	text-transform: uppercase;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    line-height: 13px;
+    margin: 10px auto 10px;
 }
 
 .toc ul li ul li{
 	text-transform: none;
+	font-weight: normal;
 }
 
 .toc ul li ul li ul li{
-	text-transform: none;
+	display: none;
 }
 
 .toc li {
