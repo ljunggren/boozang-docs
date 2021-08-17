@@ -37,9 +37,9 @@ Boozang is not based on Selenium and does not have the limitations of Selenium a
 
 Boozang test technology is divided into two parts. The proprietary part of the tool which allows you to author tests record fast and the Open Source test runner which is built on Google Puppeteer, which allows you to run tests from command-line and integrate Boozang into your CI flow or other tools. 
 
-* **Boozang tool**: Sign up at https://boozang.com for free and paid license offerings.
+* Boozang tool: Sign up at https://boozang.com for free and paid license offerings.
 
-* **Boozang test-runner**: For the Boozang Puppeteer open-source test runner see https://github.com/ljunggren/bz-puppeteer and the Docker container https://github.com/ljunggren/bz-docker-xvfb
+* Boozang test-runner: For the Boozang Puppeteer open-source test runner see https://github.com/ljunggren/bz-puppeteer and the Docker container https://github.com/ljunggren/bz-docker-xvfb
 
 ### Features
 
@@ -71,7 +71,7 @@ Boozang is completely built-in Javascript and being Cloud-based there is no need
 
 As Boozang doesn't rely on browser extensions or client-side install, it natively runs in any web browser (Chrome, Firefox, Safari, Opera). 
 
-**Web components / Shadow DOM support and socket-based testing**
+###### Web components / Shadow DOM support and socket-based testing
 
 Supports Web Components / Shadow DOM testing and socket-based testing. 
 
@@ -218,7 +218,7 @@ Recently the ability to branch the project version, and merge branches was also 
 
 ![example image](images/hamburger.png "Tool bar")
 
-###### Management**
+###### Management
 
 Takes the user to the Boozang Cloud Management interface. This allows the user to switch between projects. 
 
@@ -246,13 +246,13 @@ This is a link to the video tutorials on the homepage.
 
 This is a link to the latest version of this document. 
 
-###### Video Helper**
+###### Video Helper
 
 This opens a small helper that gives you topic-based video help based on certain topics. 
 
 Note: Some of this video material may have been recorded on top of previous versions of Boozang. 
 
-###### Sign Out**
+###### Sign Out
 
 Log out the user. 
 
@@ -324,11 +324,11 @@ Executes a single action.
 
 Indicate that the timeouts for that particular action have been customized. This can be done by editing timeouts in action details. In the case of slow response times during recording, this will also be added automatically to ensure test stability. 
 
-**Custom exit conditions
+###### Custom exit conditions
 
 Indicate that exit conditions for the action have been customized. Exit conditions signify what action is taken on a certain action outcome. Action outcomes are Success, Fail, and Error. Success means the action was executed successfully, Fail means that it executed falsely, such as validation fail, and Error means element not found. 
 
-###### Action details**
+###### Action details
 
 Opens the action details panel. The action details can be pinned to stay open, or always be seen at the top or base of the action list. When pinned, action details only shows the main controls. 
 
@@ -426,6 +426,8 @@ A disabled action is skipped when a test is run. Useful to debug tests.
 
 ### 
 # Elements
+
+Check out the latest on our element selection policy in the following blog post: https://boozang.com/element-selectors
 
 ![darts-2966934_1280](images/darts-2966934_1280.jpg)
 
@@ -730,7 +732,7 @@ and these are a bit more complex
 - Include: Checks for any occurrences of a String. It generates success if it finds a match, fail otherwise. If the element doesn't exist, it generates an error.   
 - Exclude: Opposite of Include. It generates fail if it finds a match, success otherwise. If the element doesn't exist, it generates an error.   
 
-**Expectation**
+###### Expectation
 
 This is the comparison value to use. This could be a string or regular expression (in the case of the regex operator). 
 
@@ -798,7 +800,7 @@ This is just an example to help you along. If you have your own data variable, f
 $project.myHappyData=$element.innerText.trim()
 ```
 
-**Dynamic data and element selector**
+###### Dynamic data and element selector
 
 When selecting some data in a page that is dynamic, such as a database id or project name, it's important to pay special attention to the element. By defaultm Boozang natural language selectors will try and identify the element by the actual text, which would be changing, generating an element not found error. 
 
@@ -1065,7 +1067,7 @@ This allows the user to define several user roles, and automatically generate th
 
 The content policy contains several advanced features. Nevertheless, spending some time here to fine-tune the project can increase the stability of tests and also speed-up test creation significantly.
 
-###### Ignore validation on pop window**
+###### Ignore validation on pop window
 
 When checked, any pop windows (alerts, prompts, confirm pop up dialogs) will not be verified by Boozang. When un-checked, Boozang will add an assertion during recording based on pop windows that appeared. On playing back the tests, Boozang will make sure that the same pop windows appear as during the recording, and fail the test otherwise. 
 
@@ -1113,7 +1115,7 @@ Image the scenario where you have a CI server that runs smoke-tests, regression 
 
 This controls individual user preferences. These settings will only apply to your user and not to the project as a whole. 
 
-###### Accept to be monitored**
+###### Accept to be monitored
 
 Functionality to allow other users to see all work done by the user to be monitored by another team member. 
 
@@ -1251,13 +1253,19 @@ In data-driven testing, we support the keywords "bz-skip" and "bz-stop" to be ab
 
 # API testing
 
+Check out the the latest blog posts for the latest on Boozang API testing:
+
+https://boozang.com/advanced-api-testing
+
+https://boozang.com/api-testing-with-boozang-and-json-server
+
 ![clint-patterson-exfrR9KkzlE-unsplash](images/clint-patterson-exfrR9KkzlE-unsplash.jpg)
 
 Even though Boozang is mainly a UI testing tool, it also supports full API testing (compare Postman). This can be especially useful when creating mixed API and UI tests, doing extra validation, or pre-testing features that haven't been fully built.  
 
 ## Validate API call
 
-###### Useful resources**
+###### Useful resources
 
 To mockup a REST server, we strongly recommend https://github.com/typicode/json-server that allows you to create a fake REST API from a JSON file in less than 30 seconds. 
 
@@ -1372,9 +1380,7 @@ This field is used to uniquely identify the user. This can be an identifier visi
 
 As soon as you click the button "Save & generate test-cases" the test-case generation wizard is launched. The normal procedure is to start by generating "sign-in" but you can also start with generating "sign-out". 
 
-
-
-**Generating: Sign in**
+###### Generating: Sign in
 
 ![generate](images/generate.png)
 
@@ -1409,7 +1415,7 @@ As soon as you click the button "Save & generate test-cases" the test-case gener
 
 One way of using the authorization tests is to set test-preconditions on tests. If checking a user as a pre-conditions this means as soon as this test is run, Boozang will check if that user is logged in using the unique identifier. If not, Boozang will automatically run the "sign-out" test case and run "sign-in" for the first user in the list. 
 
-**Calling authorization tests manually**
+###### Calling authorization tests manually
 
 ![auth-param](images/auth-param.png)
 
@@ -1479,7 +1485,7 @@ As soon as you have imported a feature, all feature scenarios will be generated 
 
 ![unmatched-scenario](images/unmatched-scenario.png)
 
-###### **Matching scenarios
+###### Matching scenarios
 
 To match a scenario, simply click on "New Link-Test" in the Goto Test Case section. This will create a new link test that matches the text "When the search phrase ? is entered" and automatically populate the necessary data. 
 
@@ -1489,7 +1495,7 @@ This will automatically create a "Link Test" that translates the Gherkin syntax 
 
 ![changing-a-mapping](images/changing-a-mapping.png)
 
-**Link tests and re-use**
+###### Link tests and re-use
 
 One might wonder why to introduce link tests in the first place? Why not simply have a single mapping of Gherkin syntax that maps to a test. The answer is re-use. Imagine we have the following test: `LoginHandler` that takes `role` as a parameter. If in Gherkin's we have the following statements
 
@@ -1601,7 +1607,7 @@ All tests in Boozang are dependant on the web browser. As no special APIs such a
 
 The first thing to recognize when running from command-line (CLI) is that all tests in Boozang are unique URLs. This means they can be shared, linked and referenced freely from ticketing systems, reports and emails. 
 
-###### **Authorization token
+###### Authorization token
 
 When running a test from the command line it's important that the user running has the right access rights. This is done by specifying an access token. The access token logs in the user with limited access rights, so the user can read the test and execute it, but all write and admin permissions are revoked. This is for security purposes as the token is long-lived. 
 
@@ -1615,7 +1621,7 @@ An access token can be retrieved in the Boozang Management UI by clicking the Ac
 
 It can also be retrieved from the IDE interface when sharing a single test. The user will again be prompted for a password to get a tokenized test URL, which can be run from the command-line.  
 
-**Running from command-line**
+###### Running from command-line
 
 There are many ways to run Boozang tests from the command line but here are the recommended options: Installing the test runner using the **Docker Xvfb container** or **Boozang npm package**. 
 
@@ -1764,6 +1770,12 @@ anywhere.
 To find current supported command-line options, see Github readme: https://github.com/ljunggren/bz-puppeteer
 
 ## Parallel test execution
+
+Check out the blog posts on parallel testing to learn about the latest way to run CI tests on Boozang:
+
+https://boozang.com/distributed-testing-part-1
+
+https://boozang.com/distributed-testing-part-2
 
 Installing the Docker container makes it dead simple to create your test execution scripts. Here are a few examples 
 
@@ -2007,8 +2019,7 @@ There will also be a code example from the editor tab, to further clarify the pa
 Conditional patterns deals with decision making.
 
 ### If pattern
-
-**The problem**
+###### The problem
 
 In "Red or yellow" (http://thelab.boozang.com/yellowOrRed) a color can be generated by clicking the button "Generate Color". We want to make sure that the user hits the red button if "red" is being generated, and does nothing otherwise. 
 
@@ -2499,8 +2510,7 @@ the price should be <product_price> -> Validate Price
 
 
 They also notice that they are close to completing the first scenario, so they go ahead and record the a simple test that validates that the product details page is shown. They now have the full scenario for View Item running.
-
-**The project state **
+###### The project state
 
 The project readiness can be seen in the Boozang report. 
 
@@ -2549,8 +2559,7 @@ the cart should contain <product_name> -> Check cart for product
 a user clears the cart -> Clear Cart
 the cart should be empty -> Check if cart empty
 ```
-
-**The project state **
+###### The project state
 
 The project readiness can be seen from the Boozang report. 
 
@@ -2676,7 +2685,7 @@ Using multiple When/Then statements is up to each team. An argument for keeping 
 
 All tests in our example were written with "stateless" Cucumber steps. That means that the outcome of a test step wasn't determined by any hidden data set by a previous step. This was done to simplify the example. Let's look at a slightly different way to write the Gherkin syntax, were we will introduce data states in Boozang. Look at the following scenario
 
-**Order: Email order reciept**
+###### Order: Email order reciept
 
 ```gherkin
 Given a <user> visits the store
