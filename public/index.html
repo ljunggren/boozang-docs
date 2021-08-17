@@ -76,7 +76,9 @@
 <li>
 <p>Boozang tool: Sign up at <a href="https://boozang.com">https://boozang.com</a> for free and paid license offerings.</p>
 </li>
-<li>Boozang test-runner: For the Boozang Puppeteer open-source test runner see <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a> and the Docker container <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a></li>
+<li>
+<p>Boozang test-runner: For the Boozang Puppeteer open-source test runner see <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a> and the Docker container <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a></p>
+</li>
 </ul>
 <h3 id="features">Features</h3>
 <h6 id="stable-to-code-changes">Stable to code changes</h6>
@@ -271,6 +273,7 @@
 <p>A disabled action is skipped when a test is run. Useful to debug tests. </p>
 <h3></h3>
 <h1 id="elements">Elements</h1>
+<p>Check out the latest on our element selection policy in the following blog post: <a href="https://boozang.com/element-selectors">https://boozang.com/element-selectors</a></p>
 <p><img src="images/darts-2966934_1280.jpg" alt="darts-2966934_1280" /></p>
 <p>Being able to identify HTML elements in your application is central to test automation. Boozang has a unique approach to this, so it's worth spending some time learning about it. Normally, the record function takes care of capturing elements very well, but the unique Boozang selection policy enables us to do very powerful data-driven development, where dynamical data can be used as selectors.  </p>
 <h2 id="a-note-on-element-selection-policy">A note on element selection policy</h2>
@@ -721,10 +724,13 @@ Replacement string: YYYY-MM-DD</code></pre>
 <h6 id="keywords-bz-skip-and-bz-stop">Keywords: bz-skip and bz-stop</h6>
 <p>In data-driven testing, we support the keywords &quot;bz-skip&quot; and &quot;bz-stop&quot; to be able to trigger conditional functionality based on data. As soon as &quot;bz-skip&quot; occurs the test will skip without generating a failure. If &quot;bz-stop&quot; occurs the all upstream tests will stop without generating an error.  </p>
 <h1 id="api-testing">API testing</h1>
+<p>Check out the the latest blog posts for the latest on Boozang API testing:</p>
+<p><a href="https://boozang.com/advanced-api-testing">https://boozang.com/advanced-api-testing</a></p>
+<p><a href="https://boozang.com/api-testing-with-boozang-and-json-server">https://boozang.com/api-testing-with-boozang-and-json-server</a></p>
 <p><img src="images/clint-patterson-exfrR9KkzlE-unsplash.jpg" alt="clint-patterson-exfrR9KkzlE-unsplash" /></p>
 <p>Even though Boozang is mainly a UI testing tool, it also supports full API testing (compare Postman). This can be especially useful when creating mixed API and UI tests, doing extra validation, or pre-testing features that haven't been fully built.  </p>
 <h2 id="validate-api-call">Validate API call</h2>
-<h6 id="useful-resources">Useful resources**</h6>
+<h6 id="useful-resources">Useful resources</h6>
 <p>To mockup a REST server, we strongly recommend <a href="https://github.com/typicode/json-server">https://github.com/typicode/json-server</a> that allows you to create a fake REST API from a JSON file in less than 30 seconds. </p>
 <h6 id="introduction-to-api-validations">Introduction to API validations</h6>
 <p>The API validation is very similar to an HTML validation except that the validation is done towards an API end-point. Click on the Plus-sign and choose &quot;Validation&quot;, and select Request/Response (API). In action details, you can now input the API end-point URL and HTTP method (GET, POST, DELETE, etc.).</p>
@@ -995,6 +1001,9 @@ Accept:&quot;json&quot;
 <h6 id="additional-cli-options-1">Additional CLI options</h6>
 <p>To find current supported command-line options, see Github readme: <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a></p>
 <h2 id="parallel-test-execution">Parallel test execution</h2>
+<p>Check out the blog posts on parallel testing to learn about the latest way to run CI tests on Boozang:</p>
+<p><a href="https://boozang.com/distributed-testing-part-1">https://boozang.com/distributed-testing-part-1</a></p>
+<p><a href="https://boozang.com/distributed-testing-part-2">https://boozang.com/distributed-testing-part-2</a></p>
 <p>Installing the Docker container makes it dead simple to create your test execution scripts. Here are a few examples </p>
 <h6 id="running-from-cronjob">Running from cronjob</h6>
 <p>It's easy to set up a cronjob that runs a Boozang test at a scheduled time. Type</p>
