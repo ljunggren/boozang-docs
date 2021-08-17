@@ -33,7 +33,7 @@ Boozang is a code-less front end testing tool built for the modern web using onl
 
 Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium web driver. Boozang uses it's own selection language based on natural-language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models. 
 
-###### About the Technology**
+###### About the Technology
 
 Boozang test technology is divided into two parts. The proprietary part of the tool which allows you to author tests record fast and the Open Source test runner which is built on Google Puppeteer, which allows you to run tests from command-line and integrate Boozang into your CI flow or other tools. 
 
@@ -93,25 +93,25 @@ Since March 2019, Boozang also fully supports Shadow DOM / Web Components.
 
 Boozang does not support any testing of native IOS and Android application, or any desktop-based applications. 
 
-## Getting started
+# Getting started
 
 ![danielle-macinnes-IuLgi9PWETU-unsplash](images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg)
 
 In this section, we cover the onboarding process of the Boozang tool, and some important concepts that might be puzzling (such as Modules). After this section, you should have some ideas about the Boozang concepts and how to record a test. 
 
-### Signing  up / Logging in
+## Signing  up / Logging in
 
 You can sign-up for Boozang from the Boozang homepage at Https://boozang.com. The sign-up link will take you to https://ai.boozang.com. If you are in Europe or Asia try switching to our European site https://eu.booznag.com. These are the Boozang application servers which are responsible for communicating with any instances of the Boozang tool, which is running locally on the client-side. 
 
 This is also where an administrator can maintain different teams and different projects, without having to launch anything client-side. 
 
-### Creating and launching a project
+## Creating and launching a project
 
 As soon as you have signed up you can go ahead and create your first project in the Cloud dashboard, by clicking the button "Create Project". There are a lot of options available here, but the only thing required is the project name. 
 
 ![](images/create-project.png)
 
-### Installation Options
+## Installation Options
 Boozang is completely hosted in the Cloud and supports running from client-side without a client-side installation. We recommend using the Chrome browser extension, even if it's not mandatory.
 
 ###### Installing the Chrome extension 
@@ -130,7 +130,7 @@ Tip: Using the bz fragment allows for running tests in headless browser mode. Th
 
 Boozang supports many application interfaces (mgmt, traffic, store) across many different environments (test, QA, staging, production). The purpose of this is to be able to allow a single test to be re-used across different environments without any risk of having to edit the test. If tests are duplicated and individually customized to run on an environment, over time maintaining these tests gets very expensive, so it´s better to set this up properly from the get-go. 
 
-### Modules and Tests
+## Modules and Tests
 
 ###### Object-Oriented testing
 
@@ -150,7 +150,7 @@ The modules are used to divide your tests into functional areas of your applicat
 
 For very complex applications it can sometimes be useful to introduce sub-modules. This is particularly useful when you have sub-modules on the application side. For most SaaS applications, such as CMS (content management system) or ERP (Enterprise resource planning), the application is organized in two levels, making the project-module-test hierarchy sufficient. 
 
-### Recording your first test
+## Recording your first test
 
 Boozang works within the browser which allows for a very stable recording function. Simply click on the record button in the tool. As you perform actions on your web page actions will be recorded. To remove an un-wanted action that was recorded press the trashbin next to the action in the main tool view. 
 
@@ -166,7 +166,7 @@ To use Boozang well, we recommend aligning the Boozang tool and your application
 
 This allows you to get a good overview of the recorded actions, and an easy way to modify or delete recorded actions.
 
-### In-tool help
+## In-tool help
 
 As Boozang is completely hosted in the Cloud it's easy to do changes and add useful features quickly. This has a huge upside as we can deploy features that customer asks for to all our customers at the same time, to the benefit of all. This also means that new things can appear in the user interface without warning, and in some cases, the documentation might not be up-to-date all the time. 
 
@@ -176,13 +176,13 @@ For this reason, to be able to deliver new features fast without forcing the end
 
 In the help text, you will find an explanation of the function you selected. You will also find any related videos to that function, if available. When clicking a video link, a separate video window will appear and you will be able to follow along with the tool if needed. 
 
-## The tool
+# The tool
 
 ![philip-swinburn-vS7LVkPyXJU-unsplash](images/philip-swinburn-vS7LVkPyXJU-unsplash.jpg)
 
 In this section, we explain all the toolbars and controls, basically what does what. You can skip this section and use as a reference when you get stuck or have some questions. 
 
-### The sidebar
+## The sidebar
 
 ![example image](images/sidebar.png "Sidebar")
 
@@ -214,7 +214,7 @@ In tools, you will find import and export tools for the project. This allows an 
 
 Recently the ability to branch the project version, and merge branches was also added. This powerful functionality enables collaboration much like the beloved versioning system Git, and allows you to align the automation process with the software development process. 
 
-### The hamburger menu
+## The hamburger menu
 
 ![example image](images/hamburger.png "Tool bar")
 
@@ -256,11 +256,11 @@ Note: Some of this video material may have been recorded on top of previous vers
 
 Log out the user. 
 
-### The top bar
+## The top bar
 
 ![example image](images/topbar.png "Top bar")
 
-###### Project Name**
+###### Project Name
 
 The first entry in the top bar will be the project name. Clicking on the project name will take you to the root of the project tree. Use a descriptive name for your project that reflects the product under test, or for companies having a single product, the company name. 
 
@@ -286,7 +286,7 @@ Click the hamburger icon to open the hamburger menu.
 
 
 
-### The action list
+## The action list
 
 ![example image](images/action-list.png "Tool bar")
 
@@ -332,7 +332,7 @@ Indicate that exit conditions for the action have been customized. Exit conditio
 
 Opens the action details panel. The action details can be pinned to stay open, or always be seen at the top or base of the action list. When pinned, action details only shows the main controls. 
 
-### Record / Play
+## Record / Play
 
 ###### Recording
 
@@ -374,7 +374,7 @@ Emulates running the test from the command line using the Boozang test runner. A
 
 Running in automation mode never activates AI repair. 
 
-### The Toolbar
+## The Toolbar
 
 ![example image](images/toolbar.png "Tool bar")
 
@@ -424,14 +424,14 @@ Deletes one or several actions.
 
 A disabled action is skipped when a test is run. Useful to debug tests. 
 
-### Action details
-## Elements
+### 
+# Elements
 
 ![darts-2966934_1280](images/darts-2966934_1280.jpg)
 
 Being able to identify HTML elements in your application is central to test automation. Boozang has a unique approach to this, so it's worth spending some time learning about it. Normally, the record function takes care of capturing elements very well, but the unique Boozang selection policy enables us to do very powerful data-driven development, where dynamical data can be used as selectors.  
 
-### A note on element selection policy
+## A note on element selection policy
 
 Our element selector policy is based on natural language. This means Boozang primarily uses what an end-user sees, rather than hidden element attributes, such as `class` or `id`.  
 
@@ -489,7 +489,7 @@ It's also possible to use machine-learning on the element selectors, like
 
 This can give short term benefits in terms of stability, but can also introduce noise and false positives. At Boozang we believe that what has been written in a requirement (and what is seen in a UI) is the truth, not what a developer decided to put in a class or id attribute. This is why we apply a stricter element policy and action representation. By doing this, we can apply machine learning at the test / requirement level instead, resulting in higher impact on productivity and better test coverage. 
 
-### Selecting the element
+## Selecting the element
 
 Boozang uses custom element selectors based on what a user will see rather than classes, ids or other attributes. This means that to use class or id, this usually needs to be explicitly defined. By avoiding using classes and ids as primary identifiers, Boozang tests become very stable to code changes and can automate applications with dynamic ids and classes freely.
 
@@ -507,7 +507,7 @@ The first step if an action isn´t working as expected is to re-pick the element
 
 If this is still not sufficient, you can try to edit the element. If the current element is not found in the application window, the user will be asked to pick the element. If found, the DOM picker window will be launched which allows the user to fine-tune the element path
 
-### Understanding the DOM picker
+## Understanding the DOM picker
 The DOM picker allows the user to precisely specify the element selector. During recording, Boozang will under normal circumstances be able to guess the best unique element path. In some cases,  it´s desirable to override the predetermined element path.  
 
 Common cases when the element path needs to be changed
@@ -611,7 +611,7 @@ The element path has the following operations. Boozang uses an expanded version 
 
   ```
 
-### Element policy
+## Element policy
 
 Under the kebab menu, you can also access the element policy. 
 
@@ -625,7 +625,7 @@ Normally, hidden elements can still be clicked programmatically. Check this box 
 
 The default behavior is to **Re-try on element missing**. Customize this to **Never re-try** or **Re-try on content mismatch** (re-tries when an element is found but the content is wrong).
 
-### Repairing an action
+## Repairing an action
 
 ![example image](images/ai-repair.png "An exemplary image")
 
@@ -633,7 +633,7 @@ When a test is run and an action element cannot be found the AI test repair scre
 
 *Tip: In normal play mode, the user is asked if the test should be repaired. In Repair mode, the AI repair is always launched, and in Automation, mode AI repair is never launched.* 
 
-## Actions
+# Actions
 
 ![glenn-carstens-peters-RLw-UC03Gwc-unsplash](images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg)
 
@@ -645,7 +645,7 @@ The following simple e
 
 
 
-### Events
+## Events
 
 There are three types of events supported in Boozang: Click, Keypress, and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See below list of events that will be generated for different recording scenarios.  
 
@@ -689,7 +689,7 @@ This event corresponds to a keypress. This is captured in the recording for ever
 
 You can also generate a special key or char code by clicking the field and clicking the keyboard button. 
 
-### Validations
+## Validations
 
 ![validations](images/validations.png)
 
@@ -775,7 +775,7 @@ The default validation is HTML validation. By changing the method to "Script", y
 
 and must return true or false. If an element has been picked with the DOM picker this will be available using the handle `$element`. Standard data handles, such as `$project`, `$module`, and `$test` will also be available, as well as the test window handles `$TW`. For more information about data see <a href="/doc/data.html">data</a> section. 
 
-### Extract data
+## Extract data
 
 Note: For API versions of these actions check the API section. 
 
@@ -804,7 +804,7 @@ When selecting some data in a page that is dynamic, such as a database id or pro
 
 Here it is needed to click on "Edit element" icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, `tiger` is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute `class` which should be equal to `string1` (denoted with Javascript shorthand below as `.string1`). ![extract-data-dom](images/extract-data-dom.png).
 
-### Javascript
+## Javascript
 
 ![javascript](images/javascript.png)
 
@@ -835,7 +835,7 @@ To troubleshoot the application it's sometimes useful to add debugging code. For
 
 *Tip: Avoid using `$TW.alert()` as Boozang interprets this as application popup windows and intercepts them.* 
 
-### Comment
+## Comment
 
 ![comment](images/comment.png)
 
@@ -857,7 +857,7 @@ When running a test with comments, the test will execute and stop at the first c
 
 Sometimes it's nice to create a checklist for a manual tester to be guided through the application. You can use the Comment action to ask questions to the user and generate success or failure code based on user inputs. Simple click the "Show selection for Pass/Fail" to generate this kind of interactive comment. 
 
-### Refresh window/Load page
+## Refresh window/Load page
 
 ![refresh](images/refresh.png)
 
@@ -865,7 +865,7 @@ The refresh window/load page action is used to force a reload of the browser win
 
 **Note**: There are security limitations for what a browser allows being deleted. For instance, the browser does not allow session cookies to be deleted, so this cannot be triggered by the Boozang tool.
 
-### Visit Links
+## Visit Links
 
 ![visit-links](images/visit-links.png)
 
@@ -873,13 +873,13 @@ The visit links action is used to automatically crawl a set of pages based on a 
 
 For each click, it´s normal to call a test case. Use **Goto Test Case** to select a downstream test case. This test case will be called for each link in the selected navigation panel.
 
-## Using data
+# Using data
 
 ![files-1614223_1280](images/files-1614223_1280.jpg)
 
 Data is used to be able to create data-driven tests. This means that a test that takes data as input (for instance "Login" or "Create Project") can be re-used for different data sets. Data handling is at the core of Boozang, and a large variety of data types are supported. 
 
-### Introduction to data types
+## Introduction to data types
 
 ![data](images/data.png)
 
@@ -925,7 +925,7 @@ It is also possible to specify Javascript functions directly. The functions can 
 
 File data is used to test file upload and similar user interactions. Try and use small sample files as large files tend to weight down on the test client, consuming memory or slowing down performance. It is also recommended to fetch files from an external source (see Request Data). 
 
-### Data binding
+## Data binding
 
 ###### A note on form fills and data
 
@@ -949,7 +949,7 @@ As you can see, any data key names that correspond (matches case-insensitive / w
 
 *Tip: This can greatly speed up test creation of form fill tests, so try and learn this naming convention.*  
 
-### Defining regular expressions
+## Defining regular expressions
 
 ![regexp](images/regexp.png)
 
@@ -979,7 +979,7 @@ When enabling data-bind and clicking autofill form, Boozang will look in the cur
 
 *Tip: Using autofill with data-bind on `$parameter` scope is a quick way to create a very versatile  data-driven test case.* 
 
-### Pre-defined regular expressions
+## Pre-defined regular expressions
 
 There are also pre-programmed regular expressions in Boozang that can be used. Here is a list of teh current ones.
 
@@ -1002,7 +1002,7 @@ The following pre-defined expressions are available. All examples are based on t
 - `/{last-month}/` outputs `2019-09-26`(this date previous month)
 - `/{last-year}/` outputs `2018-10-26`(this date previous year)
 
-### Troubleshooting data
+## Troubleshooting data
 
 ###### Console window
 
@@ -1031,13 +1031,13 @@ To re-run the action with the data that you see in the "Tmp data" window,  check
 
 *Tip: Hit keep and Save to save the action data in the database to troubleshoot with other team members.*
 
-## Settings
+# Settings
 
 ![rima-kruciene-gpKe3hmIawg-unsplash](images/rima-kruciene-gpKe3hmIawg-unsplash.jpg)
 
 Settings allow you to customize Boozang to work with your application. It also allows you to set your personal user preferences. "Content-Policy" and "Element Definitions" are somewhat complex, but can be potentially very helpful for more complex testing scenarios. 
 
-### Environment
+## Environment
 
 ![environment](images/environment.png)
 
@@ -1057,7 +1057,7 @@ This setting allows you to configure certain things on an Environment / App inte
 
 This allows the user to define several user roles, and automatically generate the login and logout scenarios for these roles. The user roles can be set as pre-requisites for tests, automatically switching between users. For more information, read more under the **Model-based testing** chapter. 
 
-### Content-policy
+## Content-policy
 
 ![content-policy](images/content-policy.png)
 
@@ -1083,7 +1083,7 @@ List of elements that are clickable in your application. Add elements here to be
 
 Use this to set regular expressions to be used for content generation. 
 
-### Element Definitions
+## Element Definitions
 
 ![element-definitions](images/element-definitions.png)
 
@@ -1097,7 +1097,7 @@ Use this to record customized input components. This will allow you to capture c
 
 
 
-### Aliases
+## Aliases
 
 ![alias](images/alias.png)
 
@@ -1107,7 +1107,7 @@ Image the scenario where you have a CI server that runs smoke-tests, regression 
 
 
 
-### Preferences
+## Preferences
 
 ![preferences](images/preferences.png)
 
@@ -1141,7 +1141,7 @@ When enabled, data-bind will be enabled by default.
 
 This still exists. 
 
-### Notifications
+## Notifications
 
 ![notifications](images/notifications.png)
 
@@ -1149,9 +1149,9 @@ This view allows a user to set up email notifications for a report. It means tha
 
 *Tip: A user can only set up his/her won email notifications. This allows team collaborators to opt-in and opt-out from report emails, and prevents un-wanted spamming.*
 
-## Other tool views
+# Other tool views
 
-### Reports
+## Reports
 
 ![report](images/report.png)
 
@@ -1171,7 +1171,7 @@ If an assertion fails that have content, such as Validate -> innerText, you can 
 
 To highlight slow actions or tests, this can be done under Environment -> Advanced -> Performance Reminder. Here you can adjust settings than can trigger slow tests to trigger warnings or even fail tests. 
 
-### Team
+## Team
 
 ![team](images/team.png)
 
@@ -1195,13 +1195,13 @@ There is also project collaboration built-in. Use this to communicate with team 
 
 *Tip: This will also be used to link to Slack updates (Roadmap).* 
 
-### Synchronize
+## Synchronize
 
 ![synchronize](images/synchronize.png)
 
 Use this function to see all local updates (the difference between your local storage and what is saved on the cloud storage). This allows you to save all changes in bulk, or revert or local changes.
 
-### Tools
+## Tools
 
 Tools contain a function to import and export a project and to do bulk operations. 
 
@@ -1223,11 +1223,11 @@ This powerful wild-card batch operation is used to search both for projects, mod
 
 
 
-## Advanced testing methods
+# Advanced testing methods
 
 ![rollercoaster-801833_1280](images/rollercoaster-801833_1280.jpg)
 
-### Data Loops
+## Data Loops
 
 A loop means to repeat execution until a certain condition is fulfilled. In Boozang, a data loop is like a for-condition running over a data set, meaning the test gets executed once for each data entry. 
 
@@ -1241,7 +1241,7 @@ The following data formats are supported to drive loops
 - Arrays:  The assigned `$loop`item will be of `Property` format (String) 
 - Request data: This is supported if the fetched data is `CSV`or `Array`.
 
-### Matrix testing
+## Matrix testing
 
 ###### Keywords: bz-skip and bz-stop
 
@@ -1249,13 +1249,13 @@ In data-driven testing, we support the keywords "bz-skip" and "bz-stop" to be ab
 
 
 
-### API testing
+# API testing
 
 ![clint-patterson-exfrR9KkzlE-unsplash](images/clint-patterson-exfrR9KkzlE-unsplash.jpg)
 
 Even though Boozang is mainly a UI testing tool, it also supports full API testing (compare Postman). This can be especially useful when creating mixed API and UI tests, doing extra validation, or pre-testing features that haven't been fully built.  
 
-### Validate API call
+## Validate API call
 
 ###### Useful resources**
 
@@ -1289,7 +1289,7 @@ You can post data to an API end-point using the HTTP method POST. When doing thi
 
 In all these fields you can also bind data. As an example, to set headers as data this can be done as an object, for instance, "jsonheader", "Accept", "json". To reference it on the actions-details use {{$test.jsonheader}} in the header field. 
 
-### Extract data API call
+## Extract data API call
 
 ###### Similarities with Validation
 
@@ -1312,11 +1312,11 @@ $test.dummy = $result
 
 To add an extract data action, click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. 
 
-## AI authorization
+# AI authorization
 
 ![registration-3938434_1280](images/registration-3938434_1280.jpg)In application testing there will be a need to establish pre-conditions. In most SaaS applications this is a matter of determining who is logged in. Instead of relying on trying to mimic users by spoofing cookies or other tricks, it can be done by recording the login and logout sequence of users and being able to automatically shift between users.
 
-### Setting up
+## Setting up
 
 A key in this procedure is to have login credentials for the different roles that have access to the application, and record a single login/logout sequence for that user and find an identifier for who is logged in.
 
@@ -1326,7 +1326,7 @@ A key in this procedure is to have login credentials for the different roles tha
 
 Launch the authorization wizard by clicking **Enable AI authorization** when setting up the environment. 
 
-### Authorization settings
+## Authorization settings
 
 ![auth-setting](images/auth-setting.png)
 
@@ -1364,7 +1364,7 @@ The password that is used in the login procedure
 
 This field is used to uniquely identify the user. This can be an identifier visible right after login, such as the first namem a user id, or email address of the user. This is used to determine which user is logged in, and drives logic for switching between users/roles. 
 
-### The authorization wizard
+## The authorization wizard
 
 
 
@@ -1401,7 +1401,7 @@ As soon as you click the button "Save & generate test-cases" the test-case gener
 1. Click "Check all accounts"
 2. A test case that runs sign-in for each user has now been generated in the authorization module. This is useful to see how you can call Sign-in and Sign-out respectively.
 
-### Using authorization tests
+## Using authorization tests
 
 ###### Set test pre-conditions
 
@@ -1419,15 +1419,15 @@ You can also call the authorization tests manually. This can be done by simply c
 
 This will trigger a check on which user is logged in, and if it´s different than specified, it will automatically trigger a logout and logout with the specified user.
 
-## Gherkin/Cucumber support
+# Gherkin/Cucumber support
 
 To support Business-driven development, we have built-in Gherkin support in Boozang. The idea is that a business analyst or product owner write the acceptance criteria for a feature using Gherkin syntax (Given, When, Then). For each feature, the might be several scenarios that describe the acceptance criteria of the scenario. For an exhaustive description of the Cucumber / Gherkin language see https://cucumber.io/
 
-### A note on the data model
+## A note on the data model
 
 In Boozang, we separate the business domain and technical domain. In the technical domain, there are modules and tests, while in the business domain there are features and scenarios. That means that the Boozang data model works really well to handle this hierarchy. To tie the business domain to the technical domain, we use so-called Link tests, that maps the Gherkin syntax to a test and handles the parameter transfer.
 
-### Example test
+## Example test
 
 Throughout this example, we will use the following example test to illustrate the functionality.
 
@@ -1446,7 +1446,7 @@ Scenario: Simple Google searches
       | phrase   | related       |
       | panda    | Panda Express |
       | elephant | Elephant Man  | 
-### Features
+## Features
 
 ![feature-tab](images/feature-tab.png)
 
@@ -1519,7 +1519,7 @@ As you keep adding features you will undoubtedly have created many Link-tests to
 
 
 
-### Running tests
+## Running tests
 
 ###### Running a scenario
 
@@ -1557,11 +1557,11 @@ Sequence 2:
 
 If implemented correctly, both of these sequences should be able to execute successfully, as there should be no dependency on the initial state. On the other hand, Sequence 1 requires four (4) Login/Logout sequences while Sequence 2 only requires two (2). Taking into account the order the scenarios are run can greatly speed up testing, and also remove a lot of testing complexity and brittleness. Another telling example is scenarios `Add`, `Edit`, and `Delete`.
 
-## Model-based testing
+# Model-based testing
 
 This section will focus on automated test creation driven from models. A model is simply a classification of different components and elements in your application, that allows the boozang engine to automatically generate function tests and simple workflows, that gives a great starting point for your application testing.
 
-### Advantages of model-based testing
+## Advantages of model-based testing
 
 ###### Auto-generated re-usable test steps
 
@@ -1583,13 +1583,13 @@ By creating a model of your application, a full graphical representation of the 
 
 By modeling the application, the boozang engine can auto-generate tests that do not originate from business requirements but are still important. This gives you a baseline of tests to work as a health-check for the application functionality. 
 
-## CI integration and test scheduling
+# CI integration and test scheduling
 
 ![parallel-unsplash](images/day-planner-828611_1280.jpg)
 
 Note: This section will focus on running Boozang from the command line.  For readers not familiar with CLI and Docker this might be a little technical, even though most of the commands should be working doing a direct copy.
 
-### Test URLs and authorization
+## Test URLs and authorization
 
 Even though tests can easily be run using the web browser, there will be a need to trigger these tests without manual interaction. The most common scenario is to run a set of tests when code is pushed into GitHub or other versioning systems, normally through a Continous Integration (CI) server integration. There are also other applications: one might want to trigger tests via a server cronjob or trigger it directly via a build job or Ansible command. The basis of all this is to be able to trigger a test from the command line. 
 
@@ -1619,7 +1619,7 @@ It can also be retrieved from the IDE interface when sharing a single test. The 
 
 There are many ways to run Boozang tests from the command line but here are the recommended options: Installing the test runner using the **Docker Xvfb container** or **Boozang npm package**. 
 
-### Docker Xvfb container 
+## Docker Xvfb container 
 
 ![docker-logo](images/docker-logo.png)
 
@@ -1671,7 +1671,7 @@ and when you are happy with it, finally push it to the Cloud
 
 To find current supported command-line options, see Docker Github readme: https://github.com/ljunggren/bz-docker-xvfb and command-line runner README: https://github.com/ljunggren/bz-puppeteer.
 
-### NPM Package
+## NPM Package
 
 ![nodejs-logo](images/nodejs-logo.jpg)
 
@@ -1763,7 +1763,7 @@ anywhere.
 
 To find current supported command-line options, see Github readme: https://github.com/ljunggren/bz-puppeteer
 
-### Parallel test execution
+## Parallel test execution
 
 Installing the Docker container makes it dead simple to create your test execution scripts. Here are a few examples 
 
@@ -1817,7 +1817,7 @@ In this example, tests written in `testlist.txt`are processed by `parallel`by 5 
 
 You can find these examples and more at  https://github.com/ljunggren/bz-utils
 
-### Test Scheduling
+## Test Scheduling
 
 You can also use Boozang's built-in scheduler. It works very much like a `cronjob`, except that the timing parameters are added to the URL after the "/run" part of the URL, like
 
@@ -1863,7 +1863,7 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat
 
 "now": Refers to the test immediately. For example, the user needs to use on but wants to perform the test task immediately, such as.../run?at=13:50&on=work&now
 
-### A note on Open Source
+## A note on Open Source
 
 To build a strong ecosystem around Boozang we have decided to keep all client-side code Open Source and allow our customers to customize it as they wish. The reason for this is two-fold: 
 
@@ -1872,31 +1872,31 @@ To build a strong ecosystem around Boozang we have decided to keep all client-si
 
 We, therefore, encourage our users to keep their custom code open source and share it openly. We also encourage you to let us know at *opensource@boozang.com* so we can link to it. 
 
-## Security
+# Security
 
 ![hacker-1944688_1280](images/hacker-1944688_1280.jpg)
 
-###### Fragment security
+## Fragment security
 
 When installing the bz-fragment we get the security of the web browser without the limitation of being bound to Chrome extension policy. This limits cross-browser execution but allows running Boozang without the need of any Extension. 
 
 Note: This requires access to the application directory to install an HTML fragment. 
 
-###### GDPR
+## GDPR
 
 As we are running locally in your web browser it´s been easier to be GDPR compliant than for regular Cloud-testing services. We recommend that you'll host sensitive test data in CSV files hosted on your servers. That way, the data will never be loaded into our Cloud, and be present in the browser local storage on the test computers.
 
-###### Hosting
+## Hosting
 
 In our Cloud, we host the data you enter into our system and the tests, including our proprietary element selectors. To get an understanding of the kind of data we store, you can look at the Source tab on any test. Our servers are located in Canada. 
 
-## Trade-offs
+# Trade-offs
 
 ![justice-423446_1280](images/justice-423446_1280.jpg)
 
 There are several limitations to the Boozang technology, some that are a limiting factor of the technology and security of the browser context, and others that are conscious product decisions. Here is an attempt to address some of them head-on.
 
-###### Only web
+## Only web
 
 Boozang support only testing web and hybrid applications. There are plenty of good tools to test native and desktop applications in the market, and we will be happy to recommend some. When doing testing across web and native/desktop, we recommend driving the tests on the web over Boozang, while driving the other tests over another tool. Boozang has excellent support to read data from external sources and is designed to be able to have a source of truth outside the tool. 
 
@@ -1906,17 +1906,25 @@ Boozang doesn´t currently drive your tests from the Cloud. The Boozang technolo
 
 As our test runner is open source and can be used and modified freely, we welcome companies and Cloud testing providers to do so, and we welcome serious partnership proposals. 
 
-###### Limited BI
+## Limited BI
 
 Long-term we will expand our reporting capability and business intelligence functions. As we expose our reports in both JSON and HTML, and fully support integration over REST or via our test-runner (DIY), we are welcoming you to integrate into your Business Intelligence system of choice, and for you to see Boozang as one source of insights among many.
 
-###### Frequent Maintenance Releases
+## Frequent Maintenance Releases
 
 We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this time-slot works for both European and American customers, and amounts to a maximum of 30 seconds of service down-time). This means that we generally can provide less than a one-week turnaround on bugs reported by our customers.
 
 
 
-## Integrations
+# Integrations
+
+## JIRA / Xray
+
+## GitLab
+
+## GitHub
+
+## BitBucket 
 
 
 
@@ -2438,15 +2446,15 @@ Note: One potential benefit of the parameter-light version is when example data 
 
 Opting for the parameter-light approach, we are ready to introduce the example data for our ShopNX project. We have decided on the following data
 
-###### Project scope: `$project.products` [matrix data]
+Project scope: `$project.products` [matrix data]
 
 The `products` data contains a list of test products that should alays be available in our test system. It contains information, such as the product name, if the product is available, and the price. As we might have a large set of products, we should chose matrix or CSV data. In order to easily retrive the data we have opted for matrix data.
 
-###### Module scope: Checkout `$module.validCustomer` [json data], `$module.invalidCustomer` [json data],
+Module scope: Checkout `$module.validCustomer` [json data], `$module.invalidCustomer` [json data]
 
 The `customer` data contains all the data about the customer, such as name and address. We have chosen to use JSON data as we only have a few customer accounts that we run tests on. 
 
-###### Module scope: Payment `$module.creditCard` [matrix data]
+Module scope: Payment `$module.creditCard` [matrix data]
 
 The `creditCard` data contains all the credit card information, such as card number, valid, and CVV. We have chosen matrix data to be able to easily maintain a large set of test credit cards.
 
