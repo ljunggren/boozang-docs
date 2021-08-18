@@ -234,10 +234,6 @@ Opens the Boozang console. It allows the user to inspect data and trouble-shoot 
 
 Opens a popup chat with the team. Here you can monitor project activity and chat with other project members. 
 
-###### Dock mode
-
-The docked mode allows the user to switch between undocked (two separate application windows), dock to left (Boozang IDE is to the left) and dock to right (Boozang is on the right). In some cases the applications under test don´t support docked mode, so use this option to Undock. 
-
 ###### Video Tutorials
 
 This is a link to the video tutorials on the homepage. 
@@ -424,8 +420,7 @@ Deletes one or several actions.
 
 A disabled action is skipped when a test is run. Useful to debug tests. 
 
-### 
-# Elements
+# Element selectors
 
 ![darts-2966934_1280](images/darts-2966934_1280.jpg)
 
@@ -1785,7 +1780,7 @@ In this example, you can follow the progress of the tests in `test1.log` and `te
 
 ###### Running tests in parallel using GNU parallel
 
-*This part is deprecated an no loner recommended, even if it's probably works.*
+*This functionality is deprecated and no longer supported, even if it probably works.*
 
 You can also create an automated test runners that uses a given number of worker processes to run tests. In this example we use the great GNU parallel (https://www.gnu.org/software/parallel/). This allows us to simply dispatch tests to a number of worker processes.
 
@@ -2183,10 +2178,6 @@ Long-term, we will expand our reporting capability and business intelligence fun
 ## Frequent Maintenance Releases
 
 We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this timeslot works for both European and American customers and amounts to a maximum of 30 seconds of service down-time). This means that we generally can provide less than a one-week turnaround on bugs reported by our customers.
-
-
-
-## 
 
 
 
@@ -3037,5 +3028,5 @@ function(price, percentage){
 
 
 ****
-Copyright (c) 2019 Boozang Technologies Inc.
+Copyright (c) 2021 Boozang Technologies Inc.
 
