@@ -21,6 +21,8 @@ h6 { font-size: 1.0em; font-weight: 600; }
 body {
 	font-size: 18px;
 	color: #444;
+	max-width: 1300px;
+	margin: 0 auto;
 }
 /* Page Header And Navigation */
 body > header {
@@ -177,7 +179,6 @@ aside.toc {
 .toc ul li {
     font-size: 15px;
     font-weight: 600;
-    line-height: 15px;
     margin: 20px auto;
 }
 
@@ -185,8 +186,7 @@ aside.toc {
 	text-transform: none;
 	font-weight: normal;
 	font-size: 16px;
-	line-height: 16px;
-	margin: 13px auto;
+	margin: 8px auto;
 }
 
 .toc ul li ul li ul li{
@@ -211,7 +211,7 @@ aside.toc {
 		bottom: 0;
 		overflow: hidden;
 		overflow-y: auto;
-		width: 25%;
+		width: 15%;
 		line-height: 20px;
 		padding: 2rem 1rem 4rem 2rem;
 	}
