@@ -519,6 +519,9 @@ a {
 	aside.toc {
 		width: 20%;
 	}
+	article {
+		margin-left: 25%;
+	}
 }
 
 @media screen and (min-width: 1200px) {
