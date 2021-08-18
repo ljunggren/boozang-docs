@@ -721,36 +721,7 @@ Replacement string: YYYY-MM-DD</code></pre>
 <p>In data-driven testing, we support the keywords &quot;bz-skip&quot; and &quot;bz-stop&quot; to be able to trigger conditional functionality based on data. As soon as &quot;bz-skip&quot; occur the test will skip without generating a failure. If &quot;bz-stop&quot; occur the all upstream tests will stop without generating an error.  </p>
 <h1 id="api-testing">API testing</h1>
 <p><img src="images/clint-patterson-exfrR9KkzlE-unsplash.jpg" alt="clint-patterson-exfrR9KkzlE-unsplash" /></p>
-<p>Even though Boozang is mainly a UI testing tool, it also supports full API testing (compare Postman). This can be especially useful when creating mixed API and UI tests, doing extra validation, or pre-testing features that haven't been fully built.  </p>
-<h2 id="validate-api-call">Validate API call</h2>
-<h6 id="useful-resources">Useful resources</h6>
-<p>To mockup a REST server, we strongly recommend <a href="https://github.com/typicode/json-server">https://github.com/typicode/json-server</a> that allows you to create a fake REST API from a JSON file in less than 30 seconds. </p>
-<h6 id="introduction-to-api-validations">Introduction to API validations</h6>
-<p>The API validation is very similar to a HTML validation, except that the validation is done towards an API end-point. Click on the Plus-sign and choose &quot;Validation&quot;, and select Request/Response (API). In action details, you can now input the API end-point URL and HTTP method (GET, POST, DELETE, etc.).</p>
-<h6 id="doing-http-get-validation">Doing HTTP GET validation</h6>
-<p>Use the HTTP method GET to validate a response from a REST API. Select the HTTP method GET and enter the end-point URL. Click Play on the action to automatically populate the expectation value. </p>
-<h6 id="doing-an-http-get-without-validation">Doing an HTTP GET without validation</h6>
-<p>To trigger the HTTP GET without validating the result, use a comparison operator to &quot;regexp&quot; and set the expectation field to <code>.*</code>. </p>
-<h6 id="adding-custom-headers">Adding custom headers</h6>
-<p>When doing API calls, commonly, you need to add custom HTTP request headers. To do this, click HTTP header and add header data. This needs to be in data format, i.e.</p>
-<p>{
-Accept:&quot;json&quot;
-}</p>
-<h6 id="doing-http-post-validation">Doing HTTP POST validation</h6>
-<p>You can post data to an API end-point using the HTTP method POST. When doing this make sure to add the POST data to the HTTP data field. </p>
-<h6 id="data">Data</h6>
-<p>In all these fields, you can also bind data. As an example, to set headers as data, this can be done as an object, for instance, &quot;jsonheader&quot;, &quot;Accept&quot;, &quot;json&quot;. To reference it on the actions-details use {{$test.jsonheader}} in the header field. </p>
-<h2 id="extract-data-api-call">Extract data API call</h2>
-<h6 id="similarities-with-validation">Similarities with Validation</h6>
-<p>Extracting data is identical to API validation except that the returned response will be saved in a data variable. Make sure to familiarize yourself with the API Validation action before reading this section. </p>
-<h6 id="introducing-data">Introducing data</h6>
-<p>Start by defining a data variable in the data tab.For extraction of API data, you typically want to use an Object. The Object can be defined on the project, module, and test level. Add it to the test level if the data will only be used in the test case. Add it on module level if the data will be used across different tests in the module but not on different modules. Add it on the project level if it will be used globally. </p>
-<h6 id="assigning-data">Assigning data</h6>
-<p>The result will be contained in the $result variable. To assign the API response to test data called &quot;dummy&quot; write the following in the Extract Data window</p>
-<p>$test.dummy = $result</p>
-<h6 id="data-conversion">Data Conversion</h6>
-<h6 id="extracting-data-action">Extracting data action</h6>
-<p>To add an extract data action, click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. </p>
+<p><em>Starting from release 6.5.0, deployed on 16th of August 2021, the API testing was changed dramatically (for the better). Please consult our blog: <a href="https://boozang.com/advanced-api-testing/">https://boozang.com/advanced-api-testing/</a></em> and <a href="https://boozang.com/api-testing-with-boozang-and-json-server/">https://boozang.com/api-testing-with-boozang-and-json-server/</a>.</p>
 <h1 id="ai-authorization">AI authorization</h1>
 <p><img src="images/registration-3938434_1280.jpg" alt="registration-3938434_1280" />In application testing, there will be a need to establish pre-conditions. In most SaaS applications, this is a matter of determining who is logged in. Instead of relying on trying to mimic users by spoofing cookies or other tricks, it can be done by recording the login and logout sequence of users, shifting between users by using logout and the login form.</p>
 <h2 id="setting-up">Setting up</h2>
@@ -891,25 +862,12 @@ Accept:&quot;json&quot;
 <li>Given I am logged in as User, When I do C, Then I should have D</li>
 </ol>
 <p>If implemented correctly, both of these sequences should be able to execute successfully, as there should be no dependency on the initial state. On the other hand, Sequence 1 requires four (4) Login/Logout sequences while Sequence 2 only requires two (2). Taking into account the order scenarios are run can greatly speed up testing and also remove a lot of testing complexity and brittleness. Another telling example is scenarios <code>Add</code>, <code>Edit</code>, and <code>Delete</code>.</p>
-<h1 id="model-based-testing">Model-based testing</h1>
-<p>This section will focus on automated test creation driven by models. A model is simply a classification of different components and elements in your application that allows the Boozang engine to automatically generate function tests and simple workflows. This will give you a great starting point for your application testing.</p>
-<h2 id="advantages-of-model-based-testing">Advantages of model-based testing</h2>
-<h6 id="auto-generated-re-usable-test-steps">Auto-generated re-usable test steps</h6>
-<p>As the application model is created, the Boozang engine will create a series of auto-generated tests that can be used to build upstream tests. </p>
-<h6 id="auto-generated-workflows">Auto-generated workflows</h6>
-<p>As the application model is created, the Boozang engine will create simple workflow tests for common test scenarios. These will act as a blueprint to create all higher-order tests. </p>
-<h6 id="test-stability">Test Stability</h6>
-<p>Model-based testing is completely different from recording scenarios, as tests are automatically updated as the model changes. This means if an aspect of the application changes, only that part of the model needs to be updated, and all tests will automatically be updated. </p>
-<h6 id="graphical-overview">Graphical overview</h6>
-<p>By creating a model of your application, a full graphical representation of the application is created. This gives everyone in the application team a complete picture of all application logic, and ...</p>
-<h6 id="non-requirement-driven-tests">Non-requirement driven tests</h6>
-<p>By modeling the application, the Boozang engine can auto-generate tests that do not originate from business requirements but are still important. This gives you a baseline of tests to work as a health check for the application functionality. </p>
 <h1 id="command-line-runner-and-test-scheduling">Command-line runner and test scheduling</h1>
 <p><img src="images/day-planner-828611_1280.jpg" alt="parallel-unsplash" /></p>
 <p>Note: This section will focus on running Boozang from the command line.  For readers not familiar with CLI and Docker this might be a little technical, even though most of the commands should be working doing a direct copy.</p>
 <h2 id="test-urls-and-authorization">Test URLs and authorization</h2>
 <p>Even though tests can easily be run using the web browser, there will be a need to trigger these tests without manual interaction. The most common scenario is to run a set of tests when code is pushed into GitHub or other versioning systems, normally through a Continous Integration (CI) server integration. There are also other applications: one might want to trigger tests via a server cronjob or trigger it directly via a build job or Ansible command. The basis of all this is to be able to trigger a test from the command line. </p>
-<h6 id="test-stability-1">Test Stability</h6>
+<h6 id="test-stability">Test Stability</h6>
 <p>All tests in Boozang are dependant on the web browser. As no special APIs such as Selenium Webdriver is being used, tests in Boozang operate the same way when playing in the web browser and when playing back from the command line. This means tests that are stable upon authoring should run stable when running from CI server too.</p>
 <h6 id="test-urls">Test URLs</h6>
 <p>The first thing to recognize when running from command-line (CLI) is that all tests in Boozang are unique URLs. This means they can be shared, linked, referenced freely from ticketing systems, reports, and emails. </p>
@@ -1279,6 +1237,19 @@ report:
 <p><em>This documentation is in progress. In the meantime, check out <a href="https://boozang.com/enterprise-boozang-working-with-github/">https://boozang.com/enterprise-boozang-working-with-github/</a></em></p>
 <h2 id="bitbucket">BitBucket</h2>
 <p><em>This documentation is in progress. In the meantime, check out <a href="https://boozang.com/enterprise-boozang-working-with-github/">https://boozang.com/enterprise-boozang-working-with-github/</a></em></p>
+<h1 id="model-based-testing">Model-based testing</h1>
+<p>This section will focus on automated test creation driven by models. A model is simply a classification of different components and elements in your application that allows the Boozang engine to automatically generate function tests and simple workflows. This will give you a great starting point for your application testing.</p>
+<h2 id="advantages-of-model-based-testing">Advantages of model-based testing</h2>
+<h6 id="auto-generated-re-usable-test-steps">Auto-generated re-usable test steps</h6>
+<p>As the application model is created, the Boozang engine will create a series of auto-generated tests that can be used to build upstream tests. </p>
+<h6 id="auto-generated-workflows">Auto-generated workflows</h6>
+<p>As the application model is created, the Boozang engine will create simple workflow tests for common test scenarios. These will act as a blueprint to create all higher-order tests. </p>
+<h6 id="test-stability-1">Test Stability</h6>
+<p>Model-based testing is completely different from recording scenarios, as tests are automatically updated as the model changes. This means if an aspect of the application changes, only that part of the model needs to be updated, and all tests will automatically be updated. </p>
+<h6 id="graphical-overview">Graphical overview</h6>
+<p>By creating a model of your application, a full graphical representation of the application is created. This gives everyone in the application team a complete picture of all application logic, and ...</p>
+<h6 id="non-requirement-driven-tests">Non-requirement driven tests</h6>
+<p>By modeling the application, the Boozang engine can auto-generate tests that do not originate from business requirements but are still important. This gives you a baseline of tests to work as a health check for the application functionality. </p>
 <h1 id="security">Security</h1>
 <p><img src="images/hacker-1944688_1280.jpg" alt="hacker-1944688_1280" /></p>
 <h2 id="fragment-security">Fragment security</h2>
