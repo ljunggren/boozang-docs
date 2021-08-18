@@ -1248,64 +1248,7 @@ In data-driven testing, we support the keywords "bz-skip" and "bz-stop" to be ab
 
 ![clint-patterson-exfrR9KkzlE-unsplash](images/clint-patterson-exfrR9KkzlE-unsplash.jpg)
 
-Even though Boozang is mainly a UI testing tool, it also supports full API testing (compare Postman). This can be especially useful when creating mixed API and UI tests, doing extra validation, or pre-testing features that haven't been fully built.  
-
-## Validate API call
-
-###### Useful resources
-
-To mockup a REST server, we strongly recommend https://github.com/typicode/json-server that allows you to create a fake REST API from a JSON file in less than 30 seconds. 
-
-###### Introduction to API validations
-
-The API validation is very similar to a HTML validation, except that the validation is done towards an API end-point. Click on the Plus-sign and choose "Validation", and select Request/Response (API). In action details, you can now input the API end-point URL and HTTP method (GET, POST, DELETE, etc.).
-
-###### Doing HTTP GET validation
-
-Use the HTTP method GET to validate a response from a REST API. Select the HTTP method GET and enter the end-point URL. Click Play on the action to automatically populate the expectation value. 
-
-###### Doing an HTTP GET without validation
-
-To trigger the HTTP GET without validating the result, use a comparison operator to "regexp" and set the expectation field to `.*`. 
-
-###### Adding custom headers
-
-When doing API calls, commonly, you need to add custom HTTP request headers. To do this, click HTTP header and add header data. This needs to be in data format, i.e.
-
-{
-  Accept:"json"
-}
-
-###### Doing HTTP POST validation
-
-You can post data to an API end-point using the HTTP method POST. When doing this make sure to add the POST data to the HTTP data field. 
-
-###### Data
-
-In all these fields, you can also bind data. As an example, to set headers as data, this can be done as an object, for instance, "jsonheader", "Accept", "json". To reference it on the actions-details use {{$test.jsonheader}} in the header field. 
-
-## Extract data API call
-
-###### Similarities with Validation
-
-Extracting data is identical to API validation except that the returned response will be saved in a data variable. Make sure to familiarize yourself with the API Validation action before reading this section. 
-
-###### Introducing data
-
-Start by defining a data variable in the data tab.For extraction of API data, you typically want to use an Object. The Object can be defined on the project, module, and test level. Add it to the test level if the data will only be used in the test case. Add it on module level if the data will be used across different tests in the module but not on different modules. Add it on the project level if it will be used globally. 
-
-###### Assigning data
-
-The result will be contained in the $result variable. To assign the API response to test data called "dummy" write the following in the Extract Data window
-
-$test.dummy = $result
-
-###### Data Conversion
-
-
-###### Extracting data action
-
-To add an extract data action, click on the Plus icon and select Extract data, then click on an element in the application window you want to extract. 
+*Starting from release 6.5.0, deployed on 16th of August 2021, the API testing was changed dramatically (for the better). Please consult our blog: https://boozang.com/advanced-api-testing/* and https://boozang.com/api-testing-with-boozang-and-json-server/.
 
 # AI authorization
 
@@ -1541,32 +1484,6 @@ Sequence 2:
 4. Given I am logged in as User, When I do C, Then I should have D
 
 If implemented correctly, both of these sequences should be able to execute successfully, as there should be no dependency on the initial state. On the other hand, Sequence 1 requires four (4) Login/Logout sequences while Sequence 2 only requires two (2). Taking into account the order scenarios are run can greatly speed up testing and also remove a lot of testing complexity and brittleness. Another telling example is scenarios `Add`, `Edit`, and `Delete`.
-
-# Model-based testing
-
-This section will focus on automated test creation driven by models. A model is simply a classification of different components and elements in your application that allows the Boozang engine to automatically generate function tests and simple workflows. This will give you a great starting point for your application testing.
-
-## Advantages of model-based testing
-
-###### Auto-generated re-usable test steps
-
-As the application model is created, the Boozang engine will create a series of auto-generated tests that can be used to build upstream tests. 
-
-###### Auto-generated workflows
-
-As the application model is created, the Boozang engine will create simple workflow tests for common test scenarios. These will act as a blueprint to create all higher-order tests. 
-
-###### Test Stability
-
-Model-based testing is completely different from recording scenarios, as tests are automatically updated as the model changes. This means if an aspect of the application changes, only that part of the model needs to be updated, and all tests will automatically be updated. 
-
-###### Graphical overview
-
-By creating a model of your application, a full graphical representation of the application is created. This gives everyone in the application team a complete picture of all application logic, and ...
-
-###### Non-requirement driven tests
-
-By modeling the application, the Boozang engine can auto-generate tests that do not originate from business requirements but are still important. This gives you a baseline of tests to work as a health check for the application functionality. 
 
 # Command-line runner and test scheduling
 
@@ -2136,6 +2053,32 @@ Lastly, to be able to fetch features, this is done by defining a filter in Jira.
 ## BitBucket 
 
 *This documentation is in progress. In the meantime, check out https://boozang.com/enterprise-boozang-working-with-github/*
+
+# Model-based testing
+
+This section will focus on automated test creation driven by models. A model is simply a classification of different components and elements in your application that allows the Boozang engine to automatically generate function tests and simple workflows. This will give you a great starting point for your application testing.
+
+## Advantages of model-based testing
+
+###### Auto-generated re-usable test steps
+
+As the application model is created, the Boozang engine will create a series of auto-generated tests that can be used to build upstream tests. 
+
+###### Auto-generated workflows
+
+As the application model is created, the Boozang engine will create simple workflow tests for common test scenarios. These will act as a blueprint to create all higher-order tests. 
+
+###### Test Stability
+
+Model-based testing is completely different from recording scenarios, as tests are automatically updated as the model changes. This means if an aspect of the application changes, only that part of the model needs to be updated, and all tests will automatically be updated. 
+
+###### Graphical overview
+
+By creating a model of your application, a full graphical representation of the application is created. This gives everyone in the application team a complete picture of all application logic, and ...
+
+###### Non-requirement driven tests
+
+By modeling the application, the Boozang engine can auto-generate tests that do not originate from business requirements but are still important. This gives you a baseline of tests to work as a health check for the application functionality. 
 
 # Security
 
