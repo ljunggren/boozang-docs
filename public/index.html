@@ -177,8 +177,6 @@
 <p>Opens the Boozang console. It allows the user to inspect data and trouble-shoot tests. </p>
 <h6 id="chat-amp-message">Chat &amp; Message</h6>
 <p>Opens a popup chat with the team. Here you can monitor project activity and chat with other project members. </p>
-<h6 id="dock-mode">Dock mode</h6>
-<p>The docked mode allows the user to switch between undocked (two separate application windows), dock to left (Boozang IDE is to the left) and dock to right (Boozang is on the right). In some cases the applications under test don´t support docked mode, so use this option to Undock. </p>
 <h6 id="video-tutorials">Video Tutorials</h6>
 <p>This is a link to the video tutorials on the homepage. </p>
 <h6 id="functional-overview">Functional Overview</h6>
@@ -271,8 +269,7 @@
 <p><em>Tip: Use Ctrl/CMD functions to multi-select.</em></p>
 <h6 id="disable">Disable</h6>
 <p>A disabled action is skipped when a test is run. Useful to debug tests. </p>
-<h3></h3>
-<h1 id="elements">Elements</h1>
+<h1 id="element-selectors">Element selectors</h1>
 <p><img src="images/darts-2966934_1280.jpg" alt="darts-2966934_1280" /></p>
 <p>Being able to identify HTML elements in your application is central to test automation. Boozang has a unique approach to this, so it's worth spending some time learning about it. Normally, the record function takes care of capturing elements very well, but the unique Boozang selection policy enables us to do very powerful data-driven development, where dynamical data can be used as selectors.  </p>
 <h2 id="a-note-on-element-selection-policy">A note on element selection policy</h2>
@@ -1009,7 +1006,7 @@ Accept:&quot;json&quot;
 <p><code>nohup docker run --rm -v "$(pwd):/var/boozang/" styrman/boozang-runner --file=test2 "[tokenized-test-url-2]"&gt; test2.log &amp;</code></p>
 <p>In this example, you can follow the progress of the tests in <code>test1.log</code> and <code>test2.log</code> respectively, and the report will be found in HTML format in <code>test1.html</code> and <code>test2.html</code>, and in JSON format in <code>test1.json</code> and <code>test2.json</code>.</p>
 <h6 id="running-tests-in-parallel-using-gnu-parallel">Running tests in parallel using GNU parallel</h6>
-<p><em>This part is deprecated an no loner recommended, even if it's probably works.</em></p>
+<p><em>This functionality is deprecated and no longer supported, even if it probably works.</em></p>
 <p>You can also create an automated test runners that uses a given number of worker processes to run tests. In this example we use the great GNU parallel (<a href="https://www.gnu.org/software/parallel/">https://www.gnu.org/software/parallel/</a>). This allows us to simply dispatch tests to a number of worker processes.</p>
 <ul>
 <li>Install GNU parallel. CentOS instructions can be found here: <a href="https://medium.com/@gchandra/simple-tutorial-to-install-use-gnu-parallel-79251120d618">https://medium.com/@gchandra/simple-tutorial-to-install-use-gnu-parallel-79251120d618</a></li>
@@ -1303,7 +1300,6 @@ report:
 <p>Long-term, we will expand our reporting capability and business intelligence functions. As we expose our reports in both JSON and HTML, and fully support integration over REST or via our test-runner (DIY), we are welcoming you to integrate into your Business Intelligence system of choice and for you to see Boozang as one source of insights among many.</p>
 <h2 id="frequent-maintenance-releases">Frequent Maintenance Releases</h2>
 <p>We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this timeslot works for both European and American customers and amounts to a maximum of 30 seconds of service down-time). This means that we generally can provide less than a one-week turnaround on bugs reported by our customers.</p>
-<h2></h2>
 <h1 id="testing-patterns-and-anti-patterns">Testing patterns and anti-patterns</h1>
 <h2 id="introduction-3">Introduction</h2>
 <p>In programming, we sometimes talk about design patterns. The idea of a design pattern is a recipe to solve a particular problem. Any given problem in programming can have many solution candidates. The design pattern helps guide the user to the simplest and best possible solution to a problem. That's why following design patterns doesn't only show you the way to solve a given problem. It also conveys a best practice. There are many reasons to follow best-practice solutions. Here are a few:</p>
@@ -1775,7 +1771,7 @@ function(price, percentage){
   return (parseFloat(price)*(100-percentage)/100 + 0.00000000001).toFixed(2)
 }</code></pre>
 <hr />
-<p>Copyright (c) 2019 Boozang Technologies Inc.</p>
+<p>Copyright (c) 2021 Boozang Technologies Inc.</p>
 <!-- CONTENT END -->
 
             </article>
