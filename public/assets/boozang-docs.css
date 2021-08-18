@@ -155,7 +155,7 @@ aside.toc {
 }
 
 .toc ul a {
-	color: #1b2331;
+	color: #262626;
 	text-transform: uppercase;
 	text-decoration: none;
 }
@@ -169,23 +169,24 @@ aside.toc {
 }
 
 .toc ul a:hover {
-	
+	color: #04ab90;
 }
 .toc ul {
 	list-style: none;
 }
 .toc ul li {
-
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
-    letter-spacing: 1.1px;
-    line-height: 13px;
-    margin: 10px auto 10px;
+    line-height: 15px;
+    margin: 20px auto;
 }
 
 .toc ul li ul li{
 	text-transform: none;
 	font-weight: normal;
+	font-size: 16px;
+	line-height: 16px;
+	margin: 13px auto;
 }
 
 .toc ul li ul li ul li{
@@ -239,7 +240,6 @@ aside.toc {
 	}
 	.livetoc a.active {
 		color: #04ab90;
-		font-weight: bold;
 	}
 }}
 /* @media screen and (min-width: 1800px) {
