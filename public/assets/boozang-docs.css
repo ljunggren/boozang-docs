@@ -211,7 +211,7 @@ aside.toc {
 		bottom: 0;
 		overflow: hidden;
 		overflow-y: auto;
-		width: 15%;
+		width: 25%;
 		line-height: 20px;
 		padding: 2rem 1rem 4rem 2rem;
 	}
@@ -513,4 +513,10 @@ code[class*="language-"] {
 }
 a {
 	overflow-wrap: break-word;
+}
+
+@media screen and (min-width: 1500px) {
+	aside.toc {
+		width: 15%;
+	}
 }
