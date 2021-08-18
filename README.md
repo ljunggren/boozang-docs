@@ -19,12 +19,6 @@ Before checking out the official documentation, which can be a lot to take in at
 
 - Onboarding: https://boozang.com/forum/topic/onboarding-docs/
 
-## Overview
-
-![max-ostrozhinskiy-18wn7B2y-SU-unsplash](images/max-ostrozhinskiy-18wn7B2y-SU-unsplash.jpg)
-
-In this section, we give a brief overview of the Boozang features and when it's a good idea to use the Boozang
-
 ### Introducing Boozang ###
 
 ###### At the core
@@ -67,11 +61,7 @@ Boozang has built-in versioning, with support for branching and merging. This al
 
 Boozang is completely built-in Javascript, and being Cloud-based, there is no need for any client-side installation. Simply add an HTML fragment to your site to activate it for testing.
 
-###### Cross-browser support
-
-As Boozang doesn't rely on browser extensions or client-side install, it natively runs in any web browser (Chrome, Firefox, Safari, Opera). 
-
-**Web components / Shadow DOM support and socket-based testing**
+###### Web components / Shadow DOM support and socket-based testing
 
 Supports Web Components / Shadow DOM testing and socket-based testing. 
 
@@ -101,7 +91,7 @@ In this section, we cover the onboarding process of the Boozang tool, and some i
 
 ## Signing  up / Logging in
 
-You can sign-up for Boozang from the Boozang homepage at Https://boozang.com. The sign-up link will take you to https://ai.boozang.com. If you are in Europe or Asia, try switching to our European site https://eu.boozang.com. These are the Boozang application servers, which are responsible for communicating with any instances of the Boozang tool, which is running locally on the client-side. 
+You can sign-up for Boozang from the Boozang homepage at https://boozang.com. The sign-up link will take you to https://ai.boozang.com. If you are in Europe or Asia, try switching to our European site https://eu.boozang.com. These are the Boozang application servers, which are responsible for communicating with any instances of the Boozang tool, which is running locally on the client-side. 
 
 This is also where an administrator can maintain different teams and different projects, without having to launch anything client-side. 
 
@@ -120,7 +110,7 @@ W recommend using the Chrome extension to enable all Boozang features, such as c
 
 ###### Installing the bz fragment
 
-There is also a second installation option, that will require a little more technical know-how. Create a project at http://ai.boozang.com and download the HTML snippet. The snippet is copied to the webroot (where your index.html or similar would be located). To launch the Boozang tool, access the snippet in any browser, such as http://myapplication.com/bz.html or http://localhost:8080/bz.html. 
+There is also a second installation option, that will require a little more technical know-how. Create a project at https://ai.boozang.com or https://eu.boozang.com and download the HTML snippet. The snippet is copied to the webroot (where your index.html or similar would be located). To launch the Boozang tool, access the snippet in any browser, such as http://myapplication.com/bz.html or http://localhost:8080/bz.html. 
 
 Tip: Using the bz fragment allows for running tests in headless browser mode. This allows for simple CI integration using the Boozang test runner.
 
@@ -138,9 +128,13 @@ Boozang takes an object-oriented approach to testing. Just like your application
 
 ![example image](images/ootesting.png "An exemplary image")
 
-###### Modules
+###### Features
+
+In Boozang, try and create a module structure that matches the application under test. If using Cucumber, you should also try to create features that are aligned with the ways of working in the business domain. Usually, this is a less technical view, focused on requirements and end-user impact. 
 
 ![example image](images/project-modules.png "An exemplary image")
+
+###### Modules
 
 The modules are used to divide your tests into functional areas of your application. Where other tools usually have tests and test suites, or test suites are just another test in Boozang (using Plug test-case). Modules are used to organize tests to match the functional modules of the application. They work as folders to organize your tests, but also to allow data to be added on the module level. For instance, in the Inventory module in the example, the Test data for inventory should typically be saved as Module data. 
 
@@ -178,7 +172,7 @@ In the help text, you will find an explanation of the function you selected. You
 
 # The tool
 
-![philip-swinburn-vS7LVkPyXJU-unsplash](images/philip-swinburn-vS7LVkPyXJU-unsplash.jpg)
+![](images/cucumber-test.png)
 
 In this section, we explain all the toolbars and controls, basically what does what. You can skip this section and use as a reference when you get stuck or have some questions. 
 
@@ -190,7 +184,7 @@ In this section, we explain all the toolbars and controls, basically what does w
 
 Clicking the Boozang icon is a shortcut to bring back the user to the project root. 
 
-###### Test Authoring View
+###### Test Authoring
 
 This is the main view to create test cases and organize them in the project tree. The test cases you create is organized into modules, to ensure maximum reusability. 
 
@@ -200,13 +194,21 @@ Bug authoring view. Use this section to record bugs, which are most often visual
 
 In this view, you have access to all authoring tools, with the difference that bugs can be assigned to other members of your team.
 
-###### Settings
+###### Root causes
 
-The project settings allow the user to set: Environment, Content Policy, Notifications, and Preferences.
+Bugs that encountered during your tests can be mapped to known issues, and categorized an application issue, automation issue, or unknown. Boozang captured a checksum of the error, which allows you to recognize an issue as it re-occurs. Here you can also link them to an existing TR / bug report in an external system. This classification also plays a roll in the root-case analysis. 
 
 ###### Reports
 
-The report view contains the report of the latest test run. When running a test, the user can also switch to the report view to see the report is generated as the test runs. 
+The report view contains the report of the test runs. The latest test run will be shown by default, but previous test runs that were saved, either from the IDE or from a CI run, can also be loaded from the server. In this view, a user can also access operation logs, which contain all project updates, and request logs. 
+
+###### CI servers
+
+In this view, you can find integration wizards for most common CI servers: Jenkins, GitHub actions, GitLab, Azure, and Circle CI. Boozang will integrate to any CI server with Docker support, so there is a generic Docker option as well, to facilaite this. In this view, you can also monitor all active workers (test processes) that are currently running.  
+
+###### Settings
+
+The project settings allow the user to set: Environment, Content Policy, Notifications, and Preferences.
 
 ###### Tools
 
@@ -226,9 +228,9 @@ Takes the user to the Boozang Cloud Management interface. This allows the user t
 
 Access the account page. Here you can see current service usage and your current license tier. 
 
-###### Console
+###### Post ticket to Boozang
 
-Opens the Boozang console. It allows the user to inspect data and trouble-shoot tests. 
+Open a ticket directly to Boozang support from the tool. 
 
 ###### Chat & Message
 
@@ -238,7 +240,7 @@ Opens a popup chat with the team. Here you can monitor project activity and chat
 
 This is a link to the video tutorials on the homepage. 
 
-###### Functional Overview
+###### Documentation
 
 This is a link to the latest version of this document. 
 
@@ -256,45 +258,64 @@ Log out the user.
 
 ![example image](images/topbar.png "Top bar")
 
-###### Project Name
+###### New tab
 
-The first entry in the top bar will be the project name. Clicking on the project name will take you to the root of the project tree. Use a descriptive name for your project that reflects the product under test, or for companies having a single product, the company name. 
+Open a new tab. 
 
-###### Module name / View name
+###### Current tab
 
-Clicking on the module name in the test authoring view will take you to the module level of the tree. When being in a different view than the test authoring view, the View name as given in the side-bar will be displayed, such as Settings or Report.
+Boozang supports tabbed navigation similar to a desktop IDE like VS Code. Helpful when working on several tests at once. 
 
-###### Test Name
+###### Navigation bar
 
-The third level of the navigation is only displayed in the test authoring view when a test is selected. In the case of sub-modules, there can also be several intermediate levels. 
+The navigation bar tells you where you are in the project tree, and enables you to quickly navigate it. From the image
 
-###### Quick Navigation
+- Project: The New Lab
+- Branch: master
+- Module: Forms
+- Test: New test
 
-Use the Caret down icon to quickly switch between modules and tests. You can also create new modules, new test suites and new tests from here. 
+By clicking any entry or arrow in the navigation bar you can navigate the tree. For instance, to change branch, simply click "master". The navigation is similar to Jenkins, where clicking an entity will navigate you there, while clicking an arrow will allow you to navigate between modules and tests, respectively. 
+
+###### Bookmark 
+
+Bookmark tests and modules as you see fit by clicking the star. Simply click the star a second time to remove bookmark. The bookmark menu will show on hover. 
 
 ###### Search
 
-To do a free text search on any module or test, hit the Search icon. As you type, the matching search results will display.  
+Search the project for any test, module, or Cucumber test step. Use advanced testing to do more specific searches, like variable names or page elements. 
 
-###### Hamburger
+###### Record
 
-Click the hamburger icon to open the hamburger menu. 
+Start a recording of a test. If application window is closed, it will open at the give URL.
 
+###### Play
 
+Plays the test from the URL given.
+
+###### Application URL
+
+The URL for the test. If you want the test execution to be based on the current application window state, make sure to set the test reload policy to "Never reload". 
+
+###### Open Window
+
+Opens the application window at the current URL.
+
+###### Requests
+
+Registers all requests to the back-end, such as Restful API calls. Click to open API "snoop" menu, that allows you to record API tests by doing UI interactions. 
+
+###### Test Settings
+
+Set specific settings for the test execution. The default settings is usually ok, so this is normally not necessary. 
 
 ## The action list
 
 ![example image](images/action-list.png "Tool bar")
 
-###### Reload URL
+###### Event
 
-Reloads the test URL in the application browser window. Use this to make sure the correct URL is loaded in the application window, for instance when recording a new test. 
-
-Tip: Double-clicking the test row also performs this action
-
-###### Action icon
-
-An icon that indicates the action type. The different action types are **Validate Result**, **Mouse Event**, **Keyboard Event**, **Extract data**, **Javascript**, **Comment**, **Refresh Window**, **Plug Test**, and **Visit Links**.  
+An icon, word, or both that indicates the action type. The different action types are **Set**, **Validate Result**, **Mouse Event**, **Keyboard Event**, **Extract data**, **Javascript**, **Comment**, **Refresh Window**, **Plug Test**, and **Visit Links**.  
 
 *Tip: Clicking the action icon toggles breakpoints. Test execution is temporarily stopped at breakpoints, allowing for troubleshooting of tests. To resume playing the test, click the play button.*
 
@@ -302,21 +323,25 @@ An icon that indicates the action type. The different action types are **Validat
 
 This is the human-readable description of the action and defaults to the actual action code. If needed, this can be changed on the auction details page.
 
-###### Data Indicator
+###### Value
 
-Orange indicates that dynamic data is used. The following data scopes are available: $parameter, $test, $module, $project, $loop
+The value used for applicable events (Set, Validate). Orange indicates that dynamic data is used. The following data scopes are available: $parameter, $test, $module, $project, $loop
+
+![action-list-custom](images/action-list-custom.png)
+
+
+
+
 
 ###### Add action in list
 
-Inserts an action in the action list. It´s also possible to initiate a recording that inserts actions anywhere in the list. 
+Inserts a new action in the action list manually. As events are often recorded, most other action types will be added in manually. The actions can be added during an active recording section, or when the recording has stopped. 
 
 ###### Run action
 
-Executes a single action. 
+Double-click on an action to execute a single action. 
 
-*Tip: Double-clicking the action row also runs the action.* 
-
-###### Custom timeouts
+###### Custom timeout
 
 Indicate that the timeouts for that particular action have been customized. This can be done by editing timeouts in action details. In the case of slow response times during recording, this will also be added automatically to ensure test stability. 
 
@@ -324,11 +349,9 @@ Indicate that the timeouts for that particular action have been customized. This
 
 Indicate that exit conditions for the action have been customized. Exit conditions signify what action is taken on a certain action outcome. Action outcomes are Success, Fail, and Error. Success means the action was executed successfully, Fail means that it executed falsely, such as validation fail, and Error means element not found. 
 
-###### Action details
-
-Opens the action details panel. The action details can be pinned to stay open, or always be seen at the top or base of the action list. When pinned, action details only shows the main controls. 
-
 ## Record / Play
+
+![play-modes](images/play-modes.png)
 
 ###### Recording
 
@@ -374,19 +397,37 @@ Running in automation mode never activates AI repair.
 
 ![example image](images/toolbar.png "Tool bar")
 
-###### Switch view: List / GUI
+###### Switch view: Table / GUI
 
 The switch view button toggles between table and diagram view.
 
-The views are equivalent in functionality, but the diagram views better illustrate the flow between tests, while the table view displays the actions more linearly.
+The table view should be used when authoring tests, and is the view you will use a majority of the time. The GUI will is useful to understand how the test intercats with other tests. 
 
-Tip: Use table mode for test authoring, and experiment with diagram view when executing tests. 
+###### Navigate to parent
 
-###### Parameter
+Navigate up the testing tree. 
 
-Use this to set dynamic data used by the test, to improve test re-usability. You can set this data when running the test, and override if when calling the test from an upstream test case (using plug test-case). When doing form fills, you can also bind the form data directly into the parameter.
+###### Expand action rows
 
-*Tip: Think of this as parameters/arguments to a function in conventional programming. This greatly promotes test re-use and good test automation practice.*  
+Expand the action rows to show more test information. The expanded view is useful to troubleshoot passing of parameters and customized exit conditions. 
+
+###### Lock
+
+Lock the test case to prevent other team member from modifying the test. As tests are auto-saved in Boozang and all other team members recieve these updates automatically, all tests are unlocked by default. 
+
+###### Undo / Redo
+
+Undo or Redo latest modification. 
+
+###### Delete
+
+Deletes one or several actions.  You can also use the "Delete" key. 
+
+*Tip: Use Ctrl/CMD functions to multi-select.*
+
+###### Disable
+
+A disabled action is skipped when a test is run. Useful to debug tests. 
 
 ###### Group
 
@@ -406,23 +447,13 @@ Standard Cut functionality. Use Cut and Paste to move actions between tests, tes
 
 *Tip: Use Ctrl/CMD functions to multi-select.*
 
-###### Undo / Redo
+###### Kebab menu (...)
 
-Undo /Redo last un-saved action. In Boozang, you cannot undo saved changes as they have been committed to the Cloud.
-
-###### Delete
-
-Deletes one or several actions. 
-
-*Tip: Use Ctrl/CMD functions to multi-select.*
-
-###### Disable
-
-A disabled action is skipped when a test is run. Useful to debug tests. 
+This menu contains functions that are used less frequently.
 
 # Element selectors
 
-![darts-2966934_1280](images/darts-2966934_1280.jpg)
+*The element selection policy has undergone changes related to our 6.x release (April 2021). I recommend checking out these updates in on our blog: https://boozang.com/element-selectors/*
 
 Being able to identify HTML elements in your application is central to test automation. Boozang has a unique approach to this, so it's worth spending some time learning about it. Normally, the record function takes care of capturing elements very well, but the unique Boozang selection policy enables us to do very powerful data-driven development, where dynamical data can be used as selectors.  
 
@@ -518,8 +549,6 @@ If the element index > 0 it means that the element isn´t uniquely identified. T
 ###### Extract data
 
 When extracting data, the data itself should not be used as an element selector.  Use the DOM picker to the key of id or class, or other attributes.
-
-![example image](images/dom-picker.png "An exemplary image")
 
 ###### Element path operation
 
@@ -626,19 +655,11 @@ The default behavior is to **Re-try on element missing**. Customize this to **Ne
 
 When a test is run and an action element cannot be found the AI test repair screen will be launched. This will allow the user to re-pick the element from the application window. If a matching element is found, Boozang will suggest the element for the user. This allows the user to repair tests ultra-fast even when there have been significant code changes.
 
-*Tip: In normal play mode, the user is asked if the test should be repaired. In Repair mode, the AI repair is always launched, and in Automation, mode AI repair is never launched.* 
-
 # Actions
-
-![glenn-carstens-peters-RLw-UC03Gwc-unsplash](images/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg)
-
-Actions are the steps that comprise a test case. This could be a mouse or keyword event, simulating a user action, or a validation (assertion) or even Javascript. There are also AI actions supported which are more elaborate actions such as "Visit Links" or "Form Fill".
 
 ### Overview
 
-The following simple e
-
-
+Actions are the steps that comprise a test case. This could be a mouse or keyword event, simulating a user action, or a validation (assertion) or even Javascript. There are also AI actions supported which are more elaborate actions such as "Visit Links" or "Form Fill".
 
 ## Events
 
