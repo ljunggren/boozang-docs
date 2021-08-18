@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="lazyload" lang="en">
     <head>
-        <title>README · Boozang Documentation</title>
+        <title>README-old · Boozang Documentation</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
                 <link rel="icon" type="image/png" href="/icon.png">
@@ -38,7 +38,7 @@
                 </script>
             </div>
             <nav class="breadcrumbs">
-                <a href="/">Boozang Documentation</a>
+                <a href="/">Boozang Documentation</a> » <strong>README-old</strong>
             </nav>
         </header>
 
@@ -74,10 +74,10 @@
 <p>Boozang test technology is divided into two parts. The proprietary part of the tool which allows you to author tests record fast and the Open Source test runner which is built on Google Puppeteer, which allows you to run tests from command-line and integrate Boozang into your CI flow or other tools. </p>
 <ul>
 <li>
-<p><strong>Boozang tool</strong>: Sign up at <a href="https://boozang.com">https://boozang.com</a> for free and paid license offerings.</p>
+<p>Boozang tool: Sign up at <a href="https://boozang.com">https://boozang.com</a> for free and paid license offerings.</p>
 </li>
 <li>
-<p><strong>Boozang test-runner</strong>: For the Boozang Puppeteer open-source test runner see <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a> and the Docker container <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a></p>
+<p>Boozang test-runner: For the Boozang Puppeteer open-source test runner see <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a> and the Docker container <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a></p>
 </li>
 </ul>
 <h3 id="features">Features</h3>
@@ -95,7 +95,7 @@
 <p>Boozang is completely built-in Javascript and being Cloud-based there is no need for any client-side installation. Simply add an HTML-fragment to your site to activate it for testing.</p>
 <h6 id="cross-browser-support">Cross-browser support</h6>
 <p>As Boozang doesn't rely on browser extensions or client-side install, it natively runs in any web browser (Chrome, Firefox, Safari, Opera). </p>
-<p><strong>Web components / Shadow DOM support and socket-based testing</strong></p>
+<h6 id="web-components--shadow-dom-support-and-socket-based-testing">Web components / Shadow DOM support and socket-based testing</h6>
 <p>Supports Web Components / Shadow DOM testing and socket-based testing. </p>
 <h3 id="when-to-use-boozang">When to use Boozang</h3>
 <h6 id="good-fit-vs-bad-fit">Good fit vs bad fit</h6>
@@ -273,6 +273,7 @@
 <p>A disabled action is skipped when a test is run. Useful to debug tests. </p>
 <h3></h3>
 <h1 id="elements">Elements</h1>
+<p>Check out the latest on our element selection policy in the following blog post: <a href="https://boozang.com/element-selectors">https://boozang.com/element-selectors</a></p>
 <p><img src="images/darts-2966934_1280.jpg" alt="darts-2966934_1280" /></p>
 <p>Being able to identify HTML elements in your application is central to test automation. Boozang has a unique approach to this, so it's worth spending some time learning about it. Normally, the record function takes care of capturing elements very well, but the unique Boozang selection policy enables us to do very powerful data-driven development, where dynamical data can be used as selectors.  </p>
 <h2 id="a-note-on-element-selection-policy">A note on element selection policy</h2>
@@ -455,7 +456,7 @@
 <li>Include: Checks for any occurrences of a String. It generates success if it finds a match, fail otherwise. If the element doesn't exist, it generates an error.   </li>
 <li>Exclude: Opposite of Include. It generates fail if it finds a match, success otherwise. If the element doesn't exist, it generates an error.   </li>
 </ul>
-<p><strong>Expectation</strong></p>
+<h6 id="expectation">Expectation</h6>
 <p>This is the comparison value to use. This could be a string or regular expression (in the case of the regex operator). </p>
 <p><em>Advanced (accessible from kebab menu)</em></p>
 <p><img src="images/match.png" alt="match" /></p>
@@ -485,7 +486,7 @@ Replacement string: YYYY-MM-DD</code></pre>
 <pre><code class="language-javascript">$test.tmpValue=$element.innerText.trim()</code></pre>
 <p>This is just an example to help you along. If you have your own data variable, for instance <code>$project.myHappyData</code> you can simply replace the code in the <code>Extract Data</code> field.</p>
 <pre><code class="language-javascript">$project.myHappyData=$element.innerText.trim()</code></pre>
-<p><strong>Dynamic data and element selector</strong></p>
+<h6 id="dynamic-data-and-element-selector">Dynamic data and element selector</h6>
 <p>When selecting some data in a page that is dynamic, such as a database id or project name, it's important to pay special attention to the element. By defaultm Boozang natural language selectors will try and identify the element by the actual text, which would be changing, generating an element not found error. </p>
 <p>Here it is needed to click on &quot;Edit element&quot; icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, <code>tiger</code> is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute <code>class</code> which should be equal to <code>string1</code> (denoted with Javascript shorthand below as <code>.string1</code>). <img src="images/extract-data-dom.png" alt="extract-data-dom" />.</p>
 <h2 id="javascript">Javascript</h2>
@@ -723,6 +724,9 @@ Replacement string: YYYY-MM-DD</code></pre>
 <h6 id="keywords-bz-skip-and-bz-stop">Keywords: bz-skip and bz-stop</h6>
 <p>In data-driven testing, we support the keywords &quot;bz-skip&quot; and &quot;bz-stop&quot; to be able to trigger conditional functionality based on data. As soon as &quot;bz-skip&quot; occurs the test will skip without generating a failure. If &quot;bz-stop&quot; occurs the all upstream tests will stop without generating an error.  </p>
 <h1 id="api-testing">API testing</h1>
+<p>Check out the the latest blog posts for the latest on Boozang API testing:</p>
+<p><a href="https://boozang.com/advanced-api-testing">https://boozang.com/advanced-api-testing</a></p>
+<p><a href="https://boozang.com/api-testing-with-boozang-and-json-server">https://boozang.com/api-testing-with-boozang-and-json-server</a></p>
 <p><img src="images/clint-patterson-exfrR9KkzlE-unsplash.jpg" alt="clint-patterson-exfrR9KkzlE-unsplash" /></p>
 <p>Even though Boozang is mainly a UI testing tool, it also supports full API testing (compare Postman). This can be especially useful when creating mixed API and UI tests, doing extra validation, or pre-testing features that haven't been fully built.  </p>
 <h2 id="validate-api-call">Validate API call</h2>
@@ -783,7 +787,7 @@ Accept:&quot;json&quot;
 <h2 id="the-authorization-wizard">The authorization wizard</h2>
 <p><img src="images/wizard-2.png" alt="wizard-2" /></p>
 <p>As soon as you click the button &quot;Save &amp; generate test-cases&quot; the test-case generation wizard is launched. The normal procedure is to start by generating &quot;sign-in&quot; but you can also start with generating &quot;sign-out&quot;. </p>
-<p><strong>Generating: Sign in</strong></p>
+<h6 id="generating-sign-in">Generating: Sign in</h6>
 <p><img src="images/generate.png" alt="generate" /></p>
 <ol>
 <li>Make sure to be logged out and navigated to the login page. Click Confirm. </li>
@@ -811,7 +815,7 @@ Accept:&quot;json&quot;
 <h6 id="set-test-pre-conditions">Set test pre-conditions</h6>
 <p><img src="images/test-preconditions.png" alt="test-preconditions" /></p>
 <p>One way of using the authorization tests is to set test-preconditions on tests. If checking a user as a pre-conditions this means as soon as this test is run, Boozang will check if that user is logged in using the unique identifier. If not, Boozang will automatically run the &quot;sign-out&quot; test case and run &quot;sign-in&quot; for the first user in the list. </p>
-<p><strong>Calling authorization tests manually</strong></p>
+<h6 id="calling-authorization-tests-manually">Calling authorization tests manually</h6>
 <p><img src="images/auth-param.png" alt="auth-param" /></p>
 <p>You can also call the authorization tests manually. This can be done by simply calling the &quot;sign-in&quot; test case directly. </p>
 <p><code>$parameter = unique key</code></p>
@@ -857,7 +861,7 @@ Accept:&quot;json&quot;
 <p><img src="images/unmatched.png" alt="unmatched" /></p>
 <p>This will automatically create a &quot;Link Test&quot; that translates the Gherkin syntax to executable code. </p>
 <p><img src="images/changing-a-mapping.png" alt="changing-a-mapping" /></p>
-<p><strong>Link tests and re-use</strong></p>
+<h6 id="link-tests-and-re-use">Link tests and re-use</h6>
 <p>One might wonder why to introduce link tests in the first place? Why not simply have a single mapping of Gherkin syntax that maps to a test. The answer is re-use. Imagine we have the following test: <code>LoginHandler</code> that takes <code>role</code> as a parameter. If in Gherkin's we have the following statements</p>
 <p><code>Given I am logged in as an Admin</code></p>
 <p><code>Given I am logged in as a User</code></p>
@@ -910,7 +914,7 @@ Accept:&quot;json&quot;
 <p>By creating a model of your application, a full graphical representation of the application is created. This gives everyone in the application team a complete picture of all application logic, and ...</p>
 <h6 id="non-requirement-driven-tests">Non-requirement driven tests</h6>
 <p>By modeling the application, the boozang engine can auto-generate tests that do not originate from business requirements but are still important. This gives you a baseline of tests to work as a health-check for the application functionality. </p>
-<h1 id="command-line-runner-and-test-scheduling">Command-line runner and test scheduling</h1>
+<h1 id="ci-integration-and-test-scheduling">CI integration and test scheduling</h1>
 <p><img src="images/day-planner-828611_1280.jpg" alt="parallel-unsplash" /></p>
 <p>Note: This section will focus on running Boozang from the command line.  For readers not familiar with CLI and Docker this might be a little technical, even though most of the commands should be working doing a direct copy.</p>
 <h2 id="test-urls-and-authorization">Test URLs and authorization</h2>
@@ -926,7 +930,7 @@ Accept:&quot;json&quot;
 <h6 id="generating-a-tokenized-test-url">Generating a tokenized test URL</h6>
 <p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/share-test-tokenized.png" alt="share-test-tokenized" /></p>
 <p>It can also be retrieved from the IDE interface when sharing a single test. The user will again be prompted for a password to get a tokenized test URL, which can be run from the command-line.  </p>
-<p><strong>Running from command-line</strong></p>
+<h6 id="running-from-command-line">Running from command-line</h6>
 <p>There are many ways to run Boozang tests from the command line but here are the recommended options: Installing the test runner using the <strong>Docker Xvfb container</strong> or <strong>Boozang npm package</strong>. </p>
 <h2 id="docker-xvfb-container">Docker Xvfb container</h2>
 <p><img src="images/docker-logo.png" alt="docker-logo" /></p>
@@ -997,6 +1001,9 @@ Accept:&quot;json&quot;
 <h6 id="additional-cli-options-1">Additional CLI options</h6>
 <p>To find current supported command-line options, see Github readme: <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a></p>
 <h2 id="parallel-test-execution">Parallel test execution</h2>
+<p>Check out the blog posts on parallel testing to learn about the latest way to run CI tests on Boozang:</p>
+<p><a href="https://boozang.com/distributed-testing-part-1">https://boozang.com/distributed-testing-part-1</a></p>
+<p><a href="https://boozang.com/distributed-testing-part-2">https://boozang.com/distributed-testing-part-2</a></p>
 <p>Installing the Docker container makes it dead simple to create your test execution scripts. Here are a few examples </p>
 <h6 id="running-from-cronjob">Running from cronjob</h6>
 <p>It's easy to set up a cronjob that runs a Boozang test at a scheduled time. Type</p>
@@ -1065,224 +1072,6 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
 <li>As our customer base grows, custom code made by one customer can directly be re-used by another customer, creating a benefit that scale with our customer base. </li>
 </ol>
 <p>We, therefore, encourage our users to keep their custom code open source and share it openly. We also encourage you to let us know at <em>opensource@boozang.com</em> so we can link to it. </p>
-<h1 id="ci-server-integrations">CI Server Integrations</h1>
-<h2 id="introduction-1">Introduction</h2>
-<p>To connect to an external CI server using Boozang, you'll need to use the Docker runner or NPM package described in the previous section. We will automatically generate the script code needed to get this up and running. The script can then be customized to suit your particular setup.</p>
-<h2 id="generating-the-integration-code">Generating the integration code</h2>
-<p>To get started, start by visiting the CI side-bar option in the Boozang tool.</p>
-<p><img src="images/ci-server-integration.png" alt="ci-server-integration" /></p>
-<p>The current options are currently supported</p>
-<ul>
-<li>Jenkins: Use to create boilerplate Jenkins script code based on the Docker Xvfb runner</li>
-<li>Docker stand-alone: Use to create your own Docker-based runner</li>
-<li>GitLab CI config: Boilerplate code based on the Docker Xvfb runner</li>
-<li>Node / NPM config: Develop your own pipeline based on the NPM package Boozang</li>
-<li>GitHub actions config: Boilerplate code based on the Boozang npm package and GabrielBB/xvfb-action@v1</li>
-<li>Microsoft Azure: Sample boilerplate code based on Docker Xvfb runner</li>
-<li>Other CI server: Sample boilerplate code based on Docker Xvfb runner</li>
-</ul>
-<h2 id="jenkins">Jenkins</h2>
-<p>Jenkins Ci integration is fairly straightforward and we recommend using the Docker Xvfb runner here, to avoid setting up Xvfb for headless runs, which can be quite complex. Start by copying the boilerplate script and create a freeestyle job according to the instructions given</p>
-<ol>
-<li>Click &quot;New Item&quot; in the Jenkins main view</li>
-<li>Choose &quot;Freestyle project&quot;</li>
-<li>Add build step -&gt; Execute Shell</li>
-<li>Copy the below code into the shell</li>
-<li>Add a Post-build action -&gt; Add Cucumber reports</li>
-<li>The job is ready to run!</li>
-</ol>
-<p>Below is a sample of code generated. Note that most of these settings will vary depending on your particular project settings and selected test to run.  </p>
-<pre><code>BASE=http://staging-be.boozang.com
-TOKEN=my-secret-token
-ENV=4
-PROJECT=5e3f275e64f84941a326d4d8
-BRANCH=jira61
-SELF=0
-TEST=m72/t10
-GROUP=
-SCOPE=
-PARAMETER=
-WORKERS=1
-
-echo Running $workers processes for test: $test
-
-echo Setting up slaves
-counter=1
-while [ $counter -lt ${WORKERS} ]
-do
-  ((counter++))
-  WORKER_URL="${BASE}/extension?parameter=${PARAMETER}&amp;token=${TOKEN}${PROJECT}group=${GROUP}&amp;scope=${SCOPE}&amp;env=${ENV}&amp;key=${counter}&amp;self=${SELF}#${PROJECT}/${BRANCH}"
-  nohup docker run --rm -v "$(pwd):/var/boozang/" --name=bzworker${counter} styrman/boozang-runner "${WORKER_URL}" &gt; out_${counter}.log &amp;
-done
-
-echo All slaves done. Starting master job. 
-
-MASTER_URL="${BASE}/extension?parameter=${PARAMETER}&amp;token=${TOKEN}${PROJECT}&amp;group=${GROUP}&amp;scope=${SCOPE}&amp;env=${ENV}&amp;key=1&amp;self=${SELF}#${PROJECT}/${BRANCH}/${TEST}/run"
-docker run --rm -v "$(pwd):/var/boozang/" --name=bzworker1 styrman/boozang-runner "${MASTER_URL}"</code></pre>
-<p>It's often a good idea to add parameters to the job, for instance &quot;module_id/test_id&quot; and &quot;number_of_workers&quot;.</p>
-<p>In order to see an example setup using an upstream pipeline, check out this post on our user forum: <a href="https://boozang.com/forum/topic/jenkins-config-for-distributed-runs/">https://boozang.com/forum/topic/jenkins-config-for-distributed-runs/</a></p>
-<h2 id="github-actions">GitHub actions</h2>
-<ol>
-<li>Add a directory .github in your project root</li>
-<li>Create the directory .github/workflows</li>
-<li>Add the below code into the file .github/workflows/my-test-flow.yml</li>
-<li>Enable GitHub pages for your repo</li>
-<li>Push the code</li>
-<li>The test results will be published on the GitHub pages of your repo</li>
-</ol>
-<p>Below is a sample of code generated. Note that most of these settings will vary depending on your particular project settings and selected test to run.  </p>
-<pre><code>name: my-test-flow
-on: [push]
-jobs:
-  run-boozang-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g boozang
-
-      - name: Run headless test with Boozang
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          working-directory: ./ #optional
-          run: boozang --file="json/report" "http://staging-be.boozang.com/extension?parameter=&amp;token=my-secret-token5e3f275e64f84941a326d4d8&amp;group=&amp;scope=&amp;env=4&amp;key=1&amp;self=0#5e3f275e64f84941a326d4d8/jira61/m72/t10"    
-
-      - run: npm install multiple-cucumber-html-reporter --save-dev &amp;&amp; node reporter.js
-        if: always()
-
-      - name: Deploy report page
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-</code></pre>
-<h2 id="gitlab">GitLab</h2>
-<ol>
-<li>Click &quot;CI / CD&quot; in your GitLab repo</li>
-<li>Click Editor</li>
-<li>Paste below code</li>
-<li>Click &quot;Commit changes&quot;</li>
-<li>The job will be triggered automatically!</li>
-</ol>
-<p>Below is a sample of code generated. Note that most of these settings will vary depending on your particular project settings and selected test to run.  </p>
-<pre><code>stages:
-  - build
-  - test
-  - package
-  - deploy
-
-default:
-    image: docker:18.09.7-dind
-    interruptible: true
-    timeout: 30m
-
-services:
-    - docker:18.09.7-dind
-
-variables:
-  DOCKER_HOST: tcp://docker:2375/
-  DOCKER_DRIVER: overlay2
-  BASE: http://staging-be.boozang.com
-  TOKEN: my-secret-token
-  ENV: 4
-  PROJECT: 5e3f275e64f84941a326d4d8
-  BRANCH: jira61
-  SELF: 0
-  TEST: m72/t10
-  WORKERS: 1
-
-slave-workers:
-  stage: test
-  artifacts:
-    untracked: true
-  script:
-    - &gt;
-      for i in $(seq 2 ${WORKERS}); do
-        nohup docker run --rm -v "$(pwd):/var/boozang/" --name bzworker${i} styrman/boozang-runner "${BASE}/extension?&amp;token=${TOKEN}${PROJECT}&amp;env=${ENV}&amp;key=${i}&amp;self=${SELF}#${PROJECT}/${BRANCH}" &gt; nohup${i}.out
-      done
-
-master-worker:
-  stage: test
-  artifacts:
-    untracked: true
-  script:
-    - docker run --rm -v "$(pwd):/var/boozang/" --name bzworker1 styrman/boozang-runner "${BASE}/extension?token=${TOKEN}${PROJECT}&amp;env=${ENV}&amp;key=1&amp;self=${SELF}#${PROJECT}/${BRANCH}/${TEST}"
-
-report:
-  stage: package
-  dependencies: 
-    - master-worker
-  artifacts:
-    untracked: true
-  script:
-    - docker run --rm -v "$(pwd):/var/boozang/" --name reporter styrman/bz-cucumber</code></pre>
-<h1 id="feature-integrations">Feature Integrations</h1>
-<p>In addition to integrating to CI servers for test runs, Boozang supports loading Cucumber feature files from an external system. This is convenient as it allows teams to keep the Cucumber features stored with the application source code (in the case of GitLab, GitHub, or BitBucket), or as part of the test management life-cycle (in the case of XRay / Jira). </p>
-<p>In this case, Boozang acts as a slave system, which means the master copy of any feature should reside on the external system, and upon synchronization, local changes in Boozang will be lost. </p>
-<h2 id="connecting-to-an-external-api">Connecting to an external API</h2>
-<p>To connect to an external API to Boozang, go to Seetings -&gt; Integrations. Fromt the dropdown you can select between the following external systems</p>
-<ul>
-<li>Jira / XRay</li>
-<li>GitHub</li>
-<li>BitBucket</li>
-<li>GitLab</li>
-<li>Azure</li>
-</ul>
-<p>You will need to generate the access token for the external APIs on the respective sites. Remember, the APIs has a tendency to change, which means that the placeholder we suggest could be inaccurate. If so, simply change the connection URL according to the documentation of the providers and try again.</p>
-<p>The following fields needs to be entered</p>
-<ul>
-<li>File List URL: The URL end-point to get a list the feature files</li>
-<li>Token: The authorization header</li>
-<li>Match File: File match pattern</li>
-<li>In Zip: Check if files are being loaded as a zip</li>
-</ul>
-<p><img src="images/settings-integrations.png" alt="settings-integrations" /></p>
-<h2 id="jira--xray">JIRA / Xray</h2>
-<h3 id="introduction-2">Introduction</h3>
-<p>There are the following basic steps to the Boozang - XRay integration. THese are the steps needed on the XRay side</p>
-<ol>
-<li>Get API key to allow for XRay integration</li>
-<li>Define scenarios in XRay</li>
-<li>Link scenarios to features in XRay</li>
-<li>Define a Jira filter that encompasses the features to syncrhonize</li>
-</ol>
-<p>After these have been completed, try the following on the Boozang side</p>
-<ol>
-<li>Add the XRay API key to Boozang integrations</li>
-<li>Synchronize features</li>
-</ol>
-<p>Aftet his has been completed, you already has a successful integration. To get the best value out of the integration it's ideal to upload the reports on the XRay side. Perform the following steps on whatever CI server you are running</p>
-<ol>
-<li>Define a Boozang CI job</li>
-<li>Add code to upload features on XRay</li>
-</ol>
-<p>Below I will outline these steps. </p>
-<h3 id="xray-add-api-key">Xray: Add API key</h3>
-<p><em>Always consult the official XRay documentation for the latest updates and features: <a href="https://docs.getxray.app/display/XRAYCLOUD/Global+Settings%3A+API+Keys">https://docs.getxray.app/display/XRAYCLOUD/Global+Settings%3A+API+Keys</a></em></p>
-<p>The first thing you want to do is to add an API key to access Xray Restful API. To do this, you'll need to access XRay <strong>Admin view</strong>. You will be able to select &quot;API keys&quot; from the sidebar, and click &quot;Create API Key&quot; from the interface.</p>
-<p><img src="images/xray-add-api-key.png" alt="xray-add-api-key" /></p>
-<h3 id="xray-defining-scenarios">XRay: Defining scenarios</h3>
-<p>XRay and Boozang both support regular Scenarios and Scenario Outlines, so there is a one-to-one mapping between these entitities. As a starting point, you will need at least one Cucumber sceanrio defined ion Xray. Below is an example of a data-driven sceanrio outline defined on the XRay side. </p>
-<p><img src="images/xray-define-scenarios.png" alt="xray-define-scenarios" /></p>
-<h3 id="xray-linking-scenarios-to-features">XRay: Linking scenarios to features</h3>
-<p>s the link between Boozang and XRay is done on a feature level, any scenarios to be linked with Boozang will have to be part of a feature. In XRay, this is done by linking issues together. Start by creating a feature in XRay</p>
-<ol>
-<li>Create - New Feature</li>
-<li>Link issues -&gt; Is tested by... -&gt; Select scenario to link</li>
-</ol>
-<p><img src="images/xray-link-issues.png" alt="xray-link-issues" /></p>
-<h3 id="xray--jira-defining-a-filter">XRay / Jira: Defining a filter</h3>
-<p>Lastly, to be able to fetch features this is done by defining a filter in Jira. Filters can be defined in the main project interface in Jira</p>
-<p><img src="images/jira-filter.png" alt="jira-filter" /></p>
-<h2 id="gitlab-1">GitLab</h2>
-<p><em>This documentation is in progress. In the meantime, check out <a href="https://boozang.com/enterprise-boozang-working-with-github/">https://boozang.com/enterprise-boozang-working-with-github/</a></em></p>
-<h2 id="github">GitHub</h2>
-<p><em>This documentation is in progress. In the meantime, check out <a href="https://boozang.com/enterprise-boozang-working-with-github/">https://boozang.com/enterprise-boozang-working-with-github/</a></em></p>
-<h2 id="bitbucket">BitBucket</h2>
-<p><em>This documentation is in progress. In the meantime, check out <a href="https://boozang.com/enterprise-boozang-working-with-github/">https://boozang.com/enterprise-boozang-working-with-github/</a></em></p>
 <h1 id="security">Security</h1>
 <p><img src="images/hacker-1944688_1280.jpg" alt="hacker-1944688_1280" /></p>
 <h2 id="fragment-security">Fragment security</h2>
@@ -1306,7 +1095,7 @@ report:
 <p>We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this time-slot works for both European and American customers, and amounts to a maximum of 30 seconds of service down-time). This means that we generally can provide less than a one-week turnaround on bugs reported by our customers.</p>
 <h2></h2>
 <h1 id="testing-patterns-and-anti-patterns">Testing patterns and anti-patterns</h1>
-<h2 id="introduction-3">Introduction</h2>
+<h2 id="introduction-1">Introduction</h2>
 <p>In programming we sometimes talk about design patterns. The idea of a design pattern is a recipe to solve a particular problem. Any given problem in programming can have many solution candidates. The design pattern therefore helps guide the user to the simplest and best possible solution to a problem. That's why following design patterns doesn't only show you the way to solve a given problem, it also conveys a best-practice. There are many reason to follow best-practice solutions. Here are a few:</p>
 <ul>
 <li>Following documented processes increase code readability and collaboration in development teams</li>
@@ -1348,7 +1137,7 @@ report:
 <h2 id="conditional-patterns">Conditional Patterns</h2>
 <p>Conditional patterns deals with decision making.</p>
 <h3 id="if-pattern">If pattern</h3>
-<p><strong>The problem</strong></p>
+<h6 id="the-problem-1">The problem</h6>
 <p>In &quot;Red or yellow&quot; (<a href="http://thelab.boozang.com/yellowOrRed">http://thelab.boozang.com/yellowOrRed</a>) a color can be generated by clicking the button &quot;Generate Color&quot;. We want to make sure that the user hits the red button if &quot;red&quot; is being generated, and does nothing otherwise. </p>
 <h6 id="the-pattern-1">The pattern</h6>
 <p>The if pattern is the standard conditional pattern from programming that involves doing an action if a condition is met. In test automation this involves a validation (or assertion). </p>
@@ -1368,7 +1157,7 @@ report:
      fail:break group
    Click "Red or yellow" "Red" button</code></pre>
 <h3 id="if-else-pattern">If-else pattern</h3>
-<h6 id="the-problem-1">The problem</h6>
+<h6 id="the-problem-2">The problem</h6>
 <p>Using the if-pattern in &quot;Red or yellow&quot; (<a href="http://thelab.boozang.com/yellowOrRed">http://thelab.boozang.com/yellowOrRed</a>) only solve the issue for the red button. When yellow is shown, nothing is done, which is far from ideal. Let's make sure that when yellow shows the yellow button is pressed. </p>
 <h6 id="the-pattern-2">The pattern</h6>
 <p>The if-else condition is like the if pattern, except that when a condition isn't met, an alternative action is triggered. </p>
@@ -1384,7 +1173,7 @@ report:
  Group: ""
    Click "Red or yellow" "Yellow" button</code></pre>
 <h3 id="switch-pattern">Switch pattern</h3>
-<h6 id="the-problem-2">The problem</h6>
+<h6 id="the-problem-3">The problem</h6>
 <p>In this example we want to do a set of action depending on who is logged in (<a href="http://thelab.boozang.com/randomLogin">http://thelab.boozang.com/randomLogin</a>). When being logged in as &quot;Lemur&quot; a single button should be pressed. When logged in as &quot;Zebra&quot; two button should be pressed and when logged in as &quot;Lion&quot; three buttons should be pressed. You can play around by this by hitting the &quot;Random Login&quot; button. </p>
 <h6 id="the-pattern-3">The pattern</h6>
 <p>The switch pattern evaluates several conditions in a sequence and triggers actions accordingly. </p>
@@ -1417,7 +1206,7 @@ report:
 <h2 id="repeater-patterns">Repeater patterns</h2>
 <p>Repeater patterns is used to repeat a certain action. </p>
 <h3 id="while-pattern">While pattern</h3>
-<h6 id="the-problem-3">The problem</h6>
+<h6 id="the-problem-4">The problem</h6>
 <p>In this example (&quot;<a href="http://thelab.boozang.com/scramble">http://thelab.boozang.com/scramble</a>&quot;) a number of things can be changed  </p>
 <p>The while pattern is used to repeat an action until a condition is fulfilled. The while pattern can be implemented two ways in Boozang</p>
 <ul>
@@ -1433,7 +1222,7 @@ report:
  Click "Scramble items" "Scramble Content" button
  Call: [m2.t1] Current Test case</code></pre>
 <h3 id="loop-over-array-pattern">Loop over array pattern</h3>
-<h6 id="the-problem-4">The problem</h6>
+<h6 id="the-problem-5">The problem</h6>
 <p>In some instances, you want to loop over an entire data set. For instance, in Sorted Lists (<a href="http://thelab.boozang.com/sortedList">http://thelab.boozang.com/sortedList</a>), a user can add a series of todos to a todo list. </p>
 <h6 id="the-pattern-4">The pattern</h6>
 <p>The loop over array pattern used Boozang built-in loop functionality to loop over an array data set. The <code>loop</code> data handle will contain the value of the array entity. For instance, when looping over an array <code>chores="Walk the dog","Feed the bird","Clean the house"</code> the test will be executed 3 times and the <code>$loop</code> will take the values <code>"Walk the dog"</code>, <code>"Feed the bird"</code> and <code>"Clean</code> respectively. </p>
@@ -1443,7 +1232,7 @@ report:
 <pre><code class="language-json"> Set "Sorted list" "Add new Item" input = ({{$loop}})
  Keygroup[ENTER] "Sorted list" "Add new Item" input</code></pre>
 <h3 id="loop-over-csv-pattern">Loop over CSV pattern</h3>
-<h6 id="the-problem-5">The problem</h6>
+<h6 id="the-problem-6">The problem</h6>
 <p>Sometimes it's useful to be able to loop over more complicated data sets. In Role-based Login (<a href="http://thelab.boozang.com/roleBasedLogin">http://thelab.boozang.com/roleBasedLogin</a>) we would like to test the login of a set of users. As a single user has both <code>role</code>, <code>username</code>, and <code>password</code> which makes arrays unsuitable. Instead we can use a comma-separated file to contain this data. </p>
 <h6 id="the-pattern-5">The pattern</h6>
 <p>The loop over CSV pattern is used to loop over a more complicated data set. When looping over a CSV, such as <code>$test.loginInfo</code> below</p>
@@ -1471,7 +1260,7 @@ lemur   lemur@thelab.com    iamthelemur</code></pre>
  Click "Role" "Log in" button
  Click ($loop.role)"@thelab.com" "Log out" button</code></pre>
 <h3 id="do-n-times-pattern">Do n times pattern</h3>
-<h6 id="the-problem-6">The problem</h6>
+<h6 id="the-problem-7">The problem</h6>
 <p>Sometimes it's useful to simply repeat an action or test n times. We illustrate that using Tables (<a href="http://thelab.boozang.com/tables">http://thelab.boozang.com/tables</a>). Here we would like to delete a certain number of items. </p>
 <h6 id="the-pattern-6">The pattern</h6>
 <p>The do n times pattern is a repeater pattern that simply executes an action <code>n</code> times. In Boozang this is done by using the plug test case and specifying the number of times the test case should be executed. </p>
@@ -1488,7 +1277,7 @@ lemur   lemur@thelab.com    iamthelemur</code></pre>
 <h3 id="timeout-pattern">Timeout pattern</h3>
 <h3 id="delay-pattern">Delay pattern</h3>
 <h1 id="example-an-e-commerce-project">Example: An E-commerce project</h1>
-<h2 id="introduction-4">Introduction</h2>
+<h2 id="introduction-2">Introduction</h2>
 <p>In this example, we will illustrate how to automate a simple E-commerce application using Boozang. We will use Cucumber syntax to define the acceptance tests first, then show how to structure the automated tests in Boozang.</p>
 <p>The shop can be found at: <a href="http://shopnx.boozang.com">http://shopnx.boozang.com</a> </p>
 <h2 id="project-shopnx">Project: ShopNX</h2>
@@ -1625,7 +1414,7 @@ Filter
 a &lt;product-name&gt; is clicked on -&gt; View Item
 the price should be &lt;product_price&gt; -&gt; Validate Price</code></pre>
 <p>They also notice that they are close to completing the first scenario, so they go ahead and record the a simple test that validates that the product details page is shown. They now have the full scenario for View Item running.</p>
-<p><strong>The project state </strong></p>
+<h6 id="the-project-state">The project state</h6>
 <p>The project readiness can be seen in the Boozang report. </p>
 <h3 id="second-sprint">Second sprint</h3>
 <h6 id="development-team-1">Development team</h6>
@@ -1653,7 +1442,7 @@ Then the cart should be empty</code></pre>
 the cart should contain &lt;product_name&gt; -&gt; Check cart for product
 a user clears the cart -&gt; Clear Cart
 the cart should be empty -&gt; Check if cart empty</code></pre>
-<p><strong>The project state </strong></p>
+<h6 id="the-project-state-1">The project state</h6>
 <p>The project readiness can be seen from the Boozang report. </p>
 <p>...</p>
 <h3 id="third-sprint">Third Sprint</h3>
@@ -1717,7 +1506,7 @@ Then they should be able to complete the order</code></pre>
 <p>Using multiple When/Then statements is up to each team. An argument for keeping the singular structure (Given, When, Then) is that the Gherkin Scenario should be focused on testing a singular aspect of the system. On the other hand, there are benefits with the other approach. For instance, for systems with long setup times (Given conditions are taking long to execute) total test execution time can be greatly reduced by using multiple When-Then conditions. There will also be less housekeeping as less scenarios needs to be maintained. </p>
 <h2 id="a-note-on-data-states">A note on data states</h2>
 <p>All tests in our example were written with &quot;stateless&quot; Cucumber steps. That means that the outcome of a test step wasn't determined by any hidden data set by a previous step. This was done to simplify the example. Let's look at a slightly different way to write the Gherkin syntax, were we will introduce data states in Boozang. Look at the following scenario</p>
-<p><strong>Order: Email order reciept</strong></p>
+<h6 id="order-email-order-reciept">Order: Email order reciept</h6>
 <pre><code class="language-gherkin">Given a &lt;user&gt; visits the store
 When adds &lt;product_name&gt; to the cart
 And fills in their details
