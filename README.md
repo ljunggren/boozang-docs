@@ -2102,17 +2102,17 @@ As Boozang is a slave system, you'll need to load the features you need in Booza
 - Click "Import features"
 - Select "Sync from server"
 
-![xray-bz-import-features-2](/Users/matsljunggren/Workspace/boozang-docs/images/xray-bz-import-features-2.png)
+![xray-bz-import-features-2](images/xray-bz-import-features-2.png)
 
 - Select features to synchronize
 
-![xray-bz-import-features-3](/Users/matsljunggren/Workspace/boozang-docs/images/xray-bz-import-features-3.png)
+![xray-bz-import-features-3](images/xray-bz-import-features-3.png)
 
 - Click "Start"
 
 The features will now be synchronized with Boozang. You can now go ahead and impelment all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang
 
-![not-implemented](/Users/matsljunggren/Workspace/boozang-docs/images/not-implemented.png)
+![not-implemented](images/not-implemented.png)
 
 ### CI: Define a Boozang CI job
 
