@@ -19,7 +19,7 @@ Before checking out the official documentation, which can be a lot to take in at
 
 - Onboarding: https://boozang.com/forum/topic/onboarding-docs/
 
-### Introducing Boozang ###
+## At a glance ##
 
 ###### At the core
 
@@ -35,7 +35,7 @@ Boozang test technology is divided into two parts. The proprietary part of the t
 
 * **Boozang test-runner**: For the Boozang Puppeteer open-source test runner, see https://github.com/ljunggren/bz-puppeteer and the Docker container https://github.com/ljunggren/bz-docker-xvfb
 
-### Features
+## Why use Boozang
 
 ###### Stable to code changes
 
@@ -65,7 +65,7 @@ Boozang is completely built-in Javascript, and being Cloud-based, there is no ne
 
 Supports Web Components / Shadow DOM testing and socket-based testing. 
 
-### When to use Boozang
+## When to use Boozang
 
 ###### Good fit vs bad fit
 
@@ -2079,13 +2079,60 @@ Lastly, to be able to fetch features, this is done by defining a filter in Jira.
 
 ### Boozang: Adding the API token
 
+*This particular screen will be updated to accept the client secret credentials directly. For now, use curl to generate a token, and insert into the Token field as stated above.* 
+
+`curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "client-id-rom-xray","client_secret": "client-secret-from-xray" }' https://xray.cloud.xpand-it.com/api/v2/authenticate`
+
+Remember to set the full header, including Authorization header. 
+
+`Authorization: Bearer: YOUR-TOKEN-GOES-HERE`
+
+![settings-integrations](images/settings-integrations.png)
+
 ### Boozang: Synchronizing features
+
+As Boozang is a slave system, you'll need to load the features you need in Boozang. You can do that the following way
+
+- Open the project in question Boozang IDE
+- Go to the root of the project
+- Click the kebab menu
+
+![xray-bz-import-features](images/xray-bz-import-features.png)
+
+- Click "Import features"
+- Select "Sync from server"
+
+![xray-bz-import-features-2](/Users/matsljunggren/Workspace/boozang-docs/images/xray-bz-import-features-2.png)
+
+- Select features to synchronize
+
+![xray-bz-import-features-3](/Users/matsljunggren/Workspace/boozang-docs/images/xray-bz-import-features-3.png)
+
+- Click "Start"
+
+The features will now be synchronized with Boozang. You can now go ahead and impelment all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang
+
+![not-implemented](/Users/matsljunggren/Workspace/boozang-docs/images/not-implemented.png)
 
 ### CI: Define a Boozang CI job
 
+Go ahead and follow the instructions above to run a test execution on your CI server of choice.  Use the Cucumber report plugin or similar to make sure you have report files generated. 
+
 ### CI: Add code to upload features on XRay
 
+Follow the XRay documentation to upload the Cucumber report files.
 
+**Jenkins integration for Jira XRay on-premise:**
+
+ https://docs.getxray.app/display/XRAY/Integration+with+Jenkins 
+
+**Jenkins integration for Jira / XRay in Cloud**
+
+https://docs.getxray.app/display/XRAYCLOUD/Integration+with+Jenkins
+
+### Sample integration code for Jenkins
+
+*Sample code coming soon*
 
 ## GitLab
 
