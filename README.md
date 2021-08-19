@@ -1874,12 +1874,20 @@ In order to see an example setup using an upstream pipeline, check out this post
 
 ## GitHub actions
 
+Boozang supports integration to GitHub actions. This particular implementation uses the  GabrielBB/xvfb-action@v1 package to enable headless browseer runs. It utilizes Multiple Cucumber HTML Reporter (https://www.npmjs.com/package/multiple-cucumber-html-reporter) to generate HTML Cucumber report dashboards, and publishes the test results as GitHub pages. 
+
+*Note: This implementation can probably be improved, and we invite you to share any updates with us, either via email or on our [forum](https://boozang.com/forum). *
+
+###### Implementation steps
+
 1. Add a directory .github in your project root
 2. Create the directory .github/workflows
 3. Add the below code into the file .github/workflows/my-test-flow.yml
 4. Enable GitHub pages for your repo
 5. Push the code
 6. The test results will be published on the GitHub pages of your repo
+
+###### Sample code
 
 Below is a sample of code generated. Note that most of these settings will vary depending on your particular project settings and selected test to run.  
 
@@ -1918,11 +1926,17 @@ jobs:
 
 ## GitLab
 
+*Note: This implementation can probably be improved, and we invite you to share any updates with us, either via email or on our [forum](https://boozang.com/forum). *
+
+###### Implementation steps
+
 1. Click "CI / CD" in your GitLab repo
 2. Click Editor
 3. Paste below code
 4. Click "Commit changes"
 5. The job will be triggered automatically!
+
+###### Sample code
 
 Below is a sample of code generated. Note that most of these settings will vary depending on your particular project settings and selected test to run.  
 
@@ -2042,7 +2056,7 @@ The first thing you want to do is to add an API key to access Xray Restful API. 
 
 ### XRay: Defining scenarios
 
-XRay and Boozang both support regular Scenarios and Scenario Outlines, so there is a one-to-one mapping between these entities. As a starting point, you will need at least one Cucumber scenario defined ion Xray. Below is an example of a data-driven scenario outline defined on the XRay side. 
+XRay and Boozang both support regular Scenarios and Scenario Outlines, so there is a one-to-one mapping between these entities. As a starting point, you will need at least one Cucumber scenario defined in Xray. Below is an example of a data-driven scenario outline defined on the XRay side. 
 
 ![xray-define-scenarios](images/xray-define-scenarios.png)
 
@@ -2062,6 +2076,16 @@ The link between Boozang and XRay is done on a feature level, any scenarios to b
 Lastly, to be able to fetch features, this is done by defining a filter in Jira. Filters can be defined in the main project interface in Jira
 
 ![jira-filter](images/jira-filter.png)
+
+### Boozang: Adding the API token
+
+### Boozang: Synchronizing features
+
+### CI: Define a Boozang CI job
+
+### CI: Add code to upload features on XRay
+
+
 
 ## GitLab
 

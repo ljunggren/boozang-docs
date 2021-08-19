@@ -21,6 +21,8 @@ h6 { font-size: 1.0em; font-weight: 600; }
 body {
 	font-size: 18px;
 	color: #444;
+	max-width: 1300px;
+	margin: 0 auto;
 }
 /* Page Header And Navigation */
 body > header {
@@ -134,7 +136,7 @@ article {
 }
 
 article img {
-	width: 70% !important;
+	width: 80% !important;
 }
 @media (min-width: 992px) {
 	main {
@@ -155,7 +157,7 @@ aside.toc {
 }
 
 .toc ul a {
-	color: #1b2331;
+	color: #262626;
 	text-transform: uppercase;
 	text-decoration: none;
 }
@@ -169,23 +171,22 @@ aside.toc {
 }
 
 .toc ul a:hover {
-	
+	color: #04ab90;
 }
 .toc ul {
 	list-style: none;
 }
 .toc ul li {
-
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
-    letter-spacing: 1.1px;
-    line-height: 13px;
-    margin: 10px auto 10px;
+    margin: 20px auto;
 }
 
 .toc ul li ul li{
 	text-transform: none;
 	font-weight: normal;
+	font-size: 16px;
+	margin: 8px auto;
 }
 
 .toc ul li ul li ul li{
@@ -239,7 +240,6 @@ aside.toc {
 	}
 	.livetoc a.active {
 		color: #04ab90;
-		font-weight: bold;
 	}
 }}
 /* @media screen and (min-width: 1800px) {
@@ -513,4 +513,16 @@ code[class*="language-"] {
 }
 a {
 	overflow-wrap: break-word;
+}
+
+
+@media screen and (min-width: 1200px) {
+	article {
+		margin-left: 30%;
+	}
+}
+@media screen and (min-width: 1500px) {
+	aside.toc {
+		width: 20%;
+	}
 }
