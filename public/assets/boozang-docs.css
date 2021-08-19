@@ -175,6 +175,10 @@ aside.toc {
 }
 .toc ul {
 	list-style: none;
+
+}
+.toc > ul {
+	padding-top: 3rem;
 }
 .toc ul li {
     font-size: 15px;
@@ -440,6 +444,7 @@ footer p {
 @media screen and (max-width: 930px) {
 	body > header h1 {
 		float: left;
+		padding-top: 0;
 	}
 	.search {
 		float: right;
