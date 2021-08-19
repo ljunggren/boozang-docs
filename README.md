@@ -2,7 +2,7 @@
 
 ![](images/side-by-side.png)
 
-This is the official documentation for the Boozang test automation tool. It can be read as a book or used as a reference. Use the left navigation bar to navigate to the topic of interest. This documentation is available in English and Chinese.   
+This is the official documentation for the Boozang test automation tool. It can be read as a book or used as a reference. Use the left navigation bar to navigate to the topic of interest. This documentation is available in English and Chinese. Toggle the language using the flag icon in the header.
 
 There are also several other resources to learn about Boozang
 
@@ -25,7 +25,7 @@ Before checking out the official documentation, which can be a lot to take in at
 
 Boozang is a code-less front end testing tool built for the modern web using only Javascript. It allows developers and Quality Assurance engineers to develop front-end tests quickly without the need for programming. 
 
-Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium webdriver. Boozang uses its own selection language based on natural language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models. 
+Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium webdriver. Boozang uses its own selection language based on natural language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models (model-based testing). 
 
 ###### About the Technology
 
@@ -43,7 +43,7 @@ Boozang is fundamentally different from other test tools. Boozang uses natural l
 
 ###### Automated documentation
 
-As Boozang is completely based on natural language, all recorded tests are also a user manual. When a label changes, for example: "Create Project" being changed to: "Add Project", the test will need to be updated accordingly. This means all test documentation is always up-to-date.
+As Boozang is completely based on natural language, all recorded tests are also a user manual. When a label changes, for example: "Create Project" being changed to: "Add Project", the test will need to be updated accordingly. This means the automated tests acts as living documentation. 
 
 ###### AI test repair
 
@@ -51,15 +51,19 @@ As your code changes, Boozang tests remain stable. If you do change any labels o
 
 ###### BDD / Cucumber support
 
-Built-in support for BDD. Write Gherkin tests directly in our interface, our import them from XRay / Jira. This allows you to write test specifications before the actual code and better distribute the team workload during the project lifecycle. 
+Built-in support for BDD. Write Gherkin tests directly in our interface, our import them from XRay / Jira. This allows you to write test specifications before the actual code and better distribute the team workload during the project lifecycle. It also allows you to engage business analysts in the testing process, who will have important product knowledge, but might lack in technical skills.
 
-###### Built-in versioning system
+###### Versioning, branching and merging
 
 Boozang has built-in versioning, with support for branching and merging. This allows the team to collaborate in teams seamlessly. It also allows the team to align the automation work with the software development process. 
 
 ###### Linkability
 
 Boozang is completely built-in Javascript, and being Cloud-based, there is no need for any client-side installation. Simply add an HTML fragment to your site to activate it for testing.
+
+###### API testing
+
+API testing is supported out of the box, allowing you to create tests that mixes API and UI operations. Automatically generate API tests by recording actions in the browser. 
 
 ###### Web components / Shadow DOM support and socket-based testing
 
@@ -106,7 +110,7 @@ Boozang is completely hosted in the Cloud and runs client-side without any insta
 
 ###### Installing the Chrome extension 
 
-W recommend using the Chrome extension to enable all Boozang features, such as cross-browser testing. The Chrome extension can be downloaded from the Chrome web store [here](https://chrome.google.com/webstore/detail/boozang-ai/bnaebcjlolajbgllgjlmlfobobdemmki). To launch the Boozang tool using the Chrome extension, click "Launch" in the Cloud management interface, and you will be prompted to install the Chrome extension. 
+We recommend using the Chrome extension to enable all Boozang features, such as cross-domain testing. The Chrome extension can be downloaded from the Chrome web store [here](https://chrome.google.com/webstore/detail/boozang-ai/bnaebcjlolajbgllgjlmlfobobdemmki). To launch the Boozang tool using the Chrome extension, click "Launch" in the Cloud management interface, and you will be prompted to install the Chrome extension. 
 
 ###### Installing the bz fragment
 
@@ -118,7 +122,7 @@ Tip: Using the bz fragment allows for running tests in headless browser mode. Th
 
 ![example image](images/environment.png "An exemplary image")
 
-Boozang supports many application interfaces (mgmt, traffic, store) across many different environments (test, QA, staging, production). The purpose of this is to be able to allow a single test to be re-used across different environments without any risk of having to edit the test. If tests are duplicated and individually customized to run on an environment, over time, maintaining these tests gets very expensive, so it´s better to set this up properly from the get-go. 
+Boozang supports many application interfaces (for example: management, traffic, store) across many different environments (test, QA, staging, production). The purpose of this is to be able to allow a single test to be re-used across different environments without any risk of having to edit the test. If tests are duplicated and individually customized to run on an environment, over time, maintaining these tests gets very expensive, so it´s better to set this up properly from the get-go. 
 
 ## Modules and Tests
 
@@ -127,12 +131,6 @@ Boozang supports many application interfaces (mgmt, traffic, store) across many 
 Boozang takes an object-oriented approach to testing. Just like your application can be divided into modules and sub-modules, so can your tests. It takes some experience to make the perfect test break-down, and it´s different from application to application. Usually, it´s best to try and mirror the components, or modules, of the application in the Boozang tool. The below image gives an example of this
 
 ![example image](images/ootesting.png "An exemplary image")
-
-###### Features
-
-In Boozang, try and create a module structure that matches the application under test. If using Cucumber, you should also try to create features that are aligned with the ways of working in the business domain. Usually, this is a less technical view, focused on requirements and end-user impact. 
-
-![example image](images/project-modules.png "An exemplary image")
 
 ###### Modules
 
@@ -143,6 +141,12 @@ The modules are used to divide your tests into functional areas of your applicat
 ###### Sub-modules
 
 For very complex applications it can sometimes be useful to introduce sub-modules. This is particularly useful when you have sub-modules on the application side. For most SaaS applications, such as CMS (content management system) or ERP (Enterprise resource planning), the application is organized in two levels, making the project-module-test hierarchy sufficient. 
+
+###### Features
+
+In Boozang, try and create a module structure that matches the application under test. If using Cucumber, you should also try to create features that are aligned with the ways of working in the business domain. Usually, this is a less technical view, focused on requirements and end-user impact. 
+
+![example image](images/project-modules.png "An exemplary image")
 
 ## Recording your first test
 
@@ -194,7 +198,7 @@ Bug authoring view. Use this section to record bugs, which are most often visual
 
 In this view, you have access to all authoring tools, with the difference that bugs can be assigned to other members of your team.
 
-###### Root causes
+###### Root causes / Known issues
 
 Bugs that encountered during your tests can be mapped to known issues, and categorized an application issue, automation issue, or unknown. Boozang captured a checksum of the error, which allows you to recognize an issue as it re-occurs. Here you can also link them to an existing TR / bug report in an external system. This classification also plays a roll in the root-case analysis. 
 
@@ -202,7 +206,7 @@ Bugs that encountered during your tests can be mapped to known issues, and categ
 
 The report view contains the report of the test runs. The latest test run will be shown by default, but previous test runs that were saved, either from the IDE or from a CI run, can also be loaded from the server. In this view, a user can also access operation logs, which contain all project updates, and request logs. 
 
-###### CI servers
+###### CI server / Worker view
 
 In this view, you can find integration wizards for most common CI servers: Jenkins, GitHub actions, GitLab, Azure, and Circle CI. Boozang will integrate to any CI server with Docker support, so there is a generic Docker option as well, to facilaite this. In this view, you can also monitor all active workers (test processes) that are currently running.  
 
@@ -230,7 +234,7 @@ Access the account page. Here you can see current service usage and your current
 
 ###### Post ticket to Boozang
 
-Open a ticket directly to Boozang support from the tool. 
+Open a ticket directly to Boozang support from the tool.
 
 ###### Chat & Message
 
@@ -363,35 +367,35 @@ To play a test, click the Play button. To play the test from the start; make sur
 
 There are several play modes available
 
-###### Play test case
+- ###### Play test case
 
-Plays to end. Launches AI repair if element not found, but continues after a set time. 
+  Plays to end. Launches AI repair if element not found, but continues after a set time. 
 
-###### Remote play
+- ###### Remote play
 
-Plays the test, but tries to repair it when the element is not found.
+  Plays the test, but tries to repair it when the element is not found.
 
-###### Play upstream test
+- ###### Play upstream test
 
-Plays the top parent test case. In case there are many of them, you will be prompted to select the test to run. 
+  Plays the top parent test case. In case there are many of them, you will be prompted to select the test to run. 
 
-###### Step forward
+- ###### Step forward
 
-Plays the test one step at a time.
+  Plays the test one step at a time.
 
-###### Play in demo mode
+- ###### Play in demo mode
 
-Plays the test case step-by-step and highlights all actions in the application window using annotations (compare comment function).
+  Plays the test case step-by-step and highlights all actions in the application window using annotations (compare comment function).
 
-###### Generate action screenshot
+- ###### Generate action screenshot
 
-Plays the test and generates screenshots for all steps. 
+  Plays the test and generates screenshots for all steps. 
 
-###### Automation mode
+- ###### Automation mode
 
-Emulates running the test from the command line using the Boozang test runner. After a test has been run, a dialog will show allowing the user to opt-out of the browser shut down. Running in this mode will notify all report subscribers, so it´s a good way to test email notifications.  
+  Emulates running the test from the command line using the Boozang test runner. After a test has been run, a dialog will show allowing the user to opt-out of the browser shut down. Running in this mode will notify all report subscribers, so it´s a good way to test email notifications.  
 
-Running in automation mode never activates AI repair. 
+  Running in automation mode never activates AI repair. 
 
 ## The Toolbar
 
@@ -467,7 +471,7 @@ This has the following benefits:
 - Automated form fills 
 - Intelligent test repairs 
 - Closer alignment to requirements
-- Auto-generation of tests through machine learning
+- Auto-generation of tests through model-based testing
 
 ###### Great support for dynamic classes and ids
 
@@ -513,7 +517,7 @@ It's also possible to use machine-learning on the element selectors, like
 
 ```weigh1 * .someclass + weight2 * #someid + weight3 * “Some text”```
 
-This can give short term benefits in terms of stability, but can also introduce noise and false positives. At Boozang we believe that what has been written in a requirement (and what is seen in a UI) is the truth, not what a developer decided to put in a class or id attribute. This is why we apply a stricter element policy and action representation. By doing this, we can apply machine learning at the test / requirement level instead, resulting in higher impact on productivity and better test coverage. 
+This can give short term benefits in terms of stability, but can also introduce noise and false positives. At Boozang we believe that what has been written in a requirement (and what is seen in a UI) is the truth, not what a developer decided to put in a class or id attribute. This is why we apply a stricter element policy and action representation. By doing this, we can create a model of the whole application, resulting in higher impact on productivity and better test coverage. 
 
 ## Selecting the element
 
@@ -649,6 +653,18 @@ Normally, hidden elements can still be clicked programmatically. Check this box 
 
 The default behavior is to **Re-try on element missing**. Customize this to **Never re-try** or **Re-try on content mismatch** (re-tries when an element is found but the content is wrong).
 
+###### Skip action element
+
+Select and element that will trigger skipping to the next action. This can be useful, when having a system that responds slowly, and you have different possible outcomes, like a login confirmation. Instead of waiting a long time for an element to appear, use skip action element to skip directly to next action when an expected element shows.
+
+###### Fail element
+
+Same as skip element, except that the action fails when selected element appear. As an example, this can be useful to automatically trigger failures when error messages show. 
+
+###### Element script
+
+Use element script for extremely difficult controls, that might need a combination of element events to activate. This is very rarely needed, but works as a last resort. 
+
 ## Repairing an action
 
 ![example image](images/ai-repair.png "An exemplary image")
@@ -663,17 +679,24 @@ Actions are the steps that comprise a test case. This could be a mouse or keywor
 
 ## Events
 
-There are three types of events supported in Boozang: Click, Keypress, and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See list of events that will be generated for different recording scenarios below.  
+There are three types of events supported in Boozang: Set, Click, Keypress, and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See list of events that will be generated for different recording scenarios below.  
 
+- Set events: Generated when filling forms and using drop-downs, even customized drop-downs. Set is an "intelligent" event, and is comprised of a combination of browser events. This allows for single-action recording of customized drop-downs and file dialogs, and is part of the reason Boozang recording can be so powerful. 
 - Click events: Generated when clicking buttons or page elements. Not generated when clicking inside a form input, drop-down or on a checkbox. 
 - Change events: Generated when filling inputs in forms and clicking mouse, tab, or enter
 - Key events: Generated when pressing keys in special circumstances. 
 
 This might seem contra-intuitive, but guarantees that form fills are recorded as stable as possible. Usually, regardless of user habits (using mouse or tab key), forms should be recorded the same way. 
 
-###### Mouse click events
+###### Set events
+
+The set event is generated in the recording by merging events in the browser acting on the same component. As you can see in the form fill test below, the click events and enter text events have been merged to a single "Set" event. 
+
+There are some cases where Boozang doesn't manage to create the set event, like in the last mouse click. If this shouldn't be a click, but rather a set (input box, checkbox, or drop-down), it can be switched to a set event afterwards. 
 
 ![event-click](images/event-click.png)
+
+###### Mouse click events
 
 This event corresponds to a mouse action, meaning a click or a movement of the mouse. By default, Boozang captures on clicks in the recording (otherwise the recording becomes very noisy catching too many events). The exception to this is when holding the mouse button down, to emulate drag and drop. In this case, Boozang registers a particular drag-and-drop event.  You can add mouse events manually to emulate mouse-over events and to create specific mouse conditions. 
 
@@ -793,8 +816,6 @@ and must return true or false. If an element has been picked with the DOM picker
 
 ## Extract data
 
-Note: For API versions of these actions, check the API section. 
-
 This is used to extract data from the application window and to store in a data variable. 
 
 
@@ -818,7 +839,9 @@ $project.myHappyData=$element.innerText.trim()
 
 When selecting some data in a page that is dynamic, such as a database id or project name, it's important to pay special attention to the element. By default, Boozang natural language selectors will try and identify the element by the actual text, which would be changing, generating an element not found error. 
 
-Here it is needed to click on "Edit element" icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, `tiger` is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute `class` which should be equal to `string1` (denoted with Javascript shorthand below as `.string1`). ![extract-data-dom](images/extract-data-dom.png).
+Here it is needed to click on "Edit element" icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, `tiger` is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute `class` which should be equal to `string1` (denoted with Javascript shorthand below as `.string1`). 
+
+![extract-data-dom](images/extract-data-dom.png).
 
 ## Javascript
 
@@ -827,6 +850,14 @@ Here it is needed to click on "Edit element" icon to open the DOM picker, and ex
 ###### The Javascript action
 
 Boozang also allows you to execute Javascript directly in the application. This can be very useful when trying to do more advanced things that aren't covered by the set of actions Boozang has out of the box. 
+
+###### Syntax highlighting
+
+In Javascript mode, you'll get syntax highlighting, similar to a desktop IDE.
+
+###### Debugging Javascript
+
+to debug Javascript, you can add breakpoint directly in the code. This will activate the Chrome browser break-point, and gives you the full capability of the browser debug, such as step forward and inspect data. That means that you'll need to open the browser console to make sure to enable this. 
 
 ###### Reference Data
 
