@@ -1090,6 +1090,9 @@ docker run --rm -v "$(pwd):/var/boozang/" --name=bzworker1 styrman/boozang-runne
 <p>It's often a good idea to add parameters to the job, for instance &quot;module_id/test_id&quot; and &quot;number_of_workers&quot;.</p>
 <p>In order to see an example setup using an upstream pipeline, check out this post on our user forum: <a href="https://boozang.com/forum/topic/jenkins-config-for-distributed-runs/">https://boozang.com/forum/topic/jenkins-config-for-distributed-runs/</a></p>
 <h2 id="github-actions">GitHub actions</h2>
+<p>Boozang supports integration to GitHub actions. This particular implementation uses the  GabrielBB/xvfb-action@v1 package to enable headless browseer runs. It utilizes Multiple Cucumber HTML Reporter (<a href="https://www.npmjs.com/package/multiple-cucumber-html-reporter">https://www.npmjs.com/package/multiple-cucumber-html-reporter</a>) to generate HTML Cucumber report dashboards, and publishes the test results as GitHub pages. </p>
+<p><em>Note: This implementation can probably be improved, and we invite you to share any updates with us, either via email or on our <a href="https://boozang.com/forum">forum</a>. </em></p>
+<h6 id="implementation-steps">Implementation steps</h6>
 <ol>
 <li>Add a directory .github in your project root</li>
 <li>Create the directory .github/workflows</li>
@@ -1098,6 +1101,7 @@ docker run --rm -v "$(pwd):/var/boozang/" --name=bzworker1 styrman/boozang-runne
 <li>Push the code</li>
 <li>The test results will be published on the GitHub pages of your repo</li>
 </ol>
+<h6 id="sample-code">Sample code</h6>
 <p>Below is a sample of code generated. Note that most of these settings will vary depending on your particular project settings and selected test to run.  </p>
 <pre><code>name: my-test-flow
 on: [push]
@@ -1128,6 +1132,8 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
 </code></pre>
 <h2 id="gitlab">GitLab</h2>
+<p><em>Note: This implementation can probably be improved, and we invite you to share any updates with us, either via email or on our <a href="https://boozang.com/forum">forum</a>. </em></p>
+<h6 id="implementation-steps-1">Implementation steps</h6>
 <ol>
 <li>Click &quot;CI / CD&quot; in your GitLab repo</li>
 <li>Click Editor</li>
@@ -1135,6 +1141,7 @@ jobs:
 <li>Click &quot;Commit changes&quot;</li>
 <li>The job will be triggered automatically!</li>
 </ol>
+<h6 id="sample-code-1">Sample code</h6>
 <p>Below is a sample of code generated. Note that most of these settings will vary depending on your particular project settings and selected test to run.  </p>
 <pre><code>stages:
   - build
@@ -1233,7 +1240,7 @@ report:
 <p>The first thing you want to do is to add an API key to access Xray Restful API. To do this, you'll need to access XRay <strong>Admin view</strong>. You will be able to select &quot;API keys&quot; from the sidebar and click &quot;Create API Key&quot; from the interface.</p>
 <p><img src="images/xray-add-api-key.png" alt="xray-add-api-key" /></p>
 <h3 id="xray-defining-scenarios">XRay: Defining scenarios</h3>
-<p>XRay and Boozang both support regular Scenarios and Scenario Outlines, so there is a one-to-one mapping between these entities. As a starting point, you will need at least one Cucumber scenario defined ion Xray. Below is an example of a data-driven scenario outline defined on the XRay side. </p>
+<p>XRay and Boozang both support regular Scenarios and Scenario Outlines, so there is a one-to-one mapping between these entities. As a starting point, you will need at least one Cucumber scenario defined in Xray. Below is an example of a data-driven scenario outline defined on the XRay side. </p>
 <p><img src="images/xray-define-scenarios.png" alt="xray-define-scenarios" /></p>
 <h3 id="xray-linking-scenarios-to-features">XRay: Linking scenarios to features</h3>
 <p>The link between Boozang and XRay is done on a feature level, any scenarios to be linked with Boozang will have to be part of a feature. In XRay, this is done by linking issues together. Start by creating a feature in XRay</p>
@@ -1245,6 +1252,10 @@ report:
 <h3 id="xray--jira-defining-a-filter">XRay / Jira: Defining a filter</h3>
 <p>Lastly, to be able to fetch features, this is done by defining a filter in Jira. Filters can be defined in the main project interface in Jira</p>
 <p><img src="images/jira-filter.png" alt="jira-filter" /></p>
+<h3 id="boozang-adding-the-api-token">Boozang: Adding the API token</h3>
+<h3 id="boozang-synchronizing-features">Boozang: Synchronizing features</h3>
+<h3 id="ci-define-a-boozang-ci-job">CI: Define a Boozang CI job</h3>
+<h3 id="ci-add-code-to-upload-features-on-xray">CI: Add code to upload features on XRay</h3>
 <h2 id="gitlab-1">GitLab</h2>
 <p><em>This documentation is in progress. In the meantime, check out <a href="https://boozang.com/enterprise-boozang-working-with-github/">https://boozang.com/enterprise-boozang-working-with-github/</a></em></p>
 <h2 id="github">GitHub</h2>
