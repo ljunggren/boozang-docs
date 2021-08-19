@@ -65,6 +65,7 @@ body > header nav {
 
 body > header nav a {
 	text-decoration: none;
+	display: none;
 }
 body > header nav a:hover {
 	text-decoration: underline;
@@ -179,7 +180,7 @@ aside.toc {
 
 }
 .toc > ul {
-	padding-top: 3rem;
+	padding-top: 1.5rem;
 }
 .toc ul li {
     font-size: 15px;
@@ -316,12 +317,14 @@ aside.sidebar {
 .sidebar hr {
 	margin: 30px 0;
 }
+/**
 .sidebar .bulletlink {
 	display: list-item;
 	list-style: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 4' width='6' height='8'><circle cx='1' cy='1' r='1' fill='#181818'/></svg>");
 	color: #181818;
 	margin-left: 1em;
 }
+*/
 
 @media (min-width: 992px) {
 	.sidebar {
