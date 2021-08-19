@@ -855,6 +855,8 @@ Boozang also allows you to execute Javascript directly in the application. This 
 
 In Javascript mode, you'll get syntax highlighting, similar to a desktop IDE.
 
+*Red more in our blog: https://boozang.com/new-feature-code-editor/*
+
 ###### Debugging Javascript
 
 to debug Javascript, you can add breakpoint directly in the code. This will activate the Chrome browser break-point, and gives you the full capability of the browser debug, such as step forward and inspect data. That means that you'll need to open the browser console to make sure to enable this. 
@@ -1718,6 +1720,8 @@ anywhere.
 To find current supported command-line options, see Github readme: https://github.com/ljunggren/bz-puppeteer
 
 ## Parallel test execution
+
+*This functionality has been greatly improved in 2021. Find the latest information in our blog: https://boozang.com/distributed-testing-part-1/ and https://boozang.com/distributed-testing-part-2/*
 
 Installing the Docker container makes it dead simple to create your test execution scripts. Here are a few examples 
 
