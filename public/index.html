@@ -63,7 +63,7 @@
 <ul>
 <li>Onboarding: <a href="https://boozang.com/forum/topic/onboarding-docs/">https://boozang.com/forum/topic/onboarding-docs/</a></li>
 </ul>
-<h3 id="introducing-boozang">Introducing Boozang</h3>
+<h2 id="at-a-glance">At a glance</h2>
 <h6 id="at-the-core">At the core</h6>
 <p>Boozang is a code-less front end testing tool built for the modern web using only Javascript. It allows developers and Quality Assurance engineers to develop front-end tests quickly without the need for programming. </p>
 <p>Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium webdriver. Boozang uses its own selection language based on natural language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models. </p>
@@ -77,7 +77,7 @@
 <p><strong>Boozang test-runner</strong>: For the Boozang Puppeteer open-source test runner, see <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a> and the Docker container <a href="https://github.com/ljunggren/bz-docker-xvfb">https://github.com/ljunggren/bz-docker-xvfb</a></p>
 </li>
 </ul>
-<h3 id="features">Features</h3>
+<h2 id="why-use-boozang">Why use Boozang</h2>
 <h6 id="stable-to-code-changes">Stable to code changes</h6>
 <p>Boozang is fundamentally different from other test tools. Boozang uses natural language to identify browser elements, instead of the DOM elements, making tests incredibly stable to changes in the underlying implementation. It's possible to completely change the underlying technology without affecting the tests. You can go from a Java legacy application to Angular or React. The tests remain the same, as long as the business requirements do. </p>
 <h6 id="automated-documentation">Automated documentation</h6>
@@ -92,7 +92,7 @@
 <p>Boozang is completely built-in Javascript, and being Cloud-based, there is no need for any client-side installation. Simply add an HTML fragment to your site to activate it for testing.</p>
 <h6 id="web-components--shadow-dom-support-and-socket-based-testing">Web components / Shadow DOM support and socket-based testing</h6>
 <p>Supports Web Components / Shadow DOM testing and socket-based testing. </p>
-<h3 id="when-to-use-boozang">When to use Boozang</h3>
+<h2 id="when-to-use-boozang">When to use Boozang</h2>
 <h6 id="good-fit-vs-bad-fit">Good fit vs bad fit</h6>
 <p>Boozang is great when testing anything that runs in the web browser. This includes any modern SaaS application, no matter how complex. It’s great when you need to automate testing of flows that can be determined by a machine, that doesn't exhibit random behaviour. </p>
 <p>A rule of thumb is that the more you feel the need to run regression testing, the more value you will find in the Boozang implementation. This means, if you release business-critical software often, you will find great value in Boozang. If you release rarely and bugs don't have a significant impact, maybe not so much. </p>
@@ -124,7 +124,7 @@
 <h6 id="object-oriented-testing">Object-Oriented testing</h6>
 <p>Boozang takes an object-oriented approach to testing. Just like your application can be divided into modules and sub-modules, so can your tests. It takes some experience to make the perfect test break-down, and it´s different from application to application. Usually, it´s best to try and mirror the components, or modules, of the application in the Boozang tool. The below image gives an example of this</p>
 <p><img src="images/ootesting.png" alt="example image" title="An exemplary image" /></p>
-<h6 id="features-1">Features</h6>
+<h6 id="features">Features</h6>
 <p>In Boozang, try and create a module structure that matches the application under test. If using Cucumber, you should also try to create features that are aligned with the ways of working in the business domain. Usually, this is a less technical view, focused on requirements and end-user impact. </p>
 <p><img src="images/project-modules.png" alt="example image" title="An exemplary image" /></p>
 <h6 id="modules">Modules</h6>
@@ -812,7 +812,7 @@ Replacement string: YYYY-MM-DD</code></pre>
   | phrase   | related       |
   | panda    | Panda Express |
   | elephant | Elephant Man  | </code></pre>
-<h2 id="features-2">Features</h2>
+<h2 id="features-1">Features</h2>
 <p><img src="images/feature-tab.png" alt="feature-tab" /></p>
 <p>Just as modules act as containers for tests, features work as containers for scenarios. Features can either be created directly in Boozang or imported from a feature file.</p>
 <h3 id="importing-feature-files">Importing feature files</h3>
@@ -1253,9 +1253,43 @@ report:
 <p>Lastly, to be able to fetch features, this is done by defining a filter in Jira. Filters can be defined in the main project interface in Jira</p>
 <p><img src="images/jira-filter.png" alt="jira-filter" /></p>
 <h3 id="boozang-adding-the-api-token">Boozang: Adding the API token</h3>
+<p><em>This particular screen will be updated to accept the client secret credentials directly. For now, use curl to generate a token, and insert into the Token field as stated above.</em> </p>
+<p><code>curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "client-id-rom-xray","client_secret": "client-secret-from-xray" }' https://xray.cloud.xpand-it.com/api/v2/authenticate</code></p>
+<p>Remember to set the full header, including Authorization header. </p>
+<p><code>Authorization: Bearer: YOUR-TOKEN-GOES-HERE</code></p>
+<p><img src="images/settings-integrations.png" alt="settings-integrations" /></p>
 <h3 id="boozang-synchronizing-features">Boozang: Synchronizing features</h3>
+<p>As Boozang is a slave system, you'll need to load the features you need in Boozang. You can do that the following way</p>
+<ul>
+<li>Open the project in question Boozang IDE</li>
+<li>Go to the root of the project</li>
+<li>Click the kebab menu</li>
+</ul>
+<p><img src="images/xray-bz-import-features.png" alt="xray-bz-import-features" /></p>
+<ul>
+<li>Click &quot;Import features&quot;</li>
+<li>Select &quot;Sync from server&quot;</li>
+</ul>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/xray-bz-import-features-2.png" alt="xray-bz-import-features-2" /></p>
+<ul>
+<li>Select features to synchronize</li>
+</ul>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/xray-bz-import-features-3.png" alt="xray-bz-import-features-3" /></p>
+<ul>
+<li>Click &quot;Start&quot;</li>
+</ul>
+<p>The features will now be synchronized with Boozang. You can now go ahead and impelment all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang</p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/not-implemented.png" alt="not-implemented" /></p>
 <h3 id="ci-define-a-boozang-ci-job">CI: Define a Boozang CI job</h3>
+<p>Go ahead and follow the instructions above to run a test execution on your CI server of choice.  Use the Cucumber report plugin or similar to make sure you have report files generated. </p>
 <h3 id="ci-add-code-to-upload-features-on-xray">CI: Add code to upload features on XRay</h3>
+<p>Follow the XRay documentation to upload the Cucumber report files.</p>
+<p><strong>Jenkins integration for Jira XRay on-premise:</strong></p>
+<p><a href="https://docs.getxray.app/display/XRAY/Integration+with+Jenkins">https://docs.getxray.app/display/XRAY/Integration+with+Jenkins</a> </p>
+<p><strong>Jenkins integration for Jira / XRay in Cloud</strong></p>
+<p><a href="https://docs.getxray.app/display/XRAYCLOUD/Integration+with+Jenkins">https://docs.getxray.app/display/XRAYCLOUD/Integration+with+Jenkins</a></p>
+<h3 id="sample-integration-code-for-jenkins">Sample integration code for Jenkins</h3>
+<p><em>Sample code coming soon</em></p>
 <h2 id="gitlab-1">GitLab</h2>
 <p><em>This documentation is in progress. In the meantime, check out <a href="https://boozang.com/enterprise-boozang-working-with-github/">https://boozang.com/enterprise-boozang-working-with-github/</a></em></p>
 <h2 id="github">GitHub</h2>
