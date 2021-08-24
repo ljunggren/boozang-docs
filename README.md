@@ -2124,13 +2124,13 @@ The link between Boozang and XRay is done on a feature level, any scenarios to b
 
 Lastly, to be able to fetch features, this is done by defining a filter in Jira. Filters can be defined in the main project interface in Jira
 
-![xray-bz-filter-define](/Users/matsljunggren/Workspace/boozang-docs/images/xray-bz-filter-define.png)
+![xray-bz-filter-define](images/xray-bz-filter-define.png)
 
-![xray-bz-filter-save](/Users/matsljunggren/Workspace/boozang-docs/images/xray-bz-filter-save.png)
+![xray-bz-filter-save](images/xray-bz-filter-save.png)
 
 
 
-![xray-bz-filter-id](/Users/matsljunggren/Workspace/boozang-docs/images/xray-bz-filter-id.png)
+![xray-bz-filter-id](images/xray-bz-filter-id.png)
 
 ### Boozang: Adding the API token
 
