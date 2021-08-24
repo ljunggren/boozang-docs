@@ -2076,7 +2076,9 @@ Below is a schematic of how this setup looks using the Jenkins CI server. The co
 
 ### Introduction
 
-There are the following basic steps to the Boozang - XRay integration. These are the steps needed on the XRay side
+Xray works as a master store for all Cucumber features and scenarios. There are the following basic steps to the Boozang - XRay integration. 
+
+**These are the steps needed on the XRay side**
 
 1. Get API key (Cloud) or access credentials (on-premise) to allow for XRay integration
 2. Define scenarios in XRay
@@ -2085,10 +2087,14 @@ There are the following basic steps to the Boozang - XRay integration. These are
 
 After these have been completed, do the following on the Boozang side
 
+**These are the steps needed on the Boozang side**
+
 1. Add the XRay API key to Boozang integrations
 2. Synchronize features
 
-After this has been completed, you already have a successful integration. To get the best value out of the integration, upload the reports on the XRay side. Perform the following steps on whatever CI server you are running
+After this has been completed, you already have a successful integration. To get the best value out of the integration, upload the reports on the XRay side. Perform the following steps on whatever CI server you are running.
+
+**These are the steps needed on the CI server side**
 
 1. Define a Boozang CI job
 2. Add code to upload features on XRay
@@ -2151,25 +2157,25 @@ In the integration dialog, set the following
 
 <img src="images/xray-bz-integration.png" alt="xray-bz-integration"  />
 
-- Type: Set Jira / Xray
-- File List URL: https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&fz=true
-- Make sure to set the filter ID to match the filter you setup previously
-- Token: For the Cloud install, this will be generated autyomatically from your credential info
-- Client ID: Set your client id from the XRay API page
-- Client Secret:  Set your client secret from the XRay API page
-- Match file: Leave as *.feature or the file ending you are using
+1. Type: Set Jira / Xray
+2. File List URL: https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&fz=true
+3. Make sure to set the filter ID to match the filter you setup previously
+4. Token: For the Cloud install, this will be generated autyomatically from your credential info
+5. Client ID: Set your client id from the XRay API page
+6. Client Secret:  Set your client secret from the XRay API page
+7. Match file: Leave as *.feature or the file ending you are using
 
 **For Jira on-premise installation**
 
 ![xray-bz-integration-on-premise](images/xray-bz-integration-on-premise.png)
 
-- Type: Set Jira / Xray
-- File List URL: Set it to your on-premise API connection URL. 
-- Make sure to set the filter ID to match the filter you setup previously
-- Token: For the on-premise install, you can generate a long-lived token and enter it directly.
-- Client ID: For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.
-- Client Secret:   For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.
-- Match file: Leave as *.feature or the file ending you are using for feature files
+1. Type: Set Jira / Xray
+2. File List URL: Set it to your on-premise API connection URL. 
+3. Make sure to set the filter ID to match the filter you setup previously
+4. Token: For the on-premise install, you can generate a long-lived token and enter it directly.
+5. Client ID: For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.
+6. Client Secret:   For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.
+7. Match file: Leave as *.feature or the file ending you are using for feature files
 
 After you have entered all access information, check the connection using "Check". On successful connection, the features synchronized should be shown in the UI. Click "Done" to save the configuration.  
 
@@ -2177,22 +2183,23 @@ After you have entered all access information, check the connection using "Check
 
 As Boozang is a slave system, you'll need to load the features you need in Boozang. You can do that the following way
 
-- Open the project in question Boozang IDE
-- Go to the root of the project
-- Click the kebab menu
+1. Open the project in question Boozang IDE
+2. Go to the root of the project
+3. Click the kebab menu
 
 ![xray-bz-import-features](images/xray-bz-import-features.png)
 
-- Click "Import features"
-- Select "Sync from server"
+4. Click "Import features"
+
+5. Select "Sync from server"
 
 ![xray-bz-import-features-2](images/xray-bz-import-features-2.png)
 
-- Select features to synchronize
+6. Select features to synchronize
 
 ![xray-bz-import-features-3](images/xray-bz-import-features-3.png)
 
-- Click "Start"
+7. Click "Start"
 
 The features will now be synchronized with Boozang. You can now go ahead and implement all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang
 

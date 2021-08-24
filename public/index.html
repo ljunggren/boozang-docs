@@ -1258,7 +1258,8 @@ report:
 <p>Below is a schematic of how this setup looks using the Jenkins CI server. The connection between Boozang and Xray is independent of the CI server, and the CI server connects directly to Xray to report back the results.</p>
 <p><img src="images/xray-concept.png" alt="xray-concept" /></p>
 <h3 id="introduction-2">Introduction</h3>
-<p>There are the following basic steps to the Boozang - XRay integration. These are the steps needed on the XRay side</p>
+<p>Xray works as a master store for all Cucumber features and scenarios. There are the following basic steps to the Boozang - XRay integration. </p>
+<p><strong>These are the steps needed on the XRay side</strong></p>
 <ol>
 <li>Get API key (Cloud) or access credentials (on-premise) to allow for XRay integration</li>
 <li>Define scenarios in XRay</li>
@@ -1266,11 +1267,13 @@ report:
 <li>Define a Jira filter that matches the desired scenarios</li>
 </ol>
 <p>After these have been completed, do the following on the Boozang side</p>
+<p><strong>These are the steps needed on the Boozang side</strong></p>
 <ol>
 <li>Add the XRay API key to Boozang integrations</li>
 <li>Synchronize features</li>
 </ol>
-<p>After this has been completed, you already have a successful integration. To get the best value out of the integration, upload the reports on the XRay side. Perform the following steps on whatever CI server you are running</p>
+<p>After this has been completed, you already have a successful integration. To get the best value out of the integration, upload the reports on the XRay side. Perform the following steps on whatever CI server you are running.</p>
+<p><strong>These are the steps needed on the CI server side</strong></p>
 <ol>
 <li>Define a Boozang CI job</li>
 <li>Add code to upload features on XRay</li>
@@ -1307,7 +1310,7 @@ report:
 <p>In the integration dialog, set the following</p>
 <p><strong>For Jira Cloud installation</strong></p>
 <img src="images/xray-bz-integration.png" alt="xray-bz-integration"  />
-<ul>
+<ol>
 <li>Type: Set Jira / Xray</li>
 <li>File List URL: <a href="https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&amp;fz=true">https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&amp;fz=true</a></li>
 <li>Make sure to set the filter ID to match the filter you setup previously</li>
@@ -1315,10 +1318,10 @@ report:
 <li>Client ID: Set your client id from the XRay API page</li>
 <li>Client Secret:  Set your client secret from the XRay API page</li>
 <li>Match file: Leave as *.feature or the file ending you are using</li>
-</ul>
+</ol>
 <p><strong>For Jira on-premise installation</strong></p>
 <p><img src="images/xray-bz-integration-on-premise.png" alt="xray-bz-integration-on-premise" /></p>
-<ul>
+<ol>
 <li>Type: Set Jira / Xray</li>
 <li>File List URL: Set it to your on-premise API connection URL. </li>
 <li>Make sure to set the filter ID to match the filter you setup previously</li>
@@ -1326,28 +1329,32 @@ report:
 <li>Client ID: For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.</li>
 <li>Client Secret:   For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.</li>
 <li>Match file: Leave as *.feature or the file ending you are using for feature files</li>
-</ul>
+</ol>
 <p>After you have entered all access information, check the connection using &quot;Check&quot;. On successful connection, the features synchronized should be shown in the UI. Click &quot;Done&quot; to save the configuration.  </p>
 <h3 id="boozang-synchronizing-features">Boozang: Synchronizing features</h3>
 <p>As Boozang is a slave system, you'll need to load the features you need in Boozang. You can do that the following way</p>
-<ul>
+<ol>
 <li>Open the project in question Boozang IDE</li>
 <li>Go to the root of the project</li>
 <li>Click the kebab menu</li>
-</ul>
+</ol>
 <p><img src="images/xray-bz-import-features.png" alt="xray-bz-import-features" /></p>
-<ul>
-<li>Click &quot;Import features&quot;</li>
-<li>Select &quot;Sync from server&quot;</li>
-</ul>
+<ol start="4">
+<li>
+<p>Click &quot;Import features&quot;</p>
+</li>
+<li>
+<p>Select &quot;Sync from server&quot;</p>
+</li>
+</ol>
 <p><img src="images/xray-bz-import-features-2.png" alt="xray-bz-import-features-2" /></p>
-<ul>
+<ol start="6">
 <li>Select features to synchronize</li>
-</ul>
+</ol>
 <p><img src="images/xray-bz-import-features-3.png" alt="xray-bz-import-features-3" /></p>
-<ul>
+<ol start="7">
 <li>Click &quot;Start&quot;</li>
-</ul>
+</ol>
 <p>The features will now be synchronized with Boozang. You can now go ahead and implement all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang</p>
 <p><img src="images/not-implemented.png" alt="not-implemented" /></p>
 <h3 id="ci-define-a-boozang-ci-job">CI: Define a Boozang CI job</h3>
