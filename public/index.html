@@ -49,7 +49,7 @@
 <!-- CONTENT START -->
 <h1 id="introduction">Introduction</h1>
 <p><img src="images/side-by-side.png" alt="" /></p>
-<p>This is the official documentation for the Boozang test automation tool. It can be read as a book or used as a reference. Use the left navigation bar to navigate to the topic of interest. This documentation is available in English and Chinese.   </p>
+<p>This is the official documentation for the Boozang test automation tool. It can be read as a book or used as a reference. Use the left navigation bar to navigate to the topic of interest. This documentation is available in English and Chinese. Toggle the language using the flag icon in the header.</p>
 <p>There are also several other resources to learn about Boozang</p>
 <ul>
 <li>Video page: <a href="https://boozang.com/videos/">https://boozang.com/videos/</a></li>
@@ -66,7 +66,7 @@
 <h2 id="at-a-glance">At a glance</h2>
 <h6 id="at-the-core">At the core</h6>
 <p>Boozang is a code-less front end testing tool built for the modern web using only Javascript. It allows developers and Quality Assurance engineers to develop front-end tests quickly without the need for programming. </p>
-<p>Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium webdriver. Boozang uses its own selection language based on natural language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models. </p>
+<p>Boozang is not based on Selenium and does not have the limitations of Selenium and Selenium webdriver. Boozang uses its own selection language based on natural language, allowing for native support of TDD / BDD (test/behavior-driven development) and allows for tests to be automatically generated from models (model-based testing). </p>
 <h6 id="about-the-technology">About the Technology</h6>
 <p>Boozang test technology is divided into two parts. The proprietary part of the tool which allows you to author tests record fast and the Open Source test runner which is built on Google Puppeteer, which allows you to run tests from command-line and integrate Boozang into your CI flow or other tools. </p>
 <ul>
@@ -81,15 +81,17 @@
 <h6 id="stable-to-code-changes">Stable to code changes</h6>
 <p>Boozang is fundamentally different from other test tools. Boozang uses natural language to identify browser elements, instead of the DOM elements, making tests incredibly stable to changes in the underlying implementation. It's possible to completely change the underlying technology without affecting the tests. You can go from a Java legacy application to Angular or React. The tests remain the same, as long as the business requirements do. </p>
 <h6 id="automated-documentation">Automated documentation</h6>
-<p>As Boozang is completely based on natural language, all recorded tests are also a user manual. When a label changes, for example: &quot;Create Project&quot; being changed to: &quot;Add Project&quot;, the test will need to be updated accordingly. This means all test documentation is always up-to-date.</p>
+<p>As Boozang is completely based on natural language, all recorded tests are also a user manual. When a label changes, for example: &quot;Create Project&quot; being changed to: &quot;Add Project&quot;, the test will need to be updated accordingly. This means the automated tests acts as living documentation. </p>
 <h6 id="ai-test-repair">AI test repair</h6>
 <p>As your code changes, Boozang tests remain stable. If you do change any labels or item identifiers, Boozang will automatically suggest how to repair your tests, or if no suggestion is available, allow you to reselect the element on the page. This reduces test maintenance immensely and allows you to repair broken tests on the fly. </p>
 <h6 id="bdd--cucumber-support">BDD / Cucumber support</h6>
-<p>Built-in support for BDD. Write Gherkin tests directly in our interface, our import them from XRay / Jira. This allows you to write test specifications before the actual code and better distribute the team workload during the project lifecycle. </p>
-<h6 id="built-in-versioning-system">Built-in versioning system</h6>
+<p>Built-in support for BDD. Write Gherkin tests directly in our interface, our import them from XRay / Jira. This allows you to write test specifications before the actual code and better distribute the team workload during the project lifecycle. It also allows you to engage business analysts in the testing process, who will have important product knowledge, but might lack in technical skills.</p>
+<h6 id="versioning-branching-and-merging">Versioning, branching and merging</h6>
 <p>Boozang has built-in versioning, with support for branching and merging. This allows the team to collaborate in teams seamlessly. It also allows the team to align the automation work with the software development process. </p>
 <h6 id="linkability">Linkability</h6>
 <p>Boozang is completely built-in Javascript, and being Cloud-based, there is no need for any client-side installation. Simply add an HTML fragment to your site to activate it for testing.</p>
+<h6 id="api-testing">API testing</h6>
+<p>API testing is supported out of the box, allowing you to create tests that mixes API and UI operations. Automatically generate API tests by recording actions in the browser. </p>
 <h6 id="web-components--shadow-dom-support-and-socket-based-testing">Web components / Shadow DOM support and socket-based testing</h6>
 <p>Supports Web Components / Shadow DOM testing and socket-based testing. </p>
 <h2 id="when-to-use-boozang">When to use Boozang</h2>
@@ -113,25 +115,25 @@
 <h2 id="installation-options">Installation Options</h2>
 <p>Boozang is completely hosted in the Cloud and runs client-side without any installation. We recommend using the Chrome browser extension, even if it's not mandatory.</p>
 <h6 id="installing-the-chrome-extension">Installing the Chrome extension</h6>
-<p>W recommend using the Chrome extension to enable all Boozang features, such as cross-browser testing. The Chrome extension can be downloaded from the Chrome web store <a href="https://chrome.google.com/webstore/detail/boozang-ai/bnaebcjlolajbgllgjlmlfobobdemmki">here</a>. To launch the Boozang tool using the Chrome extension, click &quot;Launch&quot; in the Cloud management interface, and you will be prompted to install the Chrome extension. </p>
+<p>We recommend using the Chrome extension to enable all Boozang features, such as cross-domain testing. The Chrome extension can be downloaded from the Chrome web store <a href="https://chrome.google.com/webstore/detail/boozang-ai/bnaebcjlolajbgllgjlmlfobobdemmki">here</a>. To launch the Boozang tool using the Chrome extension, click &quot;Launch&quot; in the Cloud management interface, and you will be prompted to install the Chrome extension. </p>
 <h6 id="installing-the-bz-fragment">Installing the bz fragment</h6>
 <p>There is also a second installation option, that will require a little more technical know-how. Create a project at <a href="https://ai.boozang.com">https://ai.boozang.com</a> or <a href="https://eu.boozang.com">https://eu.boozang.com</a> and download the HTML snippet. The snippet is copied to the webroot (where your index.html or similar would be located). To launch the Boozang tool, access the snippet in any browser, such as <a href="http://myapplication.com/bz.html">http://myapplication.com/bz.html</a> or <a href="http://localhost:8080/bz.html">http://localhost:8080/bz.html</a>. </p>
 <p>Tip: Using the bz fragment allows for running tests in headless browser mode. This allows for simple CI integration using the Boozang test runner.</p>
 <h6 id="setting-up-the-environment">Setting up the environment</h6>
 <p><img src="images/environment.png" alt="example image" title="An exemplary image" /></p>
-<p>Boozang supports many application interfaces (mgmt, traffic, store) across many different environments (test, QA, staging, production). The purpose of this is to be able to allow a single test to be re-used across different environments without any risk of having to edit the test. If tests are duplicated and individually customized to run on an environment, over time, maintaining these tests gets very expensive, so it´s better to set this up properly from the get-go. </p>
+<p>Boozang supports many application interfaces (for example: management, traffic, store) across many different environments (test, QA, staging, production). The purpose of this is to be able to allow a single test to be re-used across different environments without any risk of having to edit the test. If tests are duplicated and individually customized to run on an environment, over time, maintaining these tests gets very expensive, so it´s better to set this up properly from the get-go. </p>
 <h2 id="modules-and-tests">Modules and Tests</h2>
 <h6 id="object-oriented-testing">Object-Oriented testing</h6>
 <p>Boozang takes an object-oriented approach to testing. Just like your application can be divided into modules and sub-modules, so can your tests. It takes some experience to make the perfect test break-down, and it´s different from application to application. Usually, it´s best to try and mirror the components, or modules, of the application in the Boozang tool. The below image gives an example of this</p>
 <p><img src="images/ootesting.png" alt="example image" title="An exemplary image" /></p>
-<h6 id="features">Features</h6>
-<p>In Boozang, try and create a module structure that matches the application under test. If using Cucumber, you should also try to create features that are aligned with the ways of working in the business domain. Usually, this is a less technical view, focused on requirements and end-user impact. </p>
-<p><img src="images/project-modules.png" alt="example image" title="An exemplary image" /></p>
 <h6 id="modules">Modules</h6>
 <p>The modules are used to divide your tests into functional areas of your application. Where other tools usually have tests and test suites, or test suites are just another test in Boozang (using Plug test-case). Modules are used to organize tests to match the functional modules of the application. They work as folders to organize your tests, but also to allow data to be added on the module level. For instance, in the Inventory module in the example, the Test data for inventory should typically be saved as Module data. </p>
 <p><img src="images/project-modules-card.png" alt="example image" title="An exemplary image" /></p>
 <h6 id="sub-modules">Sub-modules</h6>
 <p>For very complex applications it can sometimes be useful to introduce sub-modules. This is particularly useful when you have sub-modules on the application side. For most SaaS applications, such as CMS (content management system) or ERP (Enterprise resource planning), the application is organized in two levels, making the project-module-test hierarchy sufficient. </p>
+<h6 id="features">Features</h6>
+<p>In Boozang, try and create a module structure that matches the application under test. If using Cucumber, you should also try to create features that are aligned with the ways of working in the business domain. Usually, this is a less technical view, focused on requirements and end-user impact. </p>
+<p><img src="images/project-modules.png" alt="example image" title="An exemplary image" /></p>
 <h2 id="recording-your-first-test">Recording your first test</h2>
 <p>Boozang works within the browser which allows for a very stable recording function. Simply click on the record button in the tool. As you perform actions on your web page actions will be recorded. To remove an un-wanted action that was recorded press the trashbin next to the action in the main tool view. </p>
 <p>As soon as a test has been created you can use the playback button to replay the test steps. Boozang supports four different playback modes: <strong>Normal</strong>, <strong>demo</strong>, <strong>remote</strong> and <strong>automation</strong> mode. Demo mode slows down the playback speed and annotates every test step. This is good for demos and when trying to understand a test that someone else has authored. Remote play allows you to dispatch a test run to a remote server. Upon completion of the test, the result will be reported back to you.</p>
@@ -157,11 +159,11 @@
 <h6 id="bugs">Bugs</h6>
 <p>Bug authoring view. Use this section to record bugs, which are most often visual discrepancies of your application highlighted by the comment function.</p>
 <p>In this view, you have access to all authoring tools, with the difference that bugs can be assigned to other members of your team.</p>
-<h6 id="root-causes">Root causes</h6>
+<h6 id="root-causes--known-issues">Root causes / Known issues</h6>
 <p>Bugs that encountered during your tests can be mapped to known issues, and categorized an application issue, automation issue, or unknown. Boozang captured a checksum of the error, which allows you to recognize an issue as it re-occurs. Here you can also link them to an existing TR / bug report in an external system. This classification also plays a roll in the root-case analysis. </p>
 <h6 id="reports">Reports</h6>
 <p>The report view contains the report of the test runs. The latest test run will be shown by default, but previous test runs that were saved, either from the IDE or from a CI run, can also be loaded from the server. In this view, a user can also access operation logs, which contain all project updates, and request logs. </p>
-<h6 id="ci-servers">CI servers</h6>
+<h6 id="ci-server--worker-view">CI server / Worker view</h6>
 <p>In this view, you can find integration wizards for most common CI servers: Jenkins, GitHub actions, GitLab, Azure, and Circle CI. Boozang will integrate to any CI server with Docker support, so there is a generic Docker option as well, to facilaite this. In this view, you can also monitor all active workers (test processes) that are currently running.  </p>
 <h6 id="settings">Settings</h6>
 <p>The project settings allow the user to set: Environment, Content Policy, Notifications, and Preferences.</p>
@@ -175,7 +177,7 @@
 <h6 id="account">Account</h6>
 <p>Access the account page. Here you can see current service usage and your current license tier. </p>
 <h6 id="post-ticket-to-boozang">Post ticket to Boozang</h6>
-<p>Open a ticket directly to Boozang support from the tool. </p>
+<p>Open a ticket directly to Boozang support from the tool.</p>
 <h6 id="chat-amp-message">Chat &amp; Message</h6>
 <p>Opens a popup chat with the team. Here you can monitor project activity and chat with other project members. </p>
 <h6 id="video-tutorials">Video Tutorials</h6>
@@ -243,21 +245,37 @@
 <h6 id="playing-a-test">Playing a test</h6>
 <p>To play a test, click the Play button. To play the test from the start; make sure that the first row (gray) row of the action list has been selected as this signifies the actual test. You can also play a test from a specific action. Simply select the action you want to play from and click the Play button. You can choose to watch all the actions play and see the result in real-time, or switch to the report view to see the report being generated. </p>
 <p>There are several play modes available</p>
+<ul>
+<li>
 <h6 id="play-test-case">Play test case</h6>
 <p>Plays to end. Launches AI repair if element not found, but continues after a set time. </p>
+</li>
+<li>
 <h6 id="remote-play">Remote play</h6>
 <p>Plays the test, but tries to repair it when the element is not found.</p>
+</li>
+<li>
 <h6 id="play-upstream-test">Play upstream test</h6>
 <p>Plays the top parent test case. In case there are many of them, you will be prompted to select the test to run. </p>
+</li>
+<li>
 <h6 id="step-forward">Step forward</h6>
 <p>Plays the test one step at a time.</p>
+</li>
+<li>
 <h6 id="play-in-demo-mode">Play in demo mode</h6>
 <p>Plays the test case step-by-step and highlights all actions in the application window using annotations (compare comment function).</p>
+</li>
+<li>
 <h6 id="generate-action-screenshot">Generate action screenshot</h6>
 <p>Plays the test and generates screenshots for all steps. </p>
+</li>
+<li>
 <h6 id="automation-mode">Automation mode</h6>
 <p>Emulates running the test from the command line using the Boozang test runner. After a test has been run, a dialog will show allowing the user to opt-out of the browser shut down. Running in this mode will notify all report subscribers, so it´s a good way to test email notifications.  </p>
 <p>Running in automation mode never activates AI repair. </p>
+</li>
+</ul>
 <h2 id="the-toolbar">The Toolbar</h2>
 <p><img src="images/toolbar.png" alt="example image" title="Tool bar" /></p>
 <h6 id="switch-view-table--gui">Switch view: Table / GUI</h6>
@@ -298,7 +316,7 @@
 <li>Automated form fills </li>
 <li>Intelligent test repairs </li>
 <li>Closer alignment to requirements</li>
-<li>Auto-generation of tests through machine learning</li>
+<li>Auto-generation of tests through model-based testing</li>
 </ul>
 <h6 id="great-support-for-dynamic-classes-and-ids">Great support for dynamic classes and ids</h6>
 <p>By not relying on attributes like <code>class</code> or <code>id</code> by default, recorded tests are not broken when these are changed in the application. This makes Boozang well-suited for testing on top of applications with dynamic attributes. For special cases where you need to depend on <code>id</code> or <code>class</code> (such as extracting data), the user can opt-in to use these attributes.</p>
@@ -325,7 +343,7 @@
 <p><em>A note on other machine learning tools</em></p>
 <p>It's also possible to use machine-learning on the element selectors, like</p>
 <p><code>weigh1 * .someclass + weight2 * #someid + weight3 * “Some text”</code></p>
-<p>This can give short term benefits in terms of stability, but can also introduce noise and false positives. At Boozang we believe that what has been written in a requirement (and what is seen in a UI) is the truth, not what a developer decided to put in a class or id attribute. This is why we apply a stricter element policy and action representation. By doing this, we can apply machine learning at the test / requirement level instead, resulting in higher impact on productivity and better test coverage. </p>
+<p>This can give short term benefits in terms of stability, but can also introduce noise and false positives. At Boozang we believe that what has been written in a requirement (and what is seen in a UI) is the truth, not what a developer decided to put in a class or id attribute. This is why we apply a stricter element policy and action representation. By doing this, we can create a model of the whole application, resulting in higher impact on productivity and better test coverage. </p>
 <h2 id="selecting-the-element">Selecting the element</h2>
 <p>Boozang uses custom element selectors based on what a user will see rather than classes, ids or other attributes. This means that to use class or id, this usually needs to be explicitly defined. By avoiding using classes and ids as primary identifiers, Boozang tests become very stable to code changes and can automate applications with dynamic ids and classes freely.</p>
 <h6 id="the-element-bar">The element bar</h6>
@@ -402,6 +420,12 @@
 <p>Normally, hidden elements can still be clicked programmatically. Check this box to trigger Error ()&quot;element not found&quot;) when an element is hidden. </p>
 <h6 id="element-re-try-policy">Element re-try policy</h6>
 <p>The default behavior is to <strong>Re-try on element missing</strong>. Customize this to <strong>Never re-try</strong> or <strong>Re-try on content mismatch</strong> (re-tries when an element is found but the content is wrong).</p>
+<h6 id="skip-action-element">Skip action element</h6>
+<p>Select and element that will trigger skipping to the next action. This can be useful, when having a system that responds slowly, and you have different possible outcomes, like a login confirmation. Instead of waiting a long time for an element to appear, use skip action element to skip directly to next action when an expected element shows.</p>
+<h6 id="fail-element">Fail element</h6>
+<p>Same as skip element, except that the action fails when selected element appear. As an example, this can be useful to automatically trigger failures when error messages show. </p>
+<h6 id="element-script">Element script</h6>
+<p>Use element script for extremely difficult controls, that might need a combination of element events to activate. This is very rarely needed, but works as a last resort. </p>
 <h2 id="repairing-an-action">Repairing an action</h2>
 <p><img src="images/ai-repair.png" alt="example image" title="An exemplary image" /></p>
 <p>When a test is run and an action element cannot be found the AI test repair screen will be launched. This will allow the user to re-pick the element from the application window. If a matching element is found, Boozang will suggest the element for the user. This allows the user to repair tests ultra-fast even when there have been significant code changes.</p>
@@ -409,15 +433,19 @@
 <h3 id="overview">Overview</h3>
 <p>Actions are the steps that comprise a test case. This could be a mouse or keyword event, simulating a user action, or a validation (assertion) or even Javascript. There are also AI actions supported which are more elaborate actions such as &quot;Visit Links&quot; or &quot;Form Fill&quot;.</p>
 <h2 id="events">Events</h2>
-<p>There are three types of events supported in Boozang: Click, Keypress, and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See list of events that will be generated for different recording scenarios below.  </p>
+<p>There are three types of events supported in Boozang: Set, Click, Keypress, and Change. These are fairly straightforward, but not obvious which event will be captured during a recording. See list of events that will be generated for different recording scenarios below.  </p>
 <ul>
+<li>Set events: Generated when filling forms and using drop-downs, even customized drop-downs. Set is an &quot;intelligent&quot; event, and is comprised of a combination of browser events. This allows for single-action recording of customized drop-downs and file dialogs, and is part of the reason Boozang recording can be so powerful. </li>
 <li>Click events: Generated when clicking buttons or page elements. Not generated when clicking inside a form input, drop-down or on a checkbox. </li>
 <li>Change events: Generated when filling inputs in forms and clicking mouse, tab, or enter</li>
 <li>Key events: Generated when pressing keys in special circumstances. </li>
 </ul>
 <p>This might seem contra-intuitive, but guarantees that form fills are recorded as stable as possible. Usually, regardless of user habits (using mouse or tab key), forms should be recorded the same way. </p>
-<h6 id="mouse-click-events">Mouse click events</h6>
+<h6 id="set-events">Set events</h6>
+<p>The set event is generated in the recording by merging events in the browser acting on the same component. As you can see in the form fill test below, the click events and enter text events have been merged to a single &quot;Set&quot; event. </p>
+<p>There are some cases where Boozang doesn't manage to create the set event, like in the last mouse click. If this shouldn't be a click, but rather a set (input box, checkbox, or drop-down), it can be switched to a set event afterwards. </p>
 <p><img src="images/event-click.png" alt="event-click" /></p>
+<h6 id="mouse-click-events">Mouse click events</h6>
 <p>This event corresponds to a mouse action, meaning a click or a movement of the mouse. By default, Boozang captures on clicks in the recording (otherwise the recording becomes very noisy catching too many events). The exception to this is when holding the mouse button down, to emulate drag and drop. In this case, Boozang registers a particular drag-and-drop event.  You can add mouse events manually to emulate mouse-over events and to create specific mouse conditions. </p>
 <p><em>Advanced</em></p>
 <p>Here you can add additional validations as a post-condition for an action. </p>
@@ -488,7 +516,6 @@ Replacement string: YYYY-MM-DD</code></pre>
 <p><code>(function(){ //return true/false; })()</code></p>
 <p>and must return true or false. If an element has been picked with the DOM picker this will be available using the handle <code>$element</code>. Standard data handles, such as <code>$project</code>, <code>$module</code>, and <code>$test</code> will also be available, as well as the test window handles <code>$TW</code>. For more information about data see <a href="/doc/data.html">data</a> section. </p>
 <h2 id="extract-data-1">Extract data</h2>
-<p>Note: For API versions of these actions, check the API section. </p>
 <p>This is used to extract data from the application window and to store in a data variable. </p>
 <p><img src="images/extract-data.png" alt="extract-data" /></p>
 <h6 id="default-behavior">Default behavior</h6>
@@ -498,11 +525,17 @@ Replacement string: YYYY-MM-DD</code></pre>
 <pre><code class="language-javascript">$project.myHappyData=$element.innerText.trim()</code></pre>
 <p><strong>Dynamic data and element selector</strong></p>
 <p>When selecting some data in a page that is dynamic, such as a database id or project name, it's important to pay special attention to the element. By default, Boozang natural language selectors will try and identify the element by the actual text, which would be changing, generating an element not found error. </p>
-<p>Here it is needed to click on &quot;Edit element&quot; icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, <code>tiger</code> is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute <code>class</code> which should be equal to <code>string1</code> (denoted with Javascript shorthand below as <code>.string1</code>). <img src="images/extract-data-dom.png" alt="extract-data-dom" />.</p>
+<p>Here it is needed to click on &quot;Edit element&quot; icon to open the DOM picker, and explicitly choose a selector that doesn't contain the dynamic data. In the example below, <code>tiger</code> is the dynamic data that was highlighted by default. To extract this data, we have instead chosen to use a selector based on the attribute <code>class</code> which should be equal to <code>string1</code> (denoted with Javascript shorthand below as <code>.string1</code>). </p>
+<p><img src="images/extract-data-dom.png" alt="extract-data-dom" />.</p>
 <h2 id="javascript">Javascript</h2>
 <p><img src="images/javascript.png" alt="javascript" /></p>
 <h6 id="the-javascript-action">The Javascript action</h6>
 <p>Boozang also allows you to execute Javascript directly in the application. This can be very useful when trying to do more advanced things that aren't covered by the set of actions Boozang has out of the box. </p>
+<h6 id="syntax-highlighting">Syntax highlighting</h6>
+<p>In Javascript mode, you'll get syntax highlighting, similar to a desktop IDE.</p>
+<p><em>Red more in our blog: <a href="https://boozang.com/new-feature-code-editor/">https://boozang.com/new-feature-code-editor/</a></em></p>
+<h6 id="debugging-javascript">Debugging Javascript</h6>
+<p>to debug Javascript, you can add breakpoint directly in the code. This will activate the Chrome browser break-point, and gives you the full capability of the browser debug, such as step forward and inspect data. That means that you'll need to open the browser console to make sure to enable this. </p>
 <h6 id="reference-data">Reference Data</h6>
 <p>When writing Javascript, there are some particularities in Boozang that need to be respected. To access the application window, you will have to use the handle <code>$TW (test window)</code>. This means that to manipulate the application window document tree (DOM), the user needs to use <code>$TW.document</code>. When referencing the only document, it references the Boozang tool window, not the application window.</p>
 <p>In Boozang, you can reference data directly in Javascript. To access data, use the handles <code>$project</code>, <code>$module</code>, or <code>$test</code>, depending on what level the data was added. For instance, to reference a username that was added on the module level, use <code>$module.username</code>. </p>
@@ -733,7 +766,7 @@ Replacement string: YYYY-MM-DD</code></pre>
 <h2 id="matrix-testing">Matrix testing</h2>
 <h6 id="keywords-bz-skip-and-bz-stop">Keywords: bz-skip and bz-stop</h6>
 <p>In data-driven testing, we support the keywords &quot;bz-skip&quot; and &quot;bz-stop&quot; to be able to trigger conditional functionality based on data. As soon as &quot;bz-skip&quot; occur the test will skip without generating a failure. If &quot;bz-stop&quot; occur the all upstream tests will stop without generating an error.  </p>
-<h1 id="api-testing">API testing</h1>
+<h1 id="api-testing-1">API testing</h1>
 <p><img src="images/clint-patterson-exfrR9KkzlE-unsplash.jpg" alt="clint-patterson-exfrR9KkzlE-unsplash" /></p>
 <p><em>Starting from release 6.5.0, deployed on 16th of August 2021, the API testing was changed dramatically (for the better). Please consult our blog: <a href="https://boozang.com/advanced-api-testing/">https://boozang.com/advanced-api-testing/</a></em> and <a href="https://boozang.com/api-testing-with-boozang-and-json-server/">https://boozang.com/api-testing-with-boozang-and-json-server/</a>.</p>
 <h1 id="ai-authorization">AI authorization</h1>
@@ -963,6 +996,7 @@ Replacement string: YYYY-MM-DD</code></pre>
 <h6 id="additional-cli-options-1">Additional CLI options</h6>
 <p>To find current supported command-line options, see Github readme: <a href="https://github.com/ljunggren/bz-puppeteer">https://github.com/ljunggren/bz-puppeteer</a></p>
 <h2 id="parallel-test-execution">Parallel test execution</h2>
+<p><em>This functionality has been greatly improved in 2021. Find the latest information in our blog: <a href="https://boozang.com/distributed-testing-part-1/">https://boozang.com/distributed-testing-part-1/</a> and <a href="https://boozang.com/distributed-testing-part-2/">https://boozang.com/distributed-testing-part-2/</a></em></p>
 <p>Installing the Docker container makes it dead simple to create your test execution scripts. Here are a few examples </p>
 <h6 id="running-from-cronjob">Running from cronjob</h6>
 <p>It's easy to set up a cronjob that runs a Boozang test at a scheduled time. Type</p>
@@ -1215,9 +1249,16 @@ report:
 <li>In Zip: Check if files are being loaded as a zip</li>
 </ul>
 <p><img src="images/settings-integrations.png" alt="settings-integrations" /></p>
-<h2 id="jira--xray">JIRA / Xray</h2>
+<h2 id="xray-for-jira">Xray for Jira</h2>
+<p><img src="images/xray.png" alt="xray" /></p>
+<p><a href="https://marketplace.atlassian.com/plugins/com.xpandit.plugins.xray/server/overview">Xray for Jira</a> is a complete, full-featured Atlassian verified test management add-on for Jira. Xray supports both manual and automated tests and a complete testing life cycle: test planning, test designing, and test execution to help developers improve the quality of their systems.</p>
+<p>Xray for Jira is an add-on developed by <a href="http://www.xpand-addons.com/">Xpand Add-ons</a>, an Atlassian Solution Partner.</p>
+<h3 id="concept">Concept</h3>
+<p>Boozang integrates to Xray regardless if you are running Xray on Jira Cloud or Jira on-premise. Xray acts as the source of truth for Cucumber features and test results, while Boozang is responsible for test step implementation and test execution. This way, XRay becomes the main business interface, while Boozang works as the test engine.  </p>
+<p>Below is a schematic of how this setup looks using the Jenkins CI server. The connection between Boozang and Xray is independent of the CI server, and the CI server connects directly to Xray to report back the results.</p>
+<p><img src="images/xray-concept.png" alt="xray-concept" /></p>
 <h3 id="introduction-2">Introduction</h3>
-<p>There are the following basic steps to the Boozang - XRay integration. THese are the steps needed on the XRay side</p>
+<p>There are the following basic steps to the Boozang - XRay integration. These are the steps needed on the XRay side</p>
 <ol>
 <li>Get API key to allow for XRay integration</li>
 <li>Define scenarios in XRay</li>
@@ -1253,11 +1294,37 @@ report:
 <p>Lastly, to be able to fetch features, this is done by defining a filter in Jira. Filters can be defined in the main project interface in Jira</p>
 <p><img src="images/jira-filter.png" alt="jira-filter" /></p>
 <h3 id="boozang-adding-the-api-token">Boozang: Adding the API token</h3>
-<p><em>This particular screen will be updated to accept the client secret credentials directly. For now, use curl to generate a token, and insert into the Token field as stated above.</em> </p>
-<p><code>curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "client-id-rom-xray","client_secret": "client-secret-from-xray" }' https://xray.cloud.xpand-it.com/api/v2/authenticate</code></p>
-<p>Remember to set the full header, including Authorization header. </p>
-<p><code>Authorization: Bearer: YOUR-TOKEN-GOES-HERE</code></p>
-<p><img src="images/settings-integrations.png" alt="settings-integrations" /></p>
+<p>Launch Boozang IDE from the hosting centre of your choice</p>
+<ul>
+<li>Americas: <a href="https://ai.boozang.com">https://ai.boozang.com</a></li>
+<li>Europe / Asia: <a href="https://eu.boozang.com">https://eu.boozang.com</a></li>
+</ul>
+<p>and create a project if needed. As soon as the project is launched, the Boozang IDE will be launched in the web browser. To setup the integration to Jira / XRay you want to first add the client credentials to be able to retrieve the features from Xray.</p>
+<p>Go ahead and open</p>
+<p><strong>Settings - &gt; Integrations -&gt; Feature file server</strong></p>
+<p><img src="images/xray-bz-integration.png" alt="xray-bz-integration" /></p>
+<p>In the integration dialog, set the following</p>
+<p><strong>For Jira Cloud installation</strong></p>
+<ul>
+<li>Type: Set Jira / Xray</li>
+<li>File List URL: <a href="https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&amp;fz=true">https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&amp;fz=true</a></li>
+<li>Make sure to set the filter ID to match the filter you setup previously</li>
+<li>Token: For the Cloud install, this will be generated autyomatically from your credential info</li>
+<li>Client ID: Set your client id from the XRay API page</li>
+<li>Client Secret:  Set your client secret from the XRay API page</li>
+<li>Match file: Leave as *.feature or the file ending you are using</li>
+</ul>
+<p><strong>For Jira on-premise installation</strong></p>
+<ul>
+<li>Type: Set Jira / Xray</li>
+<li>File List URL: Set it to your on-premise API connection URL. </li>
+<li>Make sure to set the filter ID to match the filter you setup previously</li>
+<li>Token: For the on-premise install, you can generate a long-lived token and enter it directly.</li>
+<li>Client ID: For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.</li>
+<li>Client Secret:   For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.</li>
+<li>Match file: Leave as *.feature or the file ending you are using</li>
+</ul>
+<p>After you have entered all access information, check the connection using &quot;Check&quot;. On successful connection, the features synchronized should be shown in the UI. Click &quot;Done&quot; to save the configuration.  </p>
 <h3 id="boozang-synchronizing-features">Boozang: Synchronizing features</h3>
 <p>As Boozang is a slave system, you'll need to load the features you need in Boozang. You can do that the following way</p>
 <ul>
