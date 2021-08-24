@@ -64,6 +64,16 @@ body > header nav a {
 body > header nav a:hover {
 	text-decoration: underline;
 }
+/**
+ul {
+	margin-left: 0rem;
+	padding-left: 0rem;
+ }
+*/
+ol {
+	margin-left: 1rem;
+}
+
 nav.breadcrumbs {
 	flex-grow: 1;
 	order: 2;
@@ -126,6 +136,7 @@ main {
 	justify-content: space-between;
 	flex-direction: column;
 }
+
 
 article {
 	padding: 2rem 1rem 6rem 1rem;

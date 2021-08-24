@@ -47,7 +47,7 @@
             <article>
 
 <!-- CONTENT START -->
-<h1 id="introduction">Introduction</h1>
+<p>Introduction</p>
 <p><img src="images/side-by-side.png" alt="" /></p>
 <p>This is the official documentation for the Boozang test automation tool. It can be read as a book or used as a reference. Use the left navigation bar to navigate to the topic of interest. This documentation is available in English and Chinese. Toggle the language using the flag icon in the header.</p>
 <p>There are also several other resources to learn about Boozang</p>
@@ -1067,7 +1067,7 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
 </ol>
 <p>We, therefore, encourage our users to keep their custom code open source and share it openly. We also encourage you to let us know at <em>opensource@boozang.com</em> so we can link to it. </p>
 <h1 id="ci-server-integrations">CI Server Integrations</h1>
-<h2 id="introduction-1">Introduction</h2>
+<h2 id="introduction">Introduction</h2>
 <p>To connect to an external CI server using Boozang, you'll need to use the Docker runner or NPM package described in the previous section. We will automatically generate the script code needed to get this up and running. The script can then be customized to suit your particular setup.</p>
 <h2 id="generating-the-integration-code">Generating the integration code</h2>
 <p>To get started, start by visiting the CI sidebar option in the Boozang tool.</p>
@@ -1257,28 +1257,24 @@ report:
 <p>Boozang integrates to Xray regardless if you are running Xray on Jira Cloud or Jira on-premise. Xray acts as the source of truth for Cucumber features and test results, while Boozang is responsible for test step implementation and test execution. This way, XRay becomes the main business interface, while Boozang works as the test engine.  </p>
 <p>Below is a schematic of how this setup looks using the Jenkins CI server. The connection between Boozang and Xray is independent of the CI server, and the CI server connects directly to Xray to report back the results.</p>
 <p><img src="images/xray-concept.png" alt="xray-concept" /></p>
-<h3 id="introduction-2">Introduction</h3>
-<p>Xray works as a master store for all Cucumber features and scenarios. There are the following basic steps to the Boozang - XRay integration. </p>
-<p>These are the steps needed on the XRay side</p>
+<h3 id="integration-steps">Integration Steps</h3>
+<p>These are the steps needed on the Xray side to enable connection with Boozang</p>
 <ol>
 <li>Get API key (Cloud) or access credentials (on-premise) to allow for XRay integration</li>
 <li>Define scenarios in XRay</li>
 <li>Link scenarios to features in XRay</li>
 <li>Define a Jira filter that matches the desired scenarios</li>
 </ol>
-<p>After these have been completed, do the following on the Boozang side</p>
-<p>These are the steps needed on the Boozang side</p>
+<p>These are the steps needed on the Boozang side to connect with Xray</p>
 <ol>
 <li>Add the XRay API key to Boozang integrations</li>
 <li>Synchronize features</li>
 </ol>
-<p>After this has been completed, you already have a successful integration. To get the best value out of the integration, upload the reports on the XRay side. Perform the following steps on whatever CI server you are running.</p>
-<p>These are the steps needed on the CI server side</p>
+<p>These are the steps needed on the CI server side to report results back to Xray</p>
 <ol>
 <li>Define a Boozang CI job</li>
-<li>Add code to upload features on XRay</li>
+<li>Add the CI step to upload features on XRay</li>
 </ol>
-<p>Below I will outline these steps. </p>
 <h3 id="xray-add-api-key">Xray: Add API key</h3>
 <p><em>Always consult the official XRay documentation for the latest updates and features: <a href="https://docs.getxray.app/display/XRAYCLOUD/Global+Settings%3A+API+Keys">https://docs.getxray.app/display/XRAYCLOUD/Global+Settings%3A+API+Keys</a></em></p>
 <p>The first thing you want to do is to add an API key to access Xray Restful API. To do this, you'll need to access XRay <strong>Admin view</strong>. You will be able to select &quot;API keys&quot; from the sidebar and click &quot;Create API Key&quot; from the interface.</p>
@@ -1294,9 +1290,19 @@ report:
 </ol>
 <p><img src="images/xray-link-issues.png" alt="xray-link-issues" /></p>
 <h3 id="xray--jira-defining-a-filter">XRay / Jira: Defining a filter</h3>
-<p>Lastly, to be able to fetch features, this is done by defining a filter in Jira. Filters can be defined in the main project interface in Jira</p>
+<p>Lastly, to be able to fetch scenarios over the API you will need to define a filter in Jira. </p>
+<ol>
+<li>Go to FIlters -&gt; Advanced Issue Search</li>
+<li>Use the JQL to retrieve only automated scenarios</li>
+</ol>
 <p><img src="images/xray-bz-filter-define.png" alt="xray-bz-filter-define" /></p>
+<ol start="3">
+<li>Save filter</li>
+</ol>
 <p><img src="images/xray-bz-filter-save.png" alt="xray-bz-filter-save" /></p>
+<ol start="4">
+<li>Extract the filter ID from the URL</li>
+</ol>
 <p><img src="images/xray-bz-filter-id.png" alt="xray-bz-filter-id" /></p>
 <h3 id="boozang-adding-the-api-token">Boozang: Adding the API token</h3>
 <p>Launch Boozang IDE from the hosting centre of your choice</p>
@@ -1305,18 +1311,17 @@ report:
 <li>Europe / Asia: <a href="https://eu.boozang.com">https://eu.boozang.com</a></li>
 </ul>
 <p>and create a project if needed. As soon as the project is launched, the Boozang IDE will be launched in the web browser. To setup the integration to Jira / XRay you want to first add the client credentials to be able to retrieve the features from Xray.</p>
-<p>Go ahead and open</p>
-<p><strong>Settings - &gt; Integrations -&gt; Feature file server</strong></p>
-<p>In the integration dialog, set the following</p>
+<p>The integration view in Boozang can be found at <em>Settings - &gt; Integrations -&gt; Feature file server</em></p>
 <p><strong>For Jira Cloud installation</strong></p>
+<p>In the integration dialog, set the following</p>
 <img src="images/xray-bz-integration.png" alt="xray-bz-integration"  />
 <ol>
 <li>Type: Set Jira / Xray</li>
 <li>File List URL: <a href="https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&amp;fz=true">https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&amp;fz=true</a></li>
 <li>Make sure to set the filter ID to match the filter you setup previously</li>
 <li>Token: For the Cloud install, this will be generated autyomatically from your credential info</li>
-<li>Client ID: Set your client id from the XRay API page</li>
-<li>Client Secret:  Set your client secret from the XRay API page</li>
+<li>Client ID: Set your client id from the Xray API page</li>
+<li>Client Secret:  Set your client secret from the Xray API page</li>
 <li>Match file: Leave as *.feature or the file ending you are using</li>
 </ol>
 <p><strong>For Jira on-premise installation</strong></p>
@@ -1334,7 +1339,7 @@ report:
 <h3 id="boozang-synchronizing-features">Boozang: Synchronizing features</h3>
 <p>As Boozang is a slave system, you'll need to load the features you need in Boozang. You can do that the following way</p>
 <ol>
-<li>Open the project in question Boozang IDE</li>
+<li>Open the project in question in Boozang IDE</li>
 <li>Go to the root of the project</li>
 <li>Click the kebab menu</li>
 </ol>
@@ -1353,12 +1358,26 @@ report:
 </ol>
 <p><img src="images/xray-bz-import-features-3.png" alt="xray-bz-import-features-3" /></p>
 <ol start="7">
-<li>Click &quot;Start&quot;</li>
+<li>Click &quot;Start&quot;. The features will now be synchronized with Boozang. </li>
+<li>Implement test steps using the Boozang IDE. Any un-implemented test steps will show up as red.</li>
 </ol>
-<p>The features will now be synchronized with Boozang. You can now go ahead and implement all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang</p>
 <p><img src="images/not-implemented.png" alt="not-implemented" /></p>
+<ol start="9">
+<li>Use the play function to play the scenarios in the browser</li>
+</ol>
 <h3 id="ci-define-a-boozang-ci-job">CI: Define a Boozang CI job</h3>
-<p>Go ahead and follow the instructions above to run a test execution on your CI server of choice.  Use the Cucumber report plugin or similar to make sure you have report files generated. </p>
+<p>As soon as you have implemented some or all tests steps in Boozang, it time to run them on a CI server. </p>
+<p><img src="images/xray-select-feature.png" alt="xray-select-feature" /></p>
+<ol>
+<li>Define a test suite containing the features/scenarios you need</li>
+<li>Go to the Boozang CI view</li>
+</ol>
+<p><img src="images/xray-ci-integration.png" alt="xray-ci-integration" /></p>
+<ol>
+<li>Generate a CI sample script by selecting the test you need in the CI wizard</li>
+<li>Start a CI test execution and verify the </li>
+</ol>
+<p>Run a test execution on your CI server of choice. Use the Cucumber report plugin or similar to make sure you have report files generated. </p>
 <h3 id="ci-add-code-to-upload-features-on-xray">CI: Add code to upload features on XRay</h3>
 <p>Follow the XRay documentation to upload the Cucumber report files.</p>
 <p><strong>Jenkins integration for Jira XRay on-premise:</strong></p>
@@ -1408,7 +1427,7 @@ report:
 <h2 id="frequent-maintenance-releases">Frequent Maintenance Releases</h2>
 <p>We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this timeslot works for both European and American customers and amounts to a maximum of 30 seconds of service down-time). This means that we generally can provide less than a one-week turnaround on bugs reported by our customers.</p>
 <h1 id="testing-patterns-and-anti-patterns">Testing patterns and anti-patterns</h1>
-<h2 id="introduction-3">Introduction</h2>
+<h2 id="introduction-1">Introduction</h2>
 <p>In programming, we sometimes talk about design patterns. The idea of a design pattern is a recipe to solve a particular problem. Any given problem in programming can have many solution candidates. The design pattern helps guide the user to the simplest and best possible solution to a problem. That's why following design patterns doesn't only show you the way to solve a given problem. It also conveys a best practice. There are many reasons to follow best-practice solutions. Here are a few:</p>
 <ul>
 <li>Following documented processes increase code readability and collaboration in development teams</li>
@@ -1590,7 +1609,7 @@ lemur   lemur@thelab.com    iamthelemur</code></pre>
 <h3 id="timeout-pattern">Timeout pattern</h3>
 <h3 id="delay-pattern">Delay pattern</h3>
 <h1 id="example-an-e-commerce-project">Example: An E-commerce project</h1>
-<h2 id="introduction-4">Introduction</h2>
+<h2 id="introduction-2">Introduction</h2>
 <p>In this example, we will illustrate how to automate a simple E-commerce application using Boozang. We will use Cucumber syntax to define the acceptance tests first, then show how to structure the automated tests in Boozang.</p>
 <p>The shop can be found at: <a href="http://shopnx.boozang.com">http://shopnx.boozang.com</a> </p>
 <h2 id="project-shopnx">Project: ShopNX</h2>
