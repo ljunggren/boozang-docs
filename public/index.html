@@ -1260,12 +1260,12 @@ report:
 <h3 id="introduction-2">Introduction</h3>
 <p>There are the following basic steps to the Boozang - XRay integration. These are the steps needed on the XRay side</p>
 <ol>
-<li>Get API key to allow for XRay integration</li>
+<li>Get API key (Cloud) or access credentials (on-premise) to allow for XRay integration</li>
 <li>Define scenarios in XRay</li>
 <li>Link scenarios to features in XRay</li>
-<li>Define a Jira filter that encompasses the features to synchronize</li>
+<li>Define a Jira filter that matches the desired scenarios</li>
 </ol>
-<p>After these have been completed, try the following on the Boozang side</p>
+<p>After these have been completed, do the following on the Boozang side</p>
 <ol>
 <li>Add the XRay API key to Boozang integrations</li>
 <li>Synchronize features</li>
@@ -1302,9 +1302,9 @@ report:
 <p>and create a project if needed. As soon as the project is launched, the Boozang IDE will be launched in the web browser. To setup the integration to Jira / XRay you want to first add the client credentials to be able to retrieve the features from Xray.</p>
 <p>Go ahead and open</p>
 <p><strong>Settings - &gt; Integrations -&gt; Feature file server</strong></p>
-<p><img src="images/xray-bz-integration.png" alt="xray-bz-integration" /></p>
 <p>In the integration dialog, set the following</p>
 <p><strong>For Jira Cloud installation</strong></p>
+<img src="images/xray-bz-integration.png" alt="xray-bz-integration"  />
 <ul>
 <li>Type: Set Jira / Xray</li>
 <li>File List URL: <a href="https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&amp;fz=true">https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&amp;fz=true</a></li>
@@ -1315,6 +1315,7 @@ report:
 <li>Match file: Leave as *.feature or the file ending you are using</li>
 </ul>
 <p><strong>For Jira on-premise installation</strong></p>
+<p><img src="images/xray-bz-integration-on-premise.png" alt="xray-bz-integration-on-premise" /></p>
 <ul>
 <li>Type: Set Jira / Xray</li>
 <li>File List URL: Set it to your on-premise API connection URL. </li>
@@ -1322,7 +1323,7 @@ report:
 <li>Token: For the on-premise install, you can generate a long-lived token and enter it directly.</li>
 <li>Client ID: For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.</li>
 <li>Client Secret:   For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.</li>
-<li>Match file: Leave as *.feature or the file ending you are using</li>
+<li>Match file: Leave as *.feature or the file ending you are using for feature files</li>
 </ul>
 <p>After you have entered all access information, check the connection using &quot;Check&quot;. On successful connection, the features synchronized should be shown in the UI. Click &quot;Done&quot; to save the configuration.  </p>
 <h3 id="boozang-synchronizing-features">Boozang: Synchronizing features</h3>
@@ -1345,7 +1346,7 @@ report:
 <ul>
 <li>Click &quot;Start&quot;</li>
 </ul>
-<p>The features will now be synchronized with Boozang. You can now go ahead and impelment all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang</p>
+<p>The features will now be synchronized with Boozang. You can now go ahead and implement all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang</p>
 <p><img src="images/not-implemented.png" alt="not-implemented" /></p>
 <h3 id="ci-define-a-boozang-ci-job">CI: Define a Boozang CI job</h3>
 <p>Go ahead and follow the instructions above to run a test execution on your CI server of choice.  Use the Cucumber report plugin or similar to make sure you have report files generated. </p>
