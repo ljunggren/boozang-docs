@@ -2058,11 +2058,25 @@ The following fields need to be entered
 
 ![settings-integrations](images/settings-integrations.png)
 
-## JIRA / Xray
+## Xray for Jira
+
+![xray](images/xray.png)
+
+[Xray for Jira](https://marketplace.atlassian.com/plugins/com.xpandit.plugins.xray/server/overview) is a complete, full-featured Atlassian verified test management add-on for Jira. Xray supports both manual and automated tests and a complete testing life cycle: test planning, test designing, and test execution to help developers improve the quality of their systems.
+
+Xray for Jira is an add-on developed by [Xpand Add-ons](http://www.xpand-addons.com/), an Atlassian Solution Partner.
+
+### Concept
+
+Boozang integrates to Xray regardless if you are running Xray on Jira Cloud or Jira on-premise. Xray acts as the source of truth for Cucumber features and test results, while Boozang is responsible for test step implementation and test execution. This way, XRay becomes the main business interface, while Boozang works as the test engine.  
+
+Below is a schematic of how this setup looks using the Jenkins CI server. The connection between Boozang and Xray is independent of the CI server, and the CI server connects directly to Xray to report back the results.
+
+![xray-concept](images/xray-concept.png)
 
 ### Introduction
 
-There are the following basic steps to the Boozang - XRay integration. THese are the steps needed on the XRay side
+There are the following basic steps to the Boozang - XRay integration. These are the steps needed on the XRay side
 
 1. Get API key to allow for XRay integration
 2. Define scenarios in XRay
@@ -2114,15 +2128,42 @@ Lastly, to be able to fetch features, this is done by defining a filter in Jira.
 
 ### Boozang: Adding the API token
 
-*This particular screen will be updated to accept the client secret credentials directly. For now, use curl to generate a token, and insert into the Token field as stated above.* 
+Launch Boozang IDE from the hosting centre of your choice
 
-`curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "client-id-rom-xray","client_secret": "client-secret-from-xray" }' https://xray.cloud.xpand-it.com/api/v2/authenticate`
+- Americas: https://ai.boozang.com
+- Europe / Asia: https://eu.boozang.com
 
-Remember to set the full header, including Authorization header. 
+and create a project if needed. As soon as the project is launched, the Boozang IDE will be launched in the web browser. To setup the integration to Jira / XRay you want to first add the client credentials to be able to retrieve the features from Xray.
 
-`Authorization: Bearer: YOUR-TOKEN-GOES-HERE`
+Go ahead and open
 
-![settings-integrations](images/settings-integrations.png)
+**Settings - > Integrations -> Feature file server**
+
+![xray-bz-integration](images/xray-bz-integration.png)
+
+In the integration dialog, set the following
+
+**For Jira Cloud installation**
+
+- Type: Set Jira / Xray
+- File List URL: https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&fz=true
+- Make sure to set the filter ID to match the filter you setup previously
+- Token: For the Cloud install, this will be generated autyomatically from your credential info
+- Client ID: Set your client id from the XRay API page
+- Client Secret:  Set your client secret from the XRay API page
+- Match file: Leave as *.feature or the file ending you are using
+
+**For Jira on-premise installation**
+
+- Type: Set Jira / Xray
+- File List URL: Set it to your on-premise API connection URL. 
+- Make sure to set the filter ID to match the filter you setup previously
+- Token: For the on-premise install, you can generate a long-lived token and enter it directly.
+- Client ID: For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.
+- Client Secret:   For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.
+- Match file: Leave as *.feature or the file ending you are using
+
+After you have entered all access information, check the connection using "Check". On successful connection, the features synchronized should be shown in the UI. Click "Done" to save the configuration.  
 
 ### Boozang: Synchronizing features
 
