@@ -2078,7 +2078,7 @@ Below is a schematic of how this setup looks using the Jenkins CI server. The co
 
 Xray works as a master store for all Cucumber features and scenarios. There are the following basic steps to the Boozang - XRay integration. 
 
-**These are the steps needed on the XRay side**
+These are the steps needed on the XRay side
 
 1. Get API key (Cloud) or access credentials (on-premise) to allow for XRay integration
 2. Define scenarios in XRay
@@ -2087,14 +2087,14 @@ Xray works as a master store for all Cucumber features and scenarios. There are 
 
 After these have been completed, do the following on the Boozang side
 
-**These are the steps needed on the Boozang side**
+These are the steps needed on the Boozang side
 
 1. Add the XRay API key to Boozang integrations
 2. Synchronize features
 
 After this has been completed, you already have a successful integration. To get the best value out of the integration, upload the reports on the XRay side. Perform the following steps on whatever CI server you are running.
 
-**These are the steps needed on the CI server side**
+These are the steps needed on the CI server side
 
 1. Define a Boozang CI job
 2. Add code to upload features on XRay
