@@ -1,4 +1,4 @@
-# Introduction
+Introduction
 
 ![](images/side-by-side.png)
 
@@ -2074,32 +2074,24 @@ Below is a schematic of how this setup looks using the Jenkins CI server. The co
 
 ![xray-concept](images/xray-concept.png)
 
-### Introduction
+### Integration Steps
 
-Xray works as a master store for all Cucumber features and scenarios. There are the following basic steps to the Boozang - XRay integration. 
-
-These are the steps needed on the XRay side
+These are the steps needed on the Xray side to enable connection with Boozang
 
 1. Get API key (Cloud) or access credentials (on-premise) to allow for XRay integration
 2. Define scenarios in XRay
 3. Link scenarios to features in XRay
 4. Define a Jira filter that matches the desired scenarios
 
-After these have been completed, do the following on the Boozang side
-
-These are the steps needed on the Boozang side
+These are the steps needed on the Boozang side to connect with Xray
 
 1. Add the XRay API key to Boozang integrations
 2. Synchronize features
 
-After this has been completed, you already have a successful integration. To get the best value out of the integration, upload the reports on the XRay side. Perform the following steps on whatever CI server you are running.
-
-These are the steps needed on the CI server side
+These are the steps needed on the CI server side to report results back to Xray
 
 1. Define a Boozang CI job
-2. Add code to upload features on XRay
-
-Below I will outline these steps. 
+2. Add the CI step to upload features on XRay
 
 ### Xray: Add API key
 
@@ -2122,19 +2114,22 @@ The link between Boozang and XRay is done on a feature level, any scenarios to b
 1. Create - New Feature
 2. Link issues -> Is tested by... -> Select scenario to link
 
-
-
 ![xray-link-issues](images/xray-link-issues.png)
 
 ### XRay / Jira: Defining a filter
 
-Lastly, to be able to fetch features, this is done by defining a filter in Jira. Filters can be defined in the main project interface in Jira
+Lastly, to be able to fetch scenarios over the API you will need to define a filter in Jira. 
+
+1. Go to FIlters -> Advanced Issue Search
+2. Use the JQL to retrieve only automated scenarios
 
 ![xray-bz-filter-define](images/xray-bz-filter-define.png)
 
+3. Save filter
+
 ![xray-bz-filter-save](images/xray-bz-filter-save.png)
 
-
+4. Extract the filter ID from the URL
 
 ![xray-bz-filter-id](images/xray-bz-filter-id.png)
 
@@ -2147,13 +2142,11 @@ Launch Boozang IDE from the hosting centre of your choice
 
 and create a project if needed. As soon as the project is launched, the Boozang IDE will be launched in the web browser. To setup the integration to Jira / XRay you want to first add the client credentials to be able to retrieve the features from Xray.
 
-Go ahead and open
-
-**Settings - > Integrations -> Feature file server**
-
-In the integration dialog, set the following
+The integration view in Boozang can be found at *Settings - > Integrations -> Feature file server*
 
 **For Jira Cloud installation**
+
+In the integration dialog, set the following
 
 <img src="images/xray-bz-integration.png" alt="xray-bz-integration"  />
 
@@ -2161,8 +2154,8 @@ In the integration dialog, set the following
 2. File List URL: https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&fz=true
 3. Make sure to set the filter ID to match the filter you setup previously
 4. Token: For the Cloud install, this will be generated autyomatically from your credential info
-5. Client ID: Set your client id from the XRay API page
-6. Client Secret:  Set your client secret from the XRay API page
+5. Client ID: Set your client id from the Xray API page
+6. Client Secret:  Set your client secret from the Xray API page
 7. Match file: Leave as *.feature or the file ending you are using
 
 **For Jira on-premise installation**
@@ -2183,7 +2176,7 @@ After you have entered all access information, check the connection using "Check
 
 As Boozang is a slave system, you'll need to load the features you need in Boozang. You can do that the following way
 
-1. Open the project in question Boozang IDE
+1. Open the project in question in Boozang IDE
 2. Go to the root of the project
 3. Click the kebab menu
 
@@ -2199,15 +2192,28 @@ As Boozang is a slave system, you'll need to load the features you need in Booza
 
 ![xray-bz-import-features-3](images/xray-bz-import-features-3.png)
 
-7. Click "Start"
-
-The features will now be synchronized with Boozang. You can now go ahead and implement all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang
+7. Click "Start". The features will now be synchronized with Boozang. 
+8. Implement test steps using the Boozang IDE. Any un-implemented test steps will show up as red.
 
 ![not-implemented](images/not-implemented.png)
 
+9. Use the play function to play the scenarios in the browser
+
 ### CI: Define a Boozang CI job
 
-Go ahead and follow the instructions above to run a test execution on your CI server of choice.  Use the Cucumber report plugin or similar to make sure you have report files generated. 
+As soon as you have implemented some or all tests steps in Boozang, it time to run them on a CI server. 
+
+![xray-select-feature](images/xray-select-feature.png)
+
+1. Define a test suite containing the features/scenarios you need
+2. Go to the Boozang CI view
+
+![xray-ci-integration](images/xray-ci-integration.png)
+
+1. Generate a CI sample script by selecting the test you need in the CI wizard
+2. Start a CI test execution and verify the 
+
+Run a test execution on your CI server of choice. Use the Cucumber report plugin or similar to make sure you have report files generated. 
 
 ### CI: Add code to upload features on XRay
 
