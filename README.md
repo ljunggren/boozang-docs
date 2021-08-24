@@ -2078,12 +2078,12 @@ Below is a schematic of how this setup looks using the Jenkins CI server. The co
 
 There are the following basic steps to the Boozang - XRay integration. These are the steps needed on the XRay side
 
-1. Get API key to allow for XRay integration
+1. Get API key (Cloud) or access credentials (on-premise) to allow for XRay integration
 2. Define scenarios in XRay
 3. Link scenarios to features in XRay
-4. Define a Jira filter that encompasses the features to synchronize
+4. Define a Jira filter that matches the desired scenarios
 
-After these have been completed, try the following on the Boozang side
+After these have been completed, do the following on the Boozang side
 
 1. Add the XRay API key to Boozang integrations
 2. Synchronize features
@@ -2139,11 +2139,11 @@ Go ahead and open
 
 **Settings - > Integrations -> Feature file server**
 
-![xray-bz-integration](images/xray-bz-integration.png)
-
 In the integration dialog, set the following
 
 **For Jira Cloud installation**
+
+<img src="images/xray-bz-integration.png" alt="xray-bz-integration"  />
 
 - Type: Set Jira / Xray
 - File List URL: https://xray.cloud.xpand-it.com/api/v2/export/cucumber?filter=10004&fz=true
@@ -2155,13 +2155,15 @@ In the integration dialog, set the following
 
 **For Jira on-premise installation**
 
+![xray-bz-integration-on-premise](images/xray-bz-integration-on-premise.png)
+
 - Type: Set Jira / Xray
 - File List URL: Set it to your on-premise API connection URL. 
 - Make sure to set the filter ID to match the filter you setup previously
 - Token: For the on-premise install, you can generate a long-lived token and enter it directly.
 - Client ID: For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.
 - Client Secret:   For a hard-coded long-lived token, you can leave this blank. If you rather refresh the token, based on client from the XRay API page.
-- Match file: Leave as *.feature or the file ending you are using
+- Match file: Leave as *.feature or the file ending you are using for feature files
 
 After you have entered all access information, check the connection using "Check". On successful connection, the features synchronized should be shown in the UI. Click "Done" to save the configuration.  
 
@@ -2186,7 +2188,7 @@ As Boozang is a slave system, you'll need to load the features you need in Booza
 
 - Click "Start"
 
-The features will now be synchronized with Boozang. You can now go ahead and impelment all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang
+The features will now be synchronized with Boozang. You can now go ahead and implement all the test steps using Boozang. Any un-implemented test steps will show up as red in Boozang
 
 ![not-implemented](images/not-implemented.png)
 
