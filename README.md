@@ -2183,7 +2183,6 @@ As Boozang is a slave system, you'll need to load the features you need in Booza
 ![xray-bz-import-features](images/xray-bz-import-features.png)
 
 4. Click "Import features"
-
 5. Select "Sync from server"
 
 ![xray-bz-import-features-2](images/xray-bz-import-features-2.png)
@@ -2219,11 +2218,11 @@ Run a test execution on your CI server of choice. Use the Cucumber report plugin
 
 Follow the XRay documentation to upload the Cucumber report files.
 
-**Jenkins integration for Jira XRay on-premise:**
+Jenkins integration for Jira XRay on-premise:
 
  https://docs.getxray.app/display/XRAY/Integration+with+Jenkins 
 
-**Jenkins integration for Jira / XRay in Cloud**
+Jenkins integration for Jira / XRay in Cloud
 
 https://docs.getxray.app/display/XRAYCLOUD/Integration+with+Jenkins
 
