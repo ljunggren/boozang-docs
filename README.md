@@ -2174,7 +2174,7 @@ After you have entered all access information, check the connection using "Check
 
 ### Boozang: Synchronizing features
 
-As Boozang is a slave system, you'll need to load the features you need in Boozang. You can do that the following way
+Boozang now needs to load the features you need from Xray. You can do that the following way
 
 1. Open the project in question in Boozang IDE
 2. Go to the root of the project
@@ -2209,10 +2209,13 @@ As soon as you have implemented some or all tests steps in Boozang, it time to r
 
 ![xray-ci-integration](images/xray-ci-integration.png)
 
-1. Generate a CI sample script by selecting the test you need in the CI wizard
-2. Start a CI test execution and verify the 
+3. Select the CI integration server of your choice, or simply click "Generate CI URL"
+4. Generate a CI sample script by selecting the test you need in the CI wizard
+5. Enter Boozang password
+6. Copy the CI integration script into the CI server of your choice
+7. Start a CI test execution and verify the result
 
-Run a test execution on your CI server of choice. Use the Cucumber report plugin or similar to make sure you have report files generated. 
+*Tip: Use the Cucumber report plugin or similar to make sure you have well-formed Cucumber report files generated.* 
 
 ### CI: Add code to upload features on XRay
 
