@@ -104,14 +104,15 @@ nav.breadcrumbs {
 .language-select-popup {
 	background: #f9fafb;
 	border: 1px solid #ced1d4;
-	padding: 15px;
+	/** padding: 15px; */
 	display: none;
 	position: absolute;
-	top: 100%;
+	top: -50%;
 	left: 50%;
 	transform: translate(-50%, 10px);
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
+/*
 .language-select-popup:before {
 	content: "";
 	position: absolute;
@@ -123,6 +124,7 @@ nav.breadcrumbs {
 	background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view-box='0 0 16 8' width='16' height='8'><path d='M0 8L8 0L16 8' fill='%23f9fafb' stroke='%23ced1d4' stroke-width='1.1'/></svg>")
 		no-repeat center;
 }
+*/
 .language :checked ~ .language-select-popup {
 	display: grid;
 }
