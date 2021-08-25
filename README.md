@@ -1,4 +1,4 @@
-Introduction
+# Introduction
 
 ![](images/side-by-side.png)
 
