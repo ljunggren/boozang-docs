@@ -2249,6 +2249,8 @@ https://raw.githubusercontent.com/ljunggren/bz-utils/main/scripts/test-xray-scen
 
 It's a simple script that fetches a report file, generates a token from your credentials, and tries to upload the report to Xray.
 
+Option 1 -  run the script contents
+
 ```bash
 #/bin/bash
 
@@ -2270,6 +2272,25 @@ TOKEN=$(curl -H "Content-Type: application/json" -X POST --data '{ "client_id": 
 echo $TOKEN
 
 curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${TOKEN}" --data @results.json https://xray.cloud.xpand-it.com/api/v2/import/execution/cucumber
+```
+
+Option 2 - download the script and run it
+
+```bash
+# This scripts test integration with Xray and assumes you have defined the fo9llowing sceanrio in Jira
+# https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-scenario.txt
+
+# Make sure you export your client id and client secret as environment variables
+# export CLIENT_ID=my-secret-id
+# export CLIENT_SECRET=my-secret-secret
+
+# Get report sample file from GitHub
+curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/scripts/test-xray-scenario-upload.sh --output test-xray-scenario-upload.sh
+
+chmod +x test-xray-scenario-upload.sh
+
+./test-xray-scenario-upload.sh
+
 ```
 
 To use the script, you first have to set your Xray API credentials as environment variables in the shell you are using (for instance - the Jenkins "Execute Shell" step). 
