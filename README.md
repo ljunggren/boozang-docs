@@ -2250,7 +2250,9 @@ https://raw.githubusercontent.com/ljunggren/bz-utils/main/scripts/test-xray-scen
 It's a simple script that fetches a report file, generates a token from your credentials, and tries to upload the report to Xray.
 
 ```bash
-# This scripts test integration with Xray and assumes you have defined the fo9llowing sceanrio in Jira
+#/bin/bash
+
+# This scripts test integration with Xray and assumes you have defined the following scenario in Jira
 # https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-scenario.txt
 
 # Make sure you export your client id and client secret as environment variables
@@ -2263,11 +2265,11 @@ curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sam
 echo Checking: ${CLIENT_ID} ${CLIENT_SECRET}
 echo Checking: curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "'${CLIENT_ID}'","client_secret": "'${CLIENT_SECRET}'"}' 
 
-TOKEN=$(curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "'${CLIENT_ID}'","client_secret": "'${CLIENT_SECRET}'"}'  https://xray.cloud.xpand-it.com/api/v1/authenticate | jq -r)
+TOKEN=$(curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "'${CLIENT_ID}'","client_secret": "'${CLIENT_SECRET}'"}'  https://xray.cloud.xpand-it.com/api/v1/authenticate | sed 's/\"//g')
 
 echo $TOKEN
 
-curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${TOKEN}" --data @results.json https://xray.cloud.xpand-it.com/api/v2/import/execution/cucumber 
+curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${TOKEN}" --data @results.json https://xray.cloud.xpand-it.com/api/v2/import/execution/cucumber
 ```
 
 To use the script, you first have to set your Xray API credentials as environment variables in the shell you are using (for instance - the Jenkins "Execute Shell" step). 
