@@ -1392,7 +1392,9 @@ report:
 <p>To quickly test the upload of scenarios to Xray we build a sample script. This scripts downloads a sample Cucumber report from our GitHub repository and posts it to Xray. The script can be found here</p>
 <p><a href="https://raw.githubusercontent.com/ljunggren/bz-utils/main/scripts/test-xray-scenario-upload.sh">https://raw.githubusercontent.com/ljunggren/bz-utils/main/scripts/test-xray-scenario-upload.sh</a></p>
 <p>It's a simple script that fetches a report file, generates a token from your credentials, and tries to upload the report to Xray.</p>
-<pre><code class="language-bash"># This scripts test integration with Xray and assumes you have defined the fo9llowing sceanrio in Jira
+<pre><code class="language-bash">#/bin/bash
+
+# This scripts test integration with Xray and assumes you have defined the following scenario in Jira
 # https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-scenario.txt
 
 # Make sure you export your client id and client secret as environment variables
@@ -1405,11 +1407,11 @@ curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sam
 echo Checking: ${CLIENT_ID} ${CLIENT_SECRET}
 echo Checking: curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "'${CLIENT_ID}'","client_secret": "'${CLIENT_SECRET}'"}' 
 
-TOKEN=$(curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "'${CLIENT_ID}'","client_secret": "'${CLIENT_SECRET}'"}'  https://xray.cloud.xpand-it.com/api/v1/authenticate | jq -r)
+TOKEN=$(curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "'${CLIENT_ID}'","client_secret": "'${CLIENT_SECRET}'"}'  https://xray.cloud.xpand-it.com/api/v1/authenticate | sed 's/\"//g')
 
 echo $TOKEN
 
-curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${TOKEN}" --data @results.json https://xray.cloud.xpand-it.com/api/v2/import/execution/cucumber </code></pre>
+curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${TOKEN}" --data @results.json https://xray.cloud.xpand-it.com/api/v2/import/execution/cucumber</code></pre>
 <p>To use the script, you first have to set your Xray API credentials as environment variables in the shell you are using (for instance - the Jenkins &quot;Execute Shell&quot; step). </p>
 <pre><code class="language-bash">export CLIENT_ID=my-secret-id
 export CLIENT_SECRET=my-secret-secret</code></pre>
