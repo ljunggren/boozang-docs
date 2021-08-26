@@ -2103,7 +2103,13 @@ The first thing you want to do is to add an API key to access Xray Restful API. 
 
 ### XRay: Defining scenarios
 
-XRay and Boozang both support regular Scenarios and Scenario Outlines, so there is a one-to-one mapping between these entities. As a starting point, you will need at least one Cucumber scenario defined in Xray. Below is an example of a data-driven scenario outline defined on the XRay side. 
+XRay and Boozang both support regular Scenarios and Scenario Outlines, so there is a one-to-one mapping between these entities. As a starting point, you will need at least one Cucumber scenario defined in Xray. 
+
+If you don't have a sample scenario handy, you can can find an example scenario sample in our GitHub repository:
+
+https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-scenario.txt
+
+Below is an example of a data-driven scenario outline defined on the XRay side. 
 
 ![xray-define-scenarios](images/xray-define-scenarios.png)
 
@@ -2120,7 +2126,7 @@ The link between Boozang and XRay is done on a feature level, any scenarios to b
 
 Lastly, to be able to fetch scenarios over the API you will need to define a filter in Jira. 
 
-1. Go to FIlters -> Advanced Issue Search
+1. Go to Filters -> Advanced Issue Search
 2. Use the JQL to retrieve only automated scenarios
 
 ![xray-bz-filter-define](images/xray-bz-filter-define.png)
@@ -2132,6 +2138,12 @@ Lastly, to be able to fetch scenarios over the API you will need to define a fil
 4. Extract the filter ID from the URL
 
 ![xray-bz-filter-id](images/xray-bz-filter-id.png)
+
+The JQL for the filter we ended up using in this example was
+
+```JQL
+project = Pivo AND issueType = test AND testType = Cucumber
+```
 
 ### Boozang: Adding the API token
 
@@ -2217,7 +2229,7 @@ As soon as you have implemented some or all tests steps in Boozang, it time to r
 
 *Tip: Use the Cucumber report plugin or similar to make sure you have well-formed Cucumber report files generated.* 
 
-### CI: Add code to upload features on XRay
+### CI: Upload scenarios on XRay (Jenkins)
 
 Follow the XRay documentation to upload the Cucumber report files.
 
@@ -2229,9 +2241,41 @@ Jenkins integration for Jira / XRay in Cloud
 
 https://docs.getxray.app/display/XRAYCLOUD/Integration+with+Jenkins
 
-### Sample integration code for Jenkins
+### Sample integration code for upload of scenarios
 
-*Sample code coming soon*
+To quickly test the upload of scenarios to Xray we build a sample script. This scripts downloads a sample Cucumber report from our GitHub repository and posts it to Xray. The script can be found here
+
+https://raw.githubusercontent.com/ljunggren/bz-utils/main/scripts/test-xray-scenario-upload.sh
+
+It's a simple script that fetches a report file, generates a token from your credentials, and tries to upload the report to Xray.
+
+```bash
+# This scripts test integration with Xray and assumes you have defined the fo9llowing sceanrio in Jira
+# https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-scenario.txt
+
+# Make sure you export your client id and client secret as environment variables
+# export CLIENT_ID=my-secret-id
+# export CLIENT_SECRET=my-secret-secret
+
+# Get report sample file from GitHub
+curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-report.json --output results.json
+
+echo Checking: ${CLIENT_ID} ${CLIENT_SECRET}
+echo Checking: curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "'${CLIENT_ID}'","client_secret": "'${CLIENT_SECRET}'"}' 
+
+TOKEN=$(curl -H "Content-Type: application/json" -X POST --data '{ "client_id": "'${CLIENT_ID}'","client_secret": "'${CLIENT_SECRET}'"}'  https://xray.cloud.xpand-it.com/api/v1/authenticate | jq -r)
+
+echo $TOKEN
+
+curl -H "Content-Type: application/json" -X POST -H "Authorization: Bearer ${TOKEN}" --data @results.json https://xray.cloud.xpand-it.com/api/v2/import/execution/cucumber 
+```
+
+To use the script, you first have to set your Xray API credentials as environment variables in the shell you are using (for instance - the Jenkins "Execute Shell" step). 
+
+```bash
+export CLIENT_ID=my-secret-id
+export CLIENT_SECRET=my-secret-secret
+```
 
 ## GitLab
 
