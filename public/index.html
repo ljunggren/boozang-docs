@@ -1431,6 +1431,17 @@ chmod +x test-xray-scenario-upload.sh
 <p>To use the script, you first have to set your Xray API credentials as environment variables in the shell you are using (for instance - the Jenkins &quot;Execute Shell&quot; step). </p>
 <pre><code class="language-bash">export CLIENT_ID=my-secret-id
 export CLIENT_SECRET=my-secret-secret</code></pre>
+<p>If you want to try it with different execution status (Pass, Fail, Not Implemented)</p>
+<pre><code class="language-bash"># Get report sample file from GitHub (success)
+curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-report-success.json --output results.json
+
+# Get report sample file from GitHub (failure)
+curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-report-fail.json --output results.json
+
+# Get report sample file from GitHub (not implemented)
+curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-report-not-implemented.json --output results.json</code></pre>
+<p>See below sample from XRay</p>
+<p><img src="images/xray-report.png" alt="xray-report" /></p>
 <h2 id="gitlab-1">GitLab</h2>
 <p><em>This documentation is in progress. In the meantime, check out <a href="https://boozang.com/enterprise-boozang-working-with-github/">https://boozang.com/enterprise-boozang-working-with-github/</a></em></p>
 <h2 id="github">GitHub</h2>
