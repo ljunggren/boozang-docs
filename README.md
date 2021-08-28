@@ -2300,6 +2300,23 @@ export CLIENT_ID=my-secret-id
 export CLIENT_SECRET=my-secret-secret
 ```
 
+If you want to try it with different execution status (Pass, Fail, Not Implemented)
+
+```bash
+# Get report sample file from GitHub (success)
+curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-report-success.json --output results.json
+
+# Get report sample file from GitHub (failure)
+curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-report-fail.json --output results.json
+
+# Get report sample file from GitHub (not implemented)
+curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sample-report-not-implemented.json --output results.json
+```
+
+See below sample from XRay
+
+![xray-report](images/xray-report.png)
+
 ## GitLab
 
 *This documentation is in progress. In the meantime, check out https://boozang.com/enterprise-boozang-working-with-github/*
