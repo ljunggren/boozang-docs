@@ -174,11 +174,11 @@ For this reason, to be able to deliver new features fast without forcing the end
 
 In the help text, you will find an explanation of the function you selected. You will also find any related videos to that function, if available. When clicking a video link, a separate video window will appear and you will be able to follow along with the tool if needed. 
 
-# Cucumber: An End-to-End Google example
+# Cucumber: An End-to-End example using Google
 
 ## Introduction
 
-Let's jump directly to a hands-on example, where we define an End-to-end search scenario. In this example we use Cucumber sceanrios to drive tests in Boozang. This is not mandatory, but it has many advantages, and it's the recommended test approach in Boozang.
+Let's jump directly to a hands-on example, where we define an End-to-end search scenario. In this example we use Cucumber scenarios to drive tests in Boozang. This is not mandatory, but it has many advantages, and it's the recommended test approach in Boozang.
 
 We need to do the following steps in this example
 
