@@ -229,6 +229,13 @@ It's now time to import the file to Boozang. You can import the feature file con
 
 ![](images/import-features.png)
 
+4. Copy-paste the content of thefeature file above 
+5. Click "Load". When browsing a scenario you should see the following
+
+![](images/unlinked-google-scenario.png)
+
+
+
 ## Implement test steps
 
 Now it's time to implement the test steps. Try to make the test step implementation as short and re-usable as possible. 
