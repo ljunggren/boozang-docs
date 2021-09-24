@@ -253,14 +253,10 @@ Now it's time to implement the test steps. Try to make the test step implementat
 ![](images/search-google.png)
 
 7. Record a test doing a simple Google search
-
 8. Make sure you are using `$parameter.searchTerm` as parameter to make it data driven
-
 9. Pick some good value to be the default search term ("Boozang")
 
-   ![](images/search-google-contents.png)
-
-   
+![](images/search-google-contents.png)
 
 11. Create  validation test case for the "Then" condition
 
