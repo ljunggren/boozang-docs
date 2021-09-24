@@ -230,7 +230,7 @@ It's now time to import the file to Boozang. You can import the feature file con
 
 ![](images/import-features.png)
 
-### Implement test steps
+## Implement test steps
 
 Now it's time to implement the test steps. Try to make the test step implementation as short and re-usable as possible. 
 
@@ -285,7 +285,7 @@ Now it's time to link all the tests. Make sure all the test steps in every scena
 
 ![](images/linked-google-scenario.png)
 
-### Dry-run the test
+## Dry-run the test
 
 Now it's time to dry-run the test. Press play and make sure the test excutes successfully.
 
