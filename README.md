@@ -182,12 +182,12 @@ Let's jump directly to a hands-on example, where we define an End-to-end search 
 
 We need to do the following steps in this example
 
-- Define a Feature file with two Scenarios, where one is data-driven (Scenario Outline)
-- Import the Feature file to Boozang
-- Implement tests for each Sceanario test step
-- Link each test step
-- Dry-run the test
-- Run the test on a CI server
+1. Define a Feature file with two Scenarios, where one is data-driven (Scenario Outline)
+2. Import the Feature file to Boozang
+3. Implement tests for each Sceanario test step
+4. Link each test step
+5. Dry-run the test
+6. Run the test on a CI server
 
 *Note: If you want to do the same test in a non-Cucumber way, simply define a test suite and link the tests together, or merge the actions to a single test.*
 
