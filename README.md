@@ -224,7 +224,6 @@ Examples
 It's now time to import the file to Boozang. You can import the feature file contents using copy paste or import the feature file via the file dialog. You can also use an external system, such as GitLab, GitHub, or Xray to import the feature files directly. 
 
 1. Go to the project root
-
 2. Click the kebab menu (...)
 3. Select how to import the file contents (By text, By file, Sync from server)
 
