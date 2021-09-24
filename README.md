@@ -174,6 +174,121 @@ For this reason, to be able to deliver new features fast without forcing the end
 
 In the help text, you will find an explanation of the function you selected. You will also find any related videos to that function, if available. When clicking a video link, a separate video window will appear and you will be able to follow along with the tool if needed. 
 
+# Cucumber: An End-to-End Google example
+
+## Introduction
+
+Let's jump directly to a hands-on example, where we define an End-to-end search scenario. In this example we use Cucumber sceanrios to drive tests in Boozang. This is not mandatory, but it has many advantages, and it's the recommended test approach in Boozang.
+
+We need to do the following steps in this example
+
+- Define a Feature file with two Scenarios, where one is data-driven (Scenario Outline)
+- Import the Feature file to Boozang
+- Implement tests for each Sceanario test step
+- Link each test step
+- Dry-run the test
+- Run the test on a CI server
+
+*Note: If you want to do the same test in a non-Cucumber way, simply define a test suite and link the tests together, or merge the actions to a single test.*
+
+## Defining the feature file
+
+We start by defining a feature file that describes a simple Google search.
+
+```gherkin
+Feature: Google search
+	When I go to the Google search page, and search for an item,
+	I expect to see some reference to that item in the result summary.
+
+Scenario: Search returns relevant result
+	Given that I have gone to the Google page
+	When I search "cats"
+	Then "cats" should be mentioned in the results
+
+Scenario Outline: Search returns relevant result - data-driven
+	Given that I have gone to the Google page
+    When I search <searchTerm>
+	Then <searchTerm> should be mentioned in the results
+
+Examples
+
+|searchTerm|
+|cats      |
+|dogs      |
+```
+
+
+
+## Importing the file to Boozang
+
+It's now time to import the file to Boozang. You can import the feature file contents using copy paste or import the feature file via the file dialog. You can also use an external system, such as GitLab, GitHub, or Xray to import the feature files directly. 
+
+1. Go to the project root
+
+2. Click the kebab menu (...)
+3. Select how to import the file contents (By text, By file, Sync from server)
+
+![](images/import-features.png)
+
+### Implement test steps
+
+Now it's time to implement the test steps. Try to make the test step implementation as short and re-usable as possible. 
+
+1. Go to the project root
+2. Click "Modules" ("code domain")
+3. Create Module ("Search")
+
+![](images/create-module-search.png)
+
+4. Create test ("Navigate to Google")
+
+![](images/navigate-to-google.png)
+
+5. Make sure the URL is right. This test can be left blank.
+
+![](/Users/matsljunggren/Workspace/boozang-docs/images/navigate-to-google-contents.png)
+
+6. Create test ("Serach Google")
+
+![](images/search-google.png)
+
+7. Record a test doing a simple serach
+
+8. Make sure you are using `$parameter.searchTerm` as parameter to make it data driven
+
+9. Pick some good value to be the default search term ("Boozang")
+
+   ![](/Users/matsljunggren/Workspace/boozang-docs/images/search-google-contents.png)
+
+   
+
+11. Create  validation test case for the "Then" condition
+
+![](/Users/matsljunggren/Workspace/boozang-docs/images/validate-search-results.png)
+
+12. Now you should have a search module with the following tests
+
+![](images/search-module-contents.png)
+
+## Linking the tests
+
+Now it's time to link all the tests. Make sure all the test steps in every scenario goes from "red" to "black".
+
+![](images/unlinked-google-scenario.png)
+
+1. Click on a test step marked as "NOT IMPLEMENTED"
+2. Link the test step using the drop-down
+
+![](images/link-google-scenario.png)
+
+3, Link all test steps until they go from "red" to "black"
+
+![](images/linked-google-scenario.png)
+
+### Dry-run the test
+
+Now it's time to dry-run the test. Press play and make sure the test excutes successfully.
+
 # The tool
 
 ![](images/cucumber-test.png)
@@ -2204,11 +2319,48 @@ Boozang now needs to load the features you need from Xray. You can do that the f
 ![xray-bz-import-features-3](images/xray-bz-import-features-3.png)
 
 7. Click "Start". The features will now be synchronized with Boozang. 
-8. Implement test steps using the Boozang IDE. Any un-implemented test steps will show up as red.
+8. Navigate to a scenario, such as "Set default payment method"
+9. You should see all test steps in "Red", as they are unlinked
+
+
+
+
+
+*Note: If you already have linked test steps, any new test steps with the same exact syntax ((Give I am logged in), will be automatically linked, and will be shown as black.*
+
+### Boozang: Implement the test steps
+
+Now it's time to create the test steps implementation. The test steps are implemented in the code domain of Boozang, which can be found under "Modules" in the root. 
+
+1. Go to the root of the project
+2. Go to the "Modules" tab ( as opposed to "Features" tab, which is the business domain, where Cucumber Features and Scenarios live ).
+3. Create a new module, for example "Payment".
+4. Create a new test, for example "Place an order"
+5. Record the steps for this particular test step
+
+*Note: You can also leave this test empty. It will execute successfully by default, and you can worry about the implementation later.*
+
+### Boozang: Link the test steps
+
+It's now time to connect the "business domain" to the "code domain". This is done using a "plug-test case" action, which is the only action supported in a sceanrio.
+
+1. Go to your Cucumber feature
+2. Click into the scenario you want to link
+3. Use the drop-down to link the scenario
+4. After the test has been linked, the test step should go from red to black.
+
+*Note: If it's a data-driven test a Cucumber scenario outline) data will be passed between the "business domain" and the "code domain" using test parameters.*
 
 ![not-implemented](images/not-implemented.png)
 
-9. Use the play function to play the scenarios in the browser
+### Boozang: Test run the scenario
+
+Now it's time to test run the scenario. Boozang supports a number of different play modes. The regular play should be good at this point. 
+
+1. Navigate to the scenario
+2. Click "Play" to execute the scenario in the browser
+3. Follow the test execution in the execution window 
+4. Make sure the scenario executes succesfully end-to-end (or have it fail, if that's what you expect)
 
 ### CI: Define a Boozang CI job
 
@@ -2216,8 +2368,11 @@ As soon as you have implemented some or all tests steps in Boozang, it time to r
 
 ![xray-select-feature](images/xray-select-feature.png)
 
-1. Define a test suite containing the features/scenarios you need
-2. Go to the Boozang CI view
+1. Go to the Root -> Modules ("code domain")
+2. Create a new module called "Suites"
+3. Create a new test suite ("My payment tests")
+4. Define a test suite containing the features/scenarios you need
+5. Go to the Boozang CI view
 
 ![xray-ci-integration](images/xray-ci-integration.png)
 

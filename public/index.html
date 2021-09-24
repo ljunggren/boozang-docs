@@ -147,6 +147,106 @@
 <p>For this reason, to be able to deliver new features fast without forcing the end-user to re-learn, we added an online help function inside the tool. To activate help, click the question mark in the user interface, and click the functionality and an explanation will appear. </p>
 <p><img src="images/help-annotations.png" alt="example image" title="An exemplary image" /></p>
 <p>In the help text, you will find an explanation of the function you selected. You will also find any related videos to that function, if available. When clicking a video link, a separate video window will appear and you will be able to follow along with the tool if needed. </p>
+<h1 id="cucumber-an-end-to-end-google-example">Cucumber: An End-to-End Google example</h1>
+<h2 id="introduction-1">Introduction</h2>
+<p>Let's jump directly to a hands-on example, where we define an End-to-end search scenario. In this example we use Cucumber sceanrios to drive tests in Boozang. This is not mandatory, but it has many advantages, and it's the recommended test approach in Boozang.</p>
+<p>We need to do the following steps in this example</p>
+<ul>
+<li>Define a Feature file with two Scenarios, where one is data-driven (Scenario Outline)</li>
+<li>Import the Feature file to Boozang</li>
+<li>Implement tests for each Sceanario test step</li>
+<li>Link each test step</li>
+<li>Dry-run the test</li>
+<li>Run the test on a CI server</li>
+</ul>
+<p><em>Note: If you want to do the same test in a non-Cucumber way, simply define a test suite and link the tests together, or merge the actions to a single test.</em></p>
+<h2 id="defining-the-feature-file">Defining the feature file</h2>
+<p>We start by defining a feature file that describes a simple Google search.</p>
+<pre><code class="language-gherkin">Feature: Google search
+    When I go to the Google search page, and search for an item,
+    I expect to see some reference to that item in the result summary.
+
+Scenario: Search returns relevant result
+    Given that I have gone to the Google page
+    When I search "cats"
+    Then "cats" should be mentioned in the results
+
+Scenario Outline: Search returns relevant result - data-driven
+    Given that I have gone to the Google page
+    When I search &lt;searchTerm&gt;
+    Then &lt;searchTerm&gt; should be mentioned in the results
+
+Examples
+
+|searchTerm|
+|cats      |
+|dogs      |</code></pre>
+<h2 id="importing-the-file-to-boozang">Importing the file to Boozang</h2>
+<p>It's now time to import the file to Boozang. You can import the feature file contents using copy paste or import the feature file via the file dialog. You can also use an external system, such as GitLab, GitHub, or Xray to import the feature files directly. </p>
+<ol>
+<li>
+<p>Go to the project root</p>
+</li>
+<li>
+<p>Click the kebab menu (...)</p>
+</li>
+<li>
+<p>Select how to import the file contents (By text, By file, Sync from server)</p>
+</li>
+</ol>
+<p><img src="images/import-features.png" alt="" /></p>
+<h3 id="implement-test-steps">Implement test steps</h3>
+<p>Now it's time to implement the test steps. Try to make the test step implementation as short and re-usable as possible. </p>
+<ol>
+<li>Go to the project root</li>
+<li>Click &quot;Modules&quot; (&quot;code domain&quot;)</li>
+<li>Create Module (&quot;Search&quot;)</li>
+</ol>
+<p><img src="images/create-module-search.png" alt="" /></p>
+<ol start="4">
+<li>Create test (&quot;Navigate to Google&quot;)</li>
+</ol>
+<p><img src="images/navigate-to-google.png" alt="" /></p>
+<ol start="5">
+<li>Make sure the URL is right. This test can be left blank.</li>
+</ol>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/navigate-to-google-contents.png" alt="" /></p>
+<ol start="6">
+<li>Create test (&quot;Serach Google&quot;)</li>
+</ol>
+<p><img src="images/search-google.png" alt="" /></p>
+<ol start="7">
+<li>
+<p>Record a test doing a simple serach</p>
+</li>
+<li>
+<p>Make sure you are using <code>$parameter.searchTerm</code> as parameter to make it data driven</p>
+</li>
+<li>
+<p>Pick some good value to be the default search term (&quot;Boozang&quot;)</p>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/search-google-contents.png" alt="" /></p>
+</li>
+<li>
+<p>Create  validation test case for the &quot;Then&quot; condition</p>
+</li>
+</ol>
+<p><img src="/Users/matsljunggren/Workspace/boozang-docs/images/validate-search-results.png" alt="" /></p>
+<ol start="12">
+<li>Now you should have a search module with the following tests</li>
+</ol>
+<p><img src="images/search-module-contents.png" alt="" /></p>
+<h2 id="linking-the-tests">Linking the tests</h2>
+<p>Now it's time to link all the tests. Make sure all the test steps in every scenario goes from &quot;red&quot; to &quot;black&quot;.</p>
+<p><img src="images/unlinked-google-scenario.png" alt="" /></p>
+<ol>
+<li>Click on a test step marked as &quot;NOT IMPLEMENTED&quot;</li>
+<li>Link the test step using the drop-down</li>
+</ol>
+<p><img src="images/link-google-scenario.png" alt="" /></p>
+<p>3, Link all test steps until they go from &quot;red&quot; to &quot;black&quot;</p>
+<p><img src="images/linked-google-scenario.png" alt="" /></p>
+<h3 id="dry-run-the-test">Dry-run the test</h3>
+<p>Now it's time to dry-run the test. Press play and make sure the test excutes successfully.</p>
 <h1 id="the-tool">The tool</h1>
 <p><img src="images/cucumber-test.png" alt="" /></p>
 <p>In this section, we explain all the toolbars and controls, basically what does what. You can skip this section and use as a reference when you get stuck or have some questions. </p>
@@ -1067,7 +1167,7 @@ also supports multiple, such as on=wed, fri, or on=workday, Sat</p>
 </ol>
 <p>We, therefore, encourage our users to keep their custom code open source and share it openly. We also encourage you to let us know at <em>opensource@boozang.com</em> so we can link to it. </p>
 <h1 id="ci-server-integrations">CI Server Integrations</h1>
-<h2 id="introduction-1">Introduction</h2>
+<h2 id="introduction-2">Introduction</h2>
 <p>To connect to an external CI server using Boozang, you'll need to use the Docker runner or NPM package described in the previous section. We will automatically generate the script code needed to get this up and running. The script can then be customized to suit your particular setup.</p>
 <h2 id="generating-the-integration-code">Generating the integration code</h2>
 <p>To get started, start by visiting the CI sidebar option in the Boozang tool.</p>
@@ -1360,16 +1460,45 @@ report:
 <p><img src="images/xray-bz-import-features-3.png" alt="xray-bz-import-features-3" /></p>
 <ol start="7">
 <li>Click &quot;Start&quot;. The features will now be synchronized with Boozang. </li>
-<li>Implement test steps using the Boozang IDE. Any un-implemented test steps will show up as red.</li>
+<li>Navigate to a scenario, such as &quot;Set default payment method&quot;</li>
+<li>You should see all test steps in &quot;Red&quot;, as they are unlinked</li>
 </ol>
+<p><em>Note: If you already have linked test steps, any new test steps with the same exact syntax ((Give I am logged in), will be automatically linked, and will be shown as black.</em></p>
+<h3 id="boozang-implement-the-test-steps">Boozang: Implement the test steps</h3>
+<p>Now it's time to create the test steps implementation. The test steps are implemented in the code domain of Boozang, which can be found under &quot;Modules&quot; in the root. </p>
+<ol>
+<li>Go to the root of the project</li>
+<li>Go to the &quot;Modules&quot; tab ( as opposed to &quot;Features&quot; tab, which is the business domain, where Cucumber Features and Scenarios live ).</li>
+<li>Create a new module, for example &quot;Payment&quot;.</li>
+<li>Create a new test, for example &quot;Place an order&quot;</li>
+<li>Record the steps for this particular test step</li>
+</ol>
+<p><em>Note: You can also leave this test empty. It will execute successfully by default, and you can worry about the implementation later.</em></p>
+<h3 id="boozang-link-the-test-steps">Boozang: Link the test steps</h3>
+<p>It's now time to connect the &quot;business domain&quot; to the &quot;code domain&quot;. This is done using a &quot;plug-test case&quot; action, which is the only action supported in a sceanrio.</p>
+<ol>
+<li>Go to your Cucumber feature</li>
+<li>Click into the scenario you want to link</li>
+<li>Use the drop-down to link the scenario</li>
+<li>After the test has been linked, the test step should go from red to black.</li>
+</ol>
+<p><em>Note: If it's a data-driven test a Cucumber scenario outline) data will be passed between the &quot;business domain&quot; and the &quot;code domain&quot; using test parameters.</em></p>
 <p><img src="images/not-implemented.png" alt="not-implemented" /></p>
-<ol start="9">
-<li>Use the play function to play the scenarios in the browser</li>
+<h3 id="boozang-test-run-the-scenario">Boozang: Test run the scenario</h3>
+<p>Now it's time to test run the scenario. Boozang supports a number of different play modes. The regular play should be good at this point. </p>
+<ol>
+<li>Navigate to the scenario</li>
+<li>Click &quot;Play&quot; to execute the scenario in the browser</li>
+<li>Follow the test execution in the execution window </li>
+<li>Make sure the scenario executes succesfully end-to-end (or have it fail, if that's what you expect)</li>
 </ol>
 <h3 id="ci-define-a-boozang-ci-job">CI: Define a Boozang CI job</h3>
 <p>As soon as you have implemented some or all tests steps in Boozang, it time to run them on a CI server. </p>
 <p><img src="images/xray-select-feature.png" alt="xray-select-feature" /></p>
 <ol>
+<li>Go to the Root -&gt; Modules (&quot;code domain&quot;)</li>
+<li>Create a new module called &quot;Suites&quot;</li>
+<li>Create a new test suite (&quot;My payment tests&quot;)</li>
 <li>Define a test suite containing the features/scenarios you need</li>
 <li>Go to the Boozang CI view</li>
 </ol>
@@ -1483,7 +1612,7 @@ curl https://raw.githubusercontent.com/ljunggren/bz-utils/main/test/cucumber-sam
 <h2 id="frequent-maintenance-releases">Frequent Maintenance Releases</h2>
 <p>We do nightly maintenance releases frequently, sometimes as often as once per week. All paying subscribers will be notified when this release takes place, but often they are done 10 pm - 1 am EST during Sundays (this timeslot works for both European and American customers and amounts to a maximum of 30 seconds of service down-time). This means that we generally can provide less than a one-week turnaround on bugs reported by our customers.</p>
 <h1 id="testing-patterns-and-anti-patterns">Testing patterns and anti-patterns</h1>
-<h2 id="introduction-2">Introduction</h2>
+<h2 id="introduction-3">Introduction</h2>
 <p>In programming, we sometimes talk about design patterns. The idea of a design pattern is a recipe to solve a particular problem. Any given problem in programming can have many solution candidates. The design pattern helps guide the user to the simplest and best possible solution to a problem. That's why following design patterns doesn't only show you the way to solve a given problem. It also conveys a best practice. There are many reasons to follow best-practice solutions. Here are a few:</p>
 <ul>
 <li>Following documented processes increase code readability and collaboration in development teams</li>
@@ -1665,7 +1794,7 @@ lemur   lemur@thelab.com    iamthelemur</code></pre>
 <h3 id="timeout-pattern">Timeout pattern</h3>
 <h3 id="delay-pattern">Delay pattern</h3>
 <h1 id="example-an-e-commerce-project">Example: An E-commerce project</h1>
-<h2 id="introduction-3">Introduction</h2>
+<h2 id="introduction-4">Introduction</h2>
 <p>In this example, we will illustrate how to automate a simple E-commerce application using Boozang. We will use Cucumber syntax to define the acceptance tests first, then show how to structure the automated tests in Boozang.</p>
 <p>The shop can be found at: <a href="http://shopnx.boozang.com">http://shopnx.boozang.com</a> </p>
 <h2 id="project-shopnx">Project: ShopNX</h2>
