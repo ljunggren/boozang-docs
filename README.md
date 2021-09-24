@@ -246,25 +246,25 @@ Now it's time to implement the test steps. Try to make the test step implementat
 
 5. Make sure the URL is right. This test can be left blank.
 
-![](/Users/matsljunggren/Workspace/boozang-docs/images/navigate-to-google-contents.png)
+![](images/navigate-to-google-contents.png)
 
-6. Create test ("Serach Google")
+6. Create test ("Search Google")
 
 ![](images/search-google.png)
 
-7. Record a test doing a simple serach
+7. Record a test doing a simple Google search
 
 8. Make sure you are using `$parameter.searchTerm` as parameter to make it data driven
 
 9. Pick some good value to be the default search term ("Boozang")
 
-   ![](/Users/matsljunggren/Workspace/boozang-docs/images/search-google-contents.png)
+   ![](images/search-google-contents.png)
 
    
 
 11. Create  validation test case for the "Then" condition
 
-![](/Users/matsljunggren/Workspace/boozang-docs/images/validate-search-results.png)
+![](images/validate-search-results.png)
 
 12. Now you should have a search module with the following tests
 
